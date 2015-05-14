@@ -1,0 +1,1 @@
+﻿Based [JsonServer](https://github.com/typicode/json-server) idea.
