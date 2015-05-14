@@ -1,0 +1,6 @@
+language: csharp
+solution: Unosquare.Labs.EmbedIO.Extras.sln
+install:
+  - nuget restore Unosquare.Labs.EmbedIO.Extras.sln
+script:
+  - xbuild /p:Configuration=Release Unosquare.Labs.EmbedIO.Extras.sln
