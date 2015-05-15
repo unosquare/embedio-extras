@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.Labs.EmbedIO.BearerToken", "Unosquare.Labs.EmbedIO.BearerToken\Unosquare.Labs.EmbedIO.BearerToken.csproj", "{C0A29789-48AB-4086-B81F-789300193DF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.Labs.EmbedIO.ExtraTests", "Unosquare.Labs.EmbedIO.ExtraTests\Unosquare.Labs.EmbedIO.ExtraTests.csproj", "{A16BC361-00FF-4B25-823E-124F0913585C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C0A29789-48AB-4086-B81F-789300193DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0A29789-48AB-4086-B81F-789300193DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0A29789-48AB-4086-B81F-789300193DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16BC361-00FF-4B25-823E-124F0913585C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16BC361-00FF-4B25-823E-124F0913585C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16BC361-00FF-4B25-823E-124F0913585C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16BC361-00FF-4B25-823E-124F0913585C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

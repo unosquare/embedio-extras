@@ -39,10 +39,13 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
             if (args.Length > 0)
                 url = args[0];
 
+            // Create basic authentication provider
+            var basicAuthProvider = new AuthorizationServerProvider();
+
             // Create Webserver with console logger and attach LocalSession and Static
             // files module
             var server = WebServer.CreateWithConsole(url);
-            server.RegisterModule(new BearerTokenModule(BearerTokenModule.CommonValidateHandler, new[] {"/secure.html"}));
+            server.RegisterModule(new BearerTokenModule(basicAuthProvider, new[] {"/secure.html"}));
             server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
             server.RegisterModule(new MarkdownStaticModule(WebRootPath));
             server.RunAsync();

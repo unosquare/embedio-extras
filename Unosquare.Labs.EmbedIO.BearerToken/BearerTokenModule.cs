@@ -8,31 +8,27 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
 {
     public class BearerTokenModule : WebModuleBase
     {
-        public delegate bool ValidateHandler(WebServer server, HttpListenerContext context, out Dictionary<string, object> payload);
-
-        public BearerTokenModule(ValidateHandler validation, IEnumerable<string> routes = null, string secretKey = "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF")
+        public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider,
+            IEnumerable<string> routes = null, string secretKey = "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF")
         {
             AddHandler("/token", HttpVerbs.Post, (server, context) =>
             {
-                Dictionary<string, object> payload;
+                var validationContext = context.GetValidationContext();
+                authorizationServerProvider.ValidateClientAuthentication(validationContext);
 
-                if (validation(server, context, out payload))
+                if (validationContext.IsValidated)
                 {
-                    if (payload == null) payload = new Dictionary<string, object>();
-
-                    payload.Add("EmbedIOAuthKey", 1);
-
                     context.JsonResponse(new BearerToken
                     {
-                        Token = JWT.JsonWebToken.Encode(payload, secretKey, JWT.JwtHashAlgorithm.HS256),
+                        Token = validationContext.GetToken(secretKey),
                         TokenType = "bearer",
-                        ExpirationDate = DateTime.UtcNow.AddHours(12).Ticks,
-                        Username = payload.ContainsKey("User") ? payload["User"].ToString() : string.Empty
+                        ExpirationDate = authorizationServerProvider.GetExpirationDate(),
+                        Username = validationContext.ClientId
                     });
                 }
                 else
                 {
-                    context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                    context.Rejected();
                 }
 
                 return true;
@@ -53,11 +49,6 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
 
                         if (payload == null || payload.Count == 0) throw new Exception("Invalid token");
 
-                        if (payload.ContainsKey("User"))
-                        {
-                            context.Response.Headers.Add("X-User: " + payload["User"]);
-                        }
-
                         return false;
                     }
                     catch (JWT.SignatureVerificationException)
@@ -71,25 +62,10 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
                     }
                 }
 
-                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                context.Rejected();
 
                 return true;
             });
-        }
-
-        public static bool CommonValidateHandler(WebServer server, HttpListenerContext context,
-            out Dictionary<string, object> payload)
-        {
-            payload = new Dictionary<string, object>();
-            var data = context.RequestFormData();
-
-            if (data.ContainsKey("grant_type") == false || data["grant_type"] != "password") return false;
-
-            payload.Add("User", data.ContainsKey("username") ? data["username"] : string.Empty);
-
-            // TODO: Check username
-
-            return true;
         }
 
         public override string Name
@@ -100,6 +76,17 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
 
     public static class Extensions
     {
+        public static ValidateClientAuthenticationContext GetValidationContext(this HttpListenerContext context)
+        {
+            return new ValidateClientAuthenticationContext(context);
+        }
+
+        public static void Rejected(this HttpListenerContext context)
+        {
+            context.JsonResponse("{'error': 'invalid_grant'}");
+            context.Response.StatusCode = (int) HttpStatusCode.Unauthorized;
+        }
+
         public static Dictionary<string, string> RequestFormData(this HttpListenerContext context)
         {
             var request = context.Request;
