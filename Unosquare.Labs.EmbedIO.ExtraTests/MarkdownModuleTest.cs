@@ -35,7 +35,8 @@
 
                 var html = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-                Assert.AreEqual(html.Replace("\r\n", "\r"), Resources.indexhtml, "Same content index.html");
+                Assert.AreEqual(html.Replace("\r", "").Replace("\n", ""),
+                    Resources.indexhtml.Replace("\r", "").Replace("\n", ""), "Same content index.html");
             }
         }
 
