@@ -7,8 +7,14 @@ using System.Threading;
 
 namespace Unosquare.Labs.EmbedIO.JsonServer
 {
+    /// <summary>
+    /// JsonServer Module
+    /// </summary>
     public class JsonServerModule : WebModuleBase
     {
+        /// <summary>
+        /// Dynamic database
+        /// </summary>
         public dynamic Data { get; set; }
         public string JsonPath { get; set; }
 

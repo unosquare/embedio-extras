@@ -40,7 +40,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
                 url = args[0];
 
             // Create basic authentication provider
-            var basicAuthProvider = new AuthorizationServerProvider();
+            var basicAuthProvider = new BasicAuthorizationServerProvider();
 
             // Create Webserver with console logger and attach LocalSession and Static
             // files module

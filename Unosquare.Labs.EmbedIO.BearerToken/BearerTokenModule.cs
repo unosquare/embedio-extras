@@ -6,8 +6,17 @@ using System.Net;
 
 namespace Unosquare.Labs.EmbedIO.BearerToken
 {
+    /// <summary>
+    /// EmbedIO module to allow authorizations with Bearer Tokens
+    /// </summary>
     public class BearerTokenModule : WebModuleBase
     {
+        /// <summary>
+        /// Module's Constructor
+        /// </summary>
+        /// <param name="authorizationServerProvider">The AuthorizationServerProvider to use</param>
+        /// <param name="routes">The routes to authorizate</param>
+        /// <param name="secretKey">The secret key to encrypt tokens</param>
         public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider,
             IEnumerable<string> routes = null, string secretKey = "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF")
         {
@@ -68,25 +77,45 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
             });
         }
 
+        /// <summary>
+        /// Returns Module Name
+        /// </summary>
         public override string Name
         {
             get { return "Bearer Token Module"; }
         }
     }
 
+    /// <summary>
+    /// Extension methods
+    /// </summary>
     public static class Extensions
     {
+        /// <summary>
+        /// Retrieves a ValidationContext
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public static ValidateClientAuthenticationContext GetValidationContext(this HttpListenerContext context)
         {
             return new ValidateClientAuthenticationContext(context);
         }
 
+        /// <summary>
+        /// Rejects a authentication challenge
+        /// </summary>
+        /// <param name="context"></param>
         public static void Rejected(this HttpListenerContext context)
         {
             context.JsonResponse("{'error': 'invalid_grant'}");
             context.Response.StatusCode = (int) HttpStatusCode.Unauthorized;
         }
 
+        /// <summary>
+        /// REMOVE
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public static Dictionary<string, string> RequestFormData(this HttpListenerContext context)
         {
             var request = context.Request;

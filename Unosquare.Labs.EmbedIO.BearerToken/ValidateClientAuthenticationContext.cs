@@ -7,10 +7,25 @@
     /// </summary>
     public class ValidateClientAuthenticationContext
     {
+        /// <summary>
+        /// The Client Id
+        /// </summary>
         public string ClientId { get; protected set; }
+        /// <summary>
+        /// Flags if the Validation has errors
+        /// </summary>
         public bool HasError { get; protected set; }
+        /// <summary>
+        /// Indicates if the Validation is right
+        /// </summary>
         public bool IsValidated { get; protected set; }
+        /// <summary>
+        /// Http Context instance
+        /// </summary>
         public HttpListenerContext HttpContext { get; protected set; }
+        /// <summary>
+        /// Claims
+        /// </summary>
         public StandardClaims StandardClaims { get; set; }
 
         /// <summary>

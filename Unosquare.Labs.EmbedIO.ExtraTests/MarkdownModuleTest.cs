@@ -27,15 +27,15 @@
         [Test]
         public void GetIndex()
         {
-            var request = (HttpWebRequest)WebRequest.Create(Resources.ServerAddress);
+            var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress);
 
-            using (var response = (HttpWebResponse)request.GetResponse())
+            using (var response = (HttpWebResponse) request.GetResponse())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var html = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-                Assert.AreEqual(html, Resources.indexhtml, "Same content index.html");
+                Assert.AreEqual(html.Replace("\r\n", "\r"), Resources.indexhtml, "Same content index.html");
             }
         }
 
