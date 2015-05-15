@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Unosquare.Labs.EmbedIO.BearerToken;
 using Unosquare.Labs.EmbedIO.JsonServer;
 using Unosquare.Labs.EmbedIO.Markdown;
 
@@ -41,6 +42,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
             // Create Webserver with console logger and attach LocalSession and Static
             // files module
             var server = WebServer.CreateWithConsole(url);
+            server.RegisterModule(new BearerTokenModule(BearerTokenModule.CommonValidateHandler, new[] {"/secure.html"}));
             server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
             server.RegisterModule(new MarkdownStaticModule(WebRootPath));
             server.RunAsync();

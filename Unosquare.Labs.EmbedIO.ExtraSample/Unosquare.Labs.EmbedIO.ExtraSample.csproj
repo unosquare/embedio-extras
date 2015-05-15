@@ -58,8 +58,13 @@
     <None Include="web\help.markdown" />
     <None Include="web\index.markdown" />
     <None Include="packages.config" />
+    <None Include="web\secure.markdown" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Unosquare.Labs.EmbedIO.BearerToken\Unosquare.Labs.EmbedIO.BearerToken.csproj">
+      <Project>{C0A29789-48AB-4086-B81F-789300193DF1}</Project>
+      <Name>Unosquare.Labs.EmbedIO.BearerToken</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Unosquare.Labs.EmbedIO.JsonServer\Unosquare.Labs.EmbedIO.JsonServer.csproj">
       <Project>{C41CE434-0BD6-4C96-BEFD-32AEFEA05C25}</Project>
       <Name>Unosquare.Labs.EmbedIO.JsonServer</Name>
