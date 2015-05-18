@@ -44,7 +44,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
 
             // Create Webserver with console logger and attach LocalSession and Static
             // files module
-            var server = WebServer.CreateWithConsole(url);
+            var server = WebServer.CreateWithConsole(url).EnableCors();
             server.RegisterModule(new BearerTokenModule(basicAuthProvider, new[] {"/secure.html"}));
             server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
             server.RegisterModule(new MarkdownStaticModule(WebRootPath));

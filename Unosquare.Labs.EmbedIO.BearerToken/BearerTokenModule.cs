@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
 
 namespace Unosquare.Labs.EmbedIO.BearerToken
 {
@@ -83,57 +81,6 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
         public override string Name
         {
             get { return "Bearer Token Module"; }
-        }
-    }
-
-    /// <summary>
-    /// Extension methods
-    /// </summary>
-    public static class Extensions
-    {
-        /// <summary>
-        /// Retrieves a ValidationContext
-        /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public static ValidateClientAuthenticationContext GetValidationContext(this HttpListenerContext context)
-        {
-            return new ValidateClientAuthenticationContext(context);
-        }
-
-        /// <summary>
-        /// Rejects a authentication challenge
-        /// </summary>
-        /// <param name="context"></param>
-        public static void Rejected(this HttpListenerContext context)
-        {
-            context.JsonResponse("{'error': 'invalid_grant'}");
-            context.Response.StatusCode = (int) HttpStatusCode.Unauthorized;
-        }
-
-        /// <summary>
-        /// REMOVE
-        /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public static Dictionary<string, string> RequestFormData(this HttpListenerContext context)
-        {
-            var request = context.Request;
-            if (request.HasEntityBody == false) return null;
-
-            using (var body = request.InputStream)
-            {
-                using (var reader = new StreamReader(body, request.ContentEncoding))
-                {
-                    var stringData = reader.ReadToEnd();
-
-                    if (String.IsNullOrWhiteSpace(stringData)) return null;
-
-                    return stringData.Split('&')
-                        .ToDictionary(c => c.Split('=')[0],
-                            c => Uri.UnescapeDataString(c.Split('=')[1]));
-                }
-            }
         }
     }
 }
