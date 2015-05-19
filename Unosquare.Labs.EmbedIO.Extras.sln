@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.Labs.EmbedIO.Bear
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.Labs.EmbedIO.ExtraTests", "Unosquare.Labs.EmbedIO.ExtraTests\Unosquare.Labs.EmbedIO.ExtraTests.csproj", "{A16BC361-00FF-4B25-823E-124F0913585C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.Labs.EmbedIOwin", "Unosquare.Labs.EmbedIOwin\Unosquare.Labs.EmbedIOwin.csproj", "{1BD564AE-83D2-4E93-A1F9-B6C754347037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.Labs.EmbedIO.OwinMiddleware", "Unosquare.Labs.EmbedIO.OwinMiddleware\Unosquare.Labs.EmbedIO.OwinMiddleware.csproj", "{55F6C6E9-0C94-4B75-9DF0-DD4FC6CBF062}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{A16BC361-00FF-4B25-823E-124F0913585C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A16BC361-00FF-4B25-823E-124F0913585C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A16BC361-00FF-4B25-823E-124F0913585C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD564AE-83D2-4E93-A1F9-B6C754347037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD564AE-83D2-4E93-A1F9-B6C754347037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD564AE-83D2-4E93-A1F9-B6C754347037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD564AE-83D2-4E93-A1F9-B6C754347037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F6C6E9-0C94-4B75-9DF0-DD4FC6CBF062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F6C6E9-0C94-4B75-9DF0-DD4FC6CBF062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F6C6E9-0C94-4B75-9DF0-DD4FC6CBF062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F6C6E9-0C94-4B75-9DF0-DD4FC6CBF062}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

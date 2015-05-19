@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-
-namespace Unosquare.Labs.EmbedIO.JsonServer
+﻿namespace Unosquare.Labs.EmbedIO.JsonServer
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
+
     /// <summary>
     /// JsonServer Module
     /// </summary>
@@ -16,8 +16,16 @@ namespace Unosquare.Labs.EmbedIO.JsonServer
         /// Dynamic database
         /// </summary>
         public dynamic Data { get; set; }
+        /// <summary>
+        /// Default JSON file path
+        /// </summary>
         public string JsonPath { get; set; }
 
+        /// <summary>
+        /// Creates a JsonServer instance
+        /// </summary>
+        /// <param name="basePath"></param>
+        /// <param name="jsonPath"></param>
         public JsonServerModule(string basePath = "/api/", string jsonPath = null)
         {
             JsonPath = jsonPath;
@@ -122,6 +130,10 @@ namespace Unosquare.Labs.EmbedIO.JsonServer
             });
         }
 
+        /// <summary>
+        /// Updates JSON file in disk
+        /// </summary>
+        /// <param name="state"></param>
         public void UpdateDataStore(object state)
         {
             if (String.IsNullOrWhiteSpace(JsonPath)) return;
@@ -129,6 +141,9 @@ namespace Unosquare.Labs.EmbedIO.JsonServer
             File.WriteAllText(JsonPath, JsonConvert.SerializeObject(Data, Formatting.Indented));
         }
 
+        /// <summary>
+        /// Gets the Module's name
+        /// </summary>
         public override string Name
         {
             get { return "JSON Server Module"; }
