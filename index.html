@@ -2,7 +2,10 @@
 <html>
     <head>
         <meta charset='utf-8'>
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="EmbedIO Webserver">
+
         <!-- CSS (from CDN) -->
         <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css" />
         <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css" />
@@ -15,8 +18,8 @@
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
-        <script src="//cdn.jsdelivr.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <!-- JS (from CDN) -->
+        <script src="//cdn.jsdelivr.net/g/jquery,bootstrap"></script>
         <script src="//cdn.jsdelivr.net/highlight.js/8.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
         <!-- Favicons -->
@@ -26,17 +29,6 @@
     </head>
 
     <body>
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', 'UA-8535255-2', 'auto');
-            ga('send', 'pageview');
-        </script>
         <div id="wrapper">
             <header class="navbar navbar-static-top" id="top" role="banner">
                 <div class="container">
@@ -63,18 +55,23 @@
             <div class="content-body">
                 <div class="jumbotron">
                     <div class="container">
-                        <header>
-                            <img src="images/embedio.png" alt="EmbedIO" />
-                            <h2>A tiny, cross-platform, module based web server
-                                <small>Check main project <a href="http://unosquare.github.io/embedio">EmbedIO</a></small>
-                            </h2>
-                        </header>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
+                                <div class="text-center">
+                                    <img src="images/embedio.png" alt="EmbedIO" />
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-xs-12">
+                                <h1 class="hidden-sm hidden-xs">EmbedIO Extras</h1>
+                                <h2>A tiny, cross-platform, module based web server</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="container">
                     <article>
                         <h2>
-                            <a id="user-content-bearer-token" class="anchor" href="#bearer-token" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bearer Token
+                            <a id="bearer-token" href="#bearer-token" aria-hidden="true"></a>Bearer Token
                         </h2>
 
                         <p>
@@ -96,7 +93,7 @@ var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));</code></pre>
 
                         <h2>
-                            <a id="user-content-owin" class="anchor" href="#owin" aria-hidden="true"><span class="octicon octicon-link"></span></a>OWIN
+                            <a id="owin" href="#owin" aria-hidden="true"></a>OWIN
                         </h2>
                         <p>EmbedIO can use the OWIN platform in two different approach:</p>
                         <ul>
@@ -203,7 +200,7 @@ public class Startup
     }
 }</code></pre>
                         <h2>
-                            <a id="user-content-markdown" class="anchor" href="#markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown
+                            <a id="markdown" href="#markdown" aria-hidden="true"></a>Markdown
                         </h2>
                         <p>
                             Markdown Static Module takes a markdown file and convert it to HTML before to response.
@@ -213,7 +210,7 @@ public class Startup
 var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new MarkdownStaticModule(@&quot;c:\web&quot;));</code></pre>
                         <h2>
-                            <a id="user-content-jsonserver" class="anchor" href="#jsonserver" aria-hidden="true"><span class="octicon octicon-link"></span></a>JsonServer
+                            <a id="jsonserver" href="#jsonserver" aria-hidden="true"></a>JsonServer
                         </h2>
                         <p>
                             Based <a href="https://github.com/typicode/json-server">JsonServer's</a> idea, you can set a JSON file as database and use any REST
@@ -248,7 +245,7 @@ server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&
                     m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
             })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-62522091-1', 'auto');
+            ga('create', 'UA-8535255-2', 'auto');
             ga('send', 'pageview');
         </script>
     </body>
