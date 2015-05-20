@@ -1,134 +1,255 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <!-- CSS (from CDN) -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css" />
-    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.jsdelivr.net/highlight.js/8.5.0/styles/github.min.css" rel="stylesheet">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <!-- CSS (from CDN) -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css" />
+        <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.jsdelivr.net/highlight.js/8.5.0/styles/github.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
 
-    <!--[if lt IE 9]>
-        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-    <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="//cdn.jsdelivr.net/highlight.js/8.5.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+        <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//cdn.jsdelivr.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="//cdn.jsdelivr.net/highlight.js/8.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <!-- Favicons -->
+        <link rel="icon" href="favicon.ico" />
 
-    <title>Embedio Extras by unosquare</title>
-</head>
+        <title>Embedio Extras by unosquare</title>
+    </head>
 
-<body>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    <body>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-8535255-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <div id="wrapper">
-        <header class="navbar navbar-static-top" id="top" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <a href="/embedio/" class="navbar-brand">
-                        <img src="images/embedio-icon.png" alt="Tubular" style="height: 38px; margin-top: -12px" />
-                    </a>
-                </div>
-                <nav class="collapse navbar-collapse bs-navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="http://github.com/unosquare/embedio-extras">EmbedIO Extras @ GitHub</a></li>
-                        <li><a href="http://www.unosquare.com">Unosquare</a></li>
-                        <li><a href="http://unosquare.github.io/">Labs @ GitHub</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <div class="content-body">
-            <div class="jumbotron">
+            ga('create', 'UA-8535255-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <div id="wrapper">
+            <header class="navbar navbar-static-top" id="top" role="banner">
                 <div class="container">
-                    <header>
-                        <img src="images/embedio.png" alt="EmbedIO" />
-                        <h2>A tiny, cross-platform, module based web server
-			<small>Check main project <a href="http://unosquare.github.io/embedio">EmbedIO</a>
-			</h2>
-                    </header>
+                    <div class="navbar-header">
+                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a href="/embedio-extras/" class="navbar-brand">
+                            <img src="images/embedio-icon.png" alt="Tubular" style="height: 38px; margin-top: -12px" />
+                        </a>
+                    </div>
+                    <nav class="collapse navbar-collapse bs-navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/embedio/">EmbedIO</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="http://github.com/unosquare/embedio-extras">EmbedIO Extras @ GitHub</a></li>
+                            <li><a href="http://www.unosquare.com">Unosquare</a></li>
+                            <li><a href="http://unosquare.github.io/">Labs @ GitHub</a></li>
+                        </ul>
+                    </nav>
                 </div>
+            </header>
+            <div class="content-body">
+                <div class="jumbotron">
+                    <div class="container">
+                        <header>
+                            <img src="images/embedio.png" alt="EmbedIO" />
+                            <h2>A tiny, cross-platform, module based web server
+                                <small>Check main project <a href="http://unosquare.github.io/embedio">EmbedIO</a></small>
+                            </h2>
+                        </header>
+                    </div>
+                </div>
+                <div class="container">
+                    <article>
+                        <h2>
+                            <a id="user-content-bearer-token" class="anchor" href="#bearer-token" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bearer Token
+                        </h2>
+
+                        <p>
+                            Allow to authenticate with a Bearer Token. It uses a Token endpoint (at /token path) and with a defined validation delegate
+                            create a <strong>JsonWebToken</strong>. The module can check all incoming requests or a paths collection to authorize with <strong>
+                                HTTP Authorization
+                                header
+                            </strong>.
+                        </p>
+
+                        <p>You can easily add Bearer Token to your EmbedIO server using a Basic Authorization Server Provider or writing your own:</p>
+
+                        <pre><code class="csharp">// Create basic authentication provider
+var basicAuthProvider = new BasicAuthorizationServerProvider();
+// You can set which routes to check, empty param will secure entire server
+var routes = new[] { &quot;/secure.html&quot; };
+// Create Webserver with console logger and attach Bearer Token Module
+var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
+server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));</code></pre>
+
+                        <h2>
+                            <a id="user-content-owin" class="anchor" href="#owin" aria-hidden="true"><span class="octicon octicon-link"></span></a>OWIN
+                        </h2>
+                        <p>EmbedIO can use the OWIN platform in two different approach:</p>
+                        <ul>
+                            <li>You can use EmbedIO as OWIN server and use all OWIN framework with EmbedIO modules.</li>
+                        </ul>
+                        <div class="highlight highlight-csharp">
+                            <pre><code class="csharp">public class Program
+{
+    /// &lt;summary&gt;
+    /// Entry point
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;args&quot;&gt;&lt;/param&gt;
+    private static void Main(string[] args)
+    {
+        try
+        {
+            OwinServerFactory.Log = new SimpleConsoleLog();
+            var options = new StartOptions
+            {
+                ServerFactory = OwinServerFactory.ServerFactoryName,
+                Port = 4578
+            };
+            using (WebApp.Start&lt;startup&gt;(options))
+            {
+                OwinServerFactory.Log.DebugFormat(&quot;Running a http server on port {0}&quot;, options.Port);
+                Console.ReadKey();
+            }
+        }
+        catch (Exception ex)
+        {
+            OwinServerFactory.Log.Error(ex);
+            Console.ReadKey();
+        }
+    }
+}
+/// &lt;summary&gt;
+/// Startup object
+/// &lt;/summary&gt;
+public class Startup
+{
+    /// &lt;summary&gt;
+    /// Configure the OwinApp
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;app&quot;&gt;&lt;/param&gt;
+    public void Configuration(IAppBuilder app)
+    {
+        app.UseErrorPage();
+        app.UseDirectoryBrowser();
+        app.UseRazor(InitRoutes);
+        // Attach a EmbedIO WebAPI Controller directly to OwinApp Configuration
+        app.UseWebApi(typeof (PeopleController).Assembly);
+    }
+    /// &lt;summary&gt;
+    /// Initialize the Razor files
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;table&quot;&gt;&lt;/param&gt;
+    public static void InitRoutes(IRouteTable table)
+    {
+        table
+            .AddFileRoute(&quot;/about/me&quot;, &quot;Views/about.cshtml&quot;, new { Name = &quot;EmbedIO Razor&quot;, Date = DateTime.UtcNow });
+    }
+}</code></pre>
+                        </div>
+                        <ul>
+                            <li>You can use OWIN Middleware into EmbedIO as a module.</li>
+                        </ul>
+                        <pre><code class="csharp">public class Program
+{
+    /// &lt;summary&gt;
+    /// Entry point
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;args&quot;&gt;&lt;/param&gt;
+    private static void Main(string[] args)
+    {
+        try
+        {
+            // UseOwin() function returns Owin App for configuration
+            using (var webServer = WebServer
+                        .CreateWithConsole(&quot;http://localhost:4578&quot;)
+                        .WithWebApi(typeof (PeopleController).Assembly)
+                        .UseOwin((owinApp) =&gt; 
+                            owinApp
+                            .UseDirectoryBrowser()
+                            .UseRazor(InitRoutes)))
+                    {
+                        webServer.RunAsync();
+                        Console.ReadKey();
+                    }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            Console.ReadKey();
+        }
+    }
+    /// &lt;summary&gt;
+    /// Initialize the Razor files
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;table&quot;&gt;&lt;/param&gt;
+    public static void InitRoutes(IRouteTable table)
+    {
+        table
+            .AddFileRoute(&quot;/about/me&quot;, &quot;Views/about.cshtml&quot;, new { Name = &quot;EmbedIO Razor&quot;, Date = DateTime.UtcNow });
+    }
+}</code></pre>
+                        <h2>
+                            <a id="user-content-markdown" class="anchor" href="#markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown
+                        </h2>
+                        <p>
+                            Markdown Static Module takes a markdown file and convert it to HTML before to response.
+                            It will accept markdown/html/htm extensions (This could be a middleware later).
+                        </p>
+                        <pre><code class="csharp">// Create Webserver with console logger and attach Markdown Static Module
+var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
+server.RegisterModule(new MarkdownStaticModule(@&quot;c:\web&quot;));</code></pre>
+                        <h2>
+                            <a id="user-content-jsonserver" class="anchor" href="#jsonserver" aria-hidden="true"><span class="octicon octicon-link"></span></a>JsonServer
+                        </h2>
+                        <p>
+                            Based <a href="https://github.com/typicode/json-server">JsonServer's</a> idea, you can set a JSON file as database and use any REST
+                            method to manipulate it.
+                        </p>
+                        <pre><code class="csharp">// Create Webserver with console logger and attach Json&#39;s Server
+var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
+server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&quot;, &quot;database.json&quot;)));</code></pre>
+                        <p>Supported methods: </p>
+                        <ul>
+                        <li>GET collection (//yourhost/entity) </li>
+                        <li>GET single (//yourhost/entity/1 where 1 is the ID)</li>
+                        <li>POST (//yourhost/entity with POST body the JSON object)</li>
+                        <li>PUT (//yourhost/entity/1 with POST body the JSON object)</li>
+                        <li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
+                        </ul>
+                    </article>
+                </div>
+                <footer>
+                    Brought to you by Unosquare<br />
+                    <a href="http://www.unosquare.com">
+                        <img alt="unosquare" src="images/logo_178.png" />
+                    </a>
+                </footer>
             </div>
-            <div class="container">
-                <p>
-                    <a href="https://travis-ci.org/unosquare/embedio-extras"><img src="https://camo.githubusercontent.com/fb4ff2af4900271b2fae2cb38f75eef548fdbd87/68747470733a2f2f7472617669732d63692e6f72672f756e6f7371756172652f656d626564696f2d6578747261732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/unosquare/embedio-extras.svg?branch=master" style="max-width:100%;"></a>
-                    <a href="https://ci.appveyor.com/project/geoperez/embedio-extras"><img src="https://camo.githubusercontent.com/119e780a1205faceb0dce0db6b910abf66647845/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f373072756e7937767267697833316a353f7376673d74727565" alt="Build status" data-canonical-src="https://ci.appveyor.com/api/projects/status/70runy7vrgix31j5?svg=true" style="max-width:100%;"></a>
-                </p>
-
-                <h1>
-                    <a id="user-content-embedio-extras" class="anchor" href="#embedio-extras" aria-hidden="true"><span class="octicon octicon-link"></span></a>EmbedIO Extras
-                </h1>
-
-                <p>Extras Modules to show how to extend EmbedIO</p>
-
-                <h2>
-                    <a id="user-content-markdown" class="anchor" href="#markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown
-                </h2>
-
-                <p>This Module takes a markdown file and convert it to HTML before to response. It will accept markdown/html/htm extensions.</p>
-
-                <p>This could be a middleware later.</p>
-
-                <h2>
-                    <a id="user-content-jsonserver" class="anchor" href="#jsonserver" aria-hidden="true"><span class="octicon octicon-link"></span></a>JsonServer
-                </h2>
-
-                <p>
-                    Based <a href="https://github.com/typicode/json-server">JsonServer's</a> idea, you can set a JSON file as database and use any REST
-                    method to manipulate it.
-                </p>
-
-                <h2>
-                    <a id="user-content-bearer-token" class="anchor" href="#bearer-token" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bearer Token
-                </h2>
-
-                <p>
-                    Allow to authenticate with a Bearer Token. It uses a Token endpoint (at /token path) and with a defined validation delegate
-                    create a <strong>JsonWebToken</strong>. The module can check all incoming requests or a paths collection to authorize with <strong>
-                        HTTP Authorization
-                        header
-                    </strong>.
-                </p>
-
-            </div>
-            <footer>
-                Brought to you by Unosquare<br />
-                <a href="http://www.unosquare.com">
-                    <img alt="unosquare" src="images/logo_178.png" />
-                </a>
-            </footer>
         </div>
-    </div>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-62522091-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-</body>
+            ga('create', 'UA-62522091-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
 </html>
