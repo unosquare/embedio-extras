@@ -2,7 +2,6 @@
 {
     using Mezm.Owin.Razor;
     using Mezm.Owin.Razor.Routing;
-    using Microsoft.Owin.Cors;
     using Microsoft.Owin.Hosting;
     using Owin;
     using System;
@@ -25,7 +24,7 @@
             {
                 OwinServerFactory.Log = new SimpleConsoleLog();
 
-                Console.WriteLine("Do you want to run EmbedIO as OWIN Server?");
+                Console.WriteLine("Do you want to run EmbedIO as OWIN Server? (y/n)");
                 var response = Console.ReadLine();
 
                 if (response != null && response.ToLower() == "y")
@@ -60,6 +59,7 @@
             catch (Exception ex)
             {
                 OwinServerFactory.Log.Error(ex);
+                Console.ReadKey();
             }
         }
     }
@@ -76,7 +76,7 @@
         public void Configuration(IAppBuilder app)
         {
             app.UseErrorPage();
-            app.UseCors(CorsOptions.AllowAll);
+            //app.UseCors(CorsOptions.AllowAll);
             app.UseDirectoryBrowser();
             app.UseRazor(InitRoutes);
             app.UseWebApi(typeof (PeopleController).Assembly);
