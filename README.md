@@ -24,6 +24,12 @@ var server = WebServer.CreateWithConsole("http://localhost:9696/");
 server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
 ```
 
+### Nuget installation [![NuGet version](https://badge.fury.io/nu/EmbedIO.BearerToken.svg)](http://badge.fury.io/nu/EmbedIO.BearerToken)
+
+```
+PM> Install-Package EmbedIO.BearerToken
+```
+
 ## OWIN
 
 EmbedIO can use the OWIN platform in two different approach:
@@ -136,6 +142,12 @@ public class Program
             .AddFileRoute("/about/me", "Views/about.cshtml", new { Name = "EmbedIO Razor", Date = DateTime.UtcNow });
     }
 }
+```
+
+### Nuget installation [![NuGet version](https://badge.fury.io/nu/EmbedIO.OWIN.svg)](http://badge.fury.io/nu/EmbedIO.OWIN)
+
+```
+PM> Install-Package EmbedIO.OWIN
 ```
 
 ## Markdown
