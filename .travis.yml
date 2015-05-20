@@ -1,8 +1,0 @@
-language: csharp
-solution: Unosquare.Labs.EmbedIO.Extras.sln
-install:
-  - nuget restore Unosquare.Labs.EmbedIO.Extras.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-script:
-  - xbuild /p:Configuration=Release Unosquare.Labs.EmbedIO.Extras.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Unosquare.Labs.EmbedIO.ExtraTests/bin/Release/Unosquare.Labs.EmbedIO.ExtraTests.dll

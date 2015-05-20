@@ -1,3 +1,0 @@
-﻿# Help
-
-Nothing here mister.
