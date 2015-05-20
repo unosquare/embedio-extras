@@ -16,7 +16,6 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         private readonly HttpListenerRequest _request;
 
         internal RequestHeadersDictionary(HttpListenerRequest request)
-            : base()
         {
             _request = request;
         }
@@ -51,7 +50,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
 
             if (key.Equals("Content-Length", StringComparison.OrdinalIgnoreCase))
             {
-                long contentLength = _request.ContentLength64;
+                var contentLength = _request.ContentLength64;
                 if (contentLength >= 0)
                 {
                     value = new[] { contentLength.ToString(CultureInfo.InvariantCulture) };
@@ -60,7 +59,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
             }
             else if (key.Equals("Host", StringComparison.OrdinalIgnoreCase))
             {
-                string host = _request.UserHostName;
+                var host = _request.UserHostName;
                 if (host != null)
                 {
                     value = new[] { host };

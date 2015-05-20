@@ -47,5 +47,11 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 Assert.IsNotNullOrEmpty(json.Token);
             }
         }
+
+        [TearDown]
+        public void Kill()
+        {
+            WebServer.Dispose();
+        }
     }
 }

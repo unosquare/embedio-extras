@@ -1,7 +1,10 @@
 ﻿using Owin;
+using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Reflection;
 using Unosquare.Labs.EmbedIO.Modules;
+using Unosquare.Labs.EmbedIO.OwinMiddleware.Collections;
 
 namespace Unosquare.Labs.EmbedIO.OwinMiddleware
 {
@@ -10,6 +13,14 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
     /// </summary>
     public static class Extensions
     {
+        private static readonly bool IsMono = Type.GetType("Mono.Runtime") != null;
+
+        private static readonly FieldInfo CookedPathField = typeof(HttpListenerRequest).GetField("m_CookedUrlPath",
+            BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private static readonly FieldInfo CookedQueryField = typeof(HttpListenerRequest).GetField("m_CookedUrlQuery",
+            BindingFlags.NonPublic | BindingFlags.Instance);
+
         /// <summary>
         /// EmbedIO WebModule Key
         /// </summary>
@@ -60,6 +71,109 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
             }
 
             return app;
+        }
+
+        /// <summary>
+        /// Generates an Owin App
+        /// </summary>
+        /// <param name="webServer"></param>
+        /// <param name="owinApp"></param>
+        /// <returns></returns>
+        public static WebServer UseOwin(this WebServer webServer, Func<IAppBuilder, IAppBuilder> owinApp)
+        {
+            webServer.RegisterModule(new OwinModule(owinApp));
+
+            return webServer;
+        }
+
+        /// <summary>
+        /// Fills Context information in Env vars
+        /// </summary>
+        /// <param name="environment"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static IDictionary<string, object> UseHttpContext(this  IDictionary<string, object> environment, HttpListenerContext context)
+        {
+            // Setup Request Env vars
+            environment["owin.RequestProtocol"] = GetProtocol(context.Request.ProtocolVersion);
+            environment["owin.RequestScheme"] = context.Request.IsSecureConnection
+                ? Uri.UriSchemeHttps
+                : Uri.UriSchemeHttp;
+            environment["owin.RequestMethod"] = context.Request.HttpMethod;
+            environment["owin.RequestHeaders"] = new RequestHeadersDictionary(context.Request);
+
+            string basePath, path, query;
+            GetPathAndQuery(context.Request, out basePath, out path, out query);
+
+            environment["owin.RequestPathBase"] = basePath;
+            environment["owin.RequestPath"] = path;
+            environment["owin.RequestQueryString"] = query;
+
+            // Setup Response Env vars
+            environment["owin.ResponseStatusCode"] = (int)HttpStatusCode.OK;
+            environment["owin.ResponseHeaders"] = new ResponseHeadersDictionary(context.Response);
+            environment["owin.ResponseBody"] = context.Response.OutputStream;
+
+            return environment;
+        }
+
+        /// <summary>
+        /// Get Path info
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="pathBase"></param>
+        /// <param name="path"></param>
+        /// <param name="query"></param>
+        private static void GetPathAndQuery(HttpListenerRequest request, out string pathBase, out string path, out string query)
+        {
+            string cookedPath;
+
+            if (IsMono)
+            {
+                cookedPath = "/" + request.Url.GetComponents(UriComponents.Path, UriFormat.SafeUnescaped);
+                query = request.Url.Query;
+            }
+            else
+            {
+                cookedPath = (string)CookedPathField.GetValue(request) ?? String.Empty;
+                query = (string)CookedQueryField.GetValue(request) ?? String.Empty;
+            }
+
+            if (!String.IsNullOrEmpty(query) && query[0] == '?')
+            {
+                query = query.Substring(1); // Drop the ?
+            }
+
+            const string bestMatch = "/";
+
+            // pathBase must be empty or start with a slash and not end with a slash (/pathBase)
+            // path must start with a slash (/path)
+            // Move the matched '/' from the end of the pathBase to the start of the path.
+            pathBase = bestMatch.Substring(0, bestMatch.Length - 1);
+            path = cookedPath.Substring(bestMatch.Length - 1);
+        }
+
+        /// <summary>
+        /// Get Protocol
+        /// </summary>
+        /// <param name="version">Version object</param>
+        /// <returns></returns>
+        private static string GetProtocol(Version version)
+        {
+            if (version.Major == 1)
+            {
+                if (version.Minor == 1)
+                {
+                    return "HTTP/1.1";
+                }
+
+                if (version.Minor == 0)
+                {
+                    return "HTTP/1.0";
+                }
+            }
+
+            return "HTTP/" + version.ToString(2);
         }
     }
 }

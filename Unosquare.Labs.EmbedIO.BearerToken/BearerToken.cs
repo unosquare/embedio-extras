@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-
-namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// Represents a Bearer Token JSON response
     /// </summary>

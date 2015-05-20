@@ -9,6 +9,8 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
     /// </summary>
     public class BearerTokenModule : WebModuleBase
     {
+        private const string AuthorizationHeader = "Authorization";
+
         /// <summary>
         /// Module's Constructor
         /// </summary>
@@ -45,7 +47,7 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
             {
                 if (routes != null && routes.Contains(context.RequestPath()) == false) return false;
 
-                var authHeader = context.RequestHeader("Authorization");
+                var authHeader = context.RequestHeader(AuthorizationHeader);
 
                 if (String.IsNullOrWhiteSpace(authHeader) == false && authHeader.StartsWith("Bearer "))
                 {
