@@ -1,9 +1,9 @@
 ﻿namespace Unosquare.Labs.EmbedIO.OwinMiddleware
 {
-    using Unosquare.Labs.EmbedIO.Log;
     using System;
     using System.Collections.Generic;
     using System.Threading;
+    using Unosquare.Labs.EmbedIO.Log;
     using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>, System.Threading.Tasks.Task>;
 
     /// <summary>
@@ -60,11 +60,14 @@
             var serverUrl = "http://localhost:" + serverUrls[0]["port"];
             var server = new WebServer(serverUrl, Log);
 
-            var webModules = properties[Extensions.WebModulesKey] as List<IWebModule>;
-
-            if (webModules != null)
+            if (properties.ContainsKey(Extensions.WebModulesKey))
             {
-                webModules.ForEach(server.RegisterModule);
+                var webModules = properties[Extensions.WebModulesKey] as List<IWebModule>;
+
+                if (webModules != null)
+                {
+                    webModules.ForEach(server.RegisterModule);
+                }
             }
 
             var ct = properties["host.OnAppDisposing"] is CancellationToken
