@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
+using System;
 using System.IO;
 using System.Net;
+using System.Threading;
 using Unosquare.Labs.EmbedIO.BearerToken;
 using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
 
@@ -51,6 +53,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
         [TearDown]
         public void Kill()
         {
+            Thread.Sleep(TimeSpan.FromSeconds(1));
             WebServer.Dispose();
         }
     }
