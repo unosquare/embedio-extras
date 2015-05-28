@@ -1,9 +1,11 @@
 ﻿namespace Unosquare.Labs.EmbedIO.ExtraTests
 {
     using NUnit.Framework;
+    using System;
     using Owin;
     using System.IO;
     using System.Net;
+    using System.Threading;
     using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
     using Unosquare.Labs.EmbedIO.OwinMiddleware;
 
@@ -60,6 +62,7 @@
         [TearDown]
         public void Kill()
         {
+            Thread.Sleep(TimeSpan.FromSeconds(1));
             WebServer.Dispose();
         }
     }
