@@ -3,6 +3,25 @@ solution: Unosquare.Labs.EmbedIO.Extras.sln
 install:
   - nuget restore Unosquare.Labs.EmbedIO.Extras.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget install coveralls.net -Version 0.5.0 -OutputDirectory coveralls
+  - sudo apt-get install gtk-sharp2
+  - curl -sS https://api.nuget.org/packages/mono.cecil.0.9.5.4.nupkg > /tmp/mono.cecil.0.9.5.4.nupkg.zip
+  - unzip /tmp/mono.cecil.0.9.5.4.nupkg.zip -d /tmp/cecil
+  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll .
+  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll /tmp/cecil/
+  - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../unosquare/monocov
+  - cd ../../unosquare/monocov
+  - cp /tmp/cecil/Mono.Cecil.dll .
+  - ./configure
+  - make
+  - sudo make install
+  - cd ../../unosquare/embedio-extras
 script:
   - xbuild /p:Configuration=Release Unosquare.Labs.EmbedIO.Extras.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Unosquare.Labs.EmbedIO.ExtraTests/bin/Release/Unosquare.Labs.EmbedIO.ExtraTests.dll
+  - export LD_LIBRARY_PATH=/usr/local/lib
+  - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+[Unosquare.Labs.EmbedIO] ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe --process=Single ./Unosquare.Labs.EmbedIO.ExtraTests/bin/Release/Unosquare.Labs.EmbedIO.ExtraTests.dll
+  - monocov --export-xml=monocovCoverage monocovCoverage.cov
+  - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
+  - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
+  - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
+  - mono ./coveralls/coveralls.net.0.5.0/csmacnz.Coveralls.exe --monocov -i ./monocovCoverage --repoToken BR9wit3mZF4JlNOnaXOUQKjWlZi3NYH4Y --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID  --serviceName travis-ci  --useRelativePaths
