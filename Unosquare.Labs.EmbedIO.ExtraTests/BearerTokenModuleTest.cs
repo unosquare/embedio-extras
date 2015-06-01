@@ -26,8 +26,6 @@
         [Test]
         public void TestBasicAuthorizationServerProvider()
         {
-            Assert.GreaterOrEqual(DateTime.UtcNow.AddHours(12).Ticks, BasicProvider.GetExpirationDate());
-
             try
             {
                 BasicProvider.ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
