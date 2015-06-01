@@ -29,6 +29,12 @@
         }
 
         [Test]
+        public void TestLog()
+        {
+            Assert.AreEqual(OwinServerFactory.Log, Logger, "Log is OK");
+        }
+
+        [Test]
         public void GetIndex()
         {
             var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress);

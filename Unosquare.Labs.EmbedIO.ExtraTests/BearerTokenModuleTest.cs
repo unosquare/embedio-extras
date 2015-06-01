@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
-using NUnit.Framework;
-using System;
-using System.IO;
-using System.Net;
-using System.Threading;
-using Unosquare.Labs.EmbedIO.BearerToken;
-using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
-
-namespace Unosquare.Labs.EmbedIO.ExtraTests
+﻿namespace Unosquare.Labs.EmbedIO.ExtraTests
 {
+    using Newtonsoft.Json;
+    using NUnit.Framework;
+    using System;
+    using System.IO;
+    using System.Net;
+    using System.Threading;
+    using Unosquare.Labs.EmbedIO.BearerToken;
+    using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
+
     public class BearerTokenModuleTest
     {
+        protected BasicAuthorizationServerProvider BasicProvider = new BasicAuthorizationServerProvider();
         protected WebServer WebServer;
         protected TestConsoleLog Logger = new TestConsoleLog();
 
@@ -18,8 +19,24 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
         public void Init()
         {
             WebServer = new WebServer(Resources.ServerAddress, Logger);
-            WebServer.RegisterModule(new BearerTokenModule(new BasicAuthorizationServerProvider()));
+            WebServer.RegisterModule(new BearerTokenModule(BasicProvider));
             WebServer.RunAsync();
+        }
+
+        [Test]
+        public void TestBasicAuthorizationServerProvider()
+        {
+            Assert.AreEqual(BasicProvider.GetExpirationDate(), DateTime.UtcNow.AddHours(12).Ticks);
+
+            try
+            {
+                BasicProvider.ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
+                    .RunSynchronously();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(ex.GetType(), typeof(ArgumentNullException));
+            }
         }
 
         [Test]
@@ -44,9 +61,10 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 Assert.IsNotNullOrEmpty(jsonString);
 
-                var json = JsonConvert.DeserializeObject<BearerToken.BearerToken>(jsonString);
+                var json = JsonConvert.DeserializeObject<BearerToken>(jsonString);
                 Assert.IsNotNull(json);
                 Assert.IsNotNullOrEmpty(json.Token);
+                Assert.IsNotNullOrEmpty(json.Username);
             }
         }
 

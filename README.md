@@ -1,6 +1,7 @@
- [![Analytics](https://ga-beacon.appspot.com/UA-8535255-2/unosquare/embedio-extras/)](https://github.com/igrigorik/ga-beacon)
- [![Build Status](https://travis-ci.org/unosquare/embedio-extras.svg?branch=master)](https://travis-ci.org/unosquare/embedio-extras)
- [![Build status](https://ci.appveyor.com/api/projects/status/70runy7vrgix31j5?svg=true)](https://ci.appveyor.com/project/geoperez/embedio-extras)
+[![Analytics](https://ga-beacon.appspot.com/UA-8535255-2/unosquare/embedio-extras/)](https://github.com/igrigorik/ga-beacon)
+[![Build Status](https://travis-ci.org/unosquare/embedio-extras.svg?branch=master)](https://travis-ci.org/unosquare/embedio-extras)
+[![Build status](https://ci.appveyor.com/api/projects/status/70runy7vrgix31j5?svg=true)](https://ci.appveyor.com/project/geoperez/embedio-extras)
+[![Coverage Status](https://coveralls.io/repos/unosquare/embedio-extras/badge.svg?branch=master)](https://coveralls.io/r/unosquare/embedio-extras?branch=master)
 
 # EmbedIO Extras
 

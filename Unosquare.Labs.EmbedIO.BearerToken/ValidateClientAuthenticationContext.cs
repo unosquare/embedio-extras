@@ -1,5 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
+    using System;
     using System.Net;
 
     /// <summary>
@@ -11,18 +12,22 @@
         /// The Client Id
         /// </summary>
         public string ClientId { get; protected set; }
+
         /// <summary>
         /// Flags if the Validation has errors
         /// </summary>
         public bool HasError { get; protected set; }
+
         /// <summary>
         /// Indicates if the Validation is right
         /// </summary>
         public bool IsValidated { get; protected set; }
+
         /// <summary>
         /// Http Context instance
         /// </summary>
         public HttpListenerContext HttpContext { get; protected set; }
+
         /// <summary>
         /// Claims
         /// </summary>
@@ -34,6 +39,9 @@
         /// <param name="httpContext">The HttpListenerContext instance</param>
         public ValidateClientAuthenticationContext(HttpListenerContext httpContext)
         {
+            if (httpContext == null)
+                throw new ArgumentNullException("Context is null", "httpContext");
+
             HttpContext = httpContext;
             StandardClaims = new StandardClaims();
         }
