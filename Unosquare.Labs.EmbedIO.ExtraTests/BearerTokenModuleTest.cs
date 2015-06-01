@@ -26,7 +26,7 @@
         [Test]
         public void TestBasicAuthorizationServerProvider()
         {
-            Assert.AreEqual(BasicProvider.GetExpirationDate(), DateTime.UtcNow.AddHours(12).Ticks);
+            Assert.GreaterOrEqual(BasicProvider.GetExpirationDate(), DateTime.UtcNow.AddHours(12).Ticks);
 
             try
             {
