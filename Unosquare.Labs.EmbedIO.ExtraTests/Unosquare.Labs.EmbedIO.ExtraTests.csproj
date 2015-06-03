@@ -79,8 +79,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TestConsoleLog.cs" />
-    <Compile Include="TestHelper.cs" />
+    <Compile Include="TestObjects\TestConsoleLog.cs" />
+    <Compile Include="TestObjects\TestController.cs" />
+    <Compile Include="TestObjects\TestHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

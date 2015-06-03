@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
 
 using System;
-using System.Globalization;
 using System.Net;
 
 namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
@@ -25,49 +24,6 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         {
             get { return (WebHeaderCollection)_request.Headers; }
             set { throw new InvalidOperationException(); }
-        }
-
-        // For known headers, access them via property to prevent loading the entire headers collection
-        // The following are 'Known' by HttpListener/Http.Sys, but for now we've only optimized the most common ones.
-        // Accept
-        // Transfer-Encoding
-        // Content-Type
-        // Content-Length
-        // Cookie
-        // Connection
-        // Keep-Alive
-        // Referer
-        // UserAgent
-        // Host
-        // Accept-Language
-        public override bool TryGetValue(string key, out string[] value)
-        {
-            if (string.IsNullOrWhiteSpace(key))
-            {
-                value = null;
-                return false;
-            }
-
-            if (key.Equals("Content-Length", StringComparison.OrdinalIgnoreCase))
-            {
-                var contentLength = _request.ContentLength64;
-                if (contentLength >= 0)
-                {
-                    value = new[] { contentLength.ToString(CultureInfo.InvariantCulture) };
-                    return true;
-                }
-            }
-            else if (key.Equals("Host", StringComparison.OrdinalIgnoreCase))
-            {
-                var host = _request.UserHostName;
-                if (host != null)
-                {
-                    value = new[] { host };
-                    return true;
-                }
-            }
-
-            return base.TryGetValue(key, out value);
         }
     }
 

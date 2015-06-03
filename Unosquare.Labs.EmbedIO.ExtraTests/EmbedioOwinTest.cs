@@ -8,6 +8,7 @@
     using System.Net;
     using System.Threading;
     using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
+    using Unosquare.Labs.EmbedIO.ExtraTests.TestObjects;
     using Unosquare.Labs.EmbedIO.OwinMiddleware;
 
     public class EmbedioOwinTest
@@ -26,7 +27,10 @@
                 Port = 7777
             };
 
-            WebServer = WebApp.Start(options, (app) => app.UseDirectoryBrowser());
+            WebServer = WebApp.Start(options, (app) => app
+                .UseDirectoryBrowser()
+                .UseWebApi(typeof(TestController).Assembly)
+                .UseEmbedCors());
         }
 
         [Test]

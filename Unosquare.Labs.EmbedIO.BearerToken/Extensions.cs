@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Net;
-
-namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
+    using System.Collections.Generic;
+    using System.Net;
+
     /// <summary>
     /// Extension methods
     /// </summary>
@@ -24,8 +24,8 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
         /// <param name="context"></param>
         public static void Rejected(this HttpListenerContext context)
         {
-            context.JsonResponse("{'error': 'invalid_grant'}");
             context.Response.StatusCode = (int) HttpStatusCode.Unauthorized;
+            context.Response.AddHeader("WWW-Authenticate", "Bearer");
         }
 
         /// <summary>
