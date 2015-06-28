@@ -161,7 +161,7 @@ var server = WebServer.CreateWithConsole("http://localhost:9696/");
 server.RegisterModule(new MarkdownStaticModule(@"c:\web"));
 ```
 
-## JsonServer
+## Json Server Module
 
 Based on the [JsonServer's](https://github.com/typicode/json-server) project, with this module you are able to simply specify a JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. 
 
