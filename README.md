@@ -30,11 +30,11 @@ server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
 PM> Install-Package EmbedIO.BearerToken
 ```
 
-## OWIN
+## OWIN Integration
 
 EmbedIO can use the OWIN platform in two different ways:
 
-* You can use EmbedIO modules within an OWIN Server
+* You can use EmbedIO modules within an OWIN Server. In other words, host your application with an OWIN server and make use of EmbedIO modules.
 
 ```csharp
 public class Program
@@ -99,7 +99,7 @@ public class Startup
 }
 ```
 
-* You can also use OWN modules (middleware) within EmbedIO.
+* You can also use OWN middleware within EmbedIO. In other words, you can do stuff like serving Razor views from EmbedIO.
 
 ```csharp
 public class Program
