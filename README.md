@@ -5,23 +5,21 @@
 
 # EmbedIO Extras
 
-Extras Modules to show how to extend EmbedIO
+Additional Modules showing how to extend EmbedIO. Feel free to use these modules in your projects.
 
-## Bearer Token
+## Bearer Token Module
 
-Allow to authenticate with a Bearer Token. It uses a Token endpoint (at /token path) and with a defined validation delegate
-create a **JsonWebToken**. The module can check all incoming requests or a paths collection to authorize with **HTTP Authorization
-header**.
+Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined '/token' path) and all you need to do is provide a user validation delegate which authenticates the user. The module will create a **JsonWebToken** which can then be used by your client application in firther requests. The module can check all incoming requests or a predefined set of paths. The standard header in use is the **HTTP Authorization header**.
 
-You can easily add Bearer Token to your EmbedIO server using a Basic Authorization Server Provider or writing your own:
+You can easily add Bearer Token to your EmbedIO application using a Basic Authorization Server Provider or writing your own:
 
 ```csharp
 // Create basic authentication provider
 var basicAuthProvider = new BasicAuthorizationServerProvider();
-// You can set which routes to check, empty param will secure entire server
+// You can set which routes to check; an empty routes array will secure entire server
 var routes = new[] { "/secure.html" };
 
-// Create Webserver with console logger and attach Bearer Token Module
+// Create Webserver with a simple console logger and attach the Bearer Token Module
 var server = WebServer.CreateWithConsole("http://localhost:9696/");
 server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
 ```
@@ -34,9 +32,9 @@ PM> Install-Package EmbedIO.BearerToken
 
 ## OWIN
 
-EmbedIO can use the OWIN platform in two different approach:
+EmbedIO can use the OWIN platform in two different ways:
 
-* You can use EmbedIO as OWIN server and use all OWIN framework with EmbedIO modules.
+* You can use EmbedIO modules within an OWIN Server
 
 ```csharp
 public class Program
@@ -101,7 +99,7 @@ public class Startup
 }
 ```
 
-* You can use OWIN Middleware into EmbedIO as a module.
+* You can also use OWN modules (middleware) within EmbedIO.
 
 ```csharp
 public class Program
@@ -152,10 +150,10 @@ public class Program
 PM> Install-Package EmbedIO.OWIN
 ```
 
-## Markdown
+## Markdown Static Module
 
-Markdown Static Module takes a markdown file and convert it to HTML before to response. 
-It will accept markdown/html/htm extensions (This could be a middleware later).
+The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. 
+It will accept markdown/html/htm extensions (This could become middleware later).
 
 ```csharp
 // Create Webserver with console logger and attach Markdown Static Module
@@ -165,8 +163,7 @@ server.RegisterModule(new MarkdownStaticModule(@"c:\web"));
 
 ## JsonServer
 
-Based [JsonServer's](https://github.com/typicode/json-server) idea, you can set a JSON file as database and use any REST 
-method to manipulate it. 
+Based on the [JsonServer's](https://github.com/typicode/json-server) project, with this module you are able to simply specify a JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. 
 
 ```csharp
 // Create Webserver with console logger and attach Json's Server
