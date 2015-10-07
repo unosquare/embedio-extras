@@ -48,7 +48,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Unosquare.Labs.EmbedIO, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EmbedIO.1.0.10\lib\Unosquare.Labs.EmbedIO.dll</HintPath>
+      <HintPath>..\packages\EmbedIO.1.0.13\lib\Unosquare.Labs.EmbedIO.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
