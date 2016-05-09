@@ -12,7 +12,7 @@
         <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet">
         <link href="//cdn.jsdelivr.net/highlight.js/8.5.0/styles/github.min.css" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="images/stylesheet.css" media="screen">
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -30,30 +30,28 @@
 
     <body>
         <div id="wrapper">
-            <header class="navbar navbar-static-top" id="top" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <a href="/embedio-extras/" class="navbar-brand">
-                            <img src="images/embedio-icon.png" alt="Tubular" style="height: 38px; margin-top: -12px" />
-                        </a>
-                    </div>
-                    <nav class="collapse navbar-collapse bs-navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="/embedio/">EmbedIO</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="http://github.com/unosquare/embedio-extras">EmbedIO Extras @ GitHub</a></li>
-                            <li><a href="http://www.unosquare.com">Unosquare</a></li>
-                            <li><a href="http://unosquare.github.io/">Labs @ GitHub</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
             <div class="content-body">
+                <div class="jumbotron-fade"></div>
                 <div class="jumbotron">
+                    <div class="navbar-fade"></div>
+                    <header class="navbar navbar-static-top" id="top" role="banner">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                            </div>
+                            <nav class="collapse navbar-collapse bs-navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="/embedio/">EmbedIO</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="http://github.com/unosquare/embedio">GitHub</a></li>
+                                    <li><a href="http://unosquare.github.io/">Unosquare Labs</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </header>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-xs-12">
@@ -62,29 +60,30 @@
                                 </div>
                             </div>
                             <div class="col-md-8 col-xs-12">
-                                <h1 class="hidden-sm hidden-xs">EmbedIO Extras</h1>
-                                <h2>A tiny, cross-platform, module based web server</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <article>
-                        <h2>
-                            <a id="bearer-token" href="#bearer-token" aria-hidden="true"></a>Bearer Token
-                        </h2>
+            <div class="container">
+                <h1>EmbedIO Extras</h1>
+                <p>Additional Modules showing how to extend EmbedIO. Feel free to use these modules in your projects.</p>
 
-                        <p>
-                            Allow to authenticate with a Bearer Token. It uses a Token endpoint (at /token path) and with a defined validation delegate
-                            create a <strong>JsonWebToken</strong>. The module can check all incoming requests or a paths collection to authorize with <strong>
-                                HTTP Authorization
-                                header
-                            </strong>.
-                        </p>
+                <article>
+                    <h2>
+                        <a id="bearer-token" href="#bearer-token" aria-hidden="true"></a>Bearer Token
+                    </h2>
 
-                        <p>You can easily add Bearer Token to your EmbedIO server using a Basic Authorization Server Provider or writing your own:</p>
+                    <p>
+                        Allow to authenticate with a Bearer Token. It uses a Token endpoint (at /token path) and with a defined validation delegate
+                        create a <strong>JsonWebToken</strong>. The module can check all incoming requests or a paths collection to authorize with <strong>
+                            HTTP Authorization
+                            header
+                        </strong>.
+                    </p>
 
-                        <pre><code class="csharp">// Create basic authentication provider
+                    <p>You can easily add Bearer Token to your EmbedIO server using a Basic Authorization Server Provider or writing your own:</p>
+
+                    <pre><code class="csharp">// Create basic authentication provider
 var basicAuthProvider = new BasicAuthorizationServerProvider();
 // You can set which routes to check, empty param will secure entire server
 var routes = new[] { &quot;/secure.html&quot; };
@@ -92,15 +91,15 @@ var routes = new[] { &quot;/secure.html&quot; };
 var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));</code></pre>
 
-                        <h2>
-                            <a id="owin" href="#owin" aria-hidden="true"></a>OWIN
-                        </h2>
-                        <p>EmbedIO can use the OWIN platform in two different approach:</p>
-                        <ul>
-                            <li>You can use EmbedIO as OWIN server and use all OWIN framework with EmbedIO modules.</li>
-                        </ul>
-                        <div class="highlight highlight-csharp">
-                            <pre><code class="csharp">public class Program
+                    <h2>
+                        <a id="owin" href="#owin" aria-hidden="true"></a>OWIN
+                    </h2>
+                    <p>EmbedIO can use the OWIN platform in two different approach:</p>
+                    <ul>
+                        <li>You can use EmbedIO as OWIN server and use all OWIN framework with EmbedIO modules.</li>
+                    </ul>
+                    <div class="highlight highlight-csharp">
+                        <pre><code class="csharp">public class Program
 {
     /// &lt;summary&gt;
     /// Entry point
@@ -156,11 +155,11 @@ public class Startup
             .AddFileRoute(&quot;/about/me&quot;, &quot;Views/about.cshtml&quot;, new { Name = &quot;EmbedIO Razor&quot;, Date = DateTime.UtcNow });
     }
 }</code></pre>
-                        </div>
-                        <ul>
-                            <li>You can use OWIN Middleware into EmbedIO as a module.</li>
-                        </ul>
-                        <pre><code class="csharp">public class Program
+                    </div>
+                    <ul>
+                        <li>You can use OWIN Middleware into EmbedIO as a module.</li>
+                    </ul>
+                    <pre><code class="csharp">public class Program
 {
     /// &lt;summary&gt;
     /// Entry point
@@ -199,36 +198,36 @@ public class Startup
             .AddFileRoute(&quot;/about/me&quot;, &quot;Views/about.cshtml&quot;, new { Name = &quot;EmbedIO Razor&quot;, Date = DateTime.UtcNow });
     }
 }</code></pre>
-                        <h2>
-                            <a id="markdown" href="#markdown" aria-hidden="true"></a>Markdown
-                        </h2>
-                        <p>
-                            Markdown Static Module takes a markdown file and convert it to HTML before to response.
-                            It will accept markdown/html/htm extensions (This could be a middleware later).
-                        </p>
-                        <pre><code class="csharp">// Create Webserver with console logger and attach Markdown Static Module
+                    <h2>
+                        <a id="markdown" href="#markdown" aria-hidden="true"></a>Markdown
+                    </h2>
+                    <p>
+                        Markdown Static Module takes a markdown file and convert it to HTML before to response.
+                        It will accept markdown/html/htm extensions (This could be a middleware later).
+                    </p>
+                    <pre><code class="csharp">// Create Webserver with console logger and attach Markdown Static Module
 var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new MarkdownStaticModule(@&quot;c:\web&quot;));</code></pre>
-                        <h2>
-                            <a id="jsonserver" href="#jsonserver" aria-hidden="true"></a>JsonServer
-                        </h2>
-                        <p>
-                            Based <a href="https://github.com/typicode/json-server">JsonServer's</a> idea, you can set a JSON file as database and use any REST
-                            method to manipulate it.
-                        </p>
-                        <pre><code class="csharp">// Create Webserver with console logger and attach Json&#39;s Server
+                    <h2>
+                        <a id="jsonserver" href="#jsonserver" aria-hidden="true"></a>JsonServer
+                    </h2>
+                    <p>
+                        Based <a href="https://github.com/typicode/json-server">JsonServer's</a> idea, you can set a JSON file as database and use any REST
+                        method to manipulate it.
+                    </p>
+                    <pre><code class="csharp">// Create Webserver with console logger and attach Json&#39;s Server
 var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&quot;, &quot;database.json&quot;)));</code></pre>
-                        <p>Supported methods: </p>
-                        <ul>
+                    <p>Supported methods: </p>
+                    <ul>
                         <li>GET collection (//yourhost/entity) </li>
                         <li>GET single (//yourhost/entity/1 where 1 is the ID)</li>
                         <li>POST (//yourhost/entity with POST body the JSON object)</li>
                         <li>PUT (//yourhost/entity/1 with POST body the JSON object)</li>
                         <li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
-                        </ul>
-                    </article>
-                </div>
+                    </ul>
+                </article>
+            </div>
                 <footer>
                     Brought to you by Unosquare<br />
                     <a href="http://www.unosquare.com">
