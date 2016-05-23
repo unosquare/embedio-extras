@@ -32,9 +32,6 @@
         /// <summary>
         /// Module's name
         /// </summary>
-        public override string Name
-        {
-            get { return "Owin Module"; }
-        }
+        public override string Name => "Owin Module";
     }
 }

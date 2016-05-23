@@ -29,7 +29,7 @@
         {
             if (properties == null)
             {
-                throw new ArgumentNullException("properties");
+                throw new ArgumentNullException(nameof(properties));
             }
         }
 
@@ -43,18 +43,18 @@
         {
             if (app == null)
             {
-                throw new ArgumentNullException("app");
+                throw new ArgumentNullException(nameof(app));
             }
             if (properties == null)
             {
-                throw new ArgumentNullException("properties");
+                throw new ArgumentNullException(nameof(properties));
             }
 
             var serverUrls = properties["host.Addresses"] as List<IDictionary<string, object>>;
 
             if (serverUrls == null)
             {
-                throw new ArgumentNullException("properties");
+                throw new ArgumentNullException(nameof(properties));
             }
 
             var serverUrl = "http://localhost:" + serverUrls[0]["port"];
@@ -64,15 +64,10 @@
             {
                 var webModules = properties[Extensions.WebModulesKey] as List<IWebModule>;
 
-                if (webModules != null)
-                {
-                    webModules.ForEach(server.RegisterModule);
-                }
+                webModules?.ForEach(server.RegisterModule);
             }
 
-            var ct = properties["host.OnAppDisposing"] is CancellationToken
-                ? (CancellationToken) properties["host.OnAppDisposing"]
-                : new CancellationToken();
+            var ct = properties["host.OnAppDisposing"] as CancellationToken? ?? new CancellationToken();
 
             server.RunAsync(ct, new MiddlewareOwin(app, properties));
 

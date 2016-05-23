@@ -1,6 +1,7 @@
 ﻿using Owin;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using Unosquare.Labs.EmbedIO.Modules;
@@ -52,10 +53,10 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
         }
 
         /// <summary>
-        /// Use EmbedIO WebAPI
+        /// Uses the EmbedIO Web API.
         /// </summary>
-        /// <param name="app"></param>
-        /// <param name="assembly"></param>
+        /// <param name="app">The application.</param>
+        /// <param name="assembly">The assembly.</param>
         /// <returns></returns>
         public static IAppBuilder UseWebApi(this IAppBuilder app, Assembly assembly)
         {
@@ -68,6 +69,66 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
             {
                 (app.Properties[WebModulesKey] as List<IWebModule>)
                     .Add(new WebApiModule().LoadApiControllers(assembly));
+            }
+
+            return app;
+        }
+
+        /// <summary>
+        /// Uses the EmbedIO web socket.
+        /// </summary>
+        /// <param name="app">The application.</param>
+        /// <param name="assembly">The assembly.</param>
+        /// <returns></returns>
+        public static IAppBuilder UseWebSocket(this IAppBuilder app, Assembly assembly)
+        {
+            if (app.Properties.ContainsKey(WebModulesKey) == false)
+            {
+                app.Properties.Add(WebModulesKey, new List<IWebModule>());
+            }
+
+            if (app.Properties[WebModulesKey] is List<IWebModule>)
+            {
+                var webSocketModule = new WebSocketsModule();
+                var types = (assembly ?? Assembly.GetExecutingAssembly()).GetTypes();
+                var sockerServers =
+                    types.Where(x => x.BaseType == typeof (WebSocketsServer)).ToArray();
+
+                if (sockerServers.Any())
+                {
+                    foreach (var socketServer in sockerServers)
+                    {
+                        webSocketModule.RegisterWebSocketsServer(socketServer);
+                    }
+
+                    (app.Properties[WebModulesKey] as List<IWebModule>).Add(webSocketModule);
+                }
+
+            }
+
+            return app;
+        }
+
+        /// <summary>
+        /// Uses the EmbedIO web socket.
+        /// </summary>
+        /// <param name="app">The application.</param>
+        /// <param name="webSocketType">Type of the web socket.</param>
+        /// <returns></returns>
+        public static IAppBuilder UseWebSocket(this IAppBuilder app, Type webSocketType)
+        {
+            if (app.Properties.ContainsKey(WebModulesKey) == false)
+            {
+                app.Properties.Add(WebModulesKey, new List<IWebModule>());
+            }
+
+            if (app.Properties[WebModulesKey] is List<IWebModule>)
+            {
+                var webSocketModule = new WebSocketsModule();
+                webSocketModule.RegisterWebSocketsServer(webSocketType);
+
+                (app.Properties[WebModulesKey] as List<IWebModule>)
+                    .Add(webSocketModule);
             }
 
             return app;
