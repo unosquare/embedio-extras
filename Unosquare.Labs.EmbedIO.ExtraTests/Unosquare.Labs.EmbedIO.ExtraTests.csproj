@@ -80,7 +80,6 @@
     <Compile Include="JsonServerModuleTest.cs" />
     <Compile Include="MarkdownModuleTest.cs" />
     <Compile Include="OwinMiddlewareTest.cs" />
-    <Compile Include="OwinTestServer.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
