@@ -55,8 +55,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unosquare.Labs.EmbedIO, Version=1.0.17.17531, Culture=neutral, PublicKeyToken=871377f68111dbd2, processorArchitecture=MSIL">
-      <HintPath>..\packages\EmbedIO.1.0.18\lib\Unosquare.Labs.EmbedIO.dll</HintPath>
+    <Reference Include="Unosquare.Labs.EmbedIO, Version=1.0.17.28501, Culture=neutral, PublicKeyToken=871377f68111dbd2, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmbedIO.1.0.19\lib\Unosquare.Labs.EmbedIO.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

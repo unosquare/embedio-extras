@@ -49,7 +49,7 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
 
                 var authHeader = context.RequestHeader(AuthorizationHeader);
 
-                if (String.IsNullOrWhiteSpace(authHeader) == false && authHeader.StartsWith("Bearer "))
+                if (string.IsNullOrWhiteSpace(authHeader) == false && authHeader.StartsWith("Bearer "))
                 {
                     try
                     {
@@ -80,9 +80,6 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
         /// <summary>
         /// Returns Module Name
         /// </summary>
-        public override string Name
-        {
-            get { return "Bearer Token Module"; }
-        }
+        public override string Name => "Bearer Token Module";
     }
 }
