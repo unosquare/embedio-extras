@@ -19,8 +19,8 @@ var basicAuthProvider = new BasicAuthorizationServerProvider();
 // You can set which routes to check; an empty routes array will secure entire server
 var routes = new[] { "/secure.html" };
 
-// Create Webserver with a simple console logger and attach the Bearer Token Module
-var server = WebServer.CreateWithConsole("http://localhost:9696/");
+// Create Webserver and attach the Bearer Token Module
+var server = WebServer.Create("http://localhost:9696/");
 server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
 ```
 
@@ -45,25 +45,15 @@ public class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        try
+        var options = new StartOptions
         {
-            OwinServerFactory.Log = new SimpleConsoleLog();
+            ServerFactory = OwinServerFactory.ServerFactoryName,
+            Port = 4578
+        };
 
-            var options = new StartOptions
-            {
-                ServerFactory = OwinServerFactory.ServerFactoryName,
-                Port = 4578
-            };
-
-            using (WebApp.Start<Startup>(options))
-            {
-                OwinServerFactory.Log.DebugFormat("Running a http server on port {0}", options.Port);
-                Console.ReadKey();
-            }
-        }
-        catch (Exception ex)
+        using (WebApp.Start<Startup>(options))
         {
-            OwinServerFactory.Log.Error(ex);
+            OwinServerFactory.Log.DebugFormat("Running a http server on port {0}", options.Port);
             Console.ReadKey();
         }
     }
@@ -110,26 +100,18 @@ public class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        try
-        {
-            // UseOwin() function returns Owin App for configuration
-            using (var webServer = WebServer
-                        .CreateWithConsole("http://localhost:4578")
-                        .WithWebApi(typeof (PeopleController).Assembly)
-                        .UseOwin((owinApp) => 
-                            owinApp
-                            .UseDirectoryBrowser()
-                            .UseRazor(InitRoutes)))
-                    {
-                        webServer.RunAsync();
-                        Console.ReadKey();
-                    }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex);
-            Console.ReadKey();
-        }
+        // UseOwin() function returns Owin App for configuration
+        using (var webServer = WebServer
+                    .Create("http://localhost:4578")
+                    .WithWebApi(typeof (PeopleController).Assembly)
+                    .UseOwin((owinApp) => 
+                        owinApp
+                        .UseDirectoryBrowser()
+                        .UseRazor(InitRoutes)))
+                {
+                    webServer.RunAsync();
+                    Console.ReadKey();
+                }
     }
 
     /// <summary>
@@ -156,18 +138,19 @@ The Markdown Static Module takes in a static markdown file and converts it into 
 It will accept markdown/html/htm extensions (This could become middleware later).
 
 ```csharp
-// Create Webserver with console logger and attach Markdown Static Module
-var server = WebServer.CreateWithConsole("http://localhost:9696/");
+// Create Webserver and attach Markdown Static Module
+var server = WebServer.Create("http://localhost:9696/");
 server.RegisterModule(new MarkdownStaticModule(@"c:\web"));
 ```
 
 ## Json Server Module
 
-Based on the [JsonServer's](https://github.com/typicode/json-server) project, with this module you are able to simply specify a JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. 
+Based on the [JsonServer's](https://github.com/typicode/json-server) project, with this module you are able to simply specify a 
+JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. 
 
 ```csharp
-// Create Webserver with console logger and attach Json's Server
-var server = WebServer.CreateWithConsole("http://localhost:9696/");
+// Create Webserver and attach Json's Server
+var server = WebServer.Create("http://localhost:9696/");
 server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@"c:\web", "database.json")));
 ```
 
