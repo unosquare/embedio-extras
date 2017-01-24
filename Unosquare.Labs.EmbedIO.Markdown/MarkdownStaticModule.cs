@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Net;
+using Unosquare.Net;
 
 namespace Unosquare.Labs.EmbedIO.Markdown
 {
@@ -56,7 +56,8 @@ namespace Unosquare.Labs.EmbedIO.Markdown
 
             var localPath = Path.Combine(FileSystemPath, urlPath);
 
-            if (!File.Exists(localPath)) return false;
+            if (!File.Exists(localPath))
+                return false;
 
             using (var reader = new StreamReader(localPath))
             {
@@ -70,9 +71,6 @@ namespace Unosquare.Labs.EmbedIO.Markdown
             return true;
         }
 
-        public override string Name
-        {
-            get { return "Markdown Static Module"; }
-        }
+        public override string Name => "Markdown Static Module";
     }
 }

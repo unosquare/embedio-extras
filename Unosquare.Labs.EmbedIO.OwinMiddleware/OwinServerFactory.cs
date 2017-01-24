@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Threading;
-    using Unosquare.Labs.EmbedIO.Log;
     using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>, System.Threading.Tasks.Task>;
 
     /// <summary>
@@ -11,11 +10,6 @@
     /// </summary>
     public class OwinServerFactory
     {
-        /// <summary>
-        /// Log instance
-        /// </summary>
-        public static ILog Log { set; get; }
-
         /// <summary>
         /// Server Factory Name to be used in StartOptions
         /// </summary>
@@ -45,6 +39,7 @@
             {
                 throw new ArgumentNullException(nameof(app));
             }
+
             if (properties == null)
             {
                 throw new ArgumentNullException(nameof(properties));
@@ -56,9 +51,8 @@
             {
                 throw new ArgumentNullException(nameof(properties));
             }
-
-            var serverUrl = "http://localhost:" + serverUrls[0]["port"];
-            var server = new WebServer(serverUrl, Log);
+            
+            var server = new WebServer("http://localhost:" + serverUrls[0]["port"]);
 
             if (properties.ContainsKey(Extensions.WebModulesKey))
             {

@@ -4,9 +4,9 @@
     using Mezm.Owin.Razor.Routing;
     using Microsoft.Owin.Hosting;
     using Owin;
+    using Swan;
     using System;
     using Unosquare.Labs.EmbedIO;
-    using Unosquare.Labs.EmbedIO.Log;
     using Unosquare.Labs.EmbedIO.OwinMiddleware;
 
     /// <summary>
@@ -22,8 +22,6 @@
         {
             try
             {
-                OwinServerFactory.Log = new SimpleConsoleLog();
-
                 Console.WriteLine("Do you want to run EmbedIO as OWIN Server? (y/n)");
                 var response = Console.ReadLine();
 
@@ -37,16 +35,16 @@
 
                     using (WebApp.Start<Startup>(options))
                     {
-                        OwinServerFactory.Log.DebugFormat("Running a http server on port {0}", options.Port);
+                        "Running a http server on port {options.Port}".Info(nameof(Program));
                         Console.ReadKey();
                     }
                 }
                 else
                 {
                     using (var webServer = WebServer
-                        .CreateWithConsole("http://localhost:4578")
-                        .WithWebApi(typeof (PeopleController).Assembly)
-                        .UseOwin((owinApp) => 
+                        .Create("http://localhost:4578")
+                        .WithWebApi(typeof(PeopleController).Assembly)
+                        .UseOwin((owinApp) =>
                             owinApp
                             .UseDirectoryBrowser()
                             .UseRazor(Startup.InitRoutes)))
@@ -58,7 +56,7 @@
             }
             catch (Exception ex)
             {
-                OwinServerFactory.Log.Error(ex);
+                ex.Log(nameof(Program));
                 Console.ReadKey();
             }
         }
@@ -79,7 +77,7 @@
             //app.UseCors(CorsOptions.AllowAll);
             app.UseDirectoryBrowser();
             app.UseRazor(InitRoutes);
-            app.UseWebApi(typeof (PeopleController).Assembly);
+            app.UseWebApi(typeof(PeopleController).Assembly);
         }
 
         /// <summary>

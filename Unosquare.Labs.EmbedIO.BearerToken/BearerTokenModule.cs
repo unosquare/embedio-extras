@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unosquare.Swan;
 
 namespace Unosquare.Labs.EmbedIO.BearerToken
 {
@@ -15,7 +16,7 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
         /// Module's Constructor
         /// </summary>
         /// <param name="authorizationServerProvider">The AuthorizationServerProvider to use</param>
-        /// <param name="routes">The routes to authorizate</param>
+        /// <param name="routes">The routes to authorization</param>
         /// <param name="secretKey">The secret key to encrypt tokens</param>
         public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider,
             IEnumerable<string> routes = null, string secretKey = "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF")
@@ -60,14 +61,14 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
 
                         return false;
                     }
-                    catch (JWT.SignatureVerificationException)
+                    catch (JWT.SignatureVerificationException svex)
                     {
-                        server.Log.DebugFormat("Invalid token {0}", authHeader);
+                        svex.Log(nameof(BearerTokenModule), $"Invalid token {authHeader}");
                         throw;
                     }
                     catch (Exception ex)
                     {
-                        server.Log.Error(ex);
+                        ex.Log(nameof(BearerTokenModule));
                     }
                 }
 

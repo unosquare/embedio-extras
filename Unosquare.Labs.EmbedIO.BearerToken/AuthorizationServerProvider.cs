@@ -33,15 +33,15 @@
         /// <returns></returns>
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
         {
-            var data = context.HttpContext.RequestFormData();
+            var data = context.HttpContext.RequestFormDataDictionary();
 
-            if (data.ContainsKey("grant_type") == false || data["grant_type"] != "password")
+            if (data.ContainsKey("grant_type") == false || data["grant_type"].ToString() != "password")
             {
                 context.Rejected();
             }
             else
             {
-                context.Validated(data.ContainsKey("username") ? data["username"] : string.Empty);
+                context.Validated(data.ContainsKey("username") ? data["username"].ToString() : string.Empty);
             }
         }
 
@@ -49,9 +49,6 @@
         /// Gets a Expiration Date
         /// </summary>
         /// <returns></returns>
-        public long GetExpirationDate()
-        {
-            return DateTime.UtcNow.AddHours(12).Ticks;
-        }
+        public long GetExpirationDate() => DateTime.UtcNow.AddHours(12).Ticks;
     }
 }

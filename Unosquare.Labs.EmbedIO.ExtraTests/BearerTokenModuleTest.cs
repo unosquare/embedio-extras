@@ -1,7 +1,7 @@
 ﻿namespace Unosquare.Labs.EmbedIO.ExtraTests
 {
-    using Newtonsoft.Json;
     using NUnit.Framework;
+    using Swan.Formatters;
     using System;
     using System.IO;
     using System.Net;
@@ -15,14 +15,13 @@
         protected string RootPath;
         protected BasicAuthorizationServerProvider BasicProvider = new BasicAuthorizationServerProvider();
         protected WebServer WebServer;
-        protected TestConsoleLog Logger = new TestConsoleLog();
 
         [SetUp]
         public void Init()
         {
             RootPath = TestHelper.SetupStaticFolder();
 
-            WebServer = new WebServer(Resources.ServerAddress, Logger);
+            WebServer = new WebServer(Resources.ServerAddress);
             WebServer.RegisterModule(new BearerTokenModule(BasicProvider));
             WebServer.RegisterModule(new MarkdownStaticModule(RootPath));
             WebServer.RunAsync();
@@ -94,12 +93,12 @@
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Assert.IsNotNullOrEmpty(jsonString);
+                Assert.IsNotEmpty(jsonString);
 
-                var json = JsonConvert.DeserializeObject<BearerToken>(jsonString);
+                var json = Json.Deserialize<BearerToken>(jsonString);
                 Assert.IsNotNull(json);
-                Assert.IsNotNullOrEmpty(json.Token);
-                Assert.IsNotNullOrEmpty(json.Username);
+                Assert.IsNotEmpty(json.Token);
+                Assert.IsNotEmpty(json.Username);
 
                 token = json.Token;
             }

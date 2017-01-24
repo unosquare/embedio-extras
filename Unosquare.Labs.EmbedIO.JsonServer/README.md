@@ -1,1 +1,1 @@
-﻿Based [JsonServer](https://github.com/typicode/json-server) idea.
+﻿Based on [JsonServer](https://github.com/typicode/json-server) project.

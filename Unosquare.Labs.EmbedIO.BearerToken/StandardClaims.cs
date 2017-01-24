@@ -1,6 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
-    using Newtonsoft.Json;
+    using Swan;
 
     /// <summary>
     /// This subset of OpenID Connect defines a set of standard Claims. They are returned in the UserInfo Response.

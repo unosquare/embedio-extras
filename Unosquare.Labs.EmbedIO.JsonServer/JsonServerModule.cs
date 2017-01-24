@@ -1,7 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.JsonServer
 {
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
+    using Swan.Formatters;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -30,12 +29,12 @@
         {
             JsonPath = jsonPath;
 
-            if (String.IsNullOrWhiteSpace(jsonPath) == false)
+            if (string.IsNullOrWhiteSpace(jsonPath) == false)
             {
                 if (File.Exists(jsonPath))
                 {
                     var jsonData = File.ReadAllText(jsonPath);
-                    Data = JsonConvert.DeserializeObject(jsonData);
+                    Data = Json.Deserialize(jsonData);
                 }
                 else
                 {
@@ -43,25 +42,21 @@
                 }
             }
 
-            var jsonFormatting = Formatting.None;
-#if DEBUG
-            jsonFormatting = Formatting.Indented;
-#endif
-
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (server, context) =>
             {
                 var path = context.RequestPath();
                 var verb = context.RequestVerb();
 
-                if (path.StartsWith(basePath) == false) return false;
+                if (path.StartsWith(basePath) == false)
+                    return false;
 
                 if (path == basePath)
                 {
-                    context.JsonResponse((string) JsonConvert.SerializeObject(Data, jsonFormatting));
+                    context.JsonResponse((object)Data);
                     return true;
                 }
 
-                var parts = path.Substring(basePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
+                var parts = path.Substring(basePath.Length).Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
                 dynamic table;
 
@@ -72,14 +67,14 @@
 
                     if (verb == HttpVerbs.Get)
                     {
-                        context.JsonResponse((string) JsonConvert.SerializeObject(table, jsonFormatting));
+                        context.JsonResponse((object)table);
                         return true;
                     }
 
                     if (verb == HttpVerbs.Post)
                     {
-                        var array = (JArray) table;
-                        array.Add(JsonConvert.DeserializeObject(context.RequestBody()));
+                        var array = (IList<object>)table;
+                        array.Add(Json.Deserialize(context.RequestBody()));
                         ThreadPool.QueueUserWorkItem(UpdateDataStore);
 
                         return true;
@@ -93,19 +88,19 @@
 
                     foreach (dynamic row in table)
                     {
-                        if (row["id"] != parts[1]) continue;
+                        if (row["id"].ToString() != parts[1]) continue;
 
                         if (verb == HttpVerbs.Get)
                         {
-                            context.JsonResponse((string) JsonConvert.SerializeObject(row, jsonFormatting));
+                            context.JsonResponse((object)row);
                             return true;
                         }
 
                         if (verb == HttpVerbs.Put)
                         {
-                            var update = JsonConvert.DeserializeObject<JObject>(context.RequestBody());
+                            var update = Json.Deserialize<Dictionary<string, object>>(context.RequestBody());
 
-                            foreach (KeyValuePair<string, JToken> property in update)
+                            foreach (var property in update)
                             {
                                 row[property.Key] = property.Value;
                             }
@@ -117,7 +112,7 @@
 
                         if (verb == HttpVerbs.Delete)
                         {
-                            var array = (JArray)table;
+                            var array = (IList<object>)table;
                             array.Remove(row);
                             ThreadPool.QueueUserWorkItem(UpdateDataStore);
 
@@ -136,17 +131,15 @@
         /// <param name="state"></param>
         public void UpdateDataStore(object state)
         {
-            if (String.IsNullOrWhiteSpace(JsonPath)) return;
+            if (string.IsNullOrWhiteSpace(JsonPath))
+                return;
 
-            File.WriteAllText(JsonPath, JsonConvert.SerializeObject(Data, Formatting.Indented));
+            File.WriteAllText(JsonPath, Json.Serialize(Data, true));
         }
 
         /// <summary>
         /// Gets the Module's name
         /// </summary>
-        public override string Name
-        {
-            get { return "JSON Server Module"; }
-        }
+        public override string Name => "JSON Server Module";
     }
 }

@@ -12,14 +12,13 @@
     {
         protected string RootPath;
         protected WebServer WebServer;
-        protected TestConsoleLog Logger = new TestConsoleLog();
 
         [SetUp]
         public void Init()
         {
             RootPath = TestHelper.SetupStaticFolder();
 
-            WebServer = new WebServer(Resources.ServerAddress, Logger);
+            WebServer = new WebServer(Resources.ServerAddress);
             WebServer.RegisterModule(new MarkdownStaticModule(RootPath));
             WebServer.RunAsync();
         }

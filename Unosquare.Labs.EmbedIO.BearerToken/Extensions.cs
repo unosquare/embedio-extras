@@ -1,7 +1,7 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
     using System.Collections.Generic;
-    using System.Net;
+    using Unosquare.Net;
 
     /// <summary>
     /// Extension methods
@@ -24,7 +24,7 @@
         /// <param name="context"></param>
         public static void Rejected(this HttpListenerContext context)
         {
-            context.Response.StatusCode = (int) HttpStatusCode.Unauthorized;
+            context.Response.StatusCode = (int)System.Net.HttpStatusCode.Unauthorized;
             context.Response.AddHeader("WWW-Authenticate", "Bearer");
         }
 

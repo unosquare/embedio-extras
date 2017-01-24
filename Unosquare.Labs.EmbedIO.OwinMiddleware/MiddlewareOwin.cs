@@ -2,6 +2,7 @@
 
 namespace Unosquare.Labs.EmbedIO.OwinMiddleware
 {
+    using Swan;
     using System;
     using System.Collections.Generic;
     using System.Net;
@@ -43,12 +44,12 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
             {
                 Environment.UseHttpContext(context.HttpContext);
 
-                context.WebServer.Log.DebugFormat("OWIN Path {0}", Environment["owin.RequestPath"]);
+                $"OWIN Path {Environment["owin.RequestPath"]}".Debug(nameof(MiddlewareOwin));
 
                 await OwinApp(Environment);
 
                 SetStatusCode(context.HttpContext.Response);
-                context.WebServer.Log.DebugFormat("OWIN Status Code {0}", context.HttpContext.Response.StatusCode);
+                $"OWIN Status Code {context.HttpContext.Response.StatusCode}".Debug(nameof(MiddlewareOwin));
 
                 // TODO: I need to know if previous middleware completed the request
                 context.WebServer.ProcessRequest(context.HttpContext);
@@ -57,7 +58,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
             }
             catch (Exception ex)
             {
-                context.WebServer.Log.Error(ex);
+                ex.Log(nameof(MiddlewareOwin));
             }
         }
 

@@ -23,7 +23,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
                 // This lets you edit the files without restarting the server.
                 return Path.GetFullPath(Path.Combine(assemblyPath, "..\\..\\web"));
 #else
-    // This is when you have deployed ythe server.
+                // This is when you have deployed the server.
                 return Path.Combine(assemblyPath, "html");
 #endif
             }
@@ -35,16 +35,14 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
         /// <param name="args">The arguments.</param>
         private static void Main(string[] args)
         {
-            var url = "http://localhost:9696/";
-            if (args.Length > 0)
-                url = args[0];
+            var url = args.Length > 0 ? args[0] : "http://localhost:9696/";
 
             // Create basic authentication provider
             var basicAuthProvider = new BasicAuthorizationServerProvider();
 
             // Create Webserver with console logger and attach LocalSession and Static
             // files module
-            var server = WebServer.CreateWithConsole(url).EnableCors();
+            var server = WebServer.Create(url).EnableCors();
             server.RegisterModule(new BearerTokenModule(basicAuthProvider, new[] {"/secure.html"}));
             server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
             server.RegisterModule(new MarkdownStaticModule(WebRootPath));
@@ -59,7 +57,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
             browser.Start();
 #endif
             // Wait for any key to be pressed before disposing of our web server.
-            // In a service we'd manage the lifecycle of of our web server using
+            // In a service we'd manage the lifecycle of our web server using
             // something like a BackgroundWorker or a ManualResetEvent.
             Console.ReadKey(true);
             server.Dispose();

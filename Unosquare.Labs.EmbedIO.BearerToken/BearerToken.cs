@@ -1,6 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
-    using Newtonsoft.Json;
+    using Swan;
 
     /// <summary>
     /// Represents a Bearer Token JSON response

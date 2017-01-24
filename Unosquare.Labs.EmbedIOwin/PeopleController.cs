@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Modules;
+using Unosquare.Net;
+using Unosquare.Swan;
 
 namespace Unosquare.Labs.EmbedIOwin
 {
@@ -41,7 +42,7 @@ namespace Unosquare.Labs.EmbedIOwin
         /// <param name="server">The server.</param>
         /// <param name="context">The context.</param>
         /// <returns></returns>
-        /// <exception cref="System.Collections.Generic.KeyNotFoundException">Key Not Found:  + lastSegment</exception>
+        /// <exception cref="KeyNotFoundException">Key Not Found:  + lastSegment</exception>
         [WebApiHandler(HttpVerbs.Get, "/api/people/*")]
         public bool GetPeople(WebServer server, HttpListenerContext context)
         {
@@ -75,7 +76,7 @@ namespace Unosquare.Labs.EmbedIOwin
                     Description = ex.ExceptionMessage(),
                 };
 
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                context.Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
                 return context.JsonResponse(errorResponse);
             }
         }

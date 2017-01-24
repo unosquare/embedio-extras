@@ -6,6 +6,7 @@ using System.Net;
 using System.Reflection;
 using Unosquare.Labs.EmbedIO.Modules;
 using Unosquare.Labs.EmbedIO.OwinMiddleware.Collections;
+using Unosquare.Swan;
 
 namespace Unosquare.Labs.EmbedIO.OwinMiddleware
 {
@@ -14,8 +15,6 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
     /// </summary>
     public static class Extensions
     {
-        private static readonly bool IsMono = Type.GetType("Mono.Runtime") != null;
-
         private static readonly FieldInfo CookedPathField = typeof(HttpListenerRequest).GetField("m_CookedUrlPath",
             BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -35,7 +34,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
         /// <param name="headers"></param>
         /// <param name="methods"></param>
         /// <returns></returns>
-        public static IAppBuilder UseEmbedCors(this IAppBuilder app, string origins = Constants.CorsWildcard,
+        public static IAppBuilder UseEmbedIOCors(this IAppBuilder app, string origins = Constants.CorsWildcard,
             string headers = Constants.CorsWildcard,
             string methods = Constants.CorsWildcard)
         {
@@ -155,6 +154,9 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
         /// <returns></returns>
         public static IDictionary<string, object> UseHttpContext(this  IDictionary<string, object> environment, HttpListenerContext context)
         {
+            if (context?.Request == null)
+                return environment;
+
             // Setup Request Env vars
             environment["owin.RequestProtocol"] = GetProtocol(context.Request.ProtocolVersion);
             environment["owin.RequestScheme"] = context.Request.IsSecureConnection
@@ -177,7 +179,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
 
             return environment;
         }
-
+        
         /// <summary>
         /// Get Path info
         /// </summary>
@@ -189,18 +191,18 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
         {
             string cookedPath;
 
-            if (IsMono)
+            if (Runtime.IsUsingMonoRuntime)
             {
                 cookedPath = "/" + request.Url.GetComponents(UriComponents.Path, UriFormat.SafeUnescaped);
                 query = request.Url.Query;
             }
             else
             {
-                cookedPath = (string)CookedPathField.GetValue(request) ?? String.Empty;
-                query = (string)CookedQueryField.GetValue(request) ?? String.Empty;
+                cookedPath = (string)CookedPathField.GetValue(request) ?? string.Empty;
+                query = (string)CookedQueryField.GetValue(request) ?? string.Empty;
             }
 
-            if (!String.IsNullOrEmpty(query) && query[0] == '?')
+            if (!string.IsNullOrEmpty(query) && query[0] == '?')
             {
                 query = query.Substring(1); // Drop the ?
             }

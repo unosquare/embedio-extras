@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
 using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
 using Unosquare.Labs.EmbedIO.JsonServer;
+using Unosquare.Swan.Formatters;
 
 namespace Unosquare.Labs.EmbedIO.ExtraTests
 {
@@ -16,14 +16,13 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
         protected string RootPath;
         protected string ApiPath = "api/";
         protected WebServer WebServer;
-        protected TestConsoleLog Logger = new TestConsoleLog();
 
         [SetUp]
         public void Init()
         {
             RootPath = TestHelper.SetupStaticFolder();
 
-            WebServer = new WebServer(Resources.ServerAddress, Logger);
+            WebServer = new WebServer(Resources.ServerAddress);
             WebServer.RegisterModule(new JsonServerModule("/" + ApiPath, Path.Combine(RootPath, "database.json")));
             WebServer.RunAsync();
         }
@@ -38,9 +37,9 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Assert.IsNotNullOrEmpty(jsonString);
+                Assert.IsNotEmpty(jsonString);
 
-                dynamic json = JsonConvert.DeserializeObject(jsonString);
+                dynamic json = Json.Deserialize(jsonString);
                 Assert.IsNotNull(json);
             }
         }
@@ -55,9 +54,9 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Assert.IsNotNullOrEmpty(jsonString);
+                Assert.IsNotEmpty(jsonString);
 
-                dynamic json = JsonConvert.DeserializeObject(jsonString);
+                dynamic json = Json.Deserialize(jsonString);
                 Assert.IsNotNull(json);
             }
         }
@@ -72,9 +71,9 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Assert.IsNotNullOrEmpty(jsonString);
+                Assert.IsNotEmpty(jsonString);
 
-                var json = JsonConvert.DeserializeObject<JObject>(jsonString);
+                dynamic json = Json.Deserialize(jsonString);
 
                 Assert.IsNotNull(json);
                 Assert.AreEqual(json.GetValue("id", StringComparison.InvariantCultureIgnoreCase).ToString(), "1");
@@ -105,9 +104,9 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Assert.IsNotNullOrEmpty(jsonString);
+                Assert.IsNotEmpty(jsonString);
 
-                var json = JsonConvert.DeserializeObject<JArray>(jsonString);
+                var json = Json.Deserialize<List<object>>(jsonString);
                 Assert.IsNotNull(json);
                 Assert.AreEqual(json.Count, 4);
             }
@@ -137,9 +136,9 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Assert.IsNotNullOrEmpty(jsonString);
+                Assert.IsNotEmpty(jsonString);
 
-                var json = JsonConvert.DeserializeObject<JObject>(jsonString);
+                dynamic json = Json.Deserialize(jsonString);
 
                 Assert.IsNotNull(json);
                 Assert.AreEqual(json.GetValue("title", StringComparison.InvariantCultureIgnoreCase).ToString(), "replace");
@@ -157,9 +156,9 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Assert.IsNotNullOrEmpty(jsonString);
+                Assert.IsNotEmpty(jsonString);
 
-                var json = JsonConvert.DeserializeObject<JArray>(jsonString);
+                var json = Json.Deserialize<List<object>>(jsonString);
                 total = json.Count;
             }
 
@@ -178,9 +177,9 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Assert.IsNotNullOrEmpty(jsonString);
+                Assert.IsNotEmpty(jsonString);
 
-                var json = JsonConvert.DeserializeObject<JArray>(jsonString);
+                var json = Json.Deserialize<List<object>>(jsonString);
                 Assert.AreEqual(total - 1, json.Count);
             }
         }

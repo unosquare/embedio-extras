@@ -1,8 +1,8 @@
 ﻿namespace Unosquare.Labs.EmbedIO.ExtraTests
 {
     using NUnit.Framework;
-    using System;
     using Owin;
+    using System;
     using System.IO;
     using System.Net;
     using System.Threading;
@@ -12,12 +12,11 @@
     public class OwinMiddlewareTest
     {
         protected WebServer WebServer;
-        protected TestConsoleLog Logger = new TestConsoleLog();
 
         [SetUp]
         public void Init()
         {
-            WebServer = new WebServer(Resources.ServerAddress, Logger)
+            WebServer = new WebServer(Resources.ServerAddress)
                 .UseOwin((owinApp) => owinApp.UseDirectoryBrowser());
             WebServer.RunAsync();
         }
@@ -33,7 +32,7 @@
 
                 var html = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-                Assert.IsNotNullOrEmpty(html, "Directoy Browser Index page is not null");
+                Assert.IsNotEmpty(html, "Directory Browser Index page is not null");
                 Assert.IsTrue(html.Contains("<title>Index of /</title>"), "Index page has correct title");
             }
         }

@@ -16,13 +16,10 @@
     public class EmbedioOwinTest
     {
         protected IDisposable WebServer;
-        protected TestConsoleLog Logger = new TestConsoleLog();
 
         [SetUp]
         public void Init()
         {
-            OwinServerFactory.Log = Logger;
-
             var options = new StartOptions
             {
                 ServerFactory = OwinServerFactory.ServerFactoryName,
@@ -32,8 +29,7 @@
             WebServer = WebApp.Start(options, (app) => app
                 .UseDirectoryBrowser()
                 .UseWebApi(typeof (TestController).Assembly)
-                .UseWebSocket(typeof (TestWebSocket).Assembly)
-                .UseEmbedCors());
+                .UseEmbedIOCors());
         }
 
         [Test]
@@ -72,13 +68,7 @@
                 }
             }
         }
-
-        [Test]
-        public void TestLog()
-        {
-            Assert.AreEqual(OwinServerFactory.Log, Logger, "Log is OK");
-        }
-
+        
         [Test]
         public void GetIndex()
         {
@@ -90,7 +80,7 @@
 
                 var html = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-                Assert.IsNotNullOrEmpty(html, "Directoy Browser Index page is not null");
+                Assert.IsNotEmpty(html, "Directoy Browser Index page is not null");
                 Assert.IsTrue(html.Contains("<title>Index of /</title>"), "Index page has correct title");
             }
         }
