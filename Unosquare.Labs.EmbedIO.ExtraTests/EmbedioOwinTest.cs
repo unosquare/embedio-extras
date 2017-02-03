@@ -11,7 +11,7 @@
     using System.Threading;
     using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
     using Unosquare.Labs.EmbedIO.ExtraTests.TestObjects;
-    using Unosquare.Labs.EmbedIO.OwinMiddleware;
+    using OwinMiddleware;
 
     public class EmbedioOwinTest
     {

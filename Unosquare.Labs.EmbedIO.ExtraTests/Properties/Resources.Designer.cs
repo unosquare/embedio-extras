@@ -107,7 +107,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests.Properties {
         ///&lt;p&gt;If you are using testing Bearer Tokens, try to access to &lt;a href=&quot;/secure.html&quot;&gt;secure page&lt;/a&gt;.&lt;/p&gt;
         ///&lt;p&gt;&lt;a href=&quot;http://unosquare.github.io/embedio&quot;&gt;Visita EmbedIO&lt;/a&gt;.&lt;/p&gt;
         ///
-        ///.
+        ///&lt;a href=&quot;/api/&quot;&gt;Check JSON API&lt;/a&gt;.
         /// </summary>
         internal static string indexhtml {
             get {

@@ -2,7 +2,7 @@
 {
     using JWT;
     using System;
-    using Unosquare.Net;
+    using Net;
 
     /// <summary>
     /// Context to share data with AuthorizationServerProvider
@@ -82,6 +82,6 @@
         /// </summary>
         /// <param name="secretKey"></param>
         /// <returns></returns>
-        public string GetToken(string secretKey) => JsonWebToken.Encode(StandardClaims, secretKey, JWT.JwtHashAlgorithm.HS256);
+        public string GetToken(string secretKey) => JsonWebToken.Encode(StandardClaims, secretKey, JwtHashAlgorithm.HS256);
     }
 }

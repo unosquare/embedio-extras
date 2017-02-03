@@ -48,8 +48,8 @@
       <HintPath>..\packages\EmbedIO.1.4.6\lib\net452\Unosquare.Labs.EmbedIO.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Unosquare.Swan, Version=0.11.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unosquare.Swan.0.11.1\lib\net452\Unosquare.Swan.dll</HintPath>
+    <Reference Include="Unosquare.Swan, Version=0.11.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unosquare.Swan.0.11.2\lib\net452\Unosquare.Swan.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
