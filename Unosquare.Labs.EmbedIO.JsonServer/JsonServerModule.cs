@@ -1,5 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.JsonServer
 {
+    using Swan;
     using Swan.Formatters;
     using System;
     using System.Collections.Generic;
@@ -58,13 +59,11 @@
 
                 var parts = path.Substring(basePath.Length).Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
-                dynamic table;
+                dynamic table = Data[parts[0]];
+                if (table == null) return false;
 
                 if (parts.Length == 1)
                 {
-                    table = Data[parts[0]];
-                    if (table == null) return false;
-
                     if (verb == HttpVerbs.Get)
                     {
                         context.JsonResponse((object)table);
@@ -83,9 +82,6 @@
 
                 if (parts.Length == 2)
                 {
-                    table = Data[parts[0]];
-                    if (table == null) return false;
-
                     foreach (dynamic row in table)
                     {
                         if (row["id"].ToString() != parts[1]) continue;
@@ -140,6 +136,6 @@
         /// <summary>
         /// Gets the Module's name
         /// </summary>
-        public override string Name => "JSON Server Module";
+        public override string Name => nameof(JsonServerModule).Humanize();
     }
 }

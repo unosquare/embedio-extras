@@ -1,8 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Unosquare.Labs.EmbedIO.BearerToken;
 using Unosquare.Labs.EmbedIO.JsonServer;
 using Unosquare.Labs.EmbedIO.Markdown;
+using Unosquare.Swan;
 
 namespace Unosquare.Labs.EmbedIO.ExtraSample
 {
@@ -42,25 +42,25 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
 
             // Create Webserver with console logger and attach LocalSession and Static
             // files module
-            var server = WebServer.Create(url).EnableCors();
-            server.RegisterModule(new BearerTokenModule(basicAuthProvider, new[] {"/secure.html"}));
-            server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
-            server.RegisterModule(new MarkdownStaticModule(WebRootPath));
-            server.RunAsync();
-
-            // Fire up the browser to show the content if we are debugging!
-#if DEBUG
-            var browser = new System.Diagnostics.Process()
+            using (var server = new WebServer(url))
             {
-                StartInfo = new System.Diagnostics.ProcessStartInfo(url) {UseShellExecute = true}
-            };
-            browser.Start();
+                server.EnableCors();
+                server.RegisterModule(new BearerTokenModule(basicAuthProvider, new[] {"/secure.html"}));
+                server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
+                server.RegisterModule(new MarkdownStaticModule(WebRootPath));
+                server.RegisterModule(new LiteLibWebApi.LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+                server.RunAsync();
+
+                // Fire up the browser to show the content if we are debugging!
+#if DEBUG
+                var browser = new System.Diagnostics.Process()
+                {
+                    StartInfo = new System.Diagnostics.ProcessStartInfo(url) {UseShellExecute = true}
+                };
+                browser.Start();
 #endif
-            // Wait for any key to be pressed before disposing of our web server.
-            // In a service we'd manage the lifecycle of our web server using
-            // something like a BackgroundWorker or a ManualResetEvent.
-            Console.ReadKey(true);
-            server.Dispose();
+                Terminal.ReadKey(true, true);
+            }
         }
     }
 }
