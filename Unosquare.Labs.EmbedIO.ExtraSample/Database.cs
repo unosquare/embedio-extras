@@ -23,7 +23,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
 
     internal class TestDbContext : LiteDbContext
     {
-        public TestDbContext(string name = "test") : base(Path.Combine(Path.GetTempPath(), $"{name}.db"))
+        public TestDbContext(string name = "testDb") : base(Path.Combine(Path.GetTempPath(), $"{name}.db"))
         {
             if (Orders.Count() != 0) return;
 

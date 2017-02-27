@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Unosquare.Labs.EmbedIO.LiteLibWebApi;
@@ -43,7 +44,8 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                 {
                     if (verb == HttpVerbs.Get)
                     {
-                        context.JsonResponse(table);
+                        var data = _dbInstance.Select<object>(table, "1=1");
+                        context.JsonResponse(data);
                         return true;
                     }
 
@@ -57,47 +59,71 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                     //}
                 }
 
-                //if (parts.Length == 2)
-                //{
-                //    foreach (dynamic row in table)
-                //    {
-                //        if (row["id"].ToString() != parts[1]) continue;
+                if (parts.Length == 2)
+                {
+                    if (verb == HttpVerbs.Get)
+                    {
+                        context.JsonResponse(_dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] }));
+                        return true;
+                    }
 
-                //        if (verb == HttpVerbs.Get)
-                //        {
-                //            context.JsonResponse((object)row);
-                //            return true;
-                //        }
+                    //foreach (dynamic row in table)
+                    //{
+                    //    if (row["id"].ToString() != parts[1]) continue;
 
-                //        if (verb == HttpVerbs.Put)
-                //        {
-                //            var update = Json.Deserialize<Dictionary<string, object>>(context.RequestBody());
+                    //    if (verb == HttpVerbs.Get)
+                    //    {
+                    //        context.JsonResponse((object)row);
+                    //        return true;
+                    //    }
 
-                //            foreach (var property in update)
-                //            {
-                //                row[property.Key] = property.Value;
-                //            }
+                        //if (verb == HttpVerbs.Put)
+                        //{
+                        //    var update = Json.Deserialize<Dictionary<string, object>>(context.RequestBody());
 
-                //            ThreadPool.QueueUserWorkItem(UpdateDataStore);
+                        //    foreach (var property in update)
+                        //    {
+                        //        row[property.Key] = property.Value;
+                        //    }
 
-                //            return true;
-                //        }
+                        //    ThreadPool.QueueUserWorkItem(UpdateDataStore);
 
-                //        if (verb == HttpVerbs.Delete)
-                //        {
-                //            var array = (IList<object>)table;
-                //            array.Remove(row);
-                //            ThreadPool.QueueUserWorkItem(UpdateDataStore);
+                        //    return true;
+                        //}
 
-                //            return true;
-                //        }
-                //    }
-                //}
+                        //if (verb == HttpVerbs.Delete)
+                        //{
+                        //    var array = (IList<object>)table;
+                        //    array.Remove(row);
+                        //    ThreadPool.QueueUserWorkItem(UpdateDataStore);
+
+                        //    return true;
+                        //}
+                    //}
+                }
 
                 return false;
             });
         }
 
         public override string Name => nameof(LiteLibModule<T>).Humanize();
+    }
+
+    public static class Extensions
+    {
+        public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> items)
+        {
+            foreach (var item in items)
+            {
+                collection.Add(item);
+            }
+        }
+
+        public static dynamic ToDynamicObject(this IDictionary<string, object> source)
+        {
+            ICollection<KeyValuePair<string, object>> someObject = new ExpandoObject();
+            someObject.AddRange(source);
+            return someObject;
+        }
     }
 }

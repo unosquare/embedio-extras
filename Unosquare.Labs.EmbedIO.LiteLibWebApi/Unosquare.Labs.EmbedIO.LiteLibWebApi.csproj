@@ -57,7 +57,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Unosquare.Labs.LiteLib, Version=0.9.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiteLib.0.11.0\lib\net452\Unosquare.Labs.LiteLib.dll</HintPath>
+      <HintPath>..\packages\LiteLib.0.12.0\lib\net452\Unosquare.Labs.LiteLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Unosquare.Swan, Version=0.12.0.0, Culture=neutral, processorArchitecture=MSIL">
