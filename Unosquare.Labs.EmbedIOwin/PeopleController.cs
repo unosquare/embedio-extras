@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Modules;
-using Unosquare.Net;
 using Unosquare.Swan;
 
 namespace Unosquare.Labs.EmbedIOwin
