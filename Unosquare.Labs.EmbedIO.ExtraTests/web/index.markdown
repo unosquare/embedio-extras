@@ -7,4 +7,6 @@ This is just a sample. [Go to help](/help.html).
 
 If you are using testing Bearer Tokens, try to access to [secure page](/secure.html).
 
-[Visita EmbedIO](http://unosquare.github.io/embedio).
+[Visit EmbedIO](http://unosquare.github.io/embedio).
+
+[Check JSON API](/api/)
