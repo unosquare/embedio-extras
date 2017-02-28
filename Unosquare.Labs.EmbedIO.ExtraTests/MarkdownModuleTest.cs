@@ -1,4 +1,6 @@
-﻿namespace Unosquare.Labs.EmbedIO.ExtraTests
+﻿using Unosquare.Labs.EmbedIO.ExtraTests.TestObjects;
+
+namespace Unosquare.Labs.EmbedIO.ExtraTests
 {
     using NUnit.Framework;
     using System;

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Unosquare.Net;
+using Unosquare.Swan;
 
 namespace Unosquare.Labs.EmbedIO.Markdown
 {
@@ -38,10 +39,10 @@ namespace Unosquare.Labs.EmbedIO.Markdown
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;
 
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, (server, context) => HandleGet(context, server));
+            AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, (server, context) => HandleGet(context));
         }
 
-        private bool HandleGet(HttpListenerContext context, WebServer server)
+        private bool HandleGet(HttpListenerContext context)
         {
             var urlPath = context.Request.Url.LocalPath.Replace('/', Path.DirectorySeparatorChar);
 
@@ -49,7 +50,7 @@ namespace Unosquare.Labs.EmbedIO.Markdown
             if (urlPath.Last() == Path.DirectorySeparatorChar)
                 urlPath = urlPath + DefaultDocument;
 
-            urlPath = urlPath.TrimStart(new[] {Path.DirectorySeparatorChar});
+            urlPath = urlPath.TrimStart(Path.DirectorySeparatorChar);
 
             if (Path.GetExtension(urlPath) == ".html") urlPath = urlPath.Replace(".html", ".markdown");
             if (Path.GetExtension(urlPath) == ".htm") urlPath = urlPath.Replace(".htm", ".markdown");
@@ -71,6 +72,6 @@ namespace Unosquare.Labs.EmbedIO.Markdown
             return true;
         }
 
-        public override string Name => "Markdown Static Module";
+        public override string Name => nameof(MarkdownStaticModule).Humanize();
     }
 }

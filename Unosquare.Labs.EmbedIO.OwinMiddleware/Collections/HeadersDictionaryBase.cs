@@ -16,25 +16,16 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
     {
         protected virtual WebHeaderCollection Headers { get; set; }
 
-        public virtual ICollection<string> Keys
-        {
-            get { return Headers.AllKeys; }
-        }
+        public virtual ICollection<string> Keys => Headers.AllKeys;
 
         public virtual ICollection<string[]> Values
         {
             get { return this.Select(pair => pair.Value).ToList(); }
         }
 
-        public int Count
-        {
-            get { return Keys.Count(); }
-        }
+        public int Count => Keys.Count();
 
-        public bool IsReadOnly
-        {
-            get { return false; }
-        }
+        public bool IsReadOnly => false;
 
         public string[] this[string key]
         {
@@ -50,13 +41,10 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
 
         public virtual bool Remove(string key)
         {
-            if (ContainsKey(key))
-            {
-                Headers.Remove(key);
-                return true;
-            }
+            if (!ContainsKey(key)) return false;
 
-            return false;
+            Headers.Remove(key);
+            return true;
         }
 
         protected virtual void RemoveSilent(string header)
@@ -68,7 +56,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         {
             if (key == null)
             {
-                throw new ArgumentNullException("key");
+                throw new ArgumentNullException(nameof(key));
             }
 
             string[] values;
@@ -84,7 +72,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         {
             if (key == null)
             {
-                throw new ArgumentNullException("key");
+                throw new ArgumentNullException(nameof(key));
             }
 
             if (value == null || value.Length == 0)
@@ -110,7 +98,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         {
             if (values == null)
             {
-                throw new ArgumentNullException("values");
+                throw new ArgumentNullException(nameof(values));
             }
 
             if (ContainsKey(key))
@@ -164,11 +152,11 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         {
             if (array == null)
             {
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             }
             if (arrayIndex > Count - array.Length)
             {
-                throw new ArgumentOutOfRangeException("arrayIndex", arrayIndex, string.Empty);
+                throw new ArgumentOutOfRangeException(nameof(arrayIndex), arrayIndex, string.Empty);
             }
 
             foreach (var item in this)

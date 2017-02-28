@@ -41,7 +41,7 @@
         public ValidateClientAuthenticationContext(HttpListenerContext httpContext)
         {
             if (httpContext == null)
-                throw new ArgumentNullException("Context is null", "httpContext");
+                throw new ArgumentNullException(nameof(httpContext), "Context is null");
 
             HttpContext = httpContext;
             StandardClaims = new StandardClaims();

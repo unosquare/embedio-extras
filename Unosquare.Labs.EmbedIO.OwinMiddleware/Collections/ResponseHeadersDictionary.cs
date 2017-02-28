@@ -30,35 +30,19 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
             Headers = _response.Headers;
         }
 
-        private bool HasContentLength
-        {
-            get { return _response.ContentLength64 != 0; }
-        }
+        private bool HasContentLength => _response.ContentLength64 != 0;
 
-        private string[] ContentLength
-        {
-            get { return new[] { _response.ContentLength64.ToString(CultureInfo.InvariantCulture) }; }
-        }
+        private string[] ContentLength => new[] { _response.ContentLength64.ToString(CultureInfo.InvariantCulture) };
 
-        public override ICollection<string> Keys
-        {
-            get
-            {
-                if (HasContentLength)
-                {
-                    return base.Keys.Concat(new[] { Constants.ContentLengthHeader }).ToList();
-                }
-
-                return base.Keys;
-            }
-        }
+        public override ICollection<string> Keys => HasContentLength ? base.Keys.Concat(new[] { Constants.ContentLengthHeader }).ToList() : base.Keys;
 
         public override bool TryGetValue(string header, out string[] value)
         {
             if (header == null)
             {
-                throw new ArgumentNullException("header");
+                throw new ArgumentNullException(nameof(header));
             }
+
             if (header.Equals(Constants.ContentLengthHeader, StringComparison.OrdinalIgnoreCase))
             {
                 if (HasContentLength)
@@ -86,7 +70,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             // Some header values are restricted
@@ -128,7 +112,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
             // header was already validated.
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             // Some header values are restricted
@@ -183,7 +167,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         {
             if (header == null)
             {
-                throw new ArgumentNullException("header");
+                throw new ArgumentNullException(nameof(header));
             }
 
             if (!ContainsKey(header))
@@ -226,7 +210,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware.Collections
         {
             if (header == null)
             {
-                throw new ArgumentNullException("header");
+                throw new ArgumentNullException(nameof(header));
             }
 
             // Some header values are restricted

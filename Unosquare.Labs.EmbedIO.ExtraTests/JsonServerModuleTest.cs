@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
+using Unosquare.Labs.EmbedIO.ExtraTests.TestObjects;
 using Unosquare.Labs.EmbedIO.JsonServer;
 using Unosquare.Swan.Formatters;
 
@@ -149,7 +150,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
         public void DeletePost()
         {
             var indexRequest = (HttpWebRequest)WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts");
-            var total = 0;
+            int total;
 
             using (var response = (HttpWebResponse)indexRequest.GetResponse())
             {

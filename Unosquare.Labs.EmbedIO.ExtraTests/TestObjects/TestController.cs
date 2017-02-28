@@ -1,7 +1,7 @@
 ﻿namespace Unosquare.Labs.EmbedIO.ExtraTests.TestObjects
 {
     using System;
-    using Unosquare.Net;
+    using System.Net;
     using Unosquare.Labs.EmbedIO.Modules;
 
     public class TestController : WebApiController

@@ -1,4 +1,4 @@
-﻿namespace Unosquare.Labs.EmbedIO.ExtraTests
+﻿namespace Unosquare.Labs.EmbedIO.ExtraTests.TestObjects
 {
     using System.Collections.Generic;
     using System.IO;

@@ -56,7 +56,7 @@ namespace Unosquare.Labs.EmbedIOwin
                     return context.JsonResponse(People);
 
                 // otherwise, we need to parse the key and respond with the entity accordingly
-                int key = 0;
+                int key;
                 if (int.TryParse(lastSegment, out key) && People.Any(p => p.Key == key))
                 {
                     return context.JsonResponse(People.FirstOrDefault(p => p.Key == key));

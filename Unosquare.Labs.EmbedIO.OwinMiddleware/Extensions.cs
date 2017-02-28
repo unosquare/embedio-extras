@@ -45,7 +45,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
 
             if (app.Properties[WebModulesKey] is List<IWebModule>)
             {
-                (app.Properties[WebModulesKey] as List<IWebModule>).Add(new CorsModule(origins, headers, methods));
+                ((List<IWebModule>) app.Properties[WebModulesKey]).Add(new CorsModule(origins, headers, methods));
             }
 
             return app;
@@ -66,7 +66,7 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
 
             if (app.Properties[WebModulesKey] is List<IWebModule>)
             {
-                (app.Properties[WebModulesKey] as List<IWebModule>)
+                ((List<IWebModule>) app.Properties[WebModulesKey])
                     .Add(new WebApiModule().LoadApiControllers(assembly));
             }
 
@@ -93,16 +93,14 @@ namespace Unosquare.Labs.EmbedIO.OwinMiddleware
                 var sockerServers =
                     types.Where(x => x.BaseType == typeof (WebSocketsServer)).ToArray();
 
-                if (sockerServers.Any())
-                {
-                    foreach (var socketServer in sockerServers)
-                    {
-                        webSocketModule.RegisterWebSocketsServer(socketServer);
-                    }
+                if (!sockerServers.Any()) return app;
 
-                    (app.Properties[WebModulesKey] as List<IWebModule>).Add(webSocketModule);
+                foreach (var socketServer in sockerServers)
+                {
+                    webSocketModule.RegisterWebSocketsServer(socketServer);
                 }
 
+                ((List<IWebModule>) app.Properties[WebModulesKey]).Add(webSocketModule);
             }
 
             return app;

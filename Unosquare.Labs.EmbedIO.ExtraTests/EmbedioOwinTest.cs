@@ -49,7 +49,7 @@
             using (var ms = new MemoryStream())
             {
                 var buffer = new ArraySegment<byte>(new byte[8192]);
-                WebSocketReceiveResult result = null;
+                WebSocketReceiveResult result;
 
                 do
                 {

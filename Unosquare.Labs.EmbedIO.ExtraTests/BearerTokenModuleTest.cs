@@ -8,6 +8,7 @@
     using System.Threading;
     using Unosquare.Labs.EmbedIO.BearerToken;
     using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
+    using Unosquare.Labs.EmbedIO.ExtraTests.TestObjects;
     using Unosquare.Labs.EmbedIO.Markdown;
 
     public class BearerTokenModuleTest
@@ -27,19 +28,20 @@
             WebServer.RunAsync();
         }
 
-        [Test]
-        public void TestBasicAuthorizationServerProvider()
-        {
-            try
-            {
-                BasicProvider.ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
-                    .RunSynchronously();
-            }
-            catch (Exception ex)
-            {
-                Assert.AreEqual(ex.GetType(), typeof (ArgumentNullException));
-            }
-        }
+        // TODO: We need to split Test from OWIN
+        //[Test]
+        //public void TestBasicAuthorizationServerProvider()
+        //{
+        //    try
+        //    {
+        //        BasicProvider.ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
+        //            .RunSynchronously();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Assert.AreEqual(ex.GetType(), typeof (ArgumentNullException));
+        //    }
+        //}
 
         [Test]
         public void GetInvalidToken()
@@ -75,7 +77,7 @@
         [Test]
         public void GetValidToken()
         {
-            var token = string.Empty;
+            string token;
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
 
             var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + "token");
