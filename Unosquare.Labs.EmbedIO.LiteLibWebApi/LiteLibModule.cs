@@ -8,6 +8,7 @@ using Unosquare.Labs.LiteLib;
 using System.Reflection;
 using Unosquare.Swan.Formatters;
 using Unosquare.Swan;
+using System.Collections;
 
 namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 {
@@ -44,8 +45,11 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                 {
                     if (verb == HttpVerbs.Get)
                     {
+                        List<Hashtable> dataList = new List<Hashtable>();
                         var data = _dbInstance.Select<object>(table, "1=1");
-                        context.JsonResponse(data);
+                        foreach (var row in data) dataList.Add(((IDictionary<string, object>)row).ToHashTable());
+
+                        context.JsonResponse(dataList);
                         return true;
                     }
 
@@ -63,7 +67,9 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                 {
                     if (verb == HttpVerbs.Get)
                     {
-                        context.JsonResponse(_dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] }));
+                        var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
+                        var row = ((IDictionary<string, object>)data.First()).ToHashTable();
+                        context.JsonResponse(row);
                         return true;
                     }
 
@@ -105,7 +111,6 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                 return false;
             });
         }
-
         public override string Name => nameof(LiteLibModule<T>).Humanize();
     }
 
@@ -124,6 +129,13 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
             ICollection<KeyValuePair<string, object>> someObject = new ExpandoObject();
             someObject.AddRange(source);
             return someObject;
+        }
+
+        public static Hashtable ToHashTable(this IDictionary<string, object> source)
+        {
+            Hashtable someHashTable = new Hashtable();
+            foreach (var s in source) someHashTable.Add(s.Key, s.Value);
+            return someHashTable;
         }
     }
 }
