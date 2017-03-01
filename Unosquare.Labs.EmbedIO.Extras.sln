@@ -23,7 +23,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.Mark
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.Extra.Tests", "test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.xproj", "{4F67B835-9E7D-487A-BB72-7BB2352CA2A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.Labs.EmbedIO.LiteLibWebApi", "src\Unosquare.Labs.EmbedIO.LiteLibWebApi\Unosquare.Labs.EmbedIO.LiteLibWebApi.csproj", "{2893DE87-DF27-4518-8218-1FDA3CDFE8F5}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.LiteLibWebApi", "src\Unosquare.Labs.EmbedIO.LiteLibWebApi\Unosquare.Labs.EmbedIO.LiteLibWebApi.xproj", "{E5898073-C093-4ED9-AF58-784AAD405A1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{4F67B835-9E7D-487A-BB72-7BB2352CA2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F67B835-9E7D-487A-BB72-7BB2352CA2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F67B835-9E7D-487A-BB72-7BB2352CA2A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2893DE87-DF27-4518-8218-1FDA3CDFE8F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2893DE87-DF27-4518-8218-1FDA3CDFE8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2893DE87-DF27-4518-8218-1FDA3CDFE8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2893DE87-DF27-4518-8218-1FDA3CDFE8F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5898073-C093-4ED9-AF58-784AAD405A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5898073-C093-4ED9-AF58-784AAD405A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5898073-C093-4ED9-AF58-784AAD405A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5898073-C093-4ED9-AF58-784AAD405A1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +65,6 @@ Global
 		{EFACFA84-7ADE-4F61-8223-B0FE2EAFA130} = {28C9CC7E-CFC5-423C-B927-F04B708B0D7B}
 		{5B597A25-47A2-4912-939E-ADC2ABFFAC09} = {28C9CC7E-CFC5-423C-B927-F04B708B0D7B}
 		{4F67B835-9E7D-487A-BB72-7BB2352CA2A1} = {ABF66584-B7D8-4FB7-BD2B-A916166D0B7B}
-		{2893DE87-DF27-4518-8218-1FDA3CDFE8F5} = {28C9CC7E-CFC5-423C-B927-F04B708B0D7B}
+		{E5898073-C093-4ED9-AF58-784AAD405A1E} = {28C9CC7E-CFC5-423C-B927-F04B708B0D7B}
 	EndGlobalSection
 EndGlobal
