@@ -1,5 +1,6 @@
 ﻿{
   "title": "Unosquare EmbedIO Bearer Token Module",
+  "copyright": "Copyright © Unosquare 2013-2017",
   "version": "1.1.0-*",
 
   "dependencies": {

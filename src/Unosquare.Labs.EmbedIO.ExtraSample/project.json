@@ -1,5 +1,6 @@
 ﻿{
   "version": "1.0.0-*",
+  "copyright": "Copyright © Unosquare 2013-2017",
   "buildOptions": {
     "emitEntryPoint": true,
     "copyToOutput": [ "web" ]
@@ -23,6 +24,6 @@
       }
     },
     "net452": {},
-    "net46": {} 
+    "net46": {}
   }
 }
