@@ -2714,6 +2714,22 @@
           "netstandard1.6/Unosquare.Labs.EmbedIO.JsonServer.dll": {}
         }
       },
+      "Unosquare.Labs.EmbedIO.LiteLibWebApi/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "EmbedIO": "1.5.0",
+          "LiteLib": "0.12.0",
+          "Microsoft.CSharp": "4.3.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "netstandard1.6/Unosquare.Labs.EmbedIO.LiteLibWebApi.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/Unosquare.Labs.EmbedIO.LiteLibWebApi.dll": {}
+        }
+      },
       "Unosquare.Labs.EmbedIO.Markdown/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
@@ -2910,6 +2926,20 @@
           "net452/Unosquare.Labs.EmbedIO.JsonServer.dll": {}
         }
       },
+      "Unosquare.Labs.EmbedIO.LiteLibWebApi/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "EmbedIO": "1.5.0",
+          "LiteLib": "0.12.0"
+        },
+        "compile": {
+          "net452/Unosquare.Labs.EmbedIO.LiteLibWebApi.dll": {}
+        },
+        "runtime": {
+          "net452/Unosquare.Labs.EmbedIO.LiteLibWebApi.dll": {}
+        }
+      },
       "Unosquare.Labs.EmbedIO.Markdown/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.2",
@@ -3103,6 +3133,20 @@
         },
         "runtime": {
           "net46/Unosquare.Labs.EmbedIO.JsonServer.dll": {}
+        }
+      },
+      "Unosquare.Labs.EmbedIO.LiteLibWebApi/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6",
+        "dependencies": {
+          "EmbedIO": "1.5.0",
+          "LiteLib": "0.12.0"
+        },
+        "compile": {
+          "net46/Unosquare.Labs.EmbedIO.LiteLibWebApi.dll": {}
+        },
+        "runtime": {
+          "net46/Unosquare.Labs.EmbedIO.LiteLibWebApi.dll": {}
         }
       },
       "Unosquare.Labs.EmbedIO.Markdown/1.0.0": {
@@ -8571,6 +8615,11 @@
       "path": "../Unosquare.Labs.EmbedIO.JsonServer/project.json",
       "msbuildProject": "../Unosquare.Labs.EmbedIO.JsonServer/Unosquare.Labs.EmbedIO.JsonServer.xproj"
     },
+    "Unosquare.Labs.EmbedIO.LiteLibWebApi/1.0.0": {
+      "type": "project",
+      "path": "../Unosquare.Labs.EmbedIO.LiteLibWebApi/project.json",
+      "msbuildProject": "../Unosquare.Labs.EmbedIO.LiteLibWebApi/Unosquare.Labs.EmbedIO.LiteLibWebApi.xproj"
+    },
     "Unosquare.Labs.EmbedIO.Markdown/1.0.0": {
       "type": "project",
       "path": "../Unosquare.Labs.EmbedIO.Markdown/project.json",
@@ -8582,6 +8631,7 @@
       "LiteLib >= 0.12.0",
       "Unosquare.Labs.EmbedIO.BearerToken",
       "Unosquare.Labs.EmbedIO.JsonServer",
+      "Unosquare.Labs.EmbedIO.LiteLibWebApi",
       "Unosquare.Labs.EmbedIO.Markdown"
     ],
     ".NETCoreApp,Version=v1.0": [

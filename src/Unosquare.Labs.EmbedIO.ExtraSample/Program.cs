@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Unosquare.Labs.EmbedIO.BearerToken;
 using Unosquare.Labs.EmbedIO.JsonServer;
+using Unosquare.Labs.EmbedIO.LiteLibWebApi;
 using Unosquare.Labs.EmbedIO.Markdown;
 using Unosquare.Swan;
 
@@ -14,19 +15,7 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
         /// <value>
         /// The HTML root path.
         /// </value>
-        public static string WebRootPath
-        {
-            get
-            {
-#if DEBUG
-                // This lets you edit the files without restarting the server.
-                return Path.GetFullPath(Path.Combine(Runtime.EntryAssemblyDirectory, "..\\..\\web"));
-#else
-                // This is when you have deployed the server.
-                return Path.Combine(Runtime.EntryAssemblyDirectory, "html");
-#endif
-            }
-        }
+        public static string WebRootPath => Path.Combine(Runtime.EntryAssemblyDirectory, "web");
 
         /// <summary>
         /// Defines the entry point of the application.
@@ -47,11 +36,11 @@ namespace Unosquare.Labs.EmbedIO.ExtraSample
                 server.RegisterModule(new BearerTokenModule(basicAuthProvider, new[] {"/secure.html"}));
                 server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
                 server.RegisterModule(new MarkdownStaticModule(WebRootPath));
-                //server.RegisterModule(new LiteLibWebApi.LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+                server.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
                 server.RunAsync();
 
                 // Fire up the browser to show the content if we are debugging!
-#if DEBUG
+#if DEBUG && NET452
                 var browser = new System.Diagnostics.Process()
                 {
                     StartInfo = new System.Diagnostics.ProcessStartInfo(url) {UseShellExecute = true}
