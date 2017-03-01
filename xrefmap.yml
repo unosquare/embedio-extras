@@ -1,3 +1,899 @@
 ### YamlMime:XRefMap
 sorted: true
-references: []
+references:
+- uid: Unosquare.Labs.EmbedIO.BearerToken
+  name: Unosquare.Labs.EmbedIO.BearerToken
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.html
+  commentId: N:Unosquare.Labs.EmbedIO.BearerToken
+  fullName: Unosquare.Labs.EmbedIO.BearerToken
+  nameWithType: Unosquare.Labs.EmbedIO.BearerToken
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider
+  name: BasicAuthorizationServerProvider
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html
+  commentId: T:Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider
+  nameWithType: BasicAuthorizationServerProvider
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate
+  name: GetExpirationDate()
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate()
+  nameWithType: BasicAuthorizationServerProvider.GetExpirationDate()
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate*
+  name: GetExpirationDate
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate
+  nameWithType: BasicAuthorizationServerProvider.GetExpirationDate
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)
+  name: ValidateClientAuthentication(ValidateClientAuthenticationContext)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)
+  nameWithType: BasicAuthorizationServerProvider.ValidateClientAuthentication(ValidateClientAuthenticationContext)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication*
+  name: ValidateClientAuthentication
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication
+  nameWithType: BasicAuthorizationServerProvider.ValidateClientAuthentication
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken
+  name: BearerToken
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html
+  commentId: T:Unosquare.Labs.EmbedIO.BearerToken.BearerToken
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken
+  nameWithType: BearerToken
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate
+  name: ExpirationDate
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_ExpirationDate
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate
+  nameWithType: BearerToken.ExpirationDate
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate*
+  name: ExpirationDate
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_ExpirationDate_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate
+  nameWithType: BearerToken.ExpirationDate
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token
+  name: Token
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Token
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token
+  nameWithType: BearerToken.Token
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token*
+  name: Token
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Token_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token
+  nameWithType: BearerToken.Token
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType
+  name: TokenType
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_TokenType
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType
+  nameWithType: BearerToken.TokenType
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType*
+  name: TokenType
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_TokenType_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType
+  nameWithType: BearerToken.TokenType
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username
+  name: Username
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Username
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username
+  nameWithType: BearerToken.Username
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username*
+  name: Username
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Username_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username
+  nameWithType: BearerToken.Username
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule
+  name: BearerTokenModule
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html
+  commentId: T:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule
+  nameWithType: BearerTokenModule
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,IEnumerable{System.String},SymmetricSecurityKey)
+  name: BearerTokenModule(IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_IEnumerable_System_String__SymmetricSecurityKey_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,IEnumerable{System.String},SymmetricSecurityKey)
+  name.vb: BearerTokenModule(IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, IEnumerable<System.String>, SymmetricSecurityKey)
+  fullName.vb: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, IEnumerable(Of System.String), SymmetricSecurityKey)
+  nameWithType: BearerTokenModule.BearerTokenModule(IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey)
+  nameWithType.vb: BearerTokenModule.BearerTokenModule(IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor*
+  name: BearerTokenModule
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule
+  nameWithType: BearerTokenModule.BearerTokenModule
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
+  nameWithType: BearerTokenModule.Name
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name*
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
+  nameWithType: BearerTokenModule.Name
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions
+  name: Extensions
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html
+  commentId: T:Unosquare.Labs.EmbedIO.BearerToken.Extensions
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions
+  nameWithType: Extensions
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)
+  name: GetValidationContext(HttpListenerContext)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_HttpListenerContext_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)
+  nameWithType: Extensions.GetValidationContext(HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext*
+  name: GetValidationContext
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext
+  nameWithType: Extensions.GetValidationContext
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(HttpListenerContext)
+  name: Rejected(HttpListenerContext)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_HttpListenerContext_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(HttpListenerContext)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(HttpListenerContext)
+  nameWithType: Extensions.Rejected(HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected*
+  name: Rejected
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected
+  nameWithType: Extensions.Rejected
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)
+  name: UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_WebServer_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)
+  name.vb: UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer, Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable<System.String>, SymmetricSecurityKey)
+  fullName.vb: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer, Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable(Of System.String), SymmetricSecurityKey)
+  nameWithType: Extensions.UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey)
+  nameWithType.vb: Extensions.UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken*
+  name: UseBearerToken
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken
+  nameWithType: Extensions.UseBearerToken
+- uid: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider
+  name: IAuthorizationServerProvider
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html
+  commentId: T:Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider
+  nameWithType: IAuthorizationServerProvider
+- uid: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate
+  name: GetExpirationDate()
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_GetExpirationDate
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate()
+  nameWithType: IAuthorizationServerProvider.GetExpirationDate()
+- uid: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate*
+  name: GetExpirationDate
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_GetExpirationDate_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate
+  nameWithType: IAuthorizationServerProvider.GetExpirationDate
+- uid: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)
+  name: ValidateClientAuthentication(ValidateClientAuthenticationContext)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_ValidateClientAuthentication_Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)
+  nameWithType: IAuthorizationServerProvider.ValidateClientAuthentication(ValidateClientAuthenticationContext)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication*
+  name: ValidateClientAuthentication
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_ValidateClientAuthentication_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication
+  nameWithType: IAuthorizationServerProvider.ValidateClientAuthentication
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext
+  name: ValidateClientAuthenticationContext
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html
+  commentId: T:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext
+  nameWithType: ValidateClientAuthenticationContext
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(HttpListenerContext)
+  name: ValidateClientAuthenticationContext(HttpListenerContext)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_HttpListenerContext_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(HttpListenerContext)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ValidateClientAuthenticationContext(HttpListenerContext)
+  nameWithType: ValidateClientAuthenticationContext.ValidateClientAuthenticationContext(HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor*
+  name: ValidateClientAuthenticationContext
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ValidateClientAuthenticationContext
+  nameWithType: ValidateClientAuthenticationContext.ValidateClientAuthenticationContext
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
+  name: ClientId
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ClientId
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
+  nameWithType: ValidateClientAuthenticationContext.ClientId
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId*
+  name: ClientId
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ClientId_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
+  nameWithType: ValidateClientAuthenticationContext.ClientId
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
+  name: GetToken(SymmetricSecurityKey)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_SymmetricSecurityKey_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
+  nameWithType: ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken*
+  name: GetToken
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken
+  nameWithType: ValidateClientAuthenticationContext.GetToken
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError
+  name: HasError
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HasError
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError
+  nameWithType: ValidateClientAuthenticationContext.HasError
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError*
+  name: HasError
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HasError_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError
+  nameWithType: ValidateClientAuthenticationContext.HasError
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
+  name: HttpContext
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HttpContext
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
+  nameWithType: ValidateClientAuthenticationContext.HttpContext
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext*
+  name: HttpContext
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HttpContext_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
+  nameWithType: ValidateClientAuthenticationContext.HttpContext
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
+  name: IsValidated
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_IsValidated
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
+  nameWithType: ValidateClientAuthenticationContext.IsValidated
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated*
+  name: IsValidated
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_IsValidated_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
+  nameWithType: ValidateClientAuthenticationContext.IsValidated
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected
+  name: Rejected()
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Rejected
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected()
+  nameWithType: ValidateClientAuthenticationContext.Rejected()
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected*
+  name: Rejected
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Rejected_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected
+  nameWithType: ValidateClientAuthenticationContext.Rejected
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
+  name: StandardClaims
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_StandardClaims
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
+  nameWithType: ValidateClientAuthenticationContext.StandardClaims
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims*
+  name: StandardClaims
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_StandardClaims_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
+  nameWithType: ValidateClientAuthenticationContext.StandardClaims
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
+  name: Validated()
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated()
+  nameWithType: ValidateClientAuthenticationContext.Validated()
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated(System.String)
+  name: Validated(String)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated_System_String_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated(System.String)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated(System.String)
+  nameWithType: ValidateClientAuthenticationContext.Validated(String)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated*
+  name: Validated
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
+  nameWithType: ValidateClientAuthenticationContext.Validated
+- uid: Unosquare.Labs.EmbedIO.JsonServer
+  name: Unosquare.Labs.EmbedIO.JsonServer
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.html
+  commentId: N:Unosquare.Labs.EmbedIO.JsonServer
+  fullName: Unosquare.Labs.EmbedIO.JsonServer
+  nameWithType: Unosquare.Labs.EmbedIO.JsonServer
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule
+  name: JsonServerModule
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html
+  commentId: T:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule
+  nameWithType: JsonServerModule
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.#ctor(System.String,System.String)
+  name: JsonServerModule(String, String)
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule__ctor_System_String_System_String_
+  commentId: M:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.#ctor(System.String,System.String)
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonServerModule(System.String, System.String)
+  nameWithType: JsonServerModule.JsonServerModule(String, String)
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.#ctor*
+  name: JsonServerModule
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule__ctor_
+  commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.#ctor
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonServerModule
+  nameWithType: JsonServerModule.JsonServerModule
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
+  name: Data
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Data
+  commentId: P:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
+  nameWithType: JsonServerModule.Data
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data*
+  name: Data
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Data_
+  commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
+  nameWithType: JsonServerModule.Data
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath
+  name: JsonPath
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_JsonPath
+  commentId: P:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath
+  nameWithType: JsonServerModule.JsonPath
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath*
+  name: JsonPath
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_JsonPath_
+  commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath
+  nameWithType: JsonServerModule.JsonPath
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Name
+  commentId: P:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
+  nameWithType: JsonServerModule.Name
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name*
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Name_
+  commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
+  nameWithType: JsonServerModule.Name
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
+  name: UpdateDataStore(Object)
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_System_Object_
+  commentId: M:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
+  nameWithType: JsonServerModule.UpdateDataStore(Object)
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore*
+  name: UpdateDataStore
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_
+  commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore
+  nameWithType: JsonServerModule.UpdateDataStore
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi
+  name: Unosquare.Labs.EmbedIO.LiteLibWebApi
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.html
+  commentId: N:Unosquare.Labs.EmbedIO.LiteLibWebApi
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi
+  nameWithType: Unosquare.Labs.EmbedIO.LiteLibWebApi
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions
+  name: Extensions
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html
+  commentId: T:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions
+  nameWithType: Extensions
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.AddRange*
+  name: AddRange
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_AddRange_
+  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.AddRange
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.AddRange
+  nameWithType: Extensions.AddRange
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.AddRange``1(ICollection{``0},IEnumerable{``0})
+  name: AddRange<T>(ICollection<T>, IEnumerable<T>)
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_AddRange__1_ICollection___0__IEnumerable___0__
+  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.AddRange``1(ICollection{``0},IEnumerable{``0})
+  name.vb: AddRange(Of T)(ICollection(Of T), IEnumerable(Of T))
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.AddRange<T>(ICollection<T>, IEnumerable<T>)
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.AddRange(Of T)(ICollection(Of T), IEnumerable(Of T))
+  nameWithType: Extensions.AddRange<T>(ICollection<T>, IEnumerable<T>)
+  nameWithType.vb: Extensions.AddRange(Of T)(ICollection(Of T), IEnumerable(Of T))
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary{System.String,System.Object})
+  name: ToDynamicObject(IDictionary<String, Object>)
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToDynamicObject_IDictionary_System_String_System_Object__
+  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary{System.String,System.Object})
+  name.vb: ToDynamicObject(IDictionary(Of String, Object))
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary<System.String, System.Object>)
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary(Of System.String, System.Object))
+  nameWithType: Extensions.ToDynamicObject(IDictionary<String, Object>)
+  nameWithType.vb: Extensions.ToDynamicObject(IDictionary(Of String, Object))
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject*
+  name: ToDynamicObject
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToDynamicObject_
+  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject
+  nameWithType: Extensions.ToDynamicObject
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary{System.String,System.Object})
+  name: ToHashTable(IDictionary<String, Object>)
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToHashTable_IDictionary_System_String_System_Object__
+  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary{System.String,System.Object})
+  name.vb: ToHashTable(IDictionary(Of String, Object))
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary<System.String, System.Object>)
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary(Of System.String, System.Object))
+  nameWithType: Extensions.ToHashTable(IDictionary<String, Object>)
+  nameWithType.vb: Extensions.ToHashTable(IDictionary(Of String, Object))
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable*
+  name: ToHashTable
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToHashTable_
+  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable
+  nameWithType: Extensions.ToHashTable
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1
+  name: LiteLibModule<T>
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html
+  commentId: T:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1
+  name.vb: LiteLibModule(Of T)
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T)
+  nameWithType: LiteLibModule<T>
+  nameWithType.vb: LiteLibModule(Of T)
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor(`0,System.String)
+  name: LiteLibModule(T, String)
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1__ctor__0_System_String_
+  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor(`0,System.String)
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.LiteLibModule(T, System.String)
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).LiteLibModule(T, System.String)
+  nameWithType: LiteLibModule<T>.LiteLibModule(T, String)
+  nameWithType.vb: LiteLibModule(Of T).LiteLibModule(T, String)
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor*
+  name: LiteLibModule
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1__ctor_
+  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.LiteLibModule
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).LiteLibModule
+  nameWithType: LiteLibModule<T>.LiteLibModule
+  nameWithType.vb: LiteLibModule(Of T).LiteLibModule
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Name
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Name
+  commentId: P:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Name
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.Name
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).Name
+  nameWithType: LiteLibModule<T>.Name
+  nameWithType.vb: LiteLibModule(Of T).Name
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Name*
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Name_
+  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Name
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.Name
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).Name
+  nameWithType: LiteLibModule<T>.Name
+  nameWithType.vb: LiteLibModule(Of T).Name
+- uid: Unosquare.Labs.EmbedIO.Markdown
+  name: Unosquare.Labs.EmbedIO.Markdown
+  href: api/Unosquare.Labs.EmbedIO.Markdown.html
+  commentId: N:Unosquare.Labs.EmbedIO.Markdown
+  fullName: Unosquare.Labs.EmbedIO.Markdown
+  nameWithType: Unosquare.Labs.EmbedIO.Markdown
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule
+  name: MarkdownStaticModule
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html
+  commentId: T:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule
+  nameWithType: MarkdownStaticModule
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.#ctor(System.String)
+  name: MarkdownStaticModule(String)
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule__ctor_System_String_
+  commentId: M:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.#ctor(System.String)
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.MarkdownStaticModule(System.String)
+  nameWithType: MarkdownStaticModule.MarkdownStaticModule(String)
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.#ctor*
+  name: MarkdownStaticModule
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule__ctor_
+  commentId: Overload:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.#ctor
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.MarkdownStaticModule
+  nameWithType: MarkdownStaticModule.MarkdownStaticModule
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument
+  name: DefaultDocument
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_DefaultDocument
+  commentId: P:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument
+  nameWithType: MarkdownStaticModule.DefaultDocument
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument*
+  name: DefaultDocument
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_DefaultDocument_
+  commentId: Overload:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument
+  nameWithType: MarkdownStaticModule.DefaultDocument
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocumentName
+  name: DefaultDocumentName
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_DefaultDocumentName
+  commentId: F:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocumentName
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocumentName
+  nameWithType: MarkdownStaticModule.DefaultDocumentName
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath
+  name: FileSystemPath
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_FileSystemPath
+  commentId: P:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath
+  nameWithType: MarkdownStaticModule.FileSystemPath
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath*
+  name: FileSystemPath
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_FileSystemPath_
+  commentId: Overload:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath
+  nameWithType: MarkdownStaticModule.FileSystemPath
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_Name
+  commentId: P:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name
+  nameWithType: MarkdownStaticModule.Name
+- uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name*
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_Name_
+  commentId: Overload:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name
+  fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name
+  nameWithType: MarkdownStaticModule.Name
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware
+  name: Unosquare.Labs.EmbedIO.OwinMiddleware
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.html
+  commentId: N:Unosquare.Labs.EmbedIO.OwinMiddleware
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware
+  nameWithType: Unosquare.Labs.EmbedIO.OwinMiddleware
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions
+  name: Extensions
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html
+  commentId: T:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions
+  nameWithType: Extensions
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors(IAppBuilder,System.String,System.String,System.String)
+  name: UseEmbedIOCors(IAppBuilder, String, String, String)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseEmbedIOCors_IAppBuilder_System_String_System_String_System_String_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors(IAppBuilder,System.String,System.String,System.String)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors(IAppBuilder, System.String, System.String, System.String)
+  nameWithType: Extensions.UseEmbedIOCors(IAppBuilder, String, String, String)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors*
+  name: UseEmbedIOCors
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseEmbedIOCors_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors
+  nameWithType: Extensions.UseEmbedIOCors
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary{System.String,System.Object},HttpListenerContext)
+  name: UseHttpContext(IDictionary<String, Object>, HttpListenerContext)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseHttpContext_IDictionary_System_String_System_Object__HttpListenerContext_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary{System.String,System.Object},HttpListenerContext)
+  name.vb: UseHttpContext(IDictionary(Of String, Object), HttpListenerContext)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary<System.String, System.Object>, HttpListenerContext)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary(Of System.String, System.Object), HttpListenerContext)
+  nameWithType: Extensions.UseHttpContext(IDictionary<String, Object>, HttpListenerContext)
+  nameWithType.vb: Extensions.UseHttpContext(IDictionary(Of String, Object), HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext*
+  name: UseHttpContext
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseHttpContext_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext
+  nameWithType: Extensions.UseHttpContext
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,Func{IAppBuilder,IAppBuilder})
+  name: UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseOwin_WebServer_Func_IAppBuilder_IAppBuilder__
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,Func{IAppBuilder,IAppBuilder})
+  name.vb: UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
+  nameWithType: Extensions.UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
+  nameWithType.vb: Extensions.UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin*
+  name: UseOwin
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseOwin_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin
+  nameWithType: Extensions.UseOwin
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi(IAppBuilder,Assembly)
+  name: UseWebApi(IAppBuilder, Assembly)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebApi_IAppBuilder_Assembly_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi(IAppBuilder,Assembly)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi(IAppBuilder, Assembly)
+  nameWithType: Extensions.UseWebApi(IAppBuilder, Assembly)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi*
+  name: UseWebApi
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebApi_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi
+  nameWithType: Extensions.UseWebApi
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Assembly)
+  name: UseWebSocket(IAppBuilder, Assembly)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebSocket_IAppBuilder_Assembly_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Assembly)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder, Assembly)
+  nameWithType: Extensions.UseWebSocket(IAppBuilder, Assembly)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Type)
+  name: UseWebSocket(IAppBuilder, Type)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebSocket_IAppBuilder_Type_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Type)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder, Type)
+  nameWithType: Extensions.UseWebSocket(IAppBuilder, Type)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket*
+  name: UseWebSocket
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebSocket_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket
+  nameWithType: Extensions.UseWebSocket
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.WebModulesKey
+  name: WebModulesKey
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_WebModulesKey
+  commentId: F:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.WebModulesKey
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.WebModulesKey
+  nameWithType: Extensions.WebModulesKey
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin
+  name: MiddlewareOwin
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html
+  commentId: T:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin
+  nameWithType: MiddlewareOwin
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.#ctor(System.Func{System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.Tasks.Task},System.Collections.Generic.IDictionary{System.String,System.Object})
+  name: MiddlewareOwin(Func<IDictionary<String, Object>, Task>, IDictionary<String, Object>)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html#Unosquare_Labs_EmbedIO_OwinMiddleware_MiddlewareOwin__ctor_System_Func_System_Collections_Generic_IDictionary_System_String_System_Object__System_Threading_Tasks_Task__System_Collections_Generic_IDictionary_System_String_System_Object__
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.#ctor(System.Func{System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.Tasks.Task},System.Collections.Generic.IDictionary{System.String,System.Object})
+  name.vb: MiddlewareOwin(Func(Of IDictionary(Of String, Object), Task), IDictionary(Of String, Object))
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.MiddlewareOwin(System.Func<System.Collections.Generic.IDictionary<System.String, System.Object>, System.Threading.Tasks.Task>, System.Collections.Generic.IDictionary<System.String, System.Object>)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.MiddlewareOwin(System.Func(Of System.Collections.Generic.IDictionary(Of System.String, System.Object), System.Threading.Tasks.Task), System.Collections.Generic.IDictionary(Of System.String, System.Object))
+  nameWithType: MiddlewareOwin.MiddlewareOwin(Func<IDictionary<String, Object>, Task>, IDictionary<String, Object>)
+  nameWithType.vb: MiddlewareOwin.MiddlewareOwin(Func(Of IDictionary(Of String, Object), Task), IDictionary(Of String, Object))
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.#ctor*
+  name: MiddlewareOwin
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html#Unosquare_Labs_EmbedIO_OwinMiddleware_MiddlewareOwin__ctor_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.#ctor
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.MiddlewareOwin
+  nameWithType: MiddlewareOwin.MiddlewareOwin
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Environment
+  name: Environment
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html#Unosquare_Labs_EmbedIO_OwinMiddleware_MiddlewareOwin_Environment
+  commentId: F:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Environment
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Environment
+  nameWithType: MiddlewareOwin.Environment
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Invoke(MiddlewareContext)
+  name: Invoke(MiddlewareContext)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html#Unosquare_Labs_EmbedIO_OwinMiddleware_MiddlewareOwin_Invoke_MiddlewareContext_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Invoke(MiddlewareContext)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Invoke(MiddlewareContext)
+  nameWithType: MiddlewareOwin.Invoke(MiddlewareContext)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Invoke*
+  name: Invoke
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html#Unosquare_Labs_EmbedIO_OwinMiddleware_MiddlewareOwin_Invoke_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Invoke
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Invoke
+  nameWithType: MiddlewareOwin.Invoke
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.OwinApp
+  name: OwinApp
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html#Unosquare_Labs_EmbedIO_OwinMiddleware_MiddlewareOwin_OwinApp
+  commentId: F:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.OwinApp
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.OwinApp
+  nameWithType: MiddlewareOwin.OwinApp
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule
+  name: OwinModule
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html
+  commentId: T:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule
+  nameWithType: OwinModule
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.#ctor(System.Func{IAppBuilder,IAppBuilder})
+  name: OwinModule(Func<IAppBuilder, IAppBuilder>)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinModule__ctor_System_Func_IAppBuilder_IAppBuilder__
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.#ctor(System.Func{IAppBuilder,IAppBuilder})
+  name.vb: OwinModule(Func(Of IAppBuilder, IAppBuilder))
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.OwinModule(System.Func<IAppBuilder, IAppBuilder>)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.OwinModule(System.Func(Of IAppBuilder, IAppBuilder))
+  nameWithType: OwinModule.OwinModule(Func<IAppBuilder, IAppBuilder>)
+  nameWithType.vb: OwinModule.OwinModule(Func(Of IAppBuilder, IAppBuilder))
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.#ctor*
+  name: OwinModule
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinModule__ctor_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.#ctor
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.OwinModule
+  nameWithType: OwinModule.OwinModule
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinModule_Name
+  commentId: P:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name
+  nameWithType: OwinModule.Name
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name*
+  name: Name
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinModule_Name_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name
+  nameWithType: OwinModule.Name
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory
+  name: OwinServerFactory
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html
+  commentId: T:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory
+  nameWithType: OwinServerFactory
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create(System.Func{System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.Tasks.Task},System.Collections.Generic.IDictionary{System.String,System.Object})
+  name: Create(Func<IDictionary<String, Object>, Task>, IDictionary<String, Object>)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinServerFactory_Create_System_Func_System_Collections_Generic_IDictionary_System_String_System_Object__System_Threading_Tasks_Task__System_Collections_Generic_IDictionary_System_String_System_Object__
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create(System.Func{System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.Tasks.Task},System.Collections.Generic.IDictionary{System.String,System.Object})
+  name.vb: Create(Func(Of IDictionary(Of String, Object), Task), IDictionary(Of String, Object))
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create(System.Func<System.Collections.Generic.IDictionary<System.String, System.Object>, System.Threading.Tasks.Task>, System.Collections.Generic.IDictionary<System.String, System.Object>)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create(System.Func(Of System.Collections.Generic.IDictionary(Of System.String, System.Object), System.Threading.Tasks.Task), System.Collections.Generic.IDictionary(Of System.String, System.Object))
+  nameWithType: OwinServerFactory.Create(Func<IDictionary<String, Object>, Task>, IDictionary<String, Object>)
+  nameWithType.vb: OwinServerFactory.Create(Func(Of IDictionary(Of String, Object), Task), IDictionary(Of String, Object))
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create*
+  name: Create
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinServerFactory_Create_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create
+  nameWithType: OwinServerFactory.Create
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize(System.Collections.Generic.IDictionary{System.String,System.Object})
+  name: Initialize(IDictionary<String, Object>)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinServerFactory_Initialize_System_Collections_Generic_IDictionary_System_String_System_Object__
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize(System.Collections.Generic.IDictionary{System.String,System.Object})
+  name.vb: Initialize(IDictionary(Of String, Object))
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize(System.Collections.Generic.IDictionary<System.String, System.Object>)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize(System.Collections.Generic.IDictionary(Of System.String, System.Object))
+  nameWithType: OwinServerFactory.Initialize(IDictionary<String, Object>)
+  nameWithType.vb: OwinServerFactory.Initialize(IDictionary(Of String, Object))
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize*
+  name: Initialize
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinServerFactory_Initialize_
+  commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize
+  nameWithType: OwinServerFactory.Initialize
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.ServerFactoryName
+  name: ServerFactoryName
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinServerFactory_ServerFactoryName
+  commentId: F:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.ServerFactoryName
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.ServerFactoryName
+  nameWithType: OwinServerFactory.ServerFactoryName
+- uid: Unosquare.Labs.EmbedIOwin
+  name: Unosquare.Labs.EmbedIOwin
+  href: api/Unosquare.Labs.EmbedIOwin.html
+  commentId: N:Unosquare.Labs.EmbedIOwin
+  fullName: Unosquare.Labs.EmbedIOwin
+  nameWithType: Unosquare.Labs.EmbedIOwin
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController
+  name: PeopleController
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.html
+  commentId: T:Unosquare.Labs.EmbedIOwin.PeopleController
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController
+  nameWithType: PeopleController
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.GetPeople(WebServer,HttpListenerContext)
+  name: GetPeople(WebServer, HttpListenerContext)
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.html#Unosquare_Labs_EmbedIOwin_PeopleController_GetPeople_WebServer_HttpListenerContext_
+  commentId: M:Unosquare.Labs.EmbedIOwin.PeopleController.GetPeople(WebServer,HttpListenerContext)
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.GetPeople(WebServer, HttpListenerContext)
+  nameWithType: PeopleController.GetPeople(WebServer, HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.GetPeople*
+  name: GetPeople
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.html#Unosquare_Labs_EmbedIOwin_PeopleController_GetPeople_
+  commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.GetPeople
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.GetPeople
+  nameWithType: PeopleController.GetPeople
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.People
+  name: People
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.html#Unosquare_Labs_EmbedIOwin_PeopleController_People
+  commentId: F:Unosquare.Labs.EmbedIOwin.PeopleController.People
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.People
+  nameWithType: PeopleController.People
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person
+  name: PeopleController.Person
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html
+  commentId: T:Unosquare.Labs.EmbedIOwin.PeopleController.Person
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person
+  nameWithType: PeopleController.Person
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Age
+  name: Age
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Age
+  commentId: P:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Age
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Age
+  nameWithType: PeopleController.Person.Age
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Age*
+  name: Age
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Age_
+  commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Age
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Age
+  nameWithType: PeopleController.Person.Age
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress
+  name: EmailAddress
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_EmailAddress
+  commentId: P:Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress
+  nameWithType: PeopleController.Person.EmailAddress
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress*
+  name: EmailAddress
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_EmailAddress_
+  commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress
+  nameWithType: PeopleController.Person.EmailAddress
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key
+  name: Key
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Key
+  commentId: P:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key
+  nameWithType: PeopleController.Person.Key
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key*
+  name: Key
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Key_
+  commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key
+  nameWithType: PeopleController.Person.Key
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name
+  name: Name
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Name
+  commentId: P:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name
+  nameWithType: PeopleController.Person.Name
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name*
+  name: Name
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Name_
+  commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name
+  nameWithType: PeopleController.Person.Name
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl
+  name: PhotoUrl
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_PhotoUrl
+  commentId: P:Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl
+  nameWithType: PeopleController.Person.PhotoUrl
+- uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl*
+  name: PhotoUrl
+  href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_PhotoUrl_
+  commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl
+  fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl
+  nameWithType: PeopleController.Person.PhotoUrl
+- uid: Unosquare.Labs.EmbedIOwin.Program
+  name: Program
+  href: api/Unosquare.Labs.EmbedIOwin.Program.html
+  commentId: T:Unosquare.Labs.EmbedIOwin.Program
+  fullName: Unosquare.Labs.EmbedIOwin.Program
+  nameWithType: Program
+- uid: Unosquare.Labs.EmbedIOwin.Startup
+  name: Startup
+  href: api/Unosquare.Labs.EmbedIOwin.Startup.html
+  commentId: T:Unosquare.Labs.EmbedIOwin.Startup
+  fullName: Unosquare.Labs.EmbedIOwin.Startup
+  nameWithType: Startup
+- uid: Unosquare.Labs.EmbedIOwin.Startup.Configuration(IAppBuilder)
+  name: Configuration(IAppBuilder)
+  href: api/Unosquare.Labs.EmbedIOwin.Startup.html#Unosquare_Labs_EmbedIOwin_Startup_Configuration_IAppBuilder_
+  commentId: M:Unosquare.Labs.EmbedIOwin.Startup.Configuration(IAppBuilder)
+  fullName: Unosquare.Labs.EmbedIOwin.Startup.Configuration(IAppBuilder)
+  nameWithType: Startup.Configuration(IAppBuilder)
+- uid: Unosquare.Labs.EmbedIOwin.Startup.Configuration*
+  name: Configuration
+  href: api/Unosquare.Labs.EmbedIOwin.Startup.html#Unosquare_Labs_EmbedIOwin_Startup_Configuration_
+  commentId: Overload:Unosquare.Labs.EmbedIOwin.Startup.Configuration
+  fullName: Unosquare.Labs.EmbedIOwin.Startup.Configuration
+  nameWithType: Startup.Configuration
+- uid: Unosquare.Labs.EmbedIOwin.Startup.InitRoutes(IRouteTable)
+  name: InitRoutes(IRouteTable)
+  href: api/Unosquare.Labs.EmbedIOwin.Startup.html#Unosquare_Labs_EmbedIOwin_Startup_InitRoutes_IRouteTable_
+  commentId: M:Unosquare.Labs.EmbedIOwin.Startup.InitRoutes(IRouteTable)
+  fullName: Unosquare.Labs.EmbedIOwin.Startup.InitRoutes(IRouteTable)
+  nameWithType: Startup.InitRoutes(IRouteTable)
+- uid: Unosquare.Labs.EmbedIOwin.Startup.InitRoutes*
+  name: InitRoutes
+  href: api/Unosquare.Labs.EmbedIOwin.Startup.html#Unosquare_Labs_EmbedIOwin_Startup_InitRoutes_
+  commentId: Overload:Unosquare.Labs.EmbedIOwin.Startup.InitRoutes
+  fullName: Unosquare.Labs.EmbedIOwin.Startup.InitRoutes
+  nameWithType: Startup.InitRoutes
