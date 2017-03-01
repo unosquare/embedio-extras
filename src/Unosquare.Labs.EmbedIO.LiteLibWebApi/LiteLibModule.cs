@@ -9,6 +9,7 @@ using System.Reflection;
 using Unosquare.Swan.Formatters;
 using Unosquare.Swan;
 using System.Collections;
+using Unosquare.Swan.Reflection;
 
 namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 {
@@ -21,11 +22,11 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
         }
 
         private readonly T _dbInstance;
-        
+
         public LiteLibModule(T instance, string basePath = "/api/")
         {
             _dbInstance = instance;
-            
+
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (server, context) =>
             {
                 var path = context.RequestPath();
@@ -33,7 +34,7 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 
                 if (path.StartsWith(basePath) == false)
                     return false;
-                
+
                 var parts = path.Substring(basePath.Length).Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
                 var dbSetType = _dbInstance.GetType().GetTypeInfo().Assembly.GetTypes().FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
@@ -45,22 +46,28 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                 {
                     if (verb == HttpVerbs.Get)
                     {
-                        List<Hashtable> dataList = new List<Hashtable>();
+                        List<object> dataList = new List<object>();
                         var data = _dbInstance.Select<object>(table, "1=1");
-                        foreach (var row in data) dataList.Add(((IDictionary<string, object>)row).ToHashTable());
-
+                        foreach (var row in data)
+                        {
+                            var objTable = Activator.CreateInstance(dbSetType);
+                            ((IDictionary<string, object>)row).CopyPropertiesFromDictionary(objTable, null);
+                            dataList.Add(objTable);
+                        }
                         context.JsonResponse(dataList);
                         return true;
                     }
 
-                    //if (verb == HttpVerbs.Post)
-                    //{
-                    //    var array = (IList<object>)table;
-                    //    array.Add(Json.Deserialize(context.RequestBody()));
-                    //    ThreadPool.QueueUserWorkItem(UpdateDataStore);
+                    if (verb == HttpVerbs.Post)
+                    {
+                        var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
+                        var objTable = Activator.CreateInstance(dbSetType);
+                        body.CopyPropertiesFromDictionary(objTable, null);
 
-                    //    return true;
-                    //}
+                        _dbInstance.Insert(objTable);
+
+                        return true;
+                    }
                 }
 
                 if (parts.Length == 2)
@@ -68,44 +75,35 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                     if (verb == HttpVerbs.Get)
                     {
                         var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
-                        var row = ((IDictionary<string, object>)data.First()).ToHashTable();
-                        context.JsonResponse(row);
+                        var objTable = Activator.CreateInstance(dbSetType);
+                        ((IDictionary<string, object>)data.First()).CopyPropertiesFromDictionary(objTable, null);
+                        context.JsonResponse(objTable);
                         return true;
                     }
 
-                    //foreach (dynamic row in table)
-                    //{
-                    //    if (row["id"].ToString() != parts[1]) continue;
+                    if (verb == HttpVerbs.Put)
+                    {
+                        var objTable = Activator.CreateInstance(dbSetType);
+                        var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
+                        ((IDictionary<string, object>)data.First()).CopyPropertiesFromDictionary(objTable, null);
+                        var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
+                        body.CopyPropertiesFromDictionary(objTable, new string[] { "RowId" });
 
-                    //    if (verb == HttpVerbs.Get)
-                    //    {
-                    //        context.JsonResponse((object)row);
-                    //        return true;
-                    //    }
+                        _dbInstance.Update(objTable);
 
-                        //if (verb == HttpVerbs.Put)
-                        //{
-                        //    var update = Json.Deserialize<Dictionary<string, object>>(context.RequestBody());
+                        return true;
+                    }
 
-                        //    foreach (var property in update)
-                        //    {
-                        //        row[property.Key] = property.Value;
-                        //    }
+                    if (verb == HttpVerbs.Delete)
+                    {
+                        var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
+                        var objTable = Activator.CreateInstance(dbSetType);
+                        ((IDictionary<string, object>)data.First()).CopyPropertiesFromDictionary(objTable, null);
 
-                        //    ThreadPool.QueueUserWorkItem(UpdateDataStore);
+                        _dbInstance.Delete(objTable);
 
-                        //    return true;
-                        //}
-
-                        //if (verb == HttpVerbs.Delete)
-                        //{
-                        //    var array = (IList<object>)table;
-                        //    array.Remove(row);
-                        //    ThreadPool.QueueUserWorkItem(UpdateDataStore);
-
-                        //    return true;
-                        //}
-                    //}
+                        return true;
+                    }
                 }
 
                 return false;
@@ -124,18 +122,64 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
             }
         }
 
-        public static dynamic ToDynamicObject(this IDictionary<string, object> source)
+        public static int CopyPropertiesFromDictionary(this IDictionary<string, object> source, object target, string[] ignoreProperties)
         {
-            ICollection<KeyValuePair<string, object>> someObject = new ExpandoObject();
-            someObject.AddRange(source);
-            return someObject;
-        }
+            Lazy<PropertyTypeCache> CopyPropertiesTargets = new Lazy<PropertyTypeCache>(() => new PropertyTypeCache());
 
-        public static Hashtable ToHashTable(this IDictionary<string, object> source)
-        {
-            Hashtable someHashTable = new Hashtable();
-            foreach (var s in source) someHashTable.Add(s.Key, s.Value);
-            return someHashTable;
+            var copiedProperties = 0;
+
+            var targetType = target.GetType();
+            var targetProperties = CopyPropertiesTargets.Value.Retrieve(targetType, () =>
+            {
+                return targetType.GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .Where(x => x.CanWrite && Definitions.AllBasicTypes.Contains(x.PropertyType));
+            });
+
+            var targetPropertyNames = targetProperties.Select(t => t.Name.ToLowerInvariant());
+            var filteredSourceKeys = source
+                .Where(s => targetPropertyNames.Contains(s.Key.ToLowerInvariant()) && s.Value != null)
+                .ToArray();
+
+            var ignoredProperties = ignoreProperties?.Where(p => string.IsNullOrWhiteSpace(p) == false)
+                                        .Select(p => p.ToLowerInvariant())
+                                        .ToArray() ?? new string[] { };
+
+            foreach (var sourceKey in filteredSourceKeys)
+            {
+                var targetProperty = targetProperties.SingleOrDefault(s => s.Name.ToLowerInvariant() == sourceKey.Key.ToLowerInvariant());
+                if (targetProperty == null) continue;
+
+                if (ignoredProperties.Contains(targetProperty.Name.ToLowerInvariant()))
+                    continue;
+
+                try
+                {
+                    if (targetProperty.PropertyType == sourceKey.Value.GetType())
+                    {
+                        targetProperty.SetValue(target, sourceKey.Value);
+                        copiedProperties++;
+                        continue;
+                    }
+
+                    var sourceStringValue = sourceKey.Value.ToStringInvariant();
+
+                    if (targetProperty.PropertyType == typeof(Boolean))
+                        sourceStringValue = sourceStringValue == "1" ? "true" : "false";
+
+                    object targetValue;
+                    if (Definitions.BasicTypesInfo[targetProperty.PropertyType].TryParse(sourceStringValue, out targetValue))
+                    {
+                        targetProperty.SetValue(target, targetValue);
+                        copiedProperties++;
+                    }
+                }
+                catch
+                {
+                    // swallow
+                }
+            }
+
+            return copiedProperties;
         }
     }
 }
