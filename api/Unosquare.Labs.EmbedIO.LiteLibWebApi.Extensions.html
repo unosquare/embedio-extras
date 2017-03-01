@@ -167,13 +167,13 @@
               </table>
               
               
-              <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToDynamicObject_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject*"></a>
-              <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToDynamicObject_IDictionary_System_String_System_Object__" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary{System.String,System.Object})">ToDynamicObject(IDictionary&lt;String, Object&gt;)</h4>
+              <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_CopyPropertiesFromDictionary_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary*"></a>
+              <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_CopyPropertiesFromDictionary_IDictionary_System_String_System_Object__System_Object_System_String___" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary(IDictionary{System.String,System.Object},System.Object,System.String[])">CopyPropertiesFromDictionary(IDictionary&lt;String, Object&gt;, Object, String[])</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static dynamic ToDynamicObject(this IDictionary&lt;string, object&gt; source)</code></pre>
+                <pre><code class="lang-csharp hljs">public static int CopyPropertiesFromDictionary(this IDictionary&lt;string, object&gt; source, object target, string[] ignoreProperties)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -190,46 +190,14 @@
                     <td><span class="parametername">source</span></td>
                     <td></td>
                   </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
                   <tr>
                     <td><span class="xref">System.Object</span></td>
+                    <td><span class="parametername">target</span></td>
                     <td></td>
                   </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToHashTable_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable*"></a>
-              <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToHashTable_IDictionary_System_String_System_Object__" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary{System.String,System.Object})">ToHashTable(IDictionary&lt;String, Object&gt;)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static Hashtable ToHashTable(this IDictionary&lt;string, object&gt; source)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
                   <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
-                    <td><span class="parametername">source</span></td>
+                    <td><span class="xref">System.String</span>[]</td>
+                    <td><span class="parametername">ignoreProperties</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -244,7 +212,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">Hashtable</span></td>
+                    <td><span class="xref">System.Int32</span></td>
                     <td></td>
                   </tr>
                 </tbody>

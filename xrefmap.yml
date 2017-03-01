@@ -418,36 +418,21 @@ references:
   fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.AddRange(Of T)(ICollection(Of T), IEnumerable(Of T))
   nameWithType: Extensions.AddRange<T>(ICollection<T>, IEnumerable<T>)
   nameWithType.vb: Extensions.AddRange(Of T)(ICollection(Of T), IEnumerable(Of T))
-- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary{System.String,System.Object})
-  name: ToDynamicObject(IDictionary<String, Object>)
-  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToDynamicObject_IDictionary_System_String_System_Object__
-  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary{System.String,System.Object})
-  name.vb: ToDynamicObject(IDictionary(Of String, Object))
-  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary<System.String, System.Object>)
-  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject(IDictionary(Of System.String, System.Object))
-  nameWithType: Extensions.ToDynamicObject(IDictionary<String, Object>)
-  nameWithType.vb: Extensions.ToDynamicObject(IDictionary(Of String, Object))
-- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject*
-  name: ToDynamicObject
-  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToDynamicObject_
-  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject
-  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToDynamicObject
-  nameWithType: Extensions.ToDynamicObject
-- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary{System.String,System.Object})
-  name: ToHashTable(IDictionary<String, Object>)
-  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToHashTable_IDictionary_System_String_System_Object__
-  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary{System.String,System.Object})
-  name.vb: ToHashTable(IDictionary(Of String, Object))
-  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary<System.String, System.Object>)
-  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable(IDictionary(Of System.String, System.Object))
-  nameWithType: Extensions.ToHashTable(IDictionary<String, Object>)
-  nameWithType.vb: Extensions.ToHashTable(IDictionary(Of String, Object))
-- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable*
-  name: ToHashTable
-  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_ToHashTable_
-  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable
-  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.ToHashTable
-  nameWithType: Extensions.ToHashTable
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary(IDictionary{System.String,System.Object},System.Object,System.String[])
+  name: CopyPropertiesFromDictionary(IDictionary<String, Object>, Object, String[])
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_CopyPropertiesFromDictionary_IDictionary_System_String_System_Object__System_Object_System_String___
+  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary(IDictionary{System.String,System.Object},System.Object,System.String[])
+  name.vb: CopyPropertiesFromDictionary(IDictionary(Of String, Object), Object, String())
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary(IDictionary<System.String, System.Object>, System.Object, System.String[])
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary(IDictionary(Of System.String, System.Object), System.Object, System.String())
+  nameWithType: Extensions.CopyPropertiesFromDictionary(IDictionary<String, Object>, Object, String[])
+  nameWithType.vb: Extensions.CopyPropertiesFromDictionary(IDictionary(Of String, Object), Object, String())
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary*
+  name: CopyPropertiesFromDictionary
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_Extensions_CopyPropertiesFromDictionary_
+  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.Extensions.CopyPropertiesFromDictionary
+  nameWithType: Extensions.CopyPropertiesFromDictionary
 - uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1
   name: LiteLibModule<T>
   href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html
