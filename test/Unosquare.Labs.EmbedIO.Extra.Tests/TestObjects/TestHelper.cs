@@ -1,14 +1,14 @@
-﻿namespace Unosquare.Labs.EmbedIO.ExtraTests.TestObjects
-{
-    using System.Collections.Generic;
-    using System.IO;
-    using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 
+namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
+{
     public class TestHelper
     {
         public static string SetupStaticFolder()
         {
-            var assemblyPath = Path.GetDirectoryName(typeof (TestHelper).Assembly.Location);
+            var assemblyPath = Path.GetDirectoryName(typeof (TestHelper).GetTypeInfo().Assembly.Location);
             var rootPath = Path.Combine(assemblyPath, "web");
 
             if (Directory.Exists(rootPath) == false)
@@ -16,9 +16,9 @@
 
             var files = new Dictionary<string, string>()
             {
-                {"index.markdown", Resources.index},
-                {"secure.markdown", Resources.secure},
-                {"database.json", Resources.database}
+                {"index.markdown", IndexMarkdown},
+                {"secure.markdown", SecureMarkdown},
+                {"database.json", DatabaseJson}
             };
 
             foreach (var file in files)
@@ -29,5 +29,34 @@
 
             return rootPath;
         }
+
+        public static string IndexMarkdown = @"# Hello EmbedIO
+
+This is just a sample. [Go to help](/help.html).
+
+* Because I want.
+* Because bacon.
+
+If you are using testing Bearer Tokens, try to access to [secure page](/secure.html).
+
+[Visit EmbedIO](http://unosquare.github.io/embedio).
+
+[Check JSON API](/api/)";
+
+        public static string SecureMarkdown = @"# Secure
+
+You are using bearer token correctly.";
+
+        public static string DatabaseJson = @"{
+  ""posts"": [
+    { ""id"": 1, ""title"": ""json-server"", ""author"": ""typicode"" },
+    { ""id"": 2, ""title"": ""embedio"", ""author"": ""unosquare"" },
+    { ""id"": 3, ""title"": ""tubular"", ""author"": ""unosquare"" }
+  ],
+  ""comments"": [
+    { ""id"": 1, ""body"": ""some comment"", ""postId"": 1 },
+    { ""id"": 2, ""body"": ""some comment"", ""postId"": 2 }
+  ]
+}";
     }
 }

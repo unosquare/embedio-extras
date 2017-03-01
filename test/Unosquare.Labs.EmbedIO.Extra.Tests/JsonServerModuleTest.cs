@@ -1,21 +1,23 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
-using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
-using Unosquare.Labs.EmbedIO.ExtraTests.TestObjects;
+using System.Threading.Tasks;
+using NUnit.Framework;
+using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
 using Unosquare.Labs.EmbedIO.JsonServer;
 using Unosquare.Swan.Formatters;
 
-namespace Unosquare.Labs.EmbedIO.ExtraTests
+namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
+    [TestFixture]
     public class JsonServerModuleTest
     {
         protected string RootPath;
         protected string ApiPath = "api/";
+        protected string WebServerUrl;
         protected WebServer WebServer;
 
         [SetUp]
@@ -23,17 +25,18 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
         {
             RootPath = TestHelper.SetupStaticFolder();
 
-            WebServer = new WebServer(Resources.ServerAddress);
+            WebServerUrl = Resources.GetServerAddress();
+            WebServer = new WebServer(WebServerUrl);
             WebServer.RegisterModule(new JsonServerModule("/" + ApiPath, Path.Combine(RootPath, "database.json")));
             WebServer.RunAsync();
         }
 
         [Test]
-        public void GetAll()
+        public async Task GetAll()
         {
-            var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + ApiPath);
+            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath);
 
-            using (var response = (HttpWebResponse) request.GetResponse())
+            using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
@@ -46,11 +49,11 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
         }
 
         [Test]
-        public void GetAllPosts()
+        public async Task GetAllPosts()
         {
-            var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts");
+            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/posts");
 
-            using (var response = (HttpWebResponse) request.GetResponse())
+            using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
@@ -63,11 +66,11 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
         }
 
         [Test]
-        public void GetFirstPosts()
+        public async Task GetFirstPosts()
         {
-            var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts/1");
+            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/posts/1");
 
-            using (var response = (HttpWebResponse) request.GetResponse())
+            using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
@@ -77,30 +80,30 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 dynamic json = Json.Deserialize(jsonString);
 
                 Assert.IsNotNull(json);
-                Assert.AreEqual(json.GetValue("id", StringComparison.InvariantCultureIgnoreCase).ToString(), "1");
+                Assert.AreEqual(json.GetValue("id", StringComparison.OrdinalIgnoreCase).ToString(), "1");
             }
         }
 
         [Test]
-        public void AddPost()
+        public async Task AddPost()
         {
-            var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts");
+            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/posts");
             request.Method = "POST";
 
-            using (var dataStream = request.GetRequestStream())
+            using (var dataStream = await request.GetRequestStreamAsync())
             {
                 var byteArray = Encoding.UTF8.GetBytes("{ 'id': 4, 'title': 'tubular2', 'author': 'unosquare' }");
                 dataStream.Write(byteArray, 0, byteArray.Length);
             }
 
-            using (var response = (HttpWebResponse) request.GetResponse())
+            using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }
 
-            var indexRequest = (HttpWebRequest)WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts");
+            var indexRequest = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts");
 
-            using (var response = (HttpWebResponse)indexRequest.GetResponse())
+            using (var response = (HttpWebResponse) await indexRequest.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
@@ -114,25 +117,25 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
         }
 
         [Test]
-        public void PutPost()
+        public async Task PutPost()
         {
-            var request = (HttpWebRequest)WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts/1");
+            var request = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts/1");
             request.Method = "PUT";
 
-            using (var dataStream = request.GetRequestStream())
+            using (var dataStream = await request.GetRequestStreamAsync())
             {
                 var byteArray = Encoding.UTF8.GetBytes("{ 'id': 1, 'title': 'replace', 'author': 'unosquare' }");
                 dataStream.Write(byteArray, 0, byteArray.Length);
             }
 
-            using (var response = (HttpWebResponse)request.GetResponse())
+            using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }
 
-            var retrieveRequest = (HttpWebRequest)WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts/1");
+            var retrieveRequest = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts/1");
 
-            using (var response = (HttpWebResponse)retrieveRequest.GetResponse())
+            using (var response = (HttpWebResponse) await retrieveRequest.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
@@ -142,17 +145,17 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 dynamic json = Json.Deserialize(jsonString);
 
                 Assert.IsNotNull(json);
-                Assert.AreEqual(json.GetValue("title", StringComparison.InvariantCultureIgnoreCase).ToString(), "replace");
+                Assert.AreEqual(json.GetValue("title", StringComparison.OrdinalIgnoreCase).ToString(), "replace");
             }
         }
 
         [Test]
-        public void DeletePost()
+        public async Task DeletePost()
         {
-            var indexRequest = (HttpWebRequest)WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts");
+            var indexRequest = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts");
             int total;
 
-            using (var response = (HttpWebResponse)indexRequest.GetResponse())
+            using (var response = (HttpWebResponse) await indexRequest.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
@@ -163,17 +166,17 @@ namespace Unosquare.Labs.EmbedIO.ExtraTests
                 total = json.Count;
             }
 
-            var request = (HttpWebRequest)WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts/3");
+            var request = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts/3");
             request.Method = "DELETE";
 
-            using (var response = (HttpWebResponse)request.GetResponse())
+            using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }
 
-            indexRequest = (HttpWebRequest)WebRequest.Create(Resources.ServerAddress + ApiPath + "/posts");
+            indexRequest = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts");
 
-            using (var response = (HttpWebResponse)indexRequest.GetResponse())
+            using (var response = (HttpWebResponse) await indexRequest.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 

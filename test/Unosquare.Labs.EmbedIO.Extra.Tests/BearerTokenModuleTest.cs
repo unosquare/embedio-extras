@@ -1,33 +1,40 @@
-﻿namespace Unosquare.Labs.EmbedIO.ExtraTests
-{
-    using NUnit.Framework;
-    using Swan.Formatters;
-    using System;
-    using System.IO;
-    using System.Net;
-    using System.Threading;
-    using Unosquare.Labs.EmbedIO.BearerToken;
-    using Unosquare.Labs.EmbedIO.ExtraTests.Properties;
-    using Unosquare.Labs.EmbedIO.ExtraTests.TestObjects;
-    using Unosquare.Labs.EmbedIO.Markdown;
+﻿using System;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using NUnit.Framework;
+using Unosquare.Labs.EmbedIO.BearerToken;
+using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
+using Unosquare.Labs.EmbedIO.Markdown;
+using Unosquare.Swan.Formatters;
+using System.Net;
+#if !NET46
+using Unosquare.Net;
+#endif
 
+namespace Unosquare.Labs.EmbedIO.Extra.Tests
+{
+    [TestFixture]
     public class BearerTokenModuleTest
     {
         protected string RootPath;
         protected BasicAuthorizationServerProvider BasicProvider = new BasicAuthorizationServerProvider();
         protected WebServer WebServer;
+        protected string WebServerUrl;
 
         [SetUp]
         public void Init()
         {
             RootPath = TestHelper.SetupStaticFolder();
 
-            WebServer = new WebServer(Resources.ServerAddress);
+            WebServerUrl = Resources.GetServerAddress();
+            WebServer = new WebServer(WebServerUrl);
             WebServer.RegisterModule(new BearerTokenModule(BasicProvider));
             WebServer.RegisterModule(new MarkdownStaticModule(RootPath));
             WebServer.RunAsync();
         }
 
+#if !NET46
         [Test]
         public void TestBasicAuthorizationServerProvider()
         {
@@ -41,25 +48,24 @@
                 Assert.AreEqual(ex.GetType(), typeof(ArgumentNullException));
             }
         }
+#endif
 
         [Test]
-        public void GetInvalidToken()
+        public async Task GetInvalidToken()
         {
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=nothing");
 
-            var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + "token");
+            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + "token");
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = payload.Length;
-
-            using (var dataStream = request.GetRequestStream())
+            using (var dataStream = await request.GetRequestStreamAsync())
             {
                 dataStream.Write(payload, 0, payload.Length);
             }
 
             try
             {
-                var response = (HttpWebResponse) request.GetResponse();
+                var response = (HttpWebResponse) await request.GetResponseAsync();
             }
             catch (WebException ex)
             {
@@ -74,29 +80,28 @@
         }
 
         [Test]
-        public void GetValidToken()
+        public async Task GetValidToken()
         {
             string token;
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
 
-            var request = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + "token");
+            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + "token");
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = payload.Length;
 
-            using (var dataStream = request.GetRequestStream())
+            using (var dataStream = await request.GetRequestStreamAsync())
             {
                 dataStream.Write(payload, 0, payload.Length);
             }
 
-            using (var response = (HttpWebResponse) request.GetResponse())
+            using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 Assert.IsNotEmpty(jsonString);
 
-                var json = Json.Deserialize<BearerToken>(jsonString);
+                var json = Json.Deserialize<BearerToken.BearerToken>(jsonString);
                 Assert.IsNotNull(json);
                 Assert.IsNotEmpty(json.Token);
                 Assert.IsNotEmpty(json.Username);
@@ -104,11 +109,11 @@
                 token = json.Token;
             }
 
-            var indexRequest = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + "index.html");
+            var indexRequest = (HttpWebRequest) WebRequest.Create(WebServerUrl + "index.html");
 
             try
             {
-                using (var response = (HttpWebResponse) indexRequest.GetResponse())
+                using (var response = (HttpWebResponse) await indexRequest.GetResponseAsync())
                 {
                     Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 }
@@ -124,10 +129,10 @@
 
             }
 
-            indexRequest = (HttpWebRequest) WebRequest.Create(Resources.ServerAddress + "index.html");
-            indexRequest.Headers.Add("Authorization", "Bearer " + token);
+            indexRequest = (HttpWebRequest) WebRequest.Create(WebServerUrl + "index.html");
+            indexRequest.Headers["Authorization"] = "Bearer " + token;
 
-            using (var response = (HttpWebResponse) indexRequest.GetResponse())
+            using (var response = (HttpWebResponse) await indexRequest.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }
