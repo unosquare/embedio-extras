@@ -1,0 +1,27 @@
+﻿{
+  "title": "Unosquare EmbedIO Bearer Token Module",
+  "version": "1.1.0-*",
+
+  "dependencies": {
+    "EmbedIO": "1.5.0",
+    "System.IdentityModel.Tokens.Jwt": "5.1.3"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50",
+      "dependencies": {
+        "NETStandard.Library": "1.6.1"
+      }
+    },
+    "net452": {
+
+    },
+    "net46": {
+
+    }
+  },
+  "buildOptions": {
+    "xmlDoc": true
+  }
+}

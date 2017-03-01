@@ -1,0 +1,34 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "buildOptions": {
+    "copyToOutput": [ "web" ]
+  },
+  "testRunner": "nunit",
+
+  "dependencies": {
+    "dotnet-test-nunit": "3.4.0-beta-3",
+    "NUnit": "3.6.1",
+    "LiteLib": "0.12.0",
+    "Unosquare.Labs.EmbedIO.BearerToken": { "target": "project" },
+    "Unosquare.Labs.EmbedIO.JsonServer": { "target": "project" },
+    "Unosquare.Labs.EmbedIO.Markdown": { "target": "project" }
+  },
+
+  "frameworks": {
+    "netcoreapp1.1": {
+      "imports": "dnxcore50",
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.1"
+        }
+      }
+    },
+    "net452": {},
+    "net46": {}
+  },
+  "runtimes": {
+    "win81-x64": {}
+  }
+}

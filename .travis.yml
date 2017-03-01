@@ -1,30 +1,21 @@
 language: csharp
 solution: Unosquare.Labs.EmbedIO.Extras.sln
-mono:
-  - latest
-  - 4.2.1
+matrix:
+  include:
+    - os: linux
+      mono: latest
+      sudo: required
+    - os: linux
+      dotnet: 1.0.0-preview2-003131
+      mono: latest
+      env: DOTNETCORE=1
+      dist: trusty
+      sudo: false
 install:
-  - nuget restore Unosquare.Labs.EmbedIO.Extras.sln
-  - nuget install NUnit.ConsoleRunner -OutputDirectory testrunner
-  - nuget install coveralls.net -Version 0.6.0 -OutputDirectory coveralls
-  - sudo apt-get install gtk-sharp2
-  - curl -sS https://api.nuget.org/packages/mono.cecil.0.9.5.4.nupkg > /tmp/mono.cecil.0.9.5.4.nupkg.zip
-  - unzip /tmp/mono.cecil.0.9.5.4.nupkg.zip -d /tmp/cecil
-  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll .
-  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll /tmp/cecil/
-  - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../unosquare/monocov
-  - cd ../../unosquare/monocov
-  - cp /tmp/cecil/Mono.Cecil.dll .
-  - ./configure
-  - make
-  - sudo make install
-  - cd ../../unosquare/embedio-extras
+  - if [[ $DOTNETCORE == "1" ]]; then dotnet restore; else nuget restore Unosquare.Labs.EmbedIO.Extras.sln; fi
+  - if [[ $DOTNETCORE == "" ]]; then nuget install NUnit.ConsoleRunner -OutputDirectory testrunner; fi
+before_script:
+  - if [[ $DOTNETCORE == "" ]]; then export LD_LIBRARY_PATH=/usr/local/lib; fi
 script:
-  - xbuild Unosquare.Labs.EmbedIO.Extras.sln /p:"TargetFrameworkVersion=v4.5;Configuration=Release"
-  - export LD_LIBRARY_PATH=/usr/local/lib
-  - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+[Unosquare.Labs.EmbedIO.BearerToken],+[Unosquare.Labs.EmbedIO.OwinMiddleware],+[Unosquare.Labs.EmbedIO.JsonServer],+[Unosquare.Labs.EmbedIO.Markdown] ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe --process=Single ./Unosquare.Labs.EmbedIO.ExtraTests/bin/Release/Unosquare.Labs.EmbedIO.ExtraTests.dll
-  - monocov --export-xml=monocovCoverage monocovCoverage.cov
-  - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
-  - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
-  - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
-  - mono ./coveralls/coveralls.*/tools/csmacnz.Coveralls.exe --monocov -i ./monocovCoverage --repoToken BR9wit3mZF4JlNOnaXOUQKjWlZi3NYH4Y --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID --serviceName travis-ci --useRelativePaths
+  - if [[ $DOTNETCORE == "" ]]; then xbuild Unosquare.Labs.EmbedIO.Extras.sln /p:"TargetFrameworkVersion=v4.5;Configuration=Release"; else dotnet test ./test/Unosquare.Labs.EmbedIO.Extra.Tests -f netcoreapp1.1; fi
+  - if [[ $DOTNETCORE == "" ]]; then mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe --process=Single ./test/Unosquare.Labs.EmbedIO.Extra.Tests/bin/Release/Unosquare.Labs.EmbedIO.Extra.Tests.dll; fi
