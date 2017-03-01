@@ -11,11 +11,11 @@ environment:
   # Don't report back to the mothership
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
   COVERALLS_REPO_TOKEN:  
-       secure: 1Ce1wX4c2duHsRshiJRZFVIe6VI/r0WTAUG/tXuGFue9CmTI13NJRgZbl9irVKBA
+       secure: n2icO8IyqKYFitNKly4Hso3/yyRHe0pphXuOb3pCDTMcVc2Er6I2gWiCRS1YXwoJ
   op_build_user: "Geo Perez"
   op_build_user_email: "geovanni.perez@gmail.com"
   access_token:
-       secure: n2icO8IyqKYFitNKly4Hso3/yyRHe0pphXuOb3pCDTMcVc2Er6I2gWiCRS1YXwoJ
+       secure: HzWdswNyfQbQ0vLk9IQyO+Ei9mxoPYp9rvv6HPhtC9J/Fm7EHRzyV953pbPRXI9I
 init:
 - ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
 before_build:
