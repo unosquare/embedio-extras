@@ -5,6 +5,8 @@
 
 # EmbedIO Extras
 
+:star: *Please star this project if you find it useful!*
+
 Additional Modules showing how to extend EmbedIO. Feel free to use these modules in your projects.
 
 ## Bearer Token Module
@@ -30,9 +32,64 @@ server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
 PM> Install-Package EmbedIO.BearerToken
 ```
 
+## Json Server Module
+
+Based on the [JsonServer's](https://github.com/typicode/json-server) project, with this module you are able to simply specify a 
+JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. 
+
+```csharp
+// Create Webserver and attach Json's Server
+var server = WebServer.Create("http://localhost:9696/");
+server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@"c:\web", "database.json")));
+```
+
+Supported methods: 
+
+* GET collection (//yourhost/entity) 
+* GET single (//yourhost/entity/1 where 1 is the ID)
+* POST (//yourhost/entity with POST body the JSON object)
+* PUT (//yourhost/entity/1 with POST body the JSON object)
+* DELETE (//yourhost/entity/1 where 1 is the ID)
+
+## LiteLib WebAPI
+
+Similar to Json Server Module, but you can serve a sqlite file with all HTTP verbs.
+
+```csharp
+// Create Webserver and attach Json's Server
+var server = WebServer.Create("http://localhost:9696/");
+server.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+```
+
+Supported methods: 
+
+* GET collection (//yourhost/entity) 
+* GET single (//yourhost/entity/1 where 1 is the ID)
+* POST (//yourhost/entity with POST body the JSON object)
+* PUT (//yourhost/entity/1 with POST body the JSON object)
+* DELETE (//yourhost/entity/1 where 1 is the ID)
+
+
+### Nuget installation [![NuGet version](https://badge.fury.io/nu/EmbedIO.LiteLibWebApi.svg)](https://badge.fury.io/nu/EmbedIO.LiteLibWebApi)
+
+```
+PM> Install-Package EmbedIO.LiteLibWebApi
+```
+
+## Markdown Static Module
+
+The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. 
+It will accept markdown/html/htm extensions (This could become middleware later).
+
+```csharp
+// Create Webserver and attach Markdown Static Module
+var server = WebServer.Create("http://localhost:9696/");
+server.RegisterModule(new MarkdownStaticModule(@"c:\web"));
+```
+
 ## OWIN Integration
 
-EmbedIO can use the OWIN platform in two different ways:
+The support to OWIN is not under development, and it may not work correctly. EmbedIO can use the OWIN platform in two different ways:
 
 * You can use EmbedIO modules within an OWIN Server. In other words, host your application with an OWIN server and make use of EmbedIO modules.
 
@@ -131,33 +188,3 @@ public class Program
 ```
 PM> Install-Package EmbedIO.OWIN
 ```
-
-## Markdown Static Module
-
-The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. 
-It will accept markdown/html/htm extensions (This could become middleware later).
-
-```csharp
-// Create Webserver and attach Markdown Static Module
-var server = WebServer.Create("http://localhost:9696/");
-server.RegisterModule(new MarkdownStaticModule(@"c:\web"));
-```
-
-## Json Server Module
-
-Based on the [JsonServer's](https://github.com/typicode/json-server) project, with this module you are able to simply specify a 
-JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. 
-
-```csharp
-// Create Webserver and attach Json's Server
-var server = WebServer.Create("http://localhost:9696/");
-server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@"c:\web", "database.json")));
-```
-
-Supported methods: 
-
-* GET collection (//yourhost/entity) 
-* GET single (//yourhost/entity/1 where 1 is the ID)
-* POST (//yourhost/entity with POST body the JSON object)
-* PUT (//yourhost/entity/1 with POST body the JSON object)
-* DELETE (//yourhost/entity/1 where 1 is the ID)

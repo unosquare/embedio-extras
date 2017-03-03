@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
-using System.Threading.Tasks;
-using Unosquare.Labs.EmbedIO.LiteLibWebApi;
-using Unosquare.Labs.LiteLib;
 using System.Reflection;
-using Unosquare.Swan.Formatters;
+using Unosquare.Labs.LiteLib;
 using Unosquare.Swan;
-using System.Collections;
+using Unosquare.Swan.Formatters;
 using Unosquare.Swan.Reflection;
 
 namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 {
+    /// <summary>
+    /// Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <seealso cref="Unosquare.Labs.EmbedIO.WebModuleBase" />
     public class LiteLibModule<T> : WebModuleBase
         where T : LiteDbContext
     {
-        internal class GenericLiteModel : ILiteModel
-        {
-            public long RowId { get; set; }
-        }
-
         private readonly T _dbInstance;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LiteLibModule{T}"/> class.
+        /// </summary>
+        /// <param name="instance">The instance.</param>
+        /// <param name="basePath">The base path.</param>
         public LiteLibModule(T instance, string basePath = "/api/")
         {
             _dbInstance = instance;
@@ -35,104 +36,105 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                 if (path.StartsWith(basePath) == false)
                     return false;
 
-                var parts = path.Substring(basePath.Length).Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+                var parts = path.Substring(basePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
 
-                var dbSetType = _dbInstance.GetType().GetTypeInfo().Assembly.GetTypes().FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
+                var dbSetType =
+                    _dbInstance.GetType()
+                        .GetTypeInfo()
+                        .Assembly.GetTypes()
+                        .FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
 
                 if (dbSetType == null) return false;
                 var table = _dbInstance.Set(dbSetType);
 
                 if (parts.Length == 1)
                 {
-                    if (verb == HttpVerbs.Get)
+                    switch (verb)
                     {
-                        List<object> dataList = new List<object>();
-                        var data = _dbInstance.Select<object>(table, "1=1");
-                        foreach (var row in data)
-                        {
+                        case HttpVerbs.Get:
+                            var dataList = new List<object>();
+                            var data = _dbInstance.Select<object>(table, "1=1");
+
+                            foreach (var row in data)
+                            {
+                                var item = Activator.CreateInstance(dbSetType);
+                                ((IDictionary<string, object>) row).CopyPropertiesFromDictionary(item, null);
+                                dataList.Add(item);
+                            }
+                            context.JsonResponse(dataList);
+                            return true;
+                        case HttpVerbs.Post:
+                            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
                             var objTable = Activator.CreateInstance(dbSetType);
-                            ((IDictionary<string, object>)row).CopyPropertiesFromDictionary(objTable, null);
-                            dataList.Add(objTable);
-                        }
-                        context.JsonResponse(dataList);
-                        return true;
-                    }
+                            body.CopyPropertiesFromDictionary(objTable, null);
 
-                    if (verb == HttpVerbs.Post)
-                    {
-                        var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
-                        var objTable = Activator.CreateInstance(dbSetType);
-                        body.CopyPropertiesFromDictionary(objTable, null);
+                            _dbInstance.Insert(objTable);
 
-                        _dbInstance.Insert(objTable);
-
-                        return true;
+                            return true;
                     }
                 }
 
                 if (parts.Length == 2)
                 {
-                    if (verb == HttpVerbs.Get)
+                    switch (verb)
                     {
-                        var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
-                        var objTable = Activator.CreateInstance(dbSetType);
-                        ((IDictionary<string, object>)data.First()).CopyPropertiesFromDictionary(objTable, null);
-                        context.JsonResponse(objTable);
-                        return true;
-                    }
+                        case HttpVerbs.Get:
+                        {
+                            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
+                            var objTable = Activator.CreateInstance(dbSetType);
+                            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
+                            context.JsonResponse(objTable);
+                            return true;
+                        }
+                        case HttpVerbs.Put:
+                        {
+                            var objTable = Activator.CreateInstance(dbSetType);
+                            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
+                            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
+                            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
+                            body.CopyPropertiesFromDictionary(objTable, new string[] {"RowId"});
 
-                    if (verb == HttpVerbs.Put)
-                    {
-                        var objTable = Activator.CreateInstance(dbSetType);
-                        var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
-                        ((IDictionary<string, object>)data.First()).CopyPropertiesFromDictionary(objTable, null);
-                        var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
-                        body.CopyPropertiesFromDictionary(objTable, new string[] { "RowId" });
+                            _dbInstance.Update(objTable);
 
-                        _dbInstance.Update(objTable);
+                            return true;
+                        }
+                        case HttpVerbs.Delete:
+                        {
+                            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
+                            var objTable = Activator.CreateInstance(dbSetType);
+                            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
 
-                        return true;
-                    }
+                            _dbInstance.Delete(objTable);
 
-                    if (verb == HttpVerbs.Delete)
-                    {
-                        var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
-                        var objTable = Activator.CreateInstance(dbSetType);
-                        ((IDictionary<string, object>)data.First()).CopyPropertiesFromDictionary(objTable, null);
-
-                        _dbInstance.Delete(objTable);
-
-                        return true;
+                            return true;
+                        }
                     }
                 }
 
                 return false;
             });
         }
+
+        /// <summary>
+        /// Gets the name of this module.
+        /// </summary>
         public override string Name => nameof(LiteLibModule<T>).Humanize();
     }
 
-    public static class Extensions
+    internal static class Extensions
     {
-        public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> items)
+        internal static int CopyPropertiesFromDictionary(this IDictionary<string, object> source, object target,
+            string[] ignoreProperties)
         {
-            foreach (var item in items)
-            {
-                collection.Add(item);
-            }
-        }
-
-        public static int CopyPropertiesFromDictionary(this IDictionary<string, object> source, object target, string[] ignoreProperties)
-        {
-            Lazy<PropertyTypeCache> CopyPropertiesTargets = new Lazy<PropertyTypeCache>(() => new PropertyTypeCache());
+            var copyPropertiesTargets = new Lazy<PropertyTypeCache>(() => new PropertyTypeCache());
 
             var copiedProperties = 0;
 
             var targetType = target.GetType();
-            var targetProperties = CopyPropertiesTargets.Value.Retrieve(targetType, () =>
+            var targetProperties = copyPropertiesTargets.Value.Retrieve(targetType, () =>
             {
                 return targetType.GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                .Where(x => x.CanWrite && Definitions.AllBasicTypes.Contains(x.PropertyType));
+                    .Where(x => x.CanWrite && Definitions.AllBasicTypes.Contains(x.PropertyType));
             });
 
             var targetPropertyNames = targetProperties.Select(t => t.Name.ToLowerInvariant());
@@ -142,11 +144,12 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 
             var ignoredProperties = ignoreProperties?.Where(p => string.IsNullOrWhiteSpace(p) == false)
                                         .Select(p => p.ToLowerInvariant())
-                                        .ToArray() ?? new string[] { };
+                                        .ToArray() ?? new string[] {};
 
             foreach (var sourceKey in filteredSourceKeys)
             {
-                var targetProperty = targetProperties.SingleOrDefault(s => s.Name.ToLowerInvariant() == sourceKey.Key.ToLowerInvariant());
+                var targetProperty =
+                    targetProperties.SingleOrDefault(s => s.Name.ToLowerInvariant() == sourceKey.Key.ToLowerInvariant());
                 if (targetProperty == null) continue;
 
                 if (ignoredProperties.Contains(targetProperty.Name.ToLowerInvariant()))
@@ -163,11 +166,12 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 
                     var sourceStringValue = sourceKey.Value.ToStringInvariant();
 
-                    if (targetProperty.PropertyType == typeof(Boolean))
+                    if (targetProperty.PropertyType == typeof(bool))
                         sourceStringValue = sourceStringValue == "1" ? "true" : "false";
 
                     object targetValue;
-                    if (Definitions.BasicTypesInfo[targetProperty.PropertyType].TryParse(sourceStringValue, out targetValue))
+                    if (Definitions.BasicTypesInfo[targetProperty.PropertyType].TryParse(sourceStringValue,
+                        out targetValue))
                     {
                         targetProperty.SetValue(target, targetValue);
                         copiedProperties++;

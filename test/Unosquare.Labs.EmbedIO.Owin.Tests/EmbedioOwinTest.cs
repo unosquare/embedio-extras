@@ -79,7 +79,7 @@ namespace Unosquare.Labs.EmbedIO.Owin.Tests
 
                 var html = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-                Assert.IsNotEmpty(html, "Directoy Browser Index page is not null");
+                Assert.IsNotEmpty(html, "Directory Browser Index page is not null");
                 Assert.IsTrue(html.Contains("<title>Index of /</title>"), "Index page has correct title");
             }
         }
