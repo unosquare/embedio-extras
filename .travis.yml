@@ -12,7 +12,7 @@ matrix:
       dist: trusty
       sudo: false
 install:
-  - if [[ $DOTNETCORE == "1" ]]; then dotnet restore; else nuget restore Unosquare.Labs.EmbedIO.Extras.sln; fi
+  - if [[ $DOTNETCORE == "1" ]]; then dotnet restore; else nuget restore Unosquare.Labs.EmbedIO.Owin.sln; fi
   - if [[ $DOTNETCORE == "" ]]; then nuget install NUnit.ConsoleRunner -OutputDirectory testrunner; fi
 before_script:
   - if [[ $DOTNETCORE == "" ]]; then export LD_LIBRARY_PATH=/usr/local/lib; fi
