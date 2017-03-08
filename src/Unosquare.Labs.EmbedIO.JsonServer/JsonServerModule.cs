@@ -109,7 +109,7 @@
 
                         if (verb == HttpVerbs.Delete)
                         {
-                            var array = (IList<object>) table;
+                            var array = (ICollection<object>) table;
                             array.Remove(row);
                             ThreadPool.QueueUserWorkItem(UpdateDataStore);
 
