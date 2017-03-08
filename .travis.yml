@@ -1,21 +1,10 @@
 language: csharp
 solution: Unosquare.Labs.EmbedIO.Extras.sln
-matrix:
-  include:
-    - os: linux
-      mono: latest
-      sudo: required
-    - os: linux
-      dotnet: 1.0.0-preview2-003131
-      mono: latest
-      env: DOTNETCORE=1
-      dist: trusty
-      sudo: false
+dotnet: 1.0.0-preview2-003131
+mono: latest
+dist: trusty
+sudo: false
 install:
-  - if [[ $DOTNETCORE == "1" ]]; then dotnet restore; else nuget restore Unosquare.Labs.EmbedIO.Owin.sln; fi
-  - if [[ $DOTNETCORE == "" ]]; then nuget install NUnit.ConsoleRunner -OutputDirectory testrunner; fi
-before_script:
-  - if [[ $DOTNETCORE == "" ]]; then export LD_LIBRARY_PATH=/usr/local/lib; fi
+  - dotnet restore
 script:
-  - if [[ $DOTNETCORE == "" ]]; then xbuild Unosquare.Labs.EmbedIO.Owin.sln /p:"Configuration=Release"; else dotnet test ./test/Unosquare.Labs.EmbedIO.Extra.Tests -f netcoreapp1.1; fi
-  - if [[ $DOTNETCORE == "" ]]; then mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe --process=Single ./test/Unosquare.Labs.EmbedIO.Owin.Tests/bin/Release/Unosquare.Labs.EmbedIO.Owin.Tests.dll; fi
+  - dotnet test ./test/Unosquare.Labs.EmbedIO.Extra.Tests -f netcoreapp1.1
