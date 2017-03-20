@@ -32,7 +32,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         }
 
         [Test]
-        public async Task GetAll()
+        public async Task GetAllJson()
         {
             var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath);
 
@@ -49,7 +49,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         }
 
         [Test]
-        public async Task GetAllPosts()
+        public async Task GetAllPostsJson()
         {
             var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/posts");
 
@@ -66,7 +66,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         }
 
         [Test]
-        public async Task GetFirstPosts()
+        public async Task GetFirstPostsJson()
         {
             var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/posts/1");
 
@@ -80,30 +80,30 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 dynamic json = Json.Deserialize(jsonString);
 
                 Assert.IsNotNull(json);
-                Assert.AreEqual(json.GetValue("id", StringComparison.OrdinalIgnoreCase).ToString(), "1");
+                Assert.AreEqual(json["id"].ToString(), "1");
             }
         }
 
         [Test]
-        public async Task AddPost()
+        public async Task AddPostJson()
         {
             var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/posts");
             request.Method = "POST";
 
             using (var dataStream = await request.GetRequestStreamAsync())
             {
-                var byteArray = Encoding.UTF8.GetBytes("{ 'id': 4, 'title': 'tubular2', 'author': 'unosquare' }");
+                var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }");
                 dataStream.Write(byteArray, 0, byteArray.Length);
             }
 
             using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+               Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }
 
             var indexRequest = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts");
 
-            using (var response = (HttpWebResponse) await indexRequest.GetResponseAsync())
+            using (var response = (HttpWebResponse)await indexRequest.GetResponseAsync())
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
@@ -117,14 +117,14 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         }
 
         [Test]
-        public async Task PutPost()
+        public async Task PutPostJson()
         {
             var request = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts/1");
             request.Method = "PUT";
 
             using (var dataStream = await request.GetRequestStreamAsync())
             {
-                var byteArray = Encoding.UTF8.GetBytes("{ 'id': 1, 'title': 'replace', 'author': 'unosquare' }");
+                var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 1, ""title"": ""replace"", ""author"": ""unosquare"" }");
                 dataStream.Write(byteArray, 0, byteArray.Length);
             }
 
@@ -145,12 +145,12 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 dynamic json = Json.Deserialize(jsonString);
 
                 Assert.IsNotNull(json);
-                Assert.AreEqual(json.GetValue("title", StringComparison.OrdinalIgnoreCase).ToString(), "replace");
+                Assert.AreEqual(json["title"].ToString(), "replace");
             }
         }
 
         [Test]
-        public async Task DeletePost()
+        public async Task DeletePostJson()
         {
             var indexRequest = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts");
             int total;
