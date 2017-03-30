@@ -67,6 +67,8 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
                         SecurityToken validatedToken;
                         tokenHandler.ValidateToken(token, new TokenValidationParameters
                         {
+                            ValidateIssuer = false,
+                            ValidateAudience = false,
                             IssuerSigningKey = secretKey
                         }, out validatedToken);
 
