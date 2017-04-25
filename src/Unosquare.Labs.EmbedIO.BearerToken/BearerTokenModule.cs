@@ -22,14 +22,18 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
         /// <param name="routes">The routes to authorization</param>
         /// <param name="secretKey">The secret key to encrypt tokens</param>
         public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider,
-            IEnumerable<string> routes = null, SymmetricSecurityKey secretKey = null)
+            IEnumerable<string> routes = null, SymmetricSecurityKey secretKey = null, String endpoint = null)
         {
             if (secretKey == null)
             {
                 secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF"));
             }
+            if (String.IsNullOrWhiteSpace(endpoint))
+            {
+                endpoint = "/token";
+            }
 
-            AddHandler("/token", HttpVerbs.Post, (server, context) =>
+            AddHandler(endpoint, HttpVerbs.Post, (server, context) =>
             {
                 var validationContext = context.GetValidationContext();
                 authorizationServerProvider.ValidateClientAuthentication(validationContext);
