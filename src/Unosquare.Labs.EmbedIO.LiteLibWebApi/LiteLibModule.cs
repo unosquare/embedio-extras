@@ -171,7 +171,7 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                         sourceStringValue = sourceStringValue == "1" ? "true" : "false";
 
                     object targetValue;
-                    if (Definitions.AllBasicTypes[targetProperty.PropertyType].TryParse(sourceStringValue,
+                    if (Definitions.BasicTypesInfo[targetProperty.PropertyType].TryParse(sourceStringValue,
                         out targetValue))
                     {
                         targetProperty.SetValue(target, targetValue);
