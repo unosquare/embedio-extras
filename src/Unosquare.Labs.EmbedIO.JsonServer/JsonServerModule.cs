@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// JsonServer Module
@@ -44,31 +45,31 @@
                 }
             }
 
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (server, context) =>
+            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
             {
                 var path = context.RequestPath();
                 var verb = context.RequestVerb();
 
                 if (path.StartsWith(basePath) == false)
-                    return false;
+                    return Task.FromResult(false);
 
                 if (path == basePath)
                 {
                     context.JsonResponse((object) Data);
-                    return true;
+                    return Task.FromResult(true);
                 }
 
                 var parts = path.Substring(basePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
 
                 dynamic table = Data[parts[0]];
-                if (table == null) return false;
+                if (table == null) return Task.FromResult(false);
 
                 if (parts.Length == 1)
                 {
                     if (verb == HttpVerbs.Get)
                     {
                         context.JsonResponse((object) table);
-                        return true;
+                        return Task.FromResult(true);
                     }
 
                     if (verb == HttpVerbs.Post)
@@ -77,7 +78,7 @@
                         array.Add(Json.Deserialize(context.RequestBody()));
                         ThreadPool.QueueUserWorkItem(UpdateDataStore);
 
-                        return true;
+                        return Task.FromResult(true);
                     }
                 }
 
@@ -90,7 +91,7 @@
                         if (verb == HttpVerbs.Get)
                         {
                             context.JsonResponse((object) row);
-                            return true;
+                            return Task.FromResult(true);
                         }
 
                         if (verb == HttpVerbs.Put)
@@ -104,7 +105,7 @@
 
                             ThreadPool.QueueUserWorkItem(UpdateDataStore);
 
-                            return true;
+                            return Task.FromResult(true);
                         }
 
                         if (verb == HttpVerbs.Delete)
@@ -113,12 +114,12 @@
                             array.Remove(row);
                             ThreadPool.QueueUserWorkItem(UpdateDataStore);
 
-                            return true;
+                            return Task.FromResult(true);
                         }
                     }
                 }
 
-                return false;
+                return Task.FromResult(false);
             });
         }
 

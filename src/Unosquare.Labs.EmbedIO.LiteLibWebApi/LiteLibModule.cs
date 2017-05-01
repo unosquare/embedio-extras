@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Reflection;
 using Unosquare.Labs.LiteLib;
 using Unosquare.Swan;
@@ -28,13 +29,13 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
         {
             _dbInstance = instance;
 
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (server, context) =>
+            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
             {
                 var path = context.RequestPath();
                 var verb = context.RequestVerb();
 
                 if (path.StartsWith(basePath) == false)
-                    return false;
+                    return Task.FromResult(false);
 
                 var parts = path.Substring(basePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
 
@@ -44,7 +45,7 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                         .Assembly.GetTypes()
                         .FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
 
-                if (dbSetType == null) return false;
+                if (dbSetType == null) return Task.FromResult(false);
                 var table = _dbInstance.Set(dbSetType);
 
                 if (parts.Length == 1)
@@ -62,7 +63,7 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                                 dataList.Add(item);
                             }
                             context.JsonResponse(dataList);
-                            return true;
+                            return Task.FromResult(true);
                         case HttpVerbs.Post:
                             var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
                             var objTable = Activator.CreateInstance(dbSetType);
@@ -70,7 +71,7 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 
                             _dbInstance.Insert(objTable);
 
-                            return true;
+                            return Task.FromResult(true);
                     }
                 }
 
@@ -84,7 +85,7 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                             var objTable = Activator.CreateInstance(dbSetType);
                             ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
                             context.JsonResponse(objTable);
-                            return true;
+                            return Task.FromResult(true);
                         }
                         case HttpVerbs.Put:
                         {
@@ -96,7 +97,7 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 
                             _dbInstance.Update(objTable);
 
-                            return true;
+                            return Task.FromResult(true);
                         }
                         case HttpVerbs.Delete:
                         {
@@ -106,12 +107,12 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 
                             _dbInstance.Delete(objTable);
 
-                            return true;
+                            return Task.FromResult(true);
                         }
                     }
                 }
 
-                return false;
+                return Task.FromResult(false);
             });
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
         /// <param name="authorizationServerProvider">The AuthorizationServerProvider to use</param>
         /// <param name="routes">The routes to authorization</param>
         /// <param name="secretKey">The secret key to encrypt tokens</param>
+        /// <param name="endpoint">The url endpoint to get tokens</param>
         public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider,
             IEnumerable<string> routes = null, SymmetricSecurityKey secretKey = null, string endpoint = "/token")
         {
@@ -30,12 +32,7 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
                 secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF"));
             }
             
-            if (string.IsNullOrWhiteSpace(endpoint))
-            {
-                endpoint = "/token";
-            }
-
-            AddHandler(endpoint, HttpVerbs.Post, (server, context) =>
+            AddHandler(endpoint, HttpVerbs.Post, (context, ct) =>
             {
                 var validationContext = context.GetValidationContext();
                 authorizationServerProvider.ValidateClientAuthentication(validationContext);
@@ -55,12 +52,12 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
                     context.Rejected();
                 }
 
-                return true;
+                return Task.FromResult(true);
             });
 
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (server, context) =>
+            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
             {
-                if (routes != null && routes.Contains(context.RequestPath()) == false) return false;
+                if (routes != null && routes.Contains(context.RequestPath()) == false) return Task.FromResult(false);
 
                 var authHeader = context.RequestHeader(AuthorizationHeader);
 
@@ -78,7 +75,7 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
                             IssuerSigningKey = secretKey
                         }, out validatedToken);
 
-                        return false;
+                        return Task.FromResult(false);
                     }
                     catch (Exception ex)
                     {
@@ -88,7 +85,7 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
 
                 context.Rejected();
 
-                return true;
+                return Task.FromResult(true);
             });
         }
 

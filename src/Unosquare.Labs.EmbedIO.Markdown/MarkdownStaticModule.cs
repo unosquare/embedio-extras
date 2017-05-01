@@ -3,6 +3,8 @@
     using System;
     using System.IO;
     using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Unosquare.Swan;
 #if NET46
     using System.Net;
@@ -47,10 +49,10 @@
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;
 
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, (server, context) => HandleGet(context));
+            AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, (context, ct) => HandleGet(context, ct));
         }
 
-        private bool HandleGet(HttpListenerContext context)
+        private async Task<bool> HandleGet(HttpListenerContext context, CancellationToken ct)
         {
             var urlPath = context.Request.Url.LocalPath.Replace('/', Path.DirectorySeparatorChar);
 
