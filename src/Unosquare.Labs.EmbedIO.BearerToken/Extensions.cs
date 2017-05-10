@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using Microsoft.IdentityModel.Tokens;
     using System.IdentityModel.Tokens.Jwt;
-    using Unosquare.Swan;
+    using Swan;
 #if NET46
     using System.Net;
 #else
@@ -44,10 +44,17 @@
         /// <param name="context"></param>
         /// <param name="secretKey"></param>
         /// <returns></returns>
-        public static SecurityToken GetSecurityToken(this HttpListenerContext context, String secretKey = null) 
+        public static SecurityToken GetSecurityToken(this HttpListenerContext context, string secretKey = null) 
         {
             return context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
         }
+
+        /// <summary>
+        /// Gets the security token.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="secretKey">The secret key.</param>
+        /// <returns></returns>
         public static SecurityToken GetSecurityToken(this HttpListenerContext context, SymmetricSecurityKey secretKey = null) 
         {
 

@@ -1,9 +1,9 @@
-﻿{
+{
   "title": "Unosquare EmbedIO JsonServer Module",
   "version": "1.0.0-*",
 
   "dependencies": {
-    "EmbedIO": "1.6.8"
+    "EmbedIO": "1.6.9"
   },
 
   "frameworks": {

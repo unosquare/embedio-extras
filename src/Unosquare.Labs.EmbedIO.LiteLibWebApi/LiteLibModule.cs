@@ -93,7 +93,7 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
                             ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
                             var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
-                            body.CopyPropertiesFromDictionary(objTable, new string[] {"RowId"});
+                            body.CopyPropertiesFromDictionary(objTable, new[] {"RowId"});
 
                             _dbInstance.Update(objTable);
 

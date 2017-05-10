@@ -1,9 +1,9 @@
-﻿{
+{
   "title": "Unosquare EmbedIO Markdown Module",
   "version": "1.0.0-*",
   "dependencies": {
-    "EmbedIO": "1.6.8",
-    "CommonMark.NET": "0.15.1" 
+    "CommonMark.NET": "0.15.1",
+    "EmbedIO": "1.6.9"
   },
   "frameworks": {
     "netstandard1.6": {

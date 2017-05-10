@@ -1,10 +1,10 @@
-﻿{
+{
   "title": "Unosquare EmbedIO Bearer Token Module",
   "copyright": "Copyright © Unosquare 2013-2017",
-  "version": "1.1.0-*",
+  "version": "1.1.2-*",
 
   "dependencies": {
-    "EmbedIO": "1.6.8",
+    "EmbedIO": "1.6.9",
     "System.IdentityModel.Tokens.Jwt": "5.1.3"
   },
 

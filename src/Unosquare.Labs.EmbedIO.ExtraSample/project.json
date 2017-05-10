@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "copyright": "Copyright © Unosquare 2013-2017",
   "buildOptions": {
@@ -7,11 +7,11 @@
   },
 
   "dependencies": {
-    "LiteLib": "0.12.0",
     "Unosquare.Labs.EmbedIO.BearerToken": { "target": "project" },
     "Unosquare.Labs.EmbedIO.JsonServer": { "target": "project" },
     "Unosquare.Labs.EmbedIO.Markdown": { "target": "project" },
-    "Unosquare.Labs.EmbedIO.LiteLibWebApi": { "target": "project"}
+    "Unosquare.Labs.EmbedIO.LiteLibWebApi": { "target": "project" },
+    "LiteLib": "0.12.1"
   },
 
   "frameworks": {
@@ -24,7 +24,11 @@
         }
       }
     },
-    "net452": {},
-    "net46": {}
+    "net452": {
+      "frameworkAssemblies": { "System.ComponentModel.DataAnnotations": ""  }
+    },
+    "net46": {
+      "frameworkAssemblies": { "System.ComponentModel.DataAnnotations": "" }
+    }
   }
 }
