@@ -1,7 +1,11 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
+    using System;
+    using System.Text;
     using System.Collections.Generic;
     using Microsoft.IdentityModel.Tokens;
+    using System.IdentityModel.Tokens.Jwt;
+    using Unosquare.Swan;
 #if NET46
     using System.Net;
 #else
@@ -33,6 +37,48 @@
             context.Response.AddHeader("WWW-Authenticate", "Bearer");
         }
 
+        /// <summary>
+        /// Gets the <see cref="SecurityToken"/> of the current context.
+        /// Returns null when the token is not found or not validated.
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="secretKey"></param>
+        /// <returns></returns>
+        public static SecurityToken GetSecurityToken(this HttpListenerContext context, String secretKey = null) 
+        {
+            return context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
+        }
+        public static SecurityToken GetSecurityToken(this HttpListenerContext context, SymmetricSecurityKey secretKey = null) 
+        {
+
+            var authHeader = context.RequestHeader("Authorization");
+
+            if (string.IsNullOrWhiteSpace(authHeader) == false && authHeader.StartsWith("Bearer ")) 
+            {
+                try 
+                {
+                    SecurityToken validatedToken;
+                    var token = authHeader.Replace("Bearer ", string.Empty);
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    tokenHandler.ValidateToken(token,
+                                               new TokenValidationParameters {
+                                                   ValidateIssuer = false,
+                                                   ValidateAudience = false,
+                                                   IssuerSigningKey = secretKey
+                                               },
+                                               out validatedToken);
+                    return validatedToken;
+
+                }
+                catch (Exception ex) 
+                {
+                    ex.Log("BearerTokenModule");
+                }
+            }
+
+            return null;
+        }
+        
         /// <summary>
         /// Fluent-like method to attach BearerToken
         /// </summary>
