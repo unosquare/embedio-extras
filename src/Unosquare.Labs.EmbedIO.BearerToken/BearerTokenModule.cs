@@ -1,8 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using Unosquare.Swan;
@@ -14,8 +12,7 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
     /// </summary>
     public class BearerTokenModule : WebModuleBase
     {
-        private const string AuthorizationHeader = "Authorization";
-
+        
         /// <summary>
         /// Module's Constructor
         /// </summary>
@@ -59,28 +56,9 @@ namespace Unosquare.Labs.EmbedIO.BearerToken
             {
                 if (routes != null && routes.Contains(context.RequestPath()) == false) return Task.FromResult(false);
 
-                var authHeader = context.RequestHeader(AuthorizationHeader);
-
-                if (string.IsNullOrWhiteSpace(authHeader) == false && authHeader.StartsWith("Bearer "))
-                {
-                    try
-                    {
-                        var token = authHeader.Replace("Bearer ", string.Empty);
-                        var tokenHandler = new JwtSecurityTokenHandler();
-                        SecurityToken validatedToken;
-                        tokenHandler.ValidateToken(token, new TokenValidationParameters
-                        {
-                            ValidateIssuer = false,
-                            ValidateAudience = false,
-                            IssuerSigningKey = secretKey
-                        }, out validatedToken);
-
-                        return Task.FromResult(false);
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.Log(nameof(BearerTokenModule));
-                    }
+                // decode token to see if it's valid
+                if (context.GetSecurityToken(secretKey) != null) {
+                    return Task.FromResult(false);
                 }
 
                 context.Rejected();
