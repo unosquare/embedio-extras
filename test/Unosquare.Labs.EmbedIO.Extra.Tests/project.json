@@ -5,13 +5,13 @@
 
   "dependencies": {
     "dotnet-test-nunit": "3.4.0-beta-3",
-    "NUnit": "3.6.1",
     "Unosquare.Labs.EmbedIO.BearerToken": { "target": "project" },
     "Unosquare.Labs.EmbedIO.JsonServer": { "target": "project" },
     "Unosquare.Labs.EmbedIO.Markdown": { "target": "project" },
     "Unosquare.Labs.EmbedIO.LiteLibWebApi": "1.0.0-*",
     "Unosquare.Labs.EmbedIO.ExtraSample": "1.0.0-*",
-    "LiteLib": "0.12.1"
+    "LiteLib": "0.12.1",
+    "NUnit": "3.7.0"
   },
 
   "frameworks": {

@@ -3,7 +3,7 @@
   "version": "1.0.0-*",
   "dependencies": {
     "CommonMark.NET": "0.15.1",
-    "EmbedIO": "1.6.9"
+    "EmbedIO": "1.6.10"
   },
   "frameworks": {
     "netstandard1.6": {

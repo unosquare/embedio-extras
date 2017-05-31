@@ -4,7 +4,7 @@
   "version": "1.1.2-*",
 
   "dependencies": {
-    "EmbedIO": "1.6.9",
+    "EmbedIO": "1.6.10",
     "System.IdentityModel.Tokens.Jwt": "5.1.3"
   },
 
