@@ -130,6 +130,24 @@ references:
   commentId: T:Unosquare.Labs.EmbedIO.BearerToken.Extensions
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions
   nameWithType: Extensions
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,SymmetricSecurityKey)
+  name: GetSecurityToken(HttpListenerContext, SymmetricSecurityKey)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_HttpListenerContext_SymmetricSecurityKey_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,SymmetricSecurityKey)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext, SymmetricSecurityKey)
+  nameWithType: Extensions.GetSecurityToken(HttpListenerContext, SymmetricSecurityKey)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,System.String)
+  name: GetSecurityToken(HttpListenerContext, String)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_HttpListenerContext_System_String_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,System.String)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext, System.String)
+  nameWithType: Extensions.GetSecurityToken(HttpListenerContext, String)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken*
+  name: GetSecurityToken
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken
+  nameWithType: Extensions.GetSecurityToken
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)
   name: GetValidationContext(HttpListenerContext)
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_HttpListenerContext_

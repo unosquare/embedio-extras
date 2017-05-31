@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BearerTokenModule
    | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.16.2.2">
+    <meta name="generator" content="docfx 2.18.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -57,7 +57,7 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
@@ -75,102 +75,103 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <h1 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule">Class BearerTokenModule
-              </h1>
-              <div class="markdown level0 summary"><p>EmbedIO module to allow authorizations with Bearer Tokens</p>
+            <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule">
+  
+  
+  <h1 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule">Class BearerTokenModule
+  </h1>
+  <div class="markdown level0 summary"><p>EmbedIO module to allow authorizations with Bearer Tokens</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">BearerTokenModule</span></div>
-              </div>
-              <h6><strong>Namespace</strong>:Unosquare.Labs.EmbedIO.BearerToken</h6>
-              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
-              <h5 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class BearerTokenModule : WebModuleBase</code></pre>
-              </div>
-              <h3 id="constructors">Constructors
-              </h3>
-              
-              
-              <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor*"></a>
-              <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_IEnumerable_System_String__SymmetricSecurityKey_System_String_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,IEnumerable{System.String},SymmetricSecurityKey,System.String)">BearerTokenModule(IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey, String)</h4>
-              <div class="markdown level1 summary"><p>Module&#39;s Constructor</p>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">BearerTokenModule</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.html">Unosquare.Labs.EmbedIO.BearerToken</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BearerTokenModule : WebModuleBase</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_IEnumerable_System_String__SymmetricSecurityKey_System_String_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,IEnumerable{System.String},SymmetricSecurityKey,System.String)">BearerTokenModule(IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey, String)</h4>
+  <div class="markdown level1 summary"><p>Module&#39;s Constructor</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null, string endpoint = &quot;/token&quot;)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
-                    <td><span class="parametername">authorizationServerProvider</span></td>
-                    <td><p>The AuthorizationServerProvider to use</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null, string endpoint = &quot;/token&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
+        <td><span class="parametername">authorizationServerProvider</span></td>
+        <td><p>The AuthorizationServerProvider to use</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">routes</span></td>
-                    <td><p>The routes to authorization</p>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">routes</span></td>
+        <td><p>The routes to authorization</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">SymmetricSecurityKey</span></td>
-                    <td><span class="parametername">secretKey</span></td>
-                    <td><p>The secret key to encrypt tokens</p>
+      </tr>
+      <tr>
+        <td><span class="xref">SymmetricSecurityKey</span></td>
+        <td><span class="parametername">secretKey</span></td>
+        <td><p>The secret key to encrypt tokens</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">endpoint</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name*"></a>
-              <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name">Name</h4>
-              <div class="markdown level1 summary"><p>Returns Module Name</p>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">endpoint</span></td>
+        <td><p>The url endpoint to get tokens</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Returns Module Name</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public override string Name { get; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-                        </article>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
