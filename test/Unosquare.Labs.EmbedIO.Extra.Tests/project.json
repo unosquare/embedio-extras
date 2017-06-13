@@ -11,14 +11,14 @@
     "Unosquare.Labs.EmbedIO.LiteLibWebApi": "1.0.0-*",
     "Unosquare.Labs.EmbedIO.ExtraSample": "1.0.0-*",
     "LiteLib": "0.12.1",
-    "NUnit": "3.7.0"
+    "NUnit": "3.7.1"
   },
 
   "frameworks": {
     "netcoreapp1.1": {
       "imports": "dnxcore50",
       "dependencies": {
-        "Microsoft.NETCore.App": "1.1.0"
+        "Microsoft.NETCore.App": "1.1.2"
       }
     },
     "net452": {},
