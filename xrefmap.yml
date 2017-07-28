@@ -97,13 +97,13 @@ references:
   commentId: T:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule
   nameWithType: BearerTokenModule
-- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,IEnumerable{System.String},SymmetricSecurityKey,System.String)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey,System.String)
   name: BearerTokenModule(IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey, String)
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_IEnumerable_System_String__SymmetricSecurityKey_System_String_
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,IEnumerable{System.String},SymmetricSecurityKey,System.String)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_System_String_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey,System.String)
   name.vb: BearerTokenModule(IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey, String)
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, IEnumerable<System.String>, SymmetricSecurityKey, System.String)
-  fullName.vb: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, IEnumerable(Of System.String), SymmetricSecurityKey, System.String)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable<System.String>, SymmetricSecurityKey, System.String)
+  fullName.vb: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable(Of System.String), SymmetricSecurityKey, System.String)
   nameWithType: BearerTokenModule.BearerTokenModule(IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey, String)
   nameWithType.vb: BearerTokenModule.BearerTokenModule(IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey, String)
 - uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor*
@@ -361,6 +361,18 @@ references:
   commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.#ctor
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonServerModule
   nameWithType: JsonServerModule.JsonServerModule
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath
+  name: BasePath
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_BasePath
+  commentId: P:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath
+  nameWithType: JsonServerModule.BasePath
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath*
+  name: BasePath
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_BasePath_
+  commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath
+  nameWithType: JsonServerModule.BasePath
 - uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
   name: Data
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Data

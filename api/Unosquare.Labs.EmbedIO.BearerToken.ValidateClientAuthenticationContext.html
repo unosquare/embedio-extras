@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ValidateClientAuthenticationContext
    | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.18.5.0">
+    <meta name="generator" content="docfx 2.21.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,7 +78,7 @@
             <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext">
   
   
-  <h1 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext">Class ValidateClientAuthenticationContext
+  <h1 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext" class="text-break">Class ValidateClientAuthenticationContext
   </h1>
   <div class="markdown level0 summary"><p>Context to share data with AuthorizationServerProvider</p>
 </div>
@@ -124,7 +124,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_HttpListenerContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(HttpListenerContext)">ValidateClientAuthenticationContext(HttpListenerContext)</h4>
-  <div class="markdown level1 summary"><p>Constructor</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html">ValidateClientAuthenticationContext</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -144,7 +144,23 @@
       <tr>
         <td><span class="xref">HttpListenerContext</span></td>
         <td><span class="parametername">httpContext</span></td>
-        <td><p>The HttpListenerContext instance</p>
+        <td><p>The HTTP context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>httpContext</p>
 </td>
       </tr>
     </tbody>
@@ -307,7 +323,8 @@
       <tr>
         <td><span class="xref">SymmetricSecurityKey</span></td>
         <td><span class="parametername">secretKey</span></td>
-        <td></td>
+        <td><p>The secret key.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -372,7 +389,8 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">clientId</span></td>
-        <td></td>
+        <td><p>The client identifier.</p>
+</td>
       </tr>
     </tbody>
   </table>
