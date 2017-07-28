@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Reflection;
-using Unosquare.Labs.LiteLib;
-using Unosquare.Swan;
-using Unosquare.Swan.Formatters;
-using Unosquare.Swan.Reflection;
-
-namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
+﻿namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Reflection;
+    using LiteLib;
+    using Swan;
+    using Swan.Formatters;
+#if NET46
+    using System.Net;
+#else
+    using Net;
+
+#endif
+
     /// <summary>
     /// Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <seealso cref="Unosquare.Labs.EmbedIO.WebModuleBase" />
+    /// <typeparam name="T">The type of LiteDbContext</typeparam>
+    /// <seealso cref="EmbedIO.WebModuleBase" />
     public class LiteLibModule<T> : WebModuleBase
         where T : LiteDbContext
     {
@@ -39,14 +44,14 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 
                 var parts = path.Substring(basePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
 
-                var dbSetType =
+                var setType =
                     _dbInstance.GetType()
                         .GetTypeInfo()
                         .Assembly.GetTypes()
                         .FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
 
-                if (dbSetType == null) return Task.FromResult(false);
-                var table = _dbInstance.Set(dbSetType);
+                if (setType == null) return Task.FromResult(false);
+                var table = _dbInstance.Set(setType);
 
                 if (parts.Length == 1)
                 {
@@ -58,20 +63,14 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 
                             foreach (var row in data)
                             {
-                                var item = Activator.CreateInstance(dbSetType);
+                                var item = Activator.CreateInstance(setType);
                                 ((IDictionary<string, object>) row).CopyPropertiesFromDictionary(item, null);
                                 dataList.Add(item);
                             }
                             context.JsonResponse(dataList);
                             return Task.FromResult(true);
                         case HttpVerbs.Post:
-                            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
-                            var objTable = Activator.CreateInstance(dbSetType);
-                            body.CopyPropertiesFromDictionary(objTable, null);
-
-                            _dbInstance.Insert(objTable);
-
-                            return Task.FromResult(true);
+                            return AddRow(context, setType);
                     }
                 }
 
@@ -82,32 +81,18 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
                         case HttpVerbs.Get:
                         {
                             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
-                            var objTable = Activator.CreateInstance(dbSetType);
+                            var objTable = Activator.CreateInstance(setType);
                             ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
                             context.JsonResponse(objTable);
                             return Task.FromResult(true);
                         }
                         case HttpVerbs.Put:
                         {
-                            var objTable = Activator.CreateInstance(dbSetType);
-                            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
-                            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
-                            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
-                            body.CopyPropertiesFromDictionary(objTable, new[] {"RowId"});
-
-                            _dbInstance.Update(objTable);
-
-                            return Task.FromResult(true);
+                            return UpdateRow(setType, table, parts[1], context);
                         }
                         case HttpVerbs.Delete:
                         {
-                            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
-                            var objTable = Activator.CreateInstance(dbSetType);
-                            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
-
-                            _dbInstance.Delete(objTable);
-
-                            return Task.FromResult(true);
+                            return RemoveRow(table, parts[1], setType);
                         }
                     }
                 }
@@ -120,71 +105,40 @@ namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
         /// Gets the name of this module.
         /// </summary>
         public override string Name => nameof(LiteLibModule<T>).Humanize();
-    }
 
-    internal static class Extensions
-    {
-        internal static int CopyPropertiesFromDictionary(this IDictionary<string, object> source, object target,
-            string[] ignoreProperties)
+        private Task<bool> AddRow(HttpListenerContext context, Type dbSetType)
         {
-            var copyPropertiesTargets = new Lazy<PropertyTypeCache>(() => new PropertyTypeCache());
+            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
+            var objTable = Activator.CreateInstance(dbSetType);
+            body.CopyPropertiesFromDictionary(objTable, null);
 
-            var copiedProperties = 0;
+            _dbInstance.Insert(objTable);
 
-            var targetType = target.GetType();
-            var targetProperties = copyPropertiesTargets.Value.Retrieve(targetType, () =>
-            {
-                return targetType.GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                    .Where(x => x.CanWrite && Definitions.AllBasicTypes.Contains(x.PropertyType));
-            });
+            return Task.FromResult(true);
+        }
 
-            var targetPropertyNames = targetProperties.Select(t => t.Name.ToLowerInvariant());
-            var filteredSourceKeys = source
-                .Where(s => targetPropertyNames.Contains(s.Key.ToLowerInvariant()) && s.Value != null)
-                .ToArray();
+        private async Task<bool> UpdateRow(Type dbSetType, ILiteDbSet table, string rowId, HttpListenerContext context)
+        {
+            var objTable = Activator.CreateInstance(dbSetType);
+            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
+            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
+            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
+            body.CopyPropertiesFromDictionary(objTable, new[] {"RowId"});
 
-            var ignoredProperties = ignoreProperties?.Where(p => string.IsNullOrWhiteSpace(p) == false)
-                                        .Select(p => p.ToLowerInvariant())
-                                        .ToArray() ?? new string[] {};
+            await _dbInstance.UpdateAsync(objTable);
 
-            foreach (var sourceKey in filteredSourceKeys)
-            {
-                var targetProperty =
-                    targetProperties.SingleOrDefault(s => s.Name.ToLowerInvariant() == sourceKey.Key.ToLowerInvariant());
-                if (targetProperty == null) continue;
+            return true;
+        }
 
-                if (ignoredProperties.Contains(targetProperty.Name.ToLowerInvariant()))
-                    continue;
+        private async Task<bool> RemoveRow(ILiteDbSet table, string rowId, Type dbSetType)
+        {
+            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
+            var objTable = Activator.CreateInstance(dbSetType);
+            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
 
-                try
-                {
-                    if (targetProperty.PropertyType == sourceKey.Value.GetType())
-                    {
-                        targetProperty.SetValue(target, sourceKey.Value);
-                        copiedProperties++;
-                        continue;
-                    }
+            await _dbInstance.DeleteAsync(objTable);
 
-                    var sourceStringValue = sourceKey.Value.ToStringInvariant();
-
-                    if (targetProperty.PropertyType == typeof(bool))
-                        sourceStringValue = sourceStringValue == "1" ? "true" : "false";
-
-                    object targetValue;
-                    if (Definitions.BasicTypesInfo[targetProperty.PropertyType].TryParse(sourceStringValue,
-                        out targetValue))
-                    {
-                        targetProperty.SetValue(target, targetValue);
-                        copiedProperties++;
-                    }
-                }
-                catch
-                {
-                    // swallow
-                }
-            }
-
-            return copiedProperties;
+            return true;
         }
     }
 }

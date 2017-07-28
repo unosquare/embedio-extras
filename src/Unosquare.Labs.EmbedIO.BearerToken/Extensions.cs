@@ -20,7 +20,7 @@
         /// <summary>
         /// Retrieves a ValidationContext
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="context">The context.</param>
         /// <returns></returns>
         public static ValidateClientAuthenticationContext GetValidationContext(this HttpListenerContext context)
         {
@@ -30,7 +30,7 @@
         /// <summary>
         /// Rejects a authentication challenge
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="context">The context.</param>
         public static void Rejected(this HttpListenerContext context)
         {
             context.Response.StatusCode = (int)System.Net.HttpStatusCode.Unauthorized;
@@ -38,11 +38,11 @@
         }
 
         /// <summary>
-        /// Gets the <see cref="SecurityToken"/> of the current context.
+        /// Gets the <see cref="SecurityToken" /> of the current context.
         /// Returns null when the token is not found or not validated.
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="secretKey"></param>
+        /// <param name="context">The context.</param>
+        /// <param name="secretKey">The secret key.</param>
         /// <returns></returns>
         public static SecurityToken GetSecurityToken(this HttpListenerContext context, string secretKey = null) 
         {
@@ -57,44 +57,44 @@
         /// <returns></returns>
         public static SecurityToken GetSecurityToken(this HttpListenerContext context, SymmetricSecurityKey secretKey = null) 
         {
-
             var authHeader = context.RequestHeader("Authorization");
 
-            if (string.IsNullOrWhiteSpace(authHeader) == false && authHeader.StartsWith("Bearer ")) 
-            {
-                try 
-                {
-                    SecurityToken validatedToken;
-                    var token = authHeader.Replace("Bearer ", string.Empty);
-                    var tokenHandler = new JwtSecurityTokenHandler();
-                    tokenHandler.ValidateToken(token,
-                                               new TokenValidationParameters {
-                                                   ValidateIssuer = false,
-                                                   ValidateAudience = false,
-                                                   IssuerSigningKey = secretKey
-                                               },
-                                               out validatedToken);
-                    return validatedToken;
+            if (string.IsNullOrWhiteSpace(authHeader) || !authHeader.StartsWith("Bearer "))
+                return null;
 
-                }
-                catch (Exception ex) 
+            try 
+            {
+                SecurityToken validatedToken;
+                var token = authHeader.Replace("Bearer ", string.Empty);
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var tokenParmas = new TokenValidationParameters
                 {
-                    ex.Log("BearerTokenModule");
-                }
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    IssuerSigningKey = secretKey
+                };
+
+                tokenHandler.ValidateToken(token, tokenParmas, out validatedToken);
+                return validatedToken;
+            }
+            catch (Exception ex) 
+            {
+                ex.Log("BearerTokenModule");
             }
 
             return null;
         }
-        
+
         /// <summary>
         /// Fluent-like method to attach BearerToken
         /// </summary>
-        /// <param name="webserver"></param>
-        /// <param name="authorizationProvider"></param>
-        /// <param name="routes"></param>
-        /// <param name="secretKey"></param>
+        /// <param name="webserver">The webserver.</param>
+        /// <param name="authorizationProvider">The authorization provider.</param>
+        /// <param name="routes">The routes.</param>
+        /// <param name="secretKey">The secret key.</param>
         public static void UseBearerToken(this WebServer webserver,
-            IAuthorizationServerProvider authorizationProvider = null, IEnumerable<string> routes = null,
+            IAuthorizationServerProvider authorizationProvider = null, 
+            IEnumerable<string> routes = null,
             SymmetricSecurityKey secretKey = null)
         {
             webserver.RegisterModule(

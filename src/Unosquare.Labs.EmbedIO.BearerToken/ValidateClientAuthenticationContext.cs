@@ -16,6 +16,22 @@
     public class ValidateClientAuthenticationContext
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="ValidateClientAuthenticationContext"/> class.
+        /// </summary>
+        /// <param name="httpContext">The HTTP context.</param>
+        /// <exception cref="System.ArgumentNullException">httpContext</exception>
+        public ValidateClientAuthenticationContext(HttpListenerContext httpContext)
+        {
+            if (httpContext == null)
+                throw new ArgumentNullException(nameof(httpContext));
+
+            HttpContext = httpContext;
+
+            // TODO: Add Claims
+            StandardClaims = new ClaimsIdentity();
+        }
+
+        /// <summary>
         /// The Client Id
         /// </summary>
         public string ClientId { get; protected set; }
@@ -41,20 +57,6 @@
         public ClaimsIdentity StandardClaims { get; set; }
 
         /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="httpContext">The HttpListenerContext instance</param>
-        public ValidateClientAuthenticationContext(HttpListenerContext httpContext)
-        {
-            if (httpContext == null)
-                throw new ArgumentNullException(nameof(httpContext), "Context is null");
-
-            HttpContext = httpContext;
-            // TODO: Add Claims
-            StandardClaims = new ClaimsIdentity();
-        }
-
-        /// <summary>
         /// Rejects a validation
         /// </summary>
         public void Rejected()
@@ -66,7 +68,7 @@
         /// <summary>
         /// Validates credentials with clientId
         /// </summary>
-        /// <param name="clientId"></param>
+        /// <param name="clientId">The client identifier.</param>
         public void Validated(string clientId)
         {
             ClientId = clientId;
@@ -85,7 +87,7 @@
         /// <summary>
         /// Retrieve JsonWebToken
         /// </summary>
-        /// <param name="secretKey"></param>
+        /// <param name="secretKey">The secret key.</param>
         /// <returns></returns>
         public string GetToken(SymmetricSecurityKey secretKey)
         {

@@ -2,25 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
-
-    /// <summary>
-    /// Authorization Server Provider interface
-    /// </summary>
-    public interface IAuthorizationServerProvider
-    {
-        /// <summary>
-        /// Validates a Client Authentication
-        /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        Task ValidateClientAuthentication(ValidateClientAuthenticationContext context);
-        /// <summary>
-        /// Gets a Expiration Date
-        /// </summary>
-        /// <returns></returns>
-        long GetExpirationDate();
-    }
-
+    
     /// <summary>
     /// Basic Authorization Server Provider implementation
     /// </summary>
@@ -29,9 +11,11 @@
         /// <summary>
         /// Validates a Client Authentication
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="context">The context.</param>
         /// <returns></returns>
+#pragma warning disable 1998
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
+#pragma warning restore 1998
         {
             var data = context.HttpContext.RequestFormDataDictionary();
 

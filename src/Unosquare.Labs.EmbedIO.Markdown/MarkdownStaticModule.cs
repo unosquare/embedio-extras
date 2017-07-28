@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using Unosquare.Swan;
+    using Swan;
 #if NET46
     using System.Net;
 #else
@@ -25,18 +25,6 @@
         public const string DefaultDocumentName = "index.markdown";
 
         /// <summary>
-        /// Gets or sets the default document.
-        /// Defaults to "index.html"
-        /// Example: "root.xml"
-        /// </summary>
-        public string DefaultDocument { get; set; }
-
-        /// <summary>
-        /// Gets the file system path from which files are retrieved.
-        /// </summary>
-        public string FileSystemPath { get; protected set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="MarkdownStaticModule"/> class.
         /// </summary>
         /// <param name="fileSystemPath">The file system path.</param>
@@ -49,10 +37,27 @@
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;
 
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, (context, ct) => HandleGet(context, ct));
+            AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, HandleGet);
         }
+        
+        /// <summary>
+        /// Gets the name of this module.
+        /// </summary>
+        public override string Name => nameof(MarkdownStaticModule).Humanize();
 
-        private async Task<bool> HandleGet(HttpListenerContext context, CancellationToken ct)
+        /// <summary>
+        /// Gets or sets the default document.
+        /// Defaults to "index.html"
+        /// Example: "root.xml"
+        /// </summary>
+        public string DefaultDocument { get; set; }
+
+        /// <summary>
+        /// Gets the file system path from which files are retrieved.
+        /// </summary>
+        public string FileSystemPath { get; protected set; }
+
+        private Task<bool> HandleGet(HttpListenerContext context, CancellationToken ct)
         {
             var urlPath = context.Request.Url.LocalPath.Replace('/', Path.DirectorySeparatorChar);
 
@@ -68,7 +73,7 @@
             var localPath = Path.Combine(FileSystemPath, urlPath);
 
             if (!File.Exists(localPath))
-                return false;
+                return Task.FromResult(false);
 
             using (var reader = File.OpenText(localPath))
             {
@@ -79,12 +84,7 @@
                 }
             }
 
-            return true;
+            return Task.FromResult(true);
         }
-
-        /// <summary>
-        /// Gets the name of this module.
-        /// </summary>
-        public override string Name => nameof(MarkdownStaticModule).Humanize();
     }
 }

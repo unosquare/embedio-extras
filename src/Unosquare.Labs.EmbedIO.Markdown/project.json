@@ -3,7 +3,8 @@
   "version": "1.0.0-*",
   "dependencies": {
     "CommonMark.NET": "0.15.1",
-    "EmbedIO": "1.6.10"
+    "EmbedIO": "1.6.10",
+    "StyleCop.Analyzers": "1.0.2"
   },
   "frameworks": {
     "netstandard1.6": {
@@ -18,6 +19,9 @@
     }
   },
   "buildOptions": {
+    "additionalArguments": [
+      "/ruleset:../../StyleCop.Analyzers.ruleset"
+    ],
     "xmlDoc": true
   }
 }

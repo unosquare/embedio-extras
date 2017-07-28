@@ -4,7 +4,8 @@
 
   "dependencies": {
     "EmbedIO": "1.6.10",
-    "LiteLib": "0.12.1"
+    "LiteLib": "0.12.1",
+    "StyleCop.Analyzers": "1.0.2"
   },
 
   "frameworks": {
@@ -23,6 +24,9 @@
     }
   },
   "buildOptions": {
+    "additionalArguments": [
+      "/ruleset:../../StyleCop.Analyzers.ruleset"
+    ],
     "xmlDoc": true
   }
 }

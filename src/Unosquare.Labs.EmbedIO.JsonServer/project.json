@@ -3,7 +3,8 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "EmbedIO": "1.6.10"
+    "EmbedIO": "1.6.10",
+    "StyleCop.Analyzers": "1.0.2"
   },
 
   "frameworks": {
@@ -22,6 +23,9 @@
     }
   },
   "buildOptions": {
+    "additionalArguments": [
+      "/ruleset:../../StyleCop.Analyzers.ruleset"
+    ],
     "xmlDoc": true
   }
 }
