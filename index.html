@@ -43,11 +43,16 @@
                             </div>
                             <nav class="collapse navbar-collapse bs-navbar-collapse">
                                 <ul class="nav navbar-nav">
+                                    <li><a href="#bearer-token">bearer token</a></li>
+                                    <li><a href="#jsonserver">json server</a></li>
+                                    <li><a href="#litelib">lite lib</a></li>
+                                    <li><a href="#markdown">markdown</a></li>
+                                    <li><a href="#owin">owin</a></li>
                                     <li><a href="api/Unosquare.Labs.EmbedIO.BearerToken.html">Documentation</a></li>
-                                    <li><a href="/embedio/">EmbedIO Page</a></li>
+                                    <li><a href="https://unosquare.github.io/embedio/">EmbedIO Page</a></li>
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="http://github.com/unosquare/embedio">GitHub</a></li>
+                                    <li><a href="https://github.com/unosquare/embedio-extras">GitHub</a></li>
                                     <li><a href="http://unosquare.github.io/">Unosquare Labs</a></li>
                                 </ul>
                             </nav>
@@ -71,15 +76,14 @@
 
                 <article>
                     <h2>
-                        <a id="bearer-token" href="#bearer-token" aria-hidden="true"></a>Bearer Token
+                        <a id="bearer-token" href="#bearer-token" aria-hidden="true"></a>Bearer Token Module
                     </h2>
 
                     <p>
-                        Allow to authenticate with a Bearer Token. It uses a Token endpoint (at /token path) and with a defined validation delegate
-                        create a <strong>JsonWebToken</strong>. The module can check all incoming requests or a paths collection to authorize with <strong>
-                            HTTP Authorization
-                            header
-                        </strong>.
+                        Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined '/token' path)
+                        and all you need to do is provide a user validation delegate which authenticates the user. The module will create a <strong>JsonWebToken</strong> 
+                        which can then be used by your client application in firther requests. The module can check all incoming requests or a predefined 
+                        set of paths. The standard header in use is the <strong>HTTP Authorization header</strong>.
                     </p>
 
                     <p>You can easily add Bearer Token to your EmbedIO server using a Basic Authorization Server Provider or writing your own:</p>
@@ -88,16 +92,88 @@
 var basicAuthProvider = new BasicAuthorizationServerProvider();
 // You can set which routes to check, empty param will secure entire server
 var routes = new[] { &quot;/secure.html&quot; };
+
 // Create Webserver with console logger and attach Bearer Token Module
 var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));</code></pre>
 
+                    <hr />
+                    <h4 id="nuget">NuGet Installation:</h4>
+
+                    <div class="row">
+                        <div class="col-md-8"><pre><code>PM&gt; Install-Package EmbedIO.BearerToken</code></pre></div>
+                        <div class="col-md-4 text-center">
+                            <a href="http://badge.fury.io/nu/EmbedIO.BearerToken"><img src="https://badge.fury.io/nu/EmbedIO.BearerToken.svg" alt="NuGet version" height="18"></a>
+                        </div>
+                    </div>
+
+                    <hr />    
                     <h2>
-                        <a id="owin" href="#owin" aria-hidden="true"></a>OWIN
+                        <a id="jsonserver" href="#jsonserver" aria-hidden="true"></a>Json Server Module
                     </h2>
-                    <p>EmbedIO can use the OWIN platform in two different approach:</p>
+                    <p>
+                        Based on the <a href="https://github.com/typicode/json-server">JsonServer's</a> project, with this module you are able to simply specify a 
+                        JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it.
+                    </p>
+                    <pre><code class="csharp">// Create Webserver with console logger and attach Json&#39;s Server
+var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
+server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&quot;, &quot;database.json&quot;)));</code></pre>
+                    <p>Supported methods: </p>
                     <ul>
-                        <li>You can use EmbedIO as OWIN server and use all OWIN framework with EmbedIO modules.</li>
+                        <li>GET collection (//yourhost/entity) </li>
+                        <li>GET single (//yourhost/entity/1 where 1 is the ID)</li>
+                        <li>POST (//yourhost/entity with POST body the JSON object)</li>
+                        <li>PUT (//yourhost/entity/1 with POST body the JSON object)</li>
+                        <li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
+                    </ul>
+
+                    <hr />
+                    <h2>
+                        <a id="litelib" href="#litelib" aria-hidden="true"></a>LiteLib WebAPI
+                    </h2>
+                    <p>Similar to Json Server Module, but you can serve a sqlite file with all HTTP verbs.</p>
+                     <pre><code class="csharp">// Create Webserver and attach Json's Server
+var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
+server.RegisterModule(new LiteLibModule&lt;TestDbContext&gt;(new TestDbContext(), &quot;/dbapi/&quot;));
+                    </code></pre>
+                     <p>Supported methods: </p>
+                    <ul>
+                        <li>GET collection (//yourhost/entity) </li>
+                        <li>GET single (//yourhost/entity/1 where 1 is the ID)</li>
+                        <li>POST (//yourhost/entity with POST body the JSON object)</li>
+                        <li>PUT (//yourhost/entity/1 with POST body the JSON object)</li>
+                        <li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
+                    </ul>
+
+                    <hr />
+                    <h4 id="nuget">NuGet Installation:</h4>
+
+                    <div class="row">
+                        <div class="col-md-8"><pre><code>PM&gt; Install-Package EmbedIO.LiteLibWebApi</code></pre></div>
+                        <div class="col-md-4 text-center">
+                            <a href="https://badge.fury.io/nu/EmbedIO.LiteLibWebApi"><img src="https://badge.fury.io/nu/EmbedIO.LiteLibWebApi.svg" alt="NuGet version" height="18"></a>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <h2>
+                        <a id="markdown" href="#markdown" aria-hidden="true"></a>Markdown Static Module
+                    </h2>
+                    <p>
+                        Markdown Static Module takes a markdown file and convert it to HTML before to response.
+                        It will accept markdown/html/htm extensions (This could be a middleware later).
+                    </p>
+                    <pre><code class="csharp">// Create Webserver and attach Markdown Static Module
+var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
+server.RegisterModule(new MarkdownStaticModule(@&quot;c:\web&quot;));</code></pre>    
+
+                    <hr />
+                    <h2>
+                        <a id="owin" href="#owin" aria-hidden="true"></a>OWIN Integration
+                    </h2>
+                    <p>The support to OWIN is not under development, and it may not work correctly. EmbedIO can use the OWIN platform in two different ways:</p>
+                    <ul>
+                        <li>You can use EmbedIO modules within an OWIN Server. In other words, host your application with an OWIN server and make use of EmbedIO modules.</li>
                     </ul>
                     <div class="highlight highlight-csharp">
                         <pre><code class="csharp">public class Program
@@ -108,27 +184,20 @@ server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));</code><
     /// &lt;param name=&quot;args&quot;&gt;&lt;/param&gt;
     private static void Main(string[] args)
     {
-        try
+        var options = new StartOptions
         {
-            OwinServerFactory.Log = new SimpleConsoleLog();
-            var options = new StartOptions
-            {
-                ServerFactory = OwinServerFactory.ServerFactoryName,
-                Port = 4578
-            };
-            using (WebApp.Start&lt;startup&gt;(options))
-            {
-                OwinServerFactory.Log.DebugFormat(&quot;Running a http server on port {0}&quot;, options.Port);
-                Console.ReadKey();
-            }
-        }
-        catch (Exception ex)
+            ServerFactory = OwinServerFactory.ServerFactoryName,
+            Port = 4578
+        };
+
+        using (WebApp.Start&lt;Startup&gt;(options))
         {
-            OwinServerFactory.Log.Error(ex);
+            OwinServerFactory.Log.DebugFormat(&quot;Running a http server on port {0}&quot;, options.Port);
             Console.ReadKey();
         }
     }
 }
+
 /// &lt;summary&gt;
 /// Startup object
 /// &lt;/summary&gt;
@@ -158,7 +227,7 @@ public class Startup
 }</code></pre>
                     </div>
                     <ul>
-                        <li>You can use OWIN Middleware into EmbedIO as a module.</li>
+                        <li>You can also use OWN middleware within EmbedIO. In other words, you can do stuff like serving Razor views from EmbedIO.</li>
                     </ul>
                     <pre><code class="csharp">public class Program
 {
@@ -168,27 +237,20 @@ public class Startup
     /// &lt;param name=&quot;args&quot;&gt;&lt;/param&gt;
     private static void Main(string[] args)
     {
-        try
-        {
-            // UseOwin() function returns Owin App for configuration
-            using (var webServer = WebServer
-                        .CreateWithConsole(&quot;http://localhost:4578&quot;)
-                        .WithWebApi(typeof (PeopleController).Assembly)
-                        .UseOwin((owinApp) =&gt; 
-                            owinApp
-                            .UseDirectoryBrowser()
-                            .UseRazor(InitRoutes)))
-                    {
-                        webServer.RunAsync();
-                        Console.ReadKey();
-                    }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex);
-            Console.ReadKey();
-        }
-    }
+
+        // UseOwin() function returns Owin App for configuration
+        using (var webServer = WebServer
+                    .Create(&quot;http://localhost:4578&quot;)
+                    .WithWebApi(typeof (PeopleController).Assembly)
+                    .UseOwin((owinApp) =&gt; 
+                        owinApp
+                        .UseDirectoryBrowser()
+                        .UseRazor(InitRoutes)))
+                {
+                    webServer.RunAsync();
+                    Console.ReadKey();
+                }
+    }    
     /// &lt;summary&gt;
     /// Initialize the Razor files
     /// &lt;/summary&gt;
@@ -199,34 +261,17 @@ public class Startup
             .AddFileRoute(&quot;/about/me&quot;, &quot;Views/about.cshtml&quot;, new { Name = &quot;EmbedIO Razor&quot;, Date = DateTime.UtcNow });
     }
 }</code></pre>
-                    <h2>
-                        <a id="markdown" href="#markdown" aria-hidden="true"></a>Markdown
-                    </h2>
-                    <p>
-                        Markdown Static Module takes a markdown file and convert it to HTML before to response.
-                        It will accept markdown/html/htm extensions (This could be a middleware later).
-                    </p>
-                    <pre><code class="csharp">// Create Webserver with console logger and attach Markdown Static Module
-var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
-server.RegisterModule(new MarkdownStaticModule(@&quot;c:\web&quot;));</code></pre>
-                    <h2>
-                        <a id="jsonserver" href="#jsonserver" aria-hidden="true"></a>JsonServer
-                    </h2>
-                    <p>
-                        Based <a href="https://github.com/typicode/json-server">JsonServer's</a> idea, you can set a JSON file as database and use any REST
-                        method to manipulate it.
-                    </p>
-                    <pre><code class="csharp">// Create Webserver with console logger and attach Json&#39;s Server
-var server = WebServer.CreateWithConsole(&quot;http://localhost:9696/&quot;);
-server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&quot;, &quot;database.json&quot;)));</code></pre>
-                    <p>Supported methods: </p>
-                    <ul>
-                        <li>GET collection (//yourhost/entity) </li>
-                        <li>GET single (//yourhost/entity/1 where 1 is the ID)</li>
-                        <li>POST (//yourhost/entity with POST body the JSON object)</li>
-                        <li>PUT (//yourhost/entity/1 with POST body the JSON object)</li>
-                        <li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
-                    </ul>
+
+                    <hr />
+                    <h4 id="nuget">NuGet Installation:</h4>
+
+                    <div class="row">
+                        <div class="col-md-8"><pre><code>PM&gt; Install-Package EmbedIO.OWIN</code></pre></div>
+                        <div class="col-md-4 text-center">
+                            <a href="http://badge.fury.io/nu/EmbedIO.OWIN"><img src="https://badge.fury.io/nu/EmbedIO.OWIN.svg" alt="NuGet version" height="18"></a>
+                        </div>
+                    </div>
+
                 </article>
             </div>
                 <footer>
