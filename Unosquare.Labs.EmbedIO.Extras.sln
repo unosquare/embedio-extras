@@ -1,13 +1,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{6F1BFAB8-5E98-4594-B639-5457F2C0FB8B}"
 	ProjectSection(SolutionItems) = preProject
 		.travis.yml = .travis.yml
 		appveyor.yml = appveyor.yml
 		docfx.json = docfx.json
-		global.json = global.json
 		README.md = README.md
 		StyleCop.Analyzers.ruleset = StyleCop.Analyzers.ruleset
 	EndProjectSection
@@ -16,17 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{28C9CC7E-CFC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{ABF66584-B7D8-4FB7-BD2B-A916166D0B7B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.BearerToken", "src\Unosquare.Labs.EmbedIO.BearerToken\Unosquare.Labs.EmbedIO.BearerToken.xproj", "{C14456A2-FF6A-4EFF-9DE6-0C3CD6313DA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.Labs.EmbedIO.BearerToken", "src\Unosquare.Labs.EmbedIO.BearerToken\Unosquare.Labs.EmbedIO.BearerToken.csproj", "{C14456A2-FF6A-4EFF-9DE6-0C3CD6313DA4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.JsonServer", "src\Unosquare.Labs.EmbedIO.JsonServer\Unosquare.Labs.EmbedIO.JsonServer.xproj", "{E29BE9D3-F378-4322-8886-A39A2221202E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.Labs.EmbedIO.JsonServer", "src\Unosquare.Labs.EmbedIO.JsonServer\Unosquare.Labs.EmbedIO.JsonServer.csproj", "{E29BE9D3-F378-4322-8886-A39A2221202E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.ExtraSample", "src\Unosquare.Labs.EmbedIO.ExtraSample\Unosquare.Labs.EmbedIO.ExtraSample.xproj", "{EFACFA84-7ADE-4F61-8223-B0FE2EAFA130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.Labs.EmbedIO.ExtraSample", "src\Unosquare.Labs.EmbedIO.ExtraSample\Unosquare.Labs.EmbedIO.ExtraSample.csproj", "{EFACFA84-7ADE-4F61-8223-B0FE2EAFA130}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.Markdown", "src\Unosquare.Labs.EmbedIO.Markdown\Unosquare.Labs.EmbedIO.Markdown.xproj", "{5B597A25-47A2-4912-939E-ADC2ABFFAC09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.Labs.EmbedIO.Markdown", "src\Unosquare.Labs.EmbedIO.Markdown\Unosquare.Labs.EmbedIO.Markdown.csproj", "{5B597A25-47A2-4912-939E-ADC2ABFFAC09}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.Extra.Tests", "test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.xproj", "{4F67B835-9E7D-487A-BB72-7BB2352CA2A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.Labs.EmbedIO.Extra.Tests", "test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj", "{4F67B835-9E7D-487A-BB72-7BB2352CA2A1}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Unosquare.Labs.EmbedIO.LiteLibWebApi", "src\Unosquare.Labs.EmbedIO.LiteLibWebApi\Unosquare.Labs.EmbedIO.LiteLibWebApi.xproj", "{E5898073-C093-4ED9-AF58-784AAD405A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.Labs.EmbedIO.LiteLibWebApi", "src\Unosquare.Labs.EmbedIO.LiteLibWebApi\Unosquare.Labs.EmbedIO.LiteLibWebApi.csproj", "{E5898073-C093-4ED9-AF58-784AAD405A1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,5 +68,8 @@ Global
 		{5B597A25-47A2-4912-939E-ADC2ABFFAC09} = {28C9CC7E-CFC5-423C-B927-F04B708B0D7B}
 		{4F67B835-9E7D-487A-BB72-7BB2352CA2A1} = {ABF66584-B7D8-4FB7-BD2B-A916166D0B7B}
 		{E5898073-C093-4ED9-AF58-784AAD405A1E} = {28C9CC7E-CFC5-423C-B927-F04B708B0D7B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84916384-FCB6-4E3D-AEBC-50DDD1CE2941}
 	EndGlobalSection
 EndGlobal

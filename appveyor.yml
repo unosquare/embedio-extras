@@ -1,4 +1,5 @@
 version: '1.0.{build}'
+image: Visual Studio 2017
 configuration:
 - Release
 platform: Any CPU
@@ -30,13 +31,9 @@ before_build:
 - nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory tools
 build_script:
-- dotnet build "src\Unosquare.Labs.EmbedIO.BearerToken" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
-- dotnet build "src\Unosquare.Labs.EmbedIO.JsonServer" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
-- dotnet build "src\Unosquare.Labs.EmbedIO.Markdown" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
-- dotnet build "src\Unosquare.Labs.EmbedIO.LiteLibWebApi" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
-- dotnet build "src\Unosquare.Labs.EmbedIO.ExtraSample" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
+- msbuild Unosquare.Labs.EmbedIO.Extras.sln
 test_script:
-- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests -c %CONFIGURATION%" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet
+- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION%" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet
 - tools\coveralls.net.0.7.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
 after_build:
 - ps: |

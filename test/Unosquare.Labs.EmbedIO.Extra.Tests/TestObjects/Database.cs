@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Unosquare.Labs.LiteLib;
-
-namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
+﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
 {
+    using System.IO;
+    using Unosquare.Labs.LiteLib;
+
     public class Order : LiteModel
     {
         [LiteUnique]
@@ -15,8 +10,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
 
         [LiteIndex]
         public string CustomerName { get; set; }
-
-        [StringLength(30)]
+        
         public string ShipperCity { get; set; }
 
         public bool IsShipped { get; set; }
@@ -27,7 +21,8 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
 
     internal class TestDbContext : LiteDbContext
     {
-        public TestDbContext(string name = "testDb") : base(Path.Combine(Path.GetTempPath(), $"{name}.db"))
+        public TestDbContext(string name = "testDb") 
+            : base(Path.Combine(Path.GetTempPath(), $"{name}.db"))
         {
             if (Orders.Count() != 0) return;
 

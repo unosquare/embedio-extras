@@ -2,7 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
-    
+
     /// <summary>
     /// Basic Authorization Server Provider implementation
     /// </summary>
