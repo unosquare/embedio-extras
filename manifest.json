@@ -1,1 +1,359 @@
-{"homepages":[],"source_base_path":"C:/projects/embedio-extras","xrefmap":"xrefmap.yml","files":[{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html","hash":"qHJDShKz9JYmftHUpELMTw=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.BearerToken.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.BearerToken.html","hash":"NImpYl+ecaa8DYObz90w/w=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html","hash":"hJoqX8H2Xpru9w9ic5T0JQ=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html","hash":"Whk320r3A7uOkvCAoISNTw=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html","hash":"np8y8CZRNZMQdEkQi1fYlw=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html","hash":"jv1lDO1HUbYHDiiMsv36Lw=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html","hash":"EPhgkpGaExBCjfkIhHmLhw=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html","hash":"uggXjtIEJwz2OmoKTSAE8A=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIOwin.PeopleController.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIOwin.PeopleController.html","hash":"dMQZCTTehScZT35NpX+6JA=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIOwin.Program.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIOwin.Program.html","hash":"Wtnfxl48TdU8XvxMa6SprA=="}},"is_incremental":false,"version":""},{"type":"Toc","source_relative_path":"obj/api/toc.yml","output":{".html":{"relative_path":"api/toc.html","hash":"9vQlojbxypZFmeBHJBd8Sw=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html","hash":"oqo+QybylbBrGa0hucbDmQ=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html","hash":"OQBdiXQzf6LLPdh2qIx9xQ=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html","hash":"7Q0gvCjwUNkQ3gVIdL0n+Q=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.JsonServer.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.JsonServer.html","hash":"chzEeTS4VKRP9uWVDsXDnA=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.LiteLibWebApi.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.LiteLibWebApi.html","hash":"G8szcZwArUTS+0DvDJEK0Q=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.Markdown.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.Markdown.html","hash":"h3+hYmPN2EVML8wdWVrrBA=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html","hash":"ZZHT1d5EVci23wWBqBv0OA=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.OwinMiddleware.html","hash":"L5VEqakzSACvM6dI9jP4Jw=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html","hash":"zx+KLraWBPIZw7ZTaY9U8Q=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIOwin.Startup.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIOwin.Startup.html","hash":"tYTcTFIbrJamE1P/2oy2xQ=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIOwin.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIOwin.html","hash":"um+U7kRm+/tnsxro5HzEpw=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html","hash":"RpR7RQIUTGfMwbrLa0TleA=="}},"is_incremental":false,"version":""},{"type":"Conceptual","source_relative_path":"README.md","output":{".html":{"relative_path":"README.html","hash":"g8Ygmq18yPji9wZcCvtmCg=="}},"is_incremental":false,"version":""},{"type":"ManagedReference","source_relative_path":"obj/api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.yml","output":{".html":{"relative_path":"api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html","hash":"ADKJhHeSWAAyG++UBFPmVw=="}},"is_incremental":false,"version":""},{"type":"Resource","output":{"resource":{"relative_path":"index.json"}},"is_incremental":false}],"incremental_info":[{"status":{"can_incremental":false,"details":"Cannot build incrementally because last build info is missing.","incrementalPhase":"build"},"processors":{"ManagedReferenceDocumentProcessor":{"can_incremental":false,"incrementalPhase":"build"},"ConceptualDocumentProcessor":{"can_incremental":false,"incrementalPhase":"build"},"RestApiDocumentProcessor":{"can_incremental":false,"details":"Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.","incrementalPhase":"build"},"TocDocumentProcessor":{"can_incremental":false,"details":"Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.","incrementalPhase":"build"},"ResourceDocumentProcessor":{"can_incremental":false,"details":"Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.","incrementalPhase":"build"}}},{"status":{"can_incremental":false,"details":"Cannot support incremental post processing, the reason is: should not trace intermediate info.","incrementalPhase":"postProcessing"},"processors":{}}],"version_info":{}}
+{
+  "homepages": [],
+  "source_base_path": "C:/projects/embedio-extras",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "Lpo5BH11465lZwjJHnZnRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html",
+          "hash": "he6J2eWs2jHW0XeYDL5unQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html",
+          "hash": "LgogtnQuH0GNYDExi+dN+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html",
+          "hash": "e13z9Uh8EZ9pZAvGfrgIVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html",
+          "hash": "dDTsFZcRQQiBYCM55vlH+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html",
+          "hash": "Uof1PzvH1U2DaBZVgX/svA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html",
+          "hash": "d+eL3vNvMz1xu7iXvHFBtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.html",
+          "hash": "r+yzqeBXgAzvhK0ZuvHWGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html",
+          "hash": "LtZpyVsdtcfpyURNlpPA9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.JsonServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.JsonServer.html",
+          "hash": "vhjpA8tWAvKHn4Tv/YUHyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html",
+          "hash": "qmV+Kb1COphSlhJgNF4lzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.LiteLibWebApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.html",
+          "hash": "Yt7F5TI1LOnxK1LM2/s4bw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html",
+          "hash": "7UkbBSOa6WJQhl0f/gfGaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.Markdown.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.Markdown.html",
+          "hash": "e+ZGatFD9jV4zSyAYz7nQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html",
+          "hash": "CRUiPnm7L9vJK34DmQQKHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html",
+          "hash": "NCsT1t6KBN9DihH4xsp/Vg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html",
+          "hash": "J1Eme8w4kHghBUsCDCSmXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html",
+          "hash": "K+opdKzT4NKkBPX8kjNLFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.OwinMiddleware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.html",
+          "hash": "QvDsigx+FHTR4yCvpVQYnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html",
+          "hash": "LIwBwJalTzGzXAujK22x4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIOwin.PeopleController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIOwin.PeopleController.html",
+          "hash": "6twd/Tw3ovt6bqQdqhgkjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIOwin.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIOwin.Program.html",
+          "hash": "8gbsG4LNqX1+/bJPlQXwug=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIOwin.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIOwin.Startup.html",
+          "hash": "7rWMtwNmjDRBqcj8Khb6vA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIOwin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.Labs.EmbedIOwin.html",
+          "hash": "OxPlAmJP5wB8fVc/OVDw4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "9vQlojbxypZFmeBHJBd8Sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "RestApiDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {}
+}
