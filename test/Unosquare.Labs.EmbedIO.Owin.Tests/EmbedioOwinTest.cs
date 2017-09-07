@@ -8,6 +8,7 @@ using Microsoft.Owin.Hosting;
 using NUnit.Framework;
 using Owin;
 using Unosquare.Labs.EmbedIO.OwinMiddleware;
+using System.Threading.Tasks;
 
 namespace Unosquare.Labs.EmbedIO.Owin.Tests
 {
@@ -32,7 +33,7 @@ namespace Unosquare.Labs.EmbedIO.Owin.Tests
         }
 
         [Test]
-        public async void TestWebSocket()
+        public async Task TestWebSocket()
         {
             var webSocketClient = new ClientWebSocket();
             var cts = new CancellationTokenSource();
