@@ -5,6 +5,6 @@ mono: latest
 dist: trusty
 sudo: false
 install:
-  - dotnet restore
+  - dotnet restore Unosquare.Labs.EmbedIO.Extras.sln
 script:
   - dotnet test ./test/Unosquare.Labs.EmbedIO.Extra.Tests/Unosquare.Labs.EmbedIO.Extra.Tests.csproj -f netcoreapp1.1
