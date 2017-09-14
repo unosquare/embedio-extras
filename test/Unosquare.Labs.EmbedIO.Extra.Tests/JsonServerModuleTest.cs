@@ -1,11 +1,11 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using NUnit.Framework;
 using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
 using Unosquare.Labs.EmbedIO.JsonServer;
 using Unosquare.Swan.Formatters;
@@ -43,7 +43,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 Assert.IsNotEmpty(jsonString);
 
-                dynamic json = Json.Deserialize(jsonString);
+                var json = Json.Deserialize(jsonString);
                 Assert.IsNotNull(json);
             }
         }
@@ -60,7 +60,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 Assert.IsNotEmpty(jsonString);
 
-                dynamic json = Json.Deserialize(jsonString);
+                var json = Json.Deserialize(jsonString);
                 Assert.IsNotNull(json);
             }
         }

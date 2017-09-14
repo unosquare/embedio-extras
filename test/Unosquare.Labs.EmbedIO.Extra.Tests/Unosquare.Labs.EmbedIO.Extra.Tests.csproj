@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp1.1;net452;net46</TargetFrameworks>
+    <AssemblyName>Unosquare.Labs.EmbedIO.Extra.Tests</AssemblyName>
+    <PackageId>Unosquare.Labs.EmbedIO.Extra.Tests</PackageId>
+    <TestProjectType>UnitTest</TestProjectType>
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Unosquare.Labs.EmbedIO.BearerToken\Unosquare.Labs.EmbedIO.BearerToken.csproj" />
+    <ProjectReference Include="..\..\src\Unosquare.Labs.EmbedIO.JsonServer\Unosquare.Labs.EmbedIO.JsonServer.csproj" />
+    <ProjectReference Include="..\..\src\Unosquare.Labs.EmbedIO.Markdown\Unosquare.Labs.EmbedIO.Markdown.csproj" />
+    <ProjectReference Include="..\..\src\Unosquare.Labs.EmbedIO.LiteLibWebApi\Unosquare.Labs.EmbedIO.LiteLibWebApi.csproj" />
+    <ProjectReference Include="..\..\src\Unosquare.Labs.EmbedIO.ExtraSample\Unosquare.Labs.EmbedIO.ExtraSample.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
+    <packagereference Include="NUnit3TestAdapter" Version="3.8.0"></packagereference>
+    <PackageReference Include="LiteLib" Version="0.12.1" />
+    <PackageReference Include="NUnit" Version="3.7.1" />
+  </ItemGroup>
+
+</Project>
