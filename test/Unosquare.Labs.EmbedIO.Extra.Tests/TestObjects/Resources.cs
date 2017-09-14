@@ -20,8 +20,6 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
 <li>Because bacon.</li>
 </ul>
 <p>If you are using testing Bearer Tokens, try to access to <a href=""/secure.html"">secure page</a>.</p>
-<p><a href=""http://unosquare.github.io/embedio"">Visit EmbedIO</a>.</p>
-
-<p><a href=""/api/"">Check JSON API</a></p>";
+<p><a href=""http://unosquare.github.io/embedio"">Visita EmbedIO</a>.</p>";
     }
 }
