@@ -1,18 +1,13 @@
 {
-  "api/Unosquare.Labs.EmbedIOwin.Startup.html": {
-    "href": "api/Unosquare.Labs.EmbedIOwin.Startup.html",
-    "title": "Class Startup | Unosquare EmbedIO Extras",
-    "keywords": "Class Startup Startup object Inheritance System.Object Startup Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIOwin Assembly : cs.temp.dll.dll Syntax public class Startup Methods Configuration(IAppBuilder) Configure the OwinApp Declaration public void Configuration(IAppBuilder app) Parameters Type Name Description IAppBuilder app InitRoutes(IRouteTable) Initialize the Razor files Declaration public static void InitRoutes(IRouteTable table) Parameters Type Name Description IRouteTable table"
+  "api/Unosquare.Labs.EmbedIOwin.Program.html": {
+    "href": "api/Unosquare.Labs.EmbedIOwin.Program.html",
+    "title": "Class Program | Unosquare EmbedIO Extras",
+    "keywords": "Class Program Sample Owin-EmbedIO Inheritance System.Object Program Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIOwin Assembly : cs.temp.dll.dll Syntax public class Program"
   },
-  "api/Unosquare.Labs.EmbedIOwin.html": {
-    "href": "api/Unosquare.Labs.EmbedIOwin.html",
-    "title": "Namespace Unosquare.Labs.EmbedIOwin | Unosquare EmbedIO Extras",
-    "keywords": "Namespace Unosquare.Labs.EmbedIOwin Classes PeopleController PeopleController.Person A simple model representing a person Program Sample Owin-EmbedIO Startup Startup object"
-  },
-  "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html": {
-    "href": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html",
-    "title": "Class BearerToken | Unosquare EmbedIO Extras",
-    "keywords": "Class BearerToken Represents a Bearer Token JSON response Inheritance System.Object BearerToken Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIO.BearerToken Assembly : cs.temp.dll.dll Syntax public class BearerToken Properties ExpirationDate Expiration Date Declaration public long ExpirationDate { get; set; } Property Value Type Description System.Int64 Token The JsonWebToken Declaration public string Token { get; set; } Property Value Type Description System.String TokenType The Token type Declaration public string TokenType { get; set; } Property Value Type Description System.String Username Client username Declaration public string Username { get; set; } Property Value Type Description System.String"
+  "api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html": {
+    "href": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html",
+    "title": "Class BearerTokenModule | Unosquare EmbedIO Extras",
+    "keywords": "Class BearerTokenModule EmbedIO module to allow authorizations with Bearer Tokens Inheritance System.Object BearerTokenModule Namespace : Unosquare.Labs.EmbedIO.BearerToken Assembly : cs.temp.dll.dll Syntax public class BearerTokenModule : WebModuleBase Constructors BearerTokenModule(IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey, String) Initializes a new instance of the BearerTokenModule class. Declaration public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider, IEnumerable<string> routes = null, SymmetricSecurityKey secretKey = null, string endpoint = \"/token\") Parameters Type Name Description IAuthorizationServerProvider authorizationServerProvider The authorization server provider. System.Collections.Generic.IEnumerable < System.String > routes The routes. SymmetricSecurityKey secretKey The secret key. System.String endpoint The endpoint. Properties Name Returns Module Name Declaration public override string Name { get; } Property Value Type Description System.String"
   },
   "api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html": {
     "href": "api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html",
@@ -33,6 +28,36 @@
     "href": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.html",
     "title": "Namespace Unosquare.Labs.EmbedIO.LiteLibWebApi | Unosquare EmbedIO Extras",
     "keywords": "Namespace Unosquare.Labs.EmbedIO.LiteLibWebApi Classes LiteLibModule<T> Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context."
+  },
+  "api/Unosquare.Labs.EmbedIO.Markdown.html": {
+    "href": "api/Unosquare.Labs.EmbedIO.Markdown.html",
+    "title": "Namespace Unosquare.Labs.EmbedIO.Markdown | Unosquare EmbedIO Extras",
+    "keywords": "Namespace Unosquare.Labs.EmbedIO.Markdown Classes MarkdownStaticModule The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. It will accept markdown/html/htm extensions"
+  },
+  "api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html": {
+    "href": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html",
+    "title": "Class MiddlewareOwin | Unosquare EmbedIO Extras",
+    "keywords": "Class MiddlewareOwin EmbedIO Middleware to use with OWIN Inheritance System.Object MiddlewareOwin Namespace : Unosquare.Labs.EmbedIO.OwinMiddleware Assembly : cs.temp.dll.dll Syntax public class MiddlewareOwin : Middleware Constructors MiddlewareOwin(Func<IDictionary<String, Object>, Task>, IDictionary<String, Object>) Creates a new Middleware instance Declaration public MiddlewareOwin(Func<IDictionary<string, object>, Task> app, IDictionary<string, object> properties) Parameters Type Name Description System.Func < System.Collections.Generic.IDictionary < System.String , System.Object >, System.Threading.Tasks.Task > app System.Collections.Generic.IDictionary < System.String , System.Object > properties Fields Environment Environment variables Declaration protected IDictionary<string, object> Environment Field Value Type Description System.Collections.Generic.IDictionary < System.String , System.Object > OwinApp Owin App instance Declaration protected Func<IDictionary<string, object>, Task> OwinApp Field Value Type Description System.Func < System.Collections.Generic.IDictionary < System.String , System.Object >, System.Threading.Tasks.Task > Methods Invoke(MiddlewareContext) Invokes Middleware Declaration public override Task Invoke(MiddlewareContext context) Parameters Type Name Description MiddlewareContext context Returns Type Description System.Threading.Tasks.Task"
+  },
+  "api/Unosquare.Labs.EmbedIO.OwinMiddleware.html": {
+    "href": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.html",
+    "title": "Namespace Unosquare.Labs.EmbedIO.OwinMiddleware | Unosquare EmbedIO Extras",
+    "keywords": "Namespace Unosquare.Labs.EmbedIO.OwinMiddleware Classes Extensions Extension methods MiddlewareOwin EmbedIO Middleware to use with OWIN OwinModule Inject Owin Middleware to EmbedIO OwinServerFactory Server Factory"
+  },
+  "api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html": {
+    "href": "api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html",
+    "title": "Class PeopleController.Person | Unosquare EmbedIO Extras",
+    "keywords": "Class PeopleController.Person A simple model representing a person Inheritance System.Object PeopleController.Person Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIOwin Assembly : cs.temp.dll.dll Syntax public class Person Properties Age Declaration public int Age { get; set; } Property Value Type Description System.Int32 EmailAddress Declaration public string EmailAddress { get; set; } Property Value Type Description System.String Key Declaration public int Key { get; set; } Property Value Type Description System.Int32 Name Declaration public string Name { get; set; } Property Value Type Description System.String PhotoUrl Declaration public string PhotoUrl { get; set; } Property Value Type Description System.String"
+  },
+  "api/Unosquare.Labs.EmbedIOwin.Startup.html": {
+    "href": "api/Unosquare.Labs.EmbedIOwin.Startup.html",
+    "title": "Class Startup | Unosquare EmbedIO Extras",
+    "keywords": "Class Startup Startup object Inheritance System.Object Startup Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIOwin Assembly : cs.temp.dll.dll Syntax public class Startup Methods Configuration(IAppBuilder) Configure the OwinApp Declaration public void Configuration(IAppBuilder app) Parameters Type Name Description IAppBuilder app InitRoutes(IRouteTable) Initialize the Razor files Declaration public static void InitRoutes(IRouteTable table) Parameters Type Name Description IRouteTable table"
+  },
+  "api/Unosquare.Labs.EmbedIOwin.html": {
+    "href": "api/Unosquare.Labs.EmbedIOwin.html",
+    "title": "Namespace Unosquare.Labs.EmbedIOwin | Unosquare EmbedIO Extras",
+    "keywords": "Namespace Unosquare.Labs.EmbedIOwin Classes PeopleController PeopleController.Person A simple model representing a person Program Sample Owin-EmbedIO Startup Startup object"
   },
   "api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html": {
     "href": "api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html",
@@ -59,11 +84,6 @@
     "title": "Class PeopleController | Unosquare EmbedIO Extras",
     "keywords": "Class PeopleController Inheritance System.Object PeopleController Namespace : Unosquare.Labs.EmbedIOwin Assembly : cs.temp.dll.dll Syntax public class PeopleController : WebApiController Fields People Declaration public static List<PeopleController.Person> People Field Value Type Description List < PeopleController.Person > Methods GetPeople(WebServer, HttpListenerContext) Gets the people. This will respond to GET http://localhost:9696/api/people/ GET http://localhost:9696/api/people/1 GET http://localhost:9696/api/people/{n} Notice the wildcard is important Declaration public bool GetPeople(WebServer server, HttpListenerContext context) Parameters Type Name Description WebServer server The server. HttpListenerContext context The context. Returns Type Description System.Boolean"
   },
-  "api/Unosquare.Labs.EmbedIOwin.Program.html": {
-    "href": "api/Unosquare.Labs.EmbedIOwin.Program.html",
-    "title": "Class Program | Unosquare EmbedIO Extras",
-    "keywords": "Class Program Sample Owin-EmbedIO Inheritance System.Object Program Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIOwin Assembly : cs.temp.dll.dll Syntax public class Program"
-  },
   "README.html": {
     "href": "README.html",
     "title": "EmbedIO Extras | Unosquare EmbedIO Extras",
@@ -74,10 +94,10 @@
     "title": "Class BasicAuthorizationServerProvider | Unosquare EmbedIO Extras",
     "keywords": "Class BasicAuthorizationServerProvider Basic Authorization Server Provider implementation Inheritance System.Object BasicAuthorizationServerProvider Implements IAuthorizationServerProvider Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIO.BearerToken Assembly : cs.temp.dll.dll Syntax public class BasicAuthorizationServerProvider : IAuthorizationServerProvider Methods GetExpirationDate() Gets a Expiration Date Declaration public long GetExpirationDate() Returns Type Description System.Int64 ValidateClientAuthentication(ValidateClientAuthenticationContext) Validates a Client Authentication Declaration public Task ValidateClientAuthentication(ValidateClientAuthenticationContext context) Parameters Type Name Description ValidateClientAuthenticationContext context The context. Returns Type Description System.Threading.Tasks.Task Implements IAuthorizationServerProvider"
   },
-  "api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html": {
-    "href": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html",
-    "title": "Class BearerTokenModule | Unosquare EmbedIO Extras",
-    "keywords": "Class BearerTokenModule EmbedIO module to allow authorizations with Bearer Tokens Inheritance System.Object BearerTokenModule Namespace : Unosquare.Labs.EmbedIO.BearerToken Assembly : cs.temp.dll.dll Syntax public class BearerTokenModule : WebModuleBase Constructors BearerTokenModule(IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey, String) Initializes a new instance of the BearerTokenModule class. Declaration public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider, IEnumerable<string> routes = null, SymmetricSecurityKey secretKey = null, string endpoint = \"/token\") Parameters Type Name Description IAuthorizationServerProvider authorizationServerProvider The authorization server provider. System.Collections.Generic.IEnumerable < System.String > routes The routes. SymmetricSecurityKey secretKey The secret key. System.String endpoint The endpoint. Properties Name Returns Module Name Declaration public override string Name { get; } Property Value Type Description System.String"
+  "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html": {
+    "href": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html",
+    "title": "Class BearerToken | Unosquare EmbedIO Extras",
+    "keywords": "Class BearerToken Represents a Bearer Token JSON response Inheritance System.Object BearerToken Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIO.BearerToken Assembly : cs.temp.dll.dll Syntax public class BearerToken Properties ExpirationDate Expiration Date Declaration public long ExpirationDate { get; set; } Property Value Type Description System.Int64 Token The JsonWebToken Declaration public string Token { get; set; } Property Value Type Description System.String TokenType The Token type Declaration public string TokenType { get; set; } Property Value Type Description System.String Username Client username Declaration public string Username { get; set; } Property Value Type Description System.String"
   },
   "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html": {
     "href": "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html",
@@ -98,25 +118,5 @@
     "href": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html",
     "title": "Class LiteLibModule<T> | Unosquare EmbedIO Extras",
     "keywords": "Class LiteLibModule<T> Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context. Inheritance System.Object LiteLibModule<T> Namespace : Unosquare.Labs.EmbedIO.LiteLibWebApi Assembly : cs.temp.dll.dll Syntax public class LiteLibModule<T> : WebModuleBase where T : LiteDbContext Type Parameters Name Description T The type of LiteDbContext Constructors LiteLibModule(T, String) Initializes a new instance of the LiteLibModule<T> class. Declaration public LiteLibModule(T instance, string basePath = \"/api/\") Parameters Type Name Description T instance The instance. System.String basePath The base path. Properties Name Gets the name of this module. Declaration public override string Name { get; } Property Value Type Description System.String"
-  },
-  "api/Unosquare.Labs.EmbedIO.Markdown.html": {
-    "href": "api/Unosquare.Labs.EmbedIO.Markdown.html",
-    "title": "Namespace Unosquare.Labs.EmbedIO.Markdown | Unosquare EmbedIO Extras",
-    "keywords": "Namespace Unosquare.Labs.EmbedIO.Markdown Classes MarkdownStaticModule The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. It will accept markdown/html/htm extensions"
-  },
-  "api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html": {
-    "href": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html",
-    "title": "Class MiddlewareOwin | Unosquare EmbedIO Extras",
-    "keywords": "Class MiddlewareOwin EmbedIO Middleware to use with OWIN Inheritance System.Object MiddlewareOwin Namespace : Unosquare.Labs.EmbedIO.OwinMiddleware Assembly : cs.temp.dll.dll Syntax public class MiddlewareOwin : Middleware Constructors MiddlewareOwin(Func<IDictionary<String, Object>, Task>, IDictionary<String, Object>) Creates a new Middleware instance Declaration public MiddlewareOwin(Func<IDictionary<string, object>, Task> app, IDictionary<string, object> properties) Parameters Type Name Description System.Func < System.Collections.Generic.IDictionary < System.String , System.Object >, System.Threading.Tasks.Task > app System.Collections.Generic.IDictionary < System.String , System.Object > properties Fields Environment Environment variables Declaration protected IDictionary<string, object> Environment Field Value Type Description System.Collections.Generic.IDictionary < System.String , System.Object > OwinApp Owin App instance Declaration protected Func<IDictionary<string, object>, Task> OwinApp Field Value Type Description System.Func < System.Collections.Generic.IDictionary < System.String , System.Object >, System.Threading.Tasks.Task > Methods Invoke(MiddlewareContext) Invokes Middleware Declaration public override Task Invoke(MiddlewareContext context) Parameters Type Name Description MiddlewareContext context Returns Type Description System.Threading.Tasks.Task"
-  },
-  "api/Unosquare.Labs.EmbedIO.OwinMiddleware.html": {
-    "href": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.html",
-    "title": "Namespace Unosquare.Labs.EmbedIO.OwinMiddleware | Unosquare EmbedIO Extras",
-    "keywords": "Namespace Unosquare.Labs.EmbedIO.OwinMiddleware Classes Extensions Extension methods MiddlewareOwin EmbedIO Middleware to use with OWIN OwinModule Inject Owin Middleware to EmbedIO OwinServerFactory Server Factory"
-  },
-  "api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html": {
-    "href": "api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html",
-    "title": "Class PeopleController.Person | Unosquare EmbedIO Extras",
-    "keywords": "Class PeopleController.Person A simple model representing a person Inheritance System.Object PeopleController.Person Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIOwin Assembly : cs.temp.dll.dll Syntax public class Person Properties Age Declaration public int Age { get; set; } Property Value Type Description System.Int32 EmailAddress Declaration public string EmailAddress { get; set; } Property Value Type Description System.String Key Declaration public int Key { get; set; } Property Value Type Description System.Int32 Name Declaration public string Name { get; set; } Property Value Type Description System.String PhotoUrl Declaration public string PhotoUrl { get; set; } Property Value Type Description System.String"
   }
 }
