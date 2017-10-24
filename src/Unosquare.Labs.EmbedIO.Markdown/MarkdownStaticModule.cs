@@ -1,5 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.Markdown
 {
+    using Constants;
     using System;
     using System.IO;
     using System.Linq;
@@ -7,9 +8,10 @@
     using System.Threading.Tasks;
     using Swan;
 #if NET46
-    using System.Net;
-#else
     using Unosquare.Net;
+#else
+    using System.Net;
+
 #endif
 
     /// <summary>
@@ -39,7 +41,7 @@
 
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, HandleGet);
         }
-        
+
         /// <summary>
         /// Gets the name of this module.
         /// </summary>

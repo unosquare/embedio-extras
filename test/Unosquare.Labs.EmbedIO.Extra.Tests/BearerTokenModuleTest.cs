@@ -1,19 +1,20 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using Unosquare.Labs.EmbedIO.BearerToken;
-using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
-using Unosquare.Labs.EmbedIO.Markdown;
-using Unosquare.Swan.Formatters;
-using System.Net;
-#if !NET46
-using Unosquare.Net;
+﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
+{
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using NUnit.Framework;
+    using BearerToken;
+    using TestObjects;
+    using Markdown;
+    using Swan.Formatters;
+#if NET46
+    using Unosquare.Net;
+#else
+    using System.Net;
 #endif
 
-namespace Unosquare.Labs.EmbedIO.Extra.Tests
-{
     [TestFixture]
     public class BearerTokenModuleTest
     {
@@ -38,15 +39,9 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         [Test]
         public void TestBasicAuthorizationServerProvider()
         {
-            try
-            {
-                BasicProvider.ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
-                    .RunSynchronously();
-            }
-            catch (Exception ex)
-            {
-                Assert.AreEqual(ex.GetType(), typeof(ArgumentNullException));
-            }
+            Assert.Throws<ArgumentNullException>(() => BasicProvider
+                .ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
+                .RunSynchronously());
         }
 #endif
 
@@ -55,7 +50,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         {
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=nothing");
 
-            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + "token");
+            var request = (System.Net.HttpWebRequest) System.Net.WebRequest.Create(WebServerUrl + "token");
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
             using (var dataStream = await request.GetRequestStreamAsync())
@@ -65,16 +60,17 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
 
             try
             {
-                var response = (HttpWebResponse) await request.GetResponseAsync();
+                var response = (System.Net.HttpWebResponse) await request.GetResponseAsync();
             }
-            catch (WebException ex)
+            catch (System.Net.WebException ex)
             {
-                if (ex.Response == null || ex.Status != WebExceptionStatus.ProtocolError)
+                if (ex.Response == null || ex.Status != System.Net.WebExceptionStatus.ProtocolError)
                     throw;
 
-                var response = (HttpWebResponse) ex.Response;
+                var response = (System.Net.HttpWebResponse) ex.Response;
 
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.Unauthorized, "Status Code Unauthorized");
+                Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.Unauthorized,
+                    "Status Code Unauthorized");
 
             }
         }
@@ -85,7 +81,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
             string token;
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
 
-            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + "token");
+            var request = (System.Net.HttpWebRequest) System.Net.WebRequest.Create(WebServerUrl + "token");
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
 
@@ -94,14 +90,14 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 dataStream.Write(payload, 0, payload.Length);
             }
 
-            using (var response = (HttpWebResponse) await request.GetResponseAsync())
+            using (var response = (System.Net.HttpWebResponse) await request.GetResponseAsync())
             {
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+                Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK, "Status Code OK");
 
                 var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 Assert.IsNotEmpty(jsonString);
 
-                var json = Json.Deserialize<BearerToken.BearerToken>(jsonString);
+                var json = Json.Deserialize<BearerToken>(jsonString);
                 Assert.IsNotNull(json);
                 Assert.IsNotEmpty(json.Token);
                 Assert.IsNotEmpty(json.Username);
@@ -109,32 +105,33 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 token = json.Token;
             }
 
-            var indexRequest = (HttpWebRequest) WebRequest.Create(WebServerUrl + "index.html");
+            var indexRequest = (System.Net.HttpWebRequest) System.Net.WebRequest.Create(WebServerUrl + "index.html");
 
             try
             {
-                using (var response = (HttpWebResponse) await indexRequest.GetResponseAsync())
+                using (var response = (System.Net.HttpWebResponse) await indexRequest.GetResponseAsync())
                 {
-                    Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+                    Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK, "Status Code OK");
                 }
             }
-            catch (WebException ex)
+            catch (System.Net.WebException ex)
             {
-                if (ex.Response == null || ex.Status != WebExceptionStatus.ProtocolError)
+                if (ex.Response == null || ex.Status != System.Net.WebExceptionStatus.ProtocolError)
                     throw;
 
-                var response = (HttpWebResponse) ex.Response;
+                var response = (System.Net.HttpWebResponse) ex.Response;
 
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.Unauthorized, "Status Code Unauthorized");
+                Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.Unauthorized,
+                    "Status Code Unauthorized");
 
             }
 
-            indexRequest = (HttpWebRequest) WebRequest.Create(WebServerUrl + "index.html");
+            indexRequest = (System.Net.HttpWebRequest) System.Net.WebRequest.Create(WebServerUrl + "index.html");
             indexRequest.Headers["Authorization"] = "Bearer " + token;
 
-            using (var response = (HttpWebResponse) await indexRequest.GetResponseAsync())
+            using (var response = (System.Net.HttpWebResponse) await indexRequest.GetResponseAsync())
             {
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+                Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK, "Status Code OK");
             }
         }
 

@@ -7,9 +7,9 @@
     using System.IdentityModel.Tokens.Jwt;
     using Swan;
 #if NET46
-    using System.Net;
+    using Net;
 #else
-    using Unosquare.Net;
+    using System.Net;
 #endif
 
     /// <summary>
@@ -21,11 +21,9 @@
         /// Retrieves a ValidationContext
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <returns></returns>
+        /// <returns>The Validation Context from the HTTP Context</returns>
         public static ValidateClientAuthenticationContext GetValidationContext(this HttpListenerContext context)
-        {
-            return new ValidateClientAuthenticationContext(context);
-        }
+         => new ValidateClientAuthenticationContext(context);
 
         /// <summary>
         /// Rejects a authentication challenge
@@ -43,28 +41,27 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="secretKey">The secret key.</param>
-        /// <returns></returns>
-        public static SecurityToken GetSecurityToken(this HttpListenerContext context, string secretKey = null) 
-        {
-            return context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
-        }
+        /// <returns>The security token from the HTTP Context</returns>
+        public static SecurityToken GetSecurityToken(this HttpListenerContext context, string secretKey = null)
+        => context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
 
         /// <summary>
         /// Gets the security token.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="secretKey">The secret key.</param>
-        /// <returns></returns>
-        public static SecurityToken GetSecurityToken(this HttpListenerContext context, SymmetricSecurityKey secretKey = null) 
+        /// <returns>The security token from the HTTP Context</returns>
+        public static SecurityToken GetSecurityToken(this HttpListenerContext context, SymmetricSecurityKey secretKey = null)
         {
             var authHeader = context.RequestHeader("Authorization");
 
             if (string.IsNullOrWhiteSpace(authHeader) || !authHeader.StartsWith("Bearer "))
-                return null;
-
-            try 
             {
-                SecurityToken validatedToken;
+                return null;
+            }
+
+            try
+            {
                 var token = authHeader.Replace("Bearer ", string.Empty);
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var tokenParmas = new TokenValidationParameters
@@ -74,10 +71,10 @@
                     IssuerSigningKey = secretKey
                 };
 
-                tokenHandler.ValidateToken(token, tokenParmas, out validatedToken);
+                tokenHandler.ValidateToken(token, tokenParmas, out var validatedToken);
                 return validatedToken;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 ex.Log("BearerTokenModule");
             }
@@ -93,7 +90,7 @@
         /// <param name="routes">The routes.</param>
         /// <param name="secretKey">The secret key.</param>
         public static void UseBearerToken(this WebServer webserver,
-            IAuthorizationServerProvider authorizationProvider = null, 
+            IAuthorizationServerProvider authorizationProvider = null,
             IEnumerable<string> routes = null,
             SymmetricSecurityKey secretKey = null)
         {

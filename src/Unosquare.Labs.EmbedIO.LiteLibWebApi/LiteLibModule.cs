@@ -1,5 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 {
+    using Constants;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -9,10 +10,9 @@
     using Swan;
     using Swan.Formatters;
 #if NET46
-    using System.Net;
-#else
     using Net;
-
+#else
+    using System.Net;
 #endif
 
     /// <summary>
@@ -64,7 +64,7 @@
                             foreach (var row in data)
                             {
                                 var item = Activator.CreateInstance(setType);
-                                ((IDictionary<string, object>) row).CopyPropertiesFromDictionary(item, null);
+                                ((IDictionary<string, object>) row).CopyPropertiesTo(item);
                                 dataList.Add(item);
                             }
                             context.JsonResponse(dataList);
@@ -82,7 +82,7 @@
                         {
                             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
                             var objTable = Activator.CreateInstance(setType);
-                            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
+                            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
                             context.JsonResponse(objTable);
                             return Task.FromResult(true);
                         }
@@ -110,7 +110,7 @@
         {
             var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
             var objTable = Activator.CreateInstance(dbSetType);
-            body.CopyPropertiesFromDictionary(objTable, null);
+            body.CopyPropertiesTo(objTable);
 
             _dbInstance.Insert(objTable);
 
@@ -121,9 +121,9 @@
         {
             var objTable = Activator.CreateInstance(dbSetType);
             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
-            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
+            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
             var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
-            body.CopyPropertiesFromDictionary(objTable, new[] {"RowId"});
+            body.CopyPropertiesTo(objTable, new[] {"RowId"});
 
             await _dbInstance.UpdateAsync(objTable);
 
@@ -134,7 +134,7 @@
         {
             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
             var objTable = Activator.CreateInstance(dbSetType);
-            ((IDictionary<string, object>) data.First()).CopyPropertiesFromDictionary(objTable, null);
+            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
 
             await _dbInstance.DeleteAsync(objTable);
 

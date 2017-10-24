@@ -17,7 +17,7 @@
         /// <summary>
         /// Gets a Expiration Date
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Ticks until expiration date</returns>
         long GetExpirationDate();
     }
 }

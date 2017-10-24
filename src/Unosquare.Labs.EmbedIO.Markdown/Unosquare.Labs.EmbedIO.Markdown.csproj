@@ -2,28 +2,17 @@
 
   <PropertyGroup>
     <AssemblyTitle>Unosquare EmbedIO Markdown Module</AssemblyTitle>
-    <TargetFrameworks>netstandard1.6;net452;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net47;net46</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Unosquare.Labs.EmbedIO.Markdown</AssemblyName>
-    <PackageId>Unosquare.Labs.EmbedIO.Markdown</PackageId>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.6' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
-    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6.1</NetStandardImplicitPackageVersion>
+    <DebugType>Full</DebugType>
+    <Authors>Unosquare</Authors>
+    <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommonMark.NET" Version="0.15.1" />
-    <PackageReference Include="EmbedIO" Version="1.6.10" />
+    <PackageReference Include="EmbedIO" Version="1.10.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
   </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
 </Project>

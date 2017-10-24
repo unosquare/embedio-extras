@@ -1,22 +1,20 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
-using Unosquare.Labs.EmbedIO.LiteLibWebApi;
-using Unosquare.Swan.Formatters;
-using Unosquare.Swan.Networking;
-
-namespace Unosquare.Labs.EmbedIO.Extra.Tests
+﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
+    using NUnit.Framework;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Threading.Tasks;
+    using TestObjects;
+    using LiteLibWebApi;
+    using Swan.Formatters;
+    using Swan.Networking;
+
     [TestFixture]
     public class LiteLibModuleTest
     {
         protected string RootPath;
-        protected string ApiPath = "dbapi";
+        protected const string ApiPath = "dbapi";
         protected string WebServerUrl;
         protected WebServer WebServer;
 
@@ -27,14 +25,14 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
 
             WebServerUrl = Resources.GetServerAddress();
             WebServer = new WebServer(WebServerUrl);
-            WebServer.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/" + ApiPath + "/"));
+            WebServer.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/"));
             WebServer.RunAsync();
         }
 
         [Test]
         public async Task GetAllLiteLib()
         {
-            var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
+            var response = await JsonClient.GetString($"{WebServerUrl}{ApiPath}/order");
 
             Assert.IsNotNull(response);
 
@@ -46,7 +44,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         [Test]
         public async Task GetFirstItemLiteLib()
         {
-            var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order/1");
+            var response = await JsonClient.GetString($"{WebServerUrl}{ApiPath}/order/1");
 
             Assert.IsNotNull(response);
 
@@ -59,9 +57,9 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         public async Task AddLiteLib()
         {
             var getAllResponse = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
-            var orders = (Json.Deserialize<List<Order>>(getAllResponse)).Count;
+            var orders = Json.Deserialize<List<Order>>(getAllResponse).Count;
 
-            Order newOrder = new Order()
+            var newOrder = new Order()
             {
                 CustomerName = "UnoLabs",
                 ShipperCity = "GDL",
@@ -73,7 +71,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
             await JsonClient.Post(WebServerUrl + ApiPath + "/order", newOrder);
 
             getAllResponse = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
-            var ordersPlusOne = (Json.Deserialize<List<Order>>(getAllResponse)).Count;
+            var ordersPlusOne = Json.Deserialize<List<Order>>(getAllResponse).Count;
 
             Assert.AreEqual(orders + 1, ordersPlusOne);
         }
@@ -81,7 +79,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         [Test]
         public async Task PutLiteLib()
         {
-            Order order = new Order()
+            var order = new Order()
             {
                 CustomerName = "UnoLabs",
                 ShipperCity = "Zapopan",
@@ -93,7 +91,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
             await JsonClient.Put(WebServerUrl + ApiPath + "/order/1", order);
 
             var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order/1");
-            var edited = (Json.Deserialize<Order>(response));
+            var edited = Json.Deserialize<Order>(response);
 
             Assert.AreEqual(order.ShipperCity, "Zapopan");
 
@@ -111,20 +109,20 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
 
             Assert.IsNotNull(response);
 
-            var order = (Json.Deserialize<List<Order>>(response));
+            var order = Json.Deserialize<List<Order>>(response);
             var last = order.Last().RowId;
-            var count = order.Count();
+            var count = order.Count;
 
-            var request = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/order/" + last);
+            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/order/" + last);
             request.Method = "DELETE";
 
-            using (var webResponse = (HttpWebResponse)await request.GetResponseAsync())
+            using (var webResponse = (HttpWebResponse) await request.GetResponseAsync())
             {
                 Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }
 
             response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
-            var newCount = (Json.Deserialize<List<Order>>(response)).Count();
+            var newCount = Json.Deserialize<List<Order>>(response).Count;
 
             Assert.AreEqual(newCount, count - 1);
         }

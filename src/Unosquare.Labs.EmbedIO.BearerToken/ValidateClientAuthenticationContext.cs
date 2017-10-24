@@ -5,9 +5,9 @@
     using System.IdentityModel.Tokens.Jwt;
     using System;
 #if NET46
-    using System.Net;
+    using Net;
 #else
-    using Unosquare.Net;
+    using System.Net;
 #endif
 
     /// <summary>
@@ -22,10 +22,7 @@
         /// <exception cref="System.ArgumentNullException">httpContext</exception>
         public ValidateClientAuthenticationContext(HttpListenerContext httpContext)
         {
-            if (httpContext == null)
-                throw new ArgumentNullException(nameof(httpContext));
-
-            HttpContext = httpContext;
+            HttpContext = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
 
             // TODO: Add Claims
             StandardClaims = new ClaimsIdentity();
@@ -88,7 +85,7 @@
         /// Retrieve JsonWebToken
         /// </summary>
         /// <param name="secretKey">The secret key.</param>
-        /// <returns></returns>
+        /// <returns>The token string</returns>
         public string GetToken(SymmetricSecurityKey secretKey)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

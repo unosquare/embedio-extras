@@ -16,7 +16,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
     public class JsonServerModuleTest
     {
         protected string RootPath;
-        protected string ApiPath = "api/";
+        protected const string ApiPath = "api/";
         protected string WebServerUrl;
         protected WebServer WebServer;
 

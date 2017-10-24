@@ -1,6 +1,7 @@
 ﻿namespace Unosquare.Labs.EmbedIO.JsonServer
 {
     using Swan;
+    using Constants;
     using Swan.Formatters;
     using System;
     using System.Collections.Generic;
@@ -8,9 +9,9 @@
     using System.Threading;
     using System.Threading.Tasks;
 #if NET46
-    using System.Net;
-#else
     using Net;
+#else
+    using System.Net;
 #endif
 
     /// <summary>

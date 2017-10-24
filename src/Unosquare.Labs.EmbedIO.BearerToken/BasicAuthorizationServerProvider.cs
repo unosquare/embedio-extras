@@ -32,7 +32,7 @@
         /// <summary>
         /// Gets a Expiration Date
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Ticks until expiration date</returns>
         public long GetExpirationDate() => DateTime.UtcNow.AddHours(12).Ticks;
     }
 }

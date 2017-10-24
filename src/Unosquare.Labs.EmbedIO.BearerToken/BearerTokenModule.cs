@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Text;
     using Swan;
+    using Constants;
 
     /// <summary>
     /// EmbedIO module to allow authorizations with Bearer Tokens

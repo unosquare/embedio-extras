@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-
-namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
+﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+
     public class TestHelper
     {
         public static string SetupStaticFolder()
         {
-            var assemblyPath = Path.GetDirectoryName(typeof (TestHelper).GetTypeInfo().Assembly.Location);
+            var assemblyPath = Path.GetDirectoryName(typeof(TestHelper).GetTypeInfo().Assembly.Location);
             var rootPath = Path.Combine(assemblyPath, "web");
 
             if (Directory.Exists(rootPath) == false)
@@ -21,10 +22,9 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
                 {"database.json", DatabaseJson}
             };
 
-            foreach (var file in files)
+            foreach (var file in files.Where(file => File.Exists(Path.Combine(rootPath, file.Key)) == false))
             {
-                if (File.Exists(Path.Combine(rootPath, file.Key)) == false)
-                    File.WriteAllText(Path.Combine(rootPath, file.Key), file.Value);
+                File.WriteAllText(Path.Combine(rootPath, file.Key), file.Value);
             }
 
             return rootPath;
