@@ -1,10 +1,10 @@
 language: csharp
 solution: Unosquare.Labs.EmbedIO.Extras.sln
-dotnet: 1.1.0
+dotnet: 2.0.0
 mono: latest
 dist: trusty
 sudo: false
 install:
   - dotnet restore Unosquare.Labs.EmbedIO.Extras.sln
 script:
-  - dotnet test ./test/Unosquare.Labs.EmbedIO.Extra.Tests/Unosquare.Labs.EmbedIO.Extra.Tests.csproj -f netcoreapp1.1
+  - dotnet test ./test/Unosquare.Labs.EmbedIO.Extra.Tests/Unosquare.Labs.EmbedIO.Extra.Tests.csproj -f netcoreapp2.0
