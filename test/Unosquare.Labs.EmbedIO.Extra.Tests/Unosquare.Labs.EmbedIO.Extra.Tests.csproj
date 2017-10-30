@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net47;net46</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0;net47;net46</TargetFrameworks>
     <AssemblyName>Unosquare.Labs.EmbedIO.Extra.Tests</AssemblyName>
     <PackageId>Unosquare.Labs.EmbedIO.Extra.Tests</PackageId>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
@@ -17,7 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
-    <packagereference Include="NUnit3TestAdapter" Version="3.8.0"></packagereference>
+    <packagereference Include="NUnit3TestAdapter" Version="3.8.0" />
     <PackageReference Include="LiteLib" Version="0.14.3" />
     <PackageReference Include="NUnit" Version="3.8.1" />
   </ItemGroup>
