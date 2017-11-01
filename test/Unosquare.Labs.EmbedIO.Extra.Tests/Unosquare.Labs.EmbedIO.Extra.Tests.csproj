@@ -16,8 +16,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
+    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
-    <packagereference Include="NUnit3TestAdapter" Version="3.8.0" />
+    <packagereference Include="NUnit3TestAdapter" Version="3.9.0" />
     <PackageReference Include="LiteLib" Version="0.14.3" />
     <PackageReference Include="NUnit" Version="3.8.1" />
   </ItemGroup>

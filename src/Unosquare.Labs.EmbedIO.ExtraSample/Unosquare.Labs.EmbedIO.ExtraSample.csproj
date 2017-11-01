@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="LiteLib" Version="0.14.3" />
+    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net47' ">

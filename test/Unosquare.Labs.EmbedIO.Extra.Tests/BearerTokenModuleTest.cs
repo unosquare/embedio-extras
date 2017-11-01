@@ -69,9 +69,7 @@
 
                 var response = (System.Net.HttpWebResponse) ex.Response;
 
-                Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.Unauthorized,
-                    "Status Code Unauthorized");
-
+                Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.Unauthorized);
             }
         }
 
@@ -121,8 +119,7 @@
 
                 var response = (System.Net.HttpWebResponse) ex.Response;
 
-                Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.Unauthorized,
-                    "Status Code Unauthorized");
+                Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.Unauthorized);
 
             }
 
