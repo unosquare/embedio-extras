@@ -64,7 +64,7 @@
                             foreach (var row in data)
                             {
                                 var item = Activator.CreateInstance(setType);
-                                ((IDictionary<string, object>) row).CopyPropertiesTo(item);
+                                ((IDictionary<string, object>) row).CopyPropertiesTo(item, null);
                                 dataList.Add(item);
                             }
                             context.JsonResponse(dataList);
@@ -82,7 +82,7 @@
                         {
                             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
                             var objTable = Activator.CreateInstance(setType);
-                            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
+                            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable, null);
                             context.JsonResponse(objTable);
                             return Task.FromResult(true);
                         }
@@ -121,7 +121,7 @@
         {
             var objTable = Activator.CreateInstance(dbSetType);
             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
-            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
+            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable, null);
             var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
             body.CopyPropertiesTo(objTable, new[] {"RowId"});
 
@@ -134,7 +134,7 @@
         {
             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
             var objTable = Activator.CreateInstance(dbSetType);
-            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
+            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable, null);
 
             await _dbInstance.DeleteAsync(objTable);
 
