@@ -31,7 +31,7 @@ before_build:
 - nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory tools
 build_script:
-- msbuild Unosquare.Labs.EmbedIO.Extras.sln
+- msbuild Unosquare.Labs.EmbedIO.Extras.sln /p:Configuration=Release
 test_script:
 - dir test\Unosquare.Labs.EmbedIO.Extra.Tests\bin\Any CPU\Release\net46\
 - dotnet test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f netcoreapp2.0
