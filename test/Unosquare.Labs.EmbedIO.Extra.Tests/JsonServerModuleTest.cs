@@ -13,22 +13,15 @@ using Unosquare.Swan.Formatters;
 namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
     [TestFixture]
-    public class JsonServerModuleTest
+    public class JsonServerModuleTest : FixtureBase
     {
-        protected string RootPath;
         protected const string ApiPath = "api/";
-        protected string WebServerUrl;
-        protected WebServer WebServer;
 
-        [SetUp]
-        public void Init()
+        public JsonServerModuleTest()
+            : base(ws => ws.RegisterModule(
+                new JsonServerModule("/" + ApiPath, Path.Combine(TestHelper.SetupStaticFolder(), "database.json"))))
         {
-            RootPath = TestHelper.SetupStaticFolder();
-
-            WebServerUrl = Resources.GetServerAddress();
-            WebServer = new WebServer(WebServerUrl);
-            WebServer.RegisterModule(new JsonServerModule("/" + ApiPath, Path.Combine(RootPath, "database.json")));
-            WebServer.RunAsync();
+            // placeholder
         }
 
         [Test]
@@ -186,13 +179,6 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 var json = Json.Deserialize<List<object>>(jsonString);
                 Assert.AreEqual(total - 1, json.Count);
             }
-        }
-
-        [TearDown]
-        public void Kill()
-        {
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            WebServer.Dispose();
         }
     }
 }

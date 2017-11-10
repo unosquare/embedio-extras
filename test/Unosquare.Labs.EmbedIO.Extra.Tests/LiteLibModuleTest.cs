@@ -11,22 +11,15 @@
     using Swan.Networking;
 
     [TestFixture]
-    public class LiteLibModuleTest
+    public class LiteLibModuleTest : FixtureBase
     {
-        protected string RootPath;
         protected const string ApiPath = "dbapi";
-        protected string WebServerUrl;
-        protected WebServer WebServer;
 
-        [SetUp]
-        public void Init()
+        public LiteLibModuleTest()
+            : base(ws => ws.RegisterModule(
+                new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/")))
         {
-            RootPath = TestHelper.SetupStaticFolder();
-
-            WebServerUrl = Resources.GetServerAddress();
-            WebServer = new WebServer(WebServerUrl);
-            WebServer.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/"));
-            WebServer.RunAsync();
+            // placeholder
         }
 
         [Test]
