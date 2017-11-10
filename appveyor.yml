@@ -33,7 +33,7 @@ before_build:
 build_script:
 - msbuild Unosquare.Labs.EmbedIO.Extras.sln
 test_script:
-- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION%" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet
+- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f net46" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet
 - tools\coveralls.net.0.7.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
 after_build:
 - ps: |
