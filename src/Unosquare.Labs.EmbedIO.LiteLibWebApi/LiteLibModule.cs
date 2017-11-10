@@ -63,23 +63,7 @@
 
                             foreach (var row in data)
                             {
-                                var item = Activator.CreateInstance(setType);
-                                var targetProperties = item.GetType().GetRuntimeProperties()
-                                    .Where(y => y.CanWrite)
-                                    .ToList();
-                                var dataDictionary = (IDictionary<string, object>)row;
-
-                                foreach (KeyValuePair<string, object> entry in dataDictionary)
-                                {
-                                    var targetProperty = targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
-                                    if (entry.Value != null)
-                                    {
-                                        if (targetProperty.PropertyType == entry.Value.GetType())
-                                        {
-                                            targetProperty.SetValue(item, entry.Value);
-                                        }
-                                    }
-                                }
+                                var item = SetValues(Activator.CreateInstance(setType), row);
                                 dataList.Add(item);
                             }
                             context.JsonResponse(dataList);
@@ -96,23 +80,7 @@
                         case HttpVerbs.Get:
                             {
                                 var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
-                                var objTable = Activator.CreateInstance(setType);
-                                var targetProperties = objTable.GetType().GetRuntimeProperties()
-                                    .Where(y => y.CanWrite)
-                                    .ToList();
-                                var dataDictionary = (IDictionary<string, object>)data.First();
-
-                                foreach (KeyValuePair<string, object> entry in dataDictionary)
-                                {
-                                    var targetProperty = targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
-                                    if (entry.Value != null)
-                                    {
-                                        if (targetProperty.PropertyType == entry.Value.GetType())
-                                        {
-                                            targetProperty.SetValue(objTable, entry.Value);
-                                        }
-                                    }
-                                }
+                                var objTable = SetValues(Activator.CreateInstance(setType), data.First());
                                 context.JsonResponse(objTable);
                                 return Task.FromResult(true);
                             }
@@ -163,28 +131,36 @@
         private async Task<bool> RemoveRow(ILiteDbSet table, string rowId, Type dbSetType)
         {
             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = rowId });
-            var objTable = Activator.CreateInstance(dbSetType);
+            var objTable = SetValues(Activator.CreateInstance(dbSetType), data.First());
+            await _dbInstance.DeleteAsync(objTable);
+
+            return true;
+        }
+
+        private object SetValues(object objTable,object data)
+        {
             var targetProperties = objTable.GetType().GetRuntimeProperties()
-                                   .Where(y => y.CanWrite)
-                                   .ToList();
+                                  .Where(y => y.CanWrite)
+                                  .ToList();
 
-            var dataDictionary = (IDictionary<string, object>)data.First();
-
-            foreach (KeyValuePair<string, object> entry in dataDictionary)
+            if (data != null)
             {
-                var targetProperty = targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
-                if (entry.Value != null)
+                var dataDictionary = (IDictionary<string, object>)data;
+
+                foreach (KeyValuePair<string, object> entry in dataDictionary)
                 {
-                    if (targetProperty.PropertyType == entry.Value.GetType())
+                    var targetProperty = targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
+                    if (entry.Value != null)
                     {
-                        targetProperty.SetValue(objTable, entry.Value);
+                        if (targetProperty.PropertyType == entry.Value.GetType())
+                        {
+                            targetProperty.SetValue(objTable, entry.Value);
+                        }
                     }
                 }
             }
 
-            await _dbInstance.DeleteAsync(objTable);
-
-            return true;
+            return objTable;
         }
     }
 }
