@@ -16,25 +16,19 @@
 #endif
 
     [TestFixture]
-    public class BearerTokenModuleTest
+    public class BearerTokenModuleTest : FixtureBase
     {
-        protected string RootPath;
         protected BasicAuthorizationServerProvider BasicProvider = new BasicAuthorizationServerProvider();
-        protected WebServer WebServer;
-        protected string WebServerUrl;
 
-        [SetUp]
-        public void Init()
+        public BearerTokenModuleTest()
+            : base((ws) => 
+            {
+                ws.RegisterModule(new BearerTokenModule(new BasicAuthorizationServerProvider()));
+                ws.RegisterModule(new MarkdownStaticModule(TestHelper.SetupStaticFolder()));
+            })
         {
-            RootPath = TestHelper.SetupStaticFolder();
-
-            WebServerUrl = Resources.GetServerAddress();
-            WebServer = new WebServer(WebServerUrl);
-            WebServer.RegisterModule(new BearerTokenModule(BasicProvider));
-            WebServer.RegisterModule(new MarkdownStaticModule(RootPath));
-            WebServer.RunAsync();
         }
-
+        
 #if !NET46
         [Test]
         public void TestBasicAuthorizationServerProvider()
@@ -130,13 +124,6 @@
             {
                 Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK, "Status Code OK");
             }
-        }
-
-        [TearDown]
-        public void Kill()
-        {
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            WebServer.Dispose();
         }
     }
 }
