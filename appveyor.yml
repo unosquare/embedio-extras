@@ -30,11 +30,11 @@ before_build:
 - mkdir tools
 - nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory tools
-- nuget install System.Data.SQLite.Core -Version 1.0.106 -OutputDirectory tools
+- nuget install sqlite -Version 3.13.0 -OutputDirectory tools
 build_script:
 - msbuild Unosquare.Labs.EmbedIO.Extras.sln /p:Configuration=Release
 test_script:
-- dir tools\System.Data.SQLite.Core
+- ps: Copy-Item tools\sqlite.3.13.0\runtimes\win7-x64\native\sqlite3.dll "c:\projects\embedio-extras\test\Unosquare.Labs.EmbedIO.Extra.Tests\bin\Release\net46"
 - dir "c:\projects\embedio-extras\test\Unosquare.Labs.EmbedIO.Extra.Tests\bin\Release\net46"
 - dotnet test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f netcoreapp2.0
 - tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f net46" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet
