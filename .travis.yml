@@ -1,7 +1,6 @@
 language: csharp
 solution: Unosquare.Labs.EmbedIO.Extras.sln
 dotnet: 2.0.0
-mono: latest
 dist: trusty
 sudo: false
 install:
