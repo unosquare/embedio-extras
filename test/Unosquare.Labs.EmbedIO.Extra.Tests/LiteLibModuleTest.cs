@@ -9,24 +9,18 @@
     using LiteLibWebApi;
     using Swan.Formatters;
     using Swan.Networking;
+    using System.Net.Http;
 
     [TestFixture]
-    public class LiteLibModuleTest
+    public class LiteLibModuleTest : FixtureBase
     {
-        protected string RootPath;
         protected const string ApiPath = "dbapi";
-        protected string WebServerUrl;
-        protected WebServer WebServer;
 
-        [SetUp]
-        public void Init()
+        public LiteLibModuleTest()
+            : base(ws => ws.RegisterModule(
+                new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/")))
         {
-            RootPath = TestHelper.SetupStaticFolder();
-
-            WebServerUrl = Resources.GetServerAddress();
-            WebServer = new WebServer(WebServerUrl);
-            WebServer.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/"));
-            WebServer.RunAsync();
+            // placeholder
         }
 
         [Test]
@@ -105,26 +99,28 @@
         [Test]
         public async Task DeleteLiteLib()
         {
-            var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
-
-            Assert.IsNotNull(response);
-
-            var order = Json.Deserialize<List<Order>>(response);
-            var last = order.Last().RowId;
-            var count = order.Count;
-
-            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/order/" + last);
-            request.Method = "DELETE";
-
-            using (var webResponse = (HttpWebResponse) await request.GetResponseAsync())
+            using (var client = new HttpClient())
             {
-                Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
-            }
+                var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
 
-            response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
-            var newCount = Json.Deserialize<List<Order>>(response).Count;
+                Assert.IsNotNull(response);
 
-            Assert.AreEqual(newCount, count - 1);
+                var order = Json.Deserialize<List<Order>>(response);
+                var last = order.Last().RowId;
+                var count = order.Count;
+
+                var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/order/" + last);
+
+                using (var webResponse = await client.SendAsync(request))
+                {
+                    Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
+                }
+
+                response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
+                var newCount = Json.Deserialize<List<Order>>(response).Count;
+
+                Assert.AreEqual(newCount, count - 1);
+            }                
         }
     }
 }

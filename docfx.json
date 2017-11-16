@@ -11,6 +11,9 @@
     }
   ],
   "build": {
+    "template": [
+      "best-practices/templates/default"
+    ],
     "content": [
       {
         "files": [ "**/*.yml" ],
@@ -23,12 +26,14 @@
     ],
     "resource": [
       {
-        "files": [ ]
+        "files": [ "best-practices/resources/**", "embedio.png"]
       }
     ],
     "globalMetadata": {
       "_appTitle": "Unosquare EmbedIO Extras",
-      "_enableSearch": true
+      "_enableSearch": true,
+      "_appLogoPath": "best-practices/resources/images/logo.png",
+      "_docLogo":  "embedio.png"
     },
     "dest": "_site"
   }

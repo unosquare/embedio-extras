@@ -42,7 +42,7 @@
                 if (path.StartsWith(basePath) == false)
                     return Task.FromResult(false);
 
-                var parts = path.Substring(basePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
+                var parts = path.Substring(basePath.Length).Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
                 var setType =
                     _dbInstance.GetType()
@@ -63,8 +63,7 @@
 
                             foreach (var row in data)
                             {
-                                var item = Activator.CreateInstance(setType);
-                                ((IDictionary<string, object>) row).CopyPropertiesTo(item);
+                                var item = SetValues(Activator.CreateInstance(setType), row);
                                 dataList.Add(item);
                             }
                             context.JsonResponse(dataList);
@@ -79,21 +78,20 @@
                     switch (verb)
                     {
                         case HttpVerbs.Get:
-                        {
-                            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
-                            var objTable = Activator.CreateInstance(setType);
-                            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
-                            context.JsonResponse(objTable);
-                            return Task.FromResult(true);
-                        }
+                            {
+                                var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = parts[1] });
+                                var objTable = SetValues(Activator.CreateInstance(setType), data.First());
+                                context.JsonResponse(objTable);
+                                return Task.FromResult(true);
+                            }
                         case HttpVerbs.Put:
-                        {
-                            return UpdateRow(setType, table, parts[1], context);
-                        }
+                            {
+                                return UpdateRow(setType, table, parts[1], context);
+                            }
                         case HttpVerbs.Delete:
-                        {
-                            return RemoveRow(table, parts[1], setType);
-                        }
+                            {
+                                return RemoveRow(table, parts[1], setType);
+                            }
                     }
                 }
 
@@ -108,9 +106,9 @@
 
         private Task<bool> AddRow(HttpListenerContext context, Type dbSetType)
         {
-            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
+            var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
             var objTable = Activator.CreateInstance(dbSetType);
-            body.CopyPropertiesTo(objTable);
+            body.CopyPropertiesTo(objTable, null);
 
             _dbInstance.Insert(objTable);
 
@@ -120,10 +118,10 @@
         private async Task<bool> UpdateRow(Type dbSetType, ILiteDbSet table, string rowId, HttpListenerContext context)
         {
             var objTable = Activator.CreateInstance(dbSetType);
-            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
-            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
-            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
-            body.CopyPropertiesTo(objTable, new[] {"RowId"});
+            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = rowId });
+            ((IDictionary<string, object>)data.First()).CopyPropertiesTo(objTable, null);
+            var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
+            body.CopyPropertiesTo(objTable, new[] { "RowId" });
 
             await _dbInstance.UpdateAsync(objTable);
 
@@ -132,13 +130,37 @@
 
         private async Task<bool> RemoveRow(ILiteDbSet table, string rowId, Type dbSetType)
         {
-            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
-            var objTable = Activator.CreateInstance(dbSetType);
-            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable);
-
+            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = rowId });
+            var objTable = SetValues(Activator.CreateInstance(dbSetType), data.First());
             await _dbInstance.DeleteAsync(objTable);
 
             return true;
+        }
+
+        private object SetValues(object objTable,object data)
+        {
+            var targetProperties = objTable.GetType().GetRuntimeProperties()
+                                  .Where(y => y.CanWrite)
+                                  .ToList();
+
+            if (data != null)
+            {
+                var dataDictionary = (IDictionary<string, object>)data;
+
+                foreach (KeyValuePair<string, object> entry in dataDictionary)
+                {
+                    var targetProperty = targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
+                    if (entry.Value != null)
+                    {
+                        if (targetProperty.PropertyType == entry.Value.GetType())
+                        {
+                            targetProperty.SetValue(objTable, entry.Value);
+                        }
+                    }
+                }
+            }
+
+            return objTable;
         }
     }
 }

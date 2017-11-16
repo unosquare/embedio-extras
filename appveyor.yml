@@ -31,9 +31,10 @@ before_build:
 - nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory tools
 build_script:
-- msbuild Unosquare.Labs.EmbedIO.Extras.sln
+- msbuild Unosquare.Labs.EmbedIO.Extras.sln /p:Configuration=Release
 test_script:
-- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION%" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet
+- dotnet test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f netcoreapp2.0
+- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f net46" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet
 - tools\coveralls.net.0.7.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
 after_build:
 - ps: |
@@ -47,6 +48,8 @@ after_build:
             git config --global user.name $env:op_build_user
 
             git clone https://github.com/unosquare/embedio-extras.git -b gh-pages origin_site -q
+            git clone -b documentation https://github.com/unosquare/best-practices.git -q
+            docfx docfx.json --logLevel Error
             Copy-Item origin_site/.git _site -recurse
             Copy-Item origin_site/images _site -recurse
             Copy-Item origin_site/index.html _site
