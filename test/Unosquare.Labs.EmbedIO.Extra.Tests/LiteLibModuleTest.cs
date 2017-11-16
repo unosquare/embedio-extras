@@ -9,6 +9,7 @@
     using LiteLibWebApi;
     using Swan.Formatters;
     using Swan.Networking;
+    using System.Net.Http;
 
     [TestFixture]
     public class LiteLibModuleTest : FixtureBase
@@ -98,6 +99,7 @@
         [Test]
         public async Task DeleteLiteLib()
         {
+            var client = new HttpClient();
             var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
 
             Assert.IsNotNull(response);
@@ -106,10 +108,9 @@
             var last = order.Last().RowId;
             var count = order.Count;
 
-            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/order/" + last);
-            request.Method = "DELETE";
-
-            using (var webResponse = (HttpWebResponse) await request.GetResponseAsync())
+            var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/order/" + last);
+            
+            using (var webResponse = await client.SendAsync(request))
             {
                 Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }

@@ -1,18 +1,19 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
-using Unosquare.Labs.EmbedIO.JsonServer;
-using Unosquare.Swan.Formatters;
-using Unosquare.Swan.Networking;
-
-namespace Unosquare.Labs.EmbedIO.Extra.Tests
+﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
+    using NUnit.Framework;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Net;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
+    using Unosquare.Labs.EmbedIO.JsonServer;
+    using Unosquare.Swan.Formatters;
+    using Unosquare.Swan.Networking;
+
     [TestFixture]
     public class JsonServerModuleTest : FixtureBase
     {
@@ -56,33 +57,24 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         [Test]
         public async Task AddPostJson()
         {
-            var request = (HttpWebRequest) WebRequest.Create(WebServerUrl + ApiPath + "/posts");
-            request.Method = "POST";
+            var client = new HttpClient();
+            var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }");
+            var request =
+                new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts") { Content = new ByteArrayContent(byteArray)};
 
-            using (var dataStream = await request.GetRequestStreamAsync())
-            {
-                var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }");
-                dataStream.Write(byteArray, 0, byteArray.Length);
-            }
-
-            using (var response = (HttpWebResponse) await request.GetResponseAsync())
-            {
-               Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
-            }
-
-            var indexRequest = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts");
-
-            using (var response = (HttpWebResponse)await indexRequest.GetResponseAsync())
+            using (var response = await client.SendAsync(request))
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
-                var jsonString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                var indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts");
+                var indexResponse = await client.SendAsync(indexRequest);
+                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+                var jsonString = await indexResponse.Content.ReadAsStringAsync();
                 Assert.IsNotEmpty(jsonString);
-
                 var json = Json.Deserialize<List<object>>(jsonString);
                 Assert.IsNotNull(json);
                 Assert.AreEqual(json.Count, 4);
-            }
+            }                
         }
 
         [Test]
@@ -103,21 +95,19 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
         [Test]
         public async Task DeletePostJson()
         {
-            var indexRequest = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts");
+            var client = new HttpClient();
             var posts = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
             int total;
 
             var resp = Json.Deserialize<List<object>>(posts);
             total = resp.Count;
 
-            var request = (HttpWebRequest)WebRequest.Create(WebServerUrl + ApiPath + "/posts/3");
-            request.Method = "DELETE";
-
-            using (var response = (HttpWebResponse) await request.GetResponseAsync())
+            var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/posts/3");
+            using (var response = await client.SendAsync(request))
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }
-
+            
             var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
             Assert.IsNotEmpty(jsonString);
 
