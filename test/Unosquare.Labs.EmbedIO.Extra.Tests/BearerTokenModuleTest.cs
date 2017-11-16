@@ -81,7 +81,7 @@
                     Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.Unauthorized);
                 }
 
-                indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "index.html");
+                indexRequest = new HttpRequestMessage(HttpMethod.Get, WebServerUrl + "index.html");
                 indexRequest.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
                 using (var indexResponse = await client.SendAsync(indexRequest))
