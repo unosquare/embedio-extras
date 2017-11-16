@@ -65,10 +65,12 @@
             using (var response = await client.SendAsync(request))
             {
                 Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+            }
 
-                var indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts");
-                var indexResponse = await client.SendAsync(indexRequest);
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+            var indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts");
+            using (var indexResponse = await client.SendAsync(indexRequest))
+            {
+                Assert.AreEqual(indexResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 var jsonString = await indexResponse.Content.ReadAsStringAsync();
                 Assert.IsNotEmpty(jsonString);
                 var json = Json.Deserialize<List<object>>(jsonString);
@@ -76,7 +78,7 @@
                 Assert.AreEqual(json.Count, 4);
             }                
         }
-
+        
         [Test]
         public async Task PutPostJson()
         {
@@ -95,24 +97,26 @@
         [Test]
         public async Task DeletePostJson()
         {
-            var client = new HttpClient();
-            var posts = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
-            int total;
-
-            var resp = Json.Deserialize<List<object>>(posts);
-            total = resp.Count;
-
-            var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/posts/3");
-            using (var response = await client.SendAsync(request))
+            using (var client = new HttpClient())
             {
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
-            }
-            
-            var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
-            Assert.IsNotEmpty(jsonString);
+                var posts = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
+                int total;
 
-            var json = Json.Deserialize<List<object>>(jsonString);
-            Assert.AreEqual(total - 1, json.Count);
+                var resp = Json.Deserialize<List<object>>(posts);
+                total = resp.Count;
+
+                var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/posts/3");
+                using (var response = await client.SendAsync(request))
+                {
+                    Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+                }
+
+                var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
+                Assert.IsNotEmpty(jsonString);
+
+                var json = Json.Deserialize<List<object>>(jsonString);
+                Assert.AreEqual(total - 1, json.Count);
+            }                
         }
     }
 }

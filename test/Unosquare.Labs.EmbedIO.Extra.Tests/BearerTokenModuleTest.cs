@@ -46,11 +46,13 @@
         public async Task GetInvalidToken()
         {
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=nothing");
-            var client = new HttpClient();;
-            var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
-            var res = await client.SendAsync(req);
+            using (var client = new HttpClient())
+            {
+                var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
+                var res = await client.SendAsync(req);
 
-            Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
+                Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
+            }                
         }
 
         [Test]
@@ -58,33 +60,35 @@
         {
             string token;
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
-            var client = new HttpClient();
-            var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
-            using (var res = await client.SendAsync(req))
+            using (var client = new HttpClient())
             {
-                Assert.AreEqual(res.StatusCode, HttpStatusCode.OK);
-                var jsonString = await res.Content.ReadAsStringAsync();
-                var json = Json.Deserialize<BearerToken>(jsonString);
-                Assert.IsNotNull(json);
-                Assert.IsNotEmpty(json.Token);
-                Assert.IsNotEmpty(json.Username);
-                token = json.Token;
+                var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
+                using (var res = await client.SendAsync(req))
+                {
+                    Assert.AreEqual(res.StatusCode, HttpStatusCode.OK);
+                    var jsonString = await res.Content.ReadAsStringAsync();
+                    var json = Json.Deserialize<BearerToken>(jsonString);
+                    Assert.IsNotNull(json);
+                    Assert.IsNotEmpty(json.Token);
+                    Assert.IsNotEmpty(json.Username);
+                    token = json.Token;
+                }
+
+                var indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "index.html");
+
+                using (var indexResponse = await client.SendAsync(indexRequest))
+                {
+                    Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.Unauthorized);
+                }
+
+                indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "index.html");
+                indexRequest.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                using (var indexResponse = await client.SendAsync(indexRequest))
+                {
+                    Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.OK);
+                }
             }
-            
-            var indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "index.html");
-
-            using (var indexResponse = await client.SendAsync(indexRequest))
-            {
-                Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.Unauthorized);
-            }                
-
-            indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "index.html");
-            indexRequest.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-
-            using (var indexResponse = await client.SendAsync(indexRequest))
-            {
-                Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.OK);
-            }            
         }
     }
 }

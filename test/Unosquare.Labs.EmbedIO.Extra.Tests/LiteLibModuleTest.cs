@@ -99,26 +99,28 @@
         [Test]
         public async Task DeleteLiteLib()
         {
-            var client = new HttpClient();
-            var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
-
-            Assert.IsNotNull(response);
-
-            var order = Json.Deserialize<List<Order>>(response);
-            var last = order.Last().RowId;
-            var count = order.Count;
-
-            var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/order/" + last);
-            
-            using (var webResponse = await client.SendAsync(request))
+            using (var client = new HttpClient())
             {
-                Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
-            }
+                var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
 
-            response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
-            var newCount = Json.Deserialize<List<Order>>(response).Count;
+                Assert.IsNotNull(response);
 
-            Assert.AreEqual(newCount, count - 1);
+                var order = Json.Deserialize<List<Order>>(response);
+                var last = order.Last().RowId;
+                var count = order.Count;
+
+                var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/order/" + last);
+
+                using (var webResponse = await client.SendAsync(request))
+                {
+                    Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
+                }
+
+                response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
+                var newCount = Json.Deserialize<List<Order>>(response).Count;
+
+                Assert.AreEqual(newCount, count - 1);
+            }                
         }
     }
 }
