@@ -73,7 +73,7 @@
         [Test]
         public async Task PutLiteLib()
         {
-            var order = new Order()
+            var order = new Order
             {
                 CustomerName = "UnoLabs",
                 ShipperCity = "Zapopan",
@@ -85,15 +85,15 @@
             await JsonClient.Put(WebServerUrl + ApiPath + "/order/1", order);
 
             var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order/1");
-            var edited = Json.Deserialize<Order>(response);
+            var result = Json.Deserialize<Order>(response);
 
-            Assert.AreEqual(order.ShipperCity, "Zapopan");
+            Assert.AreEqual(result.ShipperCity, "Zapopan");
 
-            Assert.AreEqual(order.Amount, 200);
+            Assert.AreEqual(result.Amount, 200);
 
-            Assert.AreEqual(order.ShippedDate, "2017-03-22");
+            Assert.AreEqual(result.ShippedDate, "2017-03-22");
 
-            Assert.AreEqual(order.IsShipped, true);
+            Assert.AreEqual(result.IsShipped, true);
         }
 
         [Test]

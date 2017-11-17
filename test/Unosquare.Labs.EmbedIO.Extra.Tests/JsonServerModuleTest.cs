@@ -1,18 +1,16 @@
 ﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
     using NUnit.Framework;
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Net;
     using System.Net.Http;
     using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
-    using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
-    using Unosquare.Labs.EmbedIO.JsonServer;
-    using Unosquare.Swan.Formatters;
-    using Unosquare.Swan.Networking;
+    using TestObjects;
+    using JsonServer;
+    using Swan.Formatters;
+    using Swan.Networking;
 
     [TestFixture]
     public class JsonServerModuleTest : FixtureBase

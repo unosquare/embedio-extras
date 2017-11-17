@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
-
-namespace Unosquare.Labs.EmbedIO.Extra.Tests
+﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using NUnit.Framework;
+    using TestObjects;
+
     public abstract class FixtureBase
     {
         private readonly Action<WebServer> _builder;

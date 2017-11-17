@@ -1,16 +1,16 @@
-﻿using System.Threading;
-
-namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
+﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
 {
-    public static class Resources
+    using System.Threading;
+
+    internal static class Resources
     {
         private const string ServerAddress = "http://localhost:{0}/";
-        public static int Counter = 9699;
+        private static int _counter = 9699;
 
         public static string GetServerAddress()
         {
-            Interlocked.Increment(ref Counter);
-            return string.Format(ServerAddress, Counter);
+            Interlocked.Increment(ref _counter);
+            return string.Format(ServerAddress, _counter);
         }
 
         public static string IndexHtml = @"<h1>Hello EmbedIO</h1>

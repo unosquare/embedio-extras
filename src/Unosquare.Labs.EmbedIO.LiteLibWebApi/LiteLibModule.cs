@@ -120,6 +120,7 @@
             var objTable = Activator.CreateInstance(dbSetType);
             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = rowId });
             ((IDictionary<string, object>)data.First()).CopyPropertiesTo(objTable, null);
+
             var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
             body.CopyPropertiesTo(objTable, new[] { "RowId" });
 

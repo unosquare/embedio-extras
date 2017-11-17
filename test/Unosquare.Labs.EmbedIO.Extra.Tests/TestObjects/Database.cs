@@ -1,9 +1,9 @@
 ﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
 {
     using System.IO;
-    using Unosquare.Labs.LiteLib;
+    using LiteLib;
 
-    public class Order : LiteModel
+    internal class Order : LiteModel
     {
         [LiteUnique]
         public string UniqueId { get; set; }
