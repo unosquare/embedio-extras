@@ -108,7 +108,7 @@
         {
             var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
             var objTable = Activator.CreateInstance(dbSetType);
-            body.CopyPropertiesTo(objTable, null);
+            body.CopyKeyValuePairTo(objTable, null);
 
             _dbInstance.Insert(objTable);
 
@@ -118,10 +118,11 @@
         private async Task<bool> UpdateRow(Type dbSetType, ILiteDbSet table, string rowId, HttpListenerContext context)
         {
             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = rowId });
+
             var objTable = SetValues(Activator.CreateInstance(dbSetType), data.First());
 
             var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
-            body.CopyKeyValuePairTo(objTable, new[] { "RowId" });
+            body.CopyKeyValuePairTo(objTable, new[] { "RowId", "UniqueId" });
 
             await _dbInstance.UpdateAsync(objTable);
 
@@ -137,7 +138,7 @@
             return true;
         }
 
-        private object SetValues(object objTable,object data)
+        private object SetValues(object objTable, object data)
         {
             var targetProperties = objTable.GetType().GetRuntimeProperties()
                                   .Where(y => y.CanWrite)
@@ -152,9 +153,19 @@
                     var targetProperty = targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
                     if (entry.Value != null)
                     {
+                        if (targetProperty.PropertyType == typeof(bool))
+                        {
+                            targetProperty.SetValue(objTable, entry.Value.ToString() == 1.ToString());
+                        }
+
                         if (targetProperty.PropertyType == entry.Value.GetType())
                         {
                             targetProperty.SetValue(objTable, entry.Value);
+                        }
+
+                        if (targetProperty.PropertyType == typeof(Int32) && entry.Value.GetType() == typeof(Int64))
+                        {
+                            targetProperty.SetValue(objTable, Convert.ToInt32(entry.Value));
                         }
                     }
                 }
