@@ -1,9 +1,4 @@
 {
-  "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html": {
-    "href": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html",
-    "title": "Class BearerToken | Unosquare EmbedIO Extras",
-    "keywords": "Class BearerToken Represents a Bearer Token JSON response Inheritance System.Object BearerToken Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIO.BearerToken Syntax public class BearerToken Properties ExpirationDate Expiration Date Declaration public long ExpirationDate { get; set; } Property Value Type Description System.Int64 Token The JsonWebToken Declaration public string Token { get; set; } Property Value Type Description System.String TokenType The Token type Declaration public string TokenType { get; set; } Property Value Type Description System.String Username Client username Declaration public string Username { get; set; } Property Value Type Description System.String"
-  },
   "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html": {
     "href": "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html",
     "title": "Class Extensions | Unosquare EmbedIO Extras",
@@ -118,5 +113,10 @@
     "href": "api/Unosquare.Labs.EmbedIOwin.html",
     "title": "Namespace Unosquare.Labs.EmbedIOwin | Unosquare EmbedIO Extras",
     "keywords": "Namespace Unosquare.Labs.EmbedIOwin Classes PeopleController PeopleController.Person A simple model representing a person Program Sample Owin-EmbedIO Startup Startup object"
+  },
+  "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html": {
+    "href": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html",
+    "title": "Class BearerToken | Unosquare EmbedIO Extras",
+    "keywords": "Class BearerToken Represents a Bearer Token JSON response Inheritance System.Object BearerToken Inherited Members System.Object.ToString() System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.ReferenceEquals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() Namespace : Unosquare.Labs.EmbedIO.BearerToken Syntax public class BearerToken Properties ExpirationDate Expiration Date Declaration public long ExpirationDate { get; set; } Property Value Type Description System.Int64 Token The JsonWebToken Declaration public string Token { get; set; } Property Value Type Description System.String TokenType The Token type Declaration public string TokenType { get; set; } Property Value Type Description System.String Username Client username Declaration public string Username { get; set; } Property Value Type Description System.String"
   }
 }
