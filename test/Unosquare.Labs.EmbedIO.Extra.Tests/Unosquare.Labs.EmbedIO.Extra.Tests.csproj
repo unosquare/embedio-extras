@@ -29,7 +29,7 @@
     <packagereference Include="NUnit3TestAdapter" Version="3.9.0" />
     <PackageReference Include="LiteLib" Version="0.15.0" />
     <PackageReference Include="NUnit" Version="3.9.0" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.106" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.106" />
   </ItemGroup>
 
 </Project>

@@ -111,7 +111,7 @@
                     Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 }
 
-                var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
+                var jsonString = await GetString(ApiPath + "/posts");
                 Assert.IsNotEmpty(jsonString);
 
                 var json = Json.Deserialize<List<object>>(jsonString);
