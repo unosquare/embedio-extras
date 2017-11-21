@@ -46,9 +46,10 @@
             using (var client = new HttpClient())
             {
                 var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
-                var res = await client.SendAsync(req);
-
-                Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
+                using (var res = await client.SendAsync(req))
+                {
+                    Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
+                }
             }                
         }
 
