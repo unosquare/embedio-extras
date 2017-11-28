@@ -7,7 +7,7 @@
 
 :star: *Please star this project if you find it useful!*
 
-Additional Modules showing how to extend EmbedIO. Feel free to use these modules in your projects.
+Additional Modules showing how to extend [EmbedIO](https://github.com/unosquare/embedio). Feel free to use these modules in your projects.
 
 ## Bearer Token Module
 
@@ -38,7 +38,7 @@ Based on the [JsonServer's](https://github.com/typicode/json-server) project, wi
 JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. 
 
 ```csharp
-// Create Webserver and attach Json's Server
+// Create Webserver and attach JsonServerModule
 var server = WebServer.Create("http://localhost:9696/");
 server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@"c:\web", "database.json")));
 ```
@@ -53,10 +53,10 @@ Supported methods:
 
 ## LiteLib WebAPI
 
-Similar to Json Server Module, but you can serve a sqlite file with all HTTP verbs.
+Similar to Json Server Module, but you can serve a sqlite file with all HTTP verbs using [LiteLib](https://github.com/unosquare/litelib) library.
 
 ```csharp
-// Create Webserver and attach Json's Server
+// Create Webserver and attach LiteLibModule with a LiteLib DbContext
 var server = WebServer.Create("http://localhost:9696/");
 server.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
 ```
