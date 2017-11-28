@@ -76,7 +76,7 @@
 <a href="https://coveralls.io/r/unosquare/embedio-extras?branch=master"><img src="https://coveralls.io/repos/unosquare/embedio-extras/badge.svg?branch=master" alt="Coverage Status"></a></p>
 <h1 id="embedio-extras">EmbedIO Extras</h1>
 <p><span class="emoji" shortcode="star">⭐</span> <em>Please star this project if you find it useful!</em></p>
-<p>Additional Modules showing how to extend EmbedIO. Feel free to use these modules in your projects.</p>
+<p>Additional Modules showing how to extend <a href="https://github.com/unosquare/embedio">EmbedIO</a>. Feel free to use these modules in your projects.</p>
 <h2 id="bearer-token-module">Bearer Token Module</h2>
 <p>Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined &#39;/token&#39; path) and all you need to do is provide a user validation delegate which authenticates the user. The module will create a <strong>JsonWebToken</strong> which can then be used by your client application in firther requests. The module can check all incoming requests or a predefined set of paths. The standard header in use is the <strong>HTTP Authorization header</strong>.</p>
 <p>You can easily add Bearer Token to your EmbedIO application using a Basic Authorization Server Provider or writing your own:</p>
@@ -93,7 +93,7 @@ server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
 </code></pre><h2 id="json-server-module">Json Server Module</h2>
 <p>Based on the <a href="https://github.com/typicode/json-server">JsonServer&#39;s</a> project, with this module you are able to simply specify a 
 JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. </p>
-<pre><code class="lang-csharp">// Create Webserver and attach Json&#39;s Server
+<pre><code class="lang-csharp">// Create Webserver and attach JsonServerModule
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&quot;, &quot;database.json&quot;)));
 </code></pre><p>Supported methods: </p>
@@ -105,8 +105,8 @@ server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&
 <li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
 </ul>
 <h2 id="litelib-webapi">LiteLib WebAPI</h2>
-<p>Similar to Json Server Module, but you can serve a sqlite file with all HTTP verbs.</p>
-<pre><code class="lang-csharp">// Create Webserver and attach Json&#39;s Server
+<p>Similar to Json Server Module, but you can serve a sqlite file with all HTTP verbs using <a href="https://github.com/unosquare/litelib">LiteLib</a> library.</p>
+<pre><code class="lang-csharp">// Create Webserver and attach LiteLibModule with a LiteLib DbContext
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new LiteLibModule&lt;TestDbContext&gt;(new TestDbContext(), &quot;/dbapi/&quot;));
 </code></pre><p>Supported methods: </p>
