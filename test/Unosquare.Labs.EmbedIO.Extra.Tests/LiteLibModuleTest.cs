@@ -26,7 +26,7 @@
         [Test]
         public async Task GetAllLiteLib()
         {
-            var response = await JsonClient.GetString($"{WebServerUrl}{ApiPath}/order");
+            var response = await GetString($"{ApiPath}/order");
 
             Assert.IsNotNull(response);
 
@@ -38,7 +38,7 @@
         [Test]
         public async Task GetFirstItemLiteLib()
         {
-            var response = await JsonClient.GetString($"{WebServerUrl}{ApiPath}/order/1");
+            var response = await GetString($"{ApiPath}/order/1");
 
             Assert.IsNotNull(response);
 
@@ -50,7 +50,7 @@
         [Test]
         public async Task AddLiteLib()
         {
-            var getAllResponse = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
+            var getAllResponse = await GetString(ApiPath + "/order");
             var orders = Json.Deserialize<List<Order>>(getAllResponse).Count;
 
             var newOrder = new Order()
@@ -64,7 +64,7 @@
 
             await JsonClient.Post(WebServerUrl + ApiPath + "/order", newOrder);
 
-            getAllResponse = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
+            getAllResponse = await GetString(ApiPath + "/order");
             var ordersPlusOne = Json.Deserialize<List<Order>>(getAllResponse).Count;
 
             Assert.AreEqual(orders + 1, ordersPlusOne);
@@ -73,7 +73,7 @@
         [Test]
         public async Task PutLiteLib()
         {
-            var order = new Order()
+            var order = new Order
             {
                 CustomerName = "UnoLabs",
                 ShipperCity = "Zapopan",
@@ -84,16 +84,16 @@
 
             await JsonClient.Put(WebServerUrl + ApiPath + "/order/1", order);
 
-            var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order/1");
-            var edited = Json.Deserialize<Order>(response);
+            var response = await GetString(ApiPath + "/order/1");
+            var result = Json.Deserialize<Order>(response);
 
-            Assert.AreEqual(order.ShipperCity, "Zapopan");
+            Assert.AreEqual(result.ShipperCity, "Zapopan");
 
-            Assert.AreEqual(order.Amount, 200);
+            Assert.AreEqual(result.Amount, 200);
 
-            Assert.AreEqual(order.ShippedDate, "2017-03-22");
+            Assert.AreEqual(result.ShippedDate, "2017-03-22");
 
-            Assert.AreEqual(order.IsShipped, true);
+            Assert.AreEqual(result.IsShipped, true);
         }
 
         [Test]
@@ -101,7 +101,7 @@
         {
             using (var client = new HttpClient())
             {
-                var response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
+                var response = await GetString(ApiPath + "/order");
 
                 Assert.IsNotNull(response);
 
@@ -116,11 +116,11 @@
                     Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 }
 
-                response = await JsonClient.GetString(WebServerUrl + ApiPath + "/order");
+                response = await GetString(ApiPath + "/order");
                 var newCount = Json.Deserialize<List<Order>>(response).Count;
 
                 Assert.AreEqual(newCount, count - 1);
-            }                
+            }
         }
     }
 }

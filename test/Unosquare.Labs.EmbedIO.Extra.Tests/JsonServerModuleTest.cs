@@ -1,18 +1,16 @@
 ﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
     using NUnit.Framework;
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Net;
     using System.Net.Http;
     using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
-    using Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects;
-    using Unosquare.Labs.EmbedIO.JsonServer;
-    using Unosquare.Swan.Formatters;
-    using Unosquare.Swan.Networking;
+    using TestObjects;
+    using JsonServer;
+    using Swan.Formatters;
+    using Swan.Networking;
 
     [TestFixture]
     public class JsonServerModuleTest : FixtureBase
@@ -29,7 +27,7 @@
         [Test]
         public async Task GetAllJson()
         {
-            var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath);
+            var jsonString = await GetString(ApiPath);
             Assert.IsNotEmpty(jsonString);
             var json = Json.Deserialize(jsonString);
             Assert.IsNotNull(json);
@@ -38,7 +36,7 @@
         [Test]
         public async Task GetAllPostsJson()
         {
-            var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
+            var jsonString = await GetString(ApiPath + "posts");
             Assert.IsNotEmpty(jsonString);
             var json = Json.Deserialize(jsonString);
             Assert.IsNotNull(json);
@@ -47,7 +45,7 @@
         [Test]
         public async Task GetFirstPostsJson()
         {
-            var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts/1");
+            var jsonString = await GetString(ApiPath + "posts/1");
             Assert.IsNotEmpty(jsonString);
             dynamic json = Json.Deserialize(jsonString);
             Assert.IsNotNull(json);
@@ -87,7 +85,7 @@
             var payload = new { id = 1, title = "replace", author = "unosquare" };
             var request = await JsonClient.Put(WebServerUrl + ApiPath + "/posts/1", payload);
             
-            var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts/1");
+            var jsonString = await GetString(ApiPath + "/posts/1");
 
             Assert.IsNotEmpty(jsonString);
             dynamic json = Json.Deserialize(jsonString);
@@ -101,7 +99,7 @@
         {
             using (var client = new HttpClient())
             {
-                var posts = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
+                var posts = await GetString(ApiPath + "/posts");
                 int total;
 
                 var resp = Json.Deserialize<List<object>>(posts);
@@ -113,7 +111,7 @@
                     Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 }
 
-                var jsonString = await JsonClient.GetString(WebServerUrl + ApiPath + "/posts");
+                var jsonString = await GetString(ApiPath + "/posts");
                 Assert.IsNotEmpty(jsonString);
 
                 var json = Json.Deserialize<List<object>>(jsonString);

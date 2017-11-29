@@ -1,8 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
     using System;
-    using System.IO;
-    using System.Threading;
     using System.Threading.Tasks;
     using NUnit.Framework;
     using BearerToken;
@@ -10,7 +8,6 @@
     using Markdown;
     using Swan.Formatters;
     using System.Net.Http;
-    using System.Collections.Generic;
     using System.Net;
 #if NET46
     using Unosquare.Net;
@@ -49,19 +46,20 @@
             using (var client = new HttpClient())
             {
                 var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
-                var res = await client.SendAsync(req);
-
-                Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
+                using (var res = await client.SendAsync(req))
+                {
+                    Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
+                }
             }                
         }
 
         [Test]
         public async Task GetValidToken()
         {
-            string token;
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
             using (var client = new HttpClient())
             {
+                string token;
                 var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
                 using (var res = await client.SendAsync(req))
                 {

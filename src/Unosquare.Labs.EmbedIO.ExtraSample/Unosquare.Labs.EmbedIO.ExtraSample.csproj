@@ -21,8 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiteLib" Version="0.14.3" />
+    <PackageReference Include="LiteLib" Version="0.15.0" />
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.106" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net47' ">
