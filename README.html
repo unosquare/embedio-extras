@@ -8,7 +8,7 @@
     <title>EmbedIO Extras | Unosquare EmbedIO Extras </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="EmbedIO Extras | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.27.0.0">
+    <meta name="generator" content="docfx 2.29.1.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -78,7 +78,7 @@
 <p><span class="emoji" shortcode="star">⭐</span> <em>Please star this project if you find it useful!</em></p>
 <p>Additional Modules showing how to extend <a href="https://github.com/unosquare/embedio">EmbedIO</a>. Feel free to use these modules in your projects.</p>
 <h2 id="bearer-token-module">Bearer Token Module</h2>
-<p>Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined &#39;/token&#39; path) and all you need to do is provide a user validation delegate which authenticates the user. The module will create a <strong>JsonWebToken</strong> which can then be used by your client application in firther requests. The module can check all incoming requests or a predefined set of paths. The standard header in use is the <strong>HTTP Authorization header</strong>.</p>
+<p>Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined &#39;/token&#39; path) and all you need to do is provide a user validation delegate which authenticates the user. The module will create a <strong>JsonWebToken</strong> which can then be used by your client application for further requests. The module can check all incoming requests or a predefined set of paths. The standard header in use is the <strong>HTTP Authorization header</strong>.</p>
 <p>You can easily add Bearer Token to your EmbedIO application using a Basic Authorization Server Provider or writing your own:</p>
 <pre><code class="lang-csharp">// Create basic authentication provider
 var basicAuthProvider = new BasicAuthorizationServerProvider();
@@ -91,7 +91,7 @@ server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
 </code></pre><h3 id="nuget-installation-nuget-versionhttpsbadgefuryionuembediobearertokensvghttpbadgefuryionuembediobearertoken">Nuget installation <a href="http://badge.fury.io/nu/EmbedIO.BearerToken"><img src="https://badge.fury.io/nu/EmbedIO.BearerToken.svg" alt="NuGet version"></a></h3>
 <pre><code>PM&gt; Install-Package EmbedIO.BearerToken
 </code></pre><h2 id="json-server-module">Json Server Module</h2>
-<p>Based on the <a href="https://github.com/typicode/json-server">JsonServer&#39;s</a> project, with this module you are able to simply specify a 
+<p>Based on the <a href="https://github.com/typicode/json-server">JsonServer&#39;s</a> project, with this module, you are able to simply specify a 
 JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. </p>
 <pre><code class="lang-csharp">// Create Webserver and attach JsonServerModule
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
@@ -105,7 +105,7 @@ server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&
 <li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
 </ul>
 <h2 id="litelib-webapi">LiteLib WebAPI</h2>
-<p>Similar to Json Server Module, but you can serve a sqlite file with all HTTP verbs using <a href="https://github.com/unosquare/litelib">LiteLib</a> library.</p>
+<p>Similar to Json Server Module, but you can serve an SQLite file with all HTTP verbs using <a href="https://github.com/unosquare/litelib">LiteLib</a> library.</p>
 <pre><code class="lang-csharp">// Create Webserver and attach LiteLibModule with a LiteLib DbContext
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new LiteLibModule&lt;TestDbContext&gt;(new TestDbContext(), &quot;/dbapi/&quot;));
