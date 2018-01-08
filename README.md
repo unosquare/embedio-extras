@@ -11,7 +11,7 @@ Additional Modules showing how to extend [EmbedIO](https://github.com/unosquare/
 
 ## Bearer Token Module
 
-Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined '/token' path) and all you need to do is provide a user validation delegate which authenticates the user. The module will create a **JsonWebToken** which can then be used by your client application in firther requests. The module can check all incoming requests or a predefined set of paths. The standard header in use is the **HTTP Authorization header**.
+Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined '/token' path) and all you need to do is provide a user validation delegate which authenticates the user. The module will create a **JsonWebToken** which can then be used by your client application for further requests. The module can check all incoming requests or a predefined set of paths. The standard header in use is the **HTTP Authorization header**.
 
 You can easily add Bearer Token to your EmbedIO application using a Basic Authorization Server Provider or writing your own:
 
@@ -34,7 +34,7 @@ PM> Install-Package EmbedIO.BearerToken
 
 ## Json Server Module
 
-Based on the [JsonServer's](https://github.com/typicode/json-server) project, with this module you are able to simply specify a 
+Based on the [JsonServer's](https://github.com/typicode/json-server) project, with this module, you are able to simply specify a 
 JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. 
 
 ```csharp
@@ -53,7 +53,7 @@ Supported methods:
 
 ## LiteLib WebAPI
 
-Similar to Json Server Module, but you can serve a sqlite file with all HTTP verbs using [LiteLib](https://github.com/unosquare/litelib) library.
+Similar to Json Server Module, but you can serve an SQLite file with all HTTP verbs using [LiteLib](https://github.com/unosquare/litelib) library.
 
 ```csharp
 // Create Webserver and attach LiteLibModule with a LiteLib DbContext
