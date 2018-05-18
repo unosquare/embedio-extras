@@ -8,7 +8,7 @@
     <title>EmbedIO Extras | Unosquare EmbedIO Extras </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="EmbedIO Extras | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.29.1.0">
+    <meta name="generator" content="docfx 2.36.0.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -98,11 +98,11 @@ var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&quot;, &quot;database.json&quot;)));
 </code></pre><p>Supported methods: </p>
 <ul>
-<li>GET collection (//yourhost/entity) </li>
-<li>GET single (//yourhost/entity/1 where 1 is the ID)</li>
-<li>POST (//yourhost/entity with POST body the JSON object)</li>
-<li>PUT (//yourhost/entity/1 with POST body the JSON object)</li>
-<li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
+<li><code>GET</code> collection (<code>http://yourhost/entity</code>) </li>
+<li><code>GET</code> single (<code>http://yourhost/entity/1</code> where 1 is the ID)</li>
+<li><code>POST</code> (<code>http://yourhost/entity</code> with POST body the JSON object)</li>
+<li><code>PUT</code> (<code>http://yourhost/entity/1</code> with POST body the JSON object)</li>
+<li><code>DELETE</code> (<code>http://yourhost/entity/1</code> where 1 is the ID)</li>
 </ul>
 <h2 id="litelib-webapi">LiteLib WebAPI</h2>
 <p>Similar to Json Server Module, but you can serve an SQLite file with all HTTP verbs using <a href="https://github.com/unosquare/litelib">LiteLib</a> library.</p>
@@ -111,22 +111,23 @@ var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new LiteLibModule&lt;TestDbContext&gt;(new TestDbContext(), &quot;/dbapi/&quot;));
 </code></pre><p>Supported methods: </p>
 <ul>
-<li>GET collection (//yourhost/entity) </li>
-<li>GET single (//yourhost/entity/1 where 1 is the ID)</li>
-<li>POST (//yourhost/entity with POST body the JSON object)</li>
-<li>PUT (//yourhost/entity/1 with POST body the JSON object)</li>
-<li>DELETE (//yourhost/entity/1 where 1 is the ID)</li>
+<li><code>GET</code> collection (<code>http://yourhost/entity</code>) </li>
+<li><code>GET</code> single (<code>http://yourhost/entity/1</code> where 1 is the ID)</li>
+<li><code>POST</code> (<code>http://yourhost/entity</code> with POST body the JSON object)</li>
+<li><code>PUT</code> (<code>http://yourhost/entity/1</code> with POST body the JSON object)</li>
+<li><code>DELETE</code> (<code>http://yourhost/entity/1</code> where 1 is the ID)</li>
 </ul>
 <h3 id="nuget-installation-nuget-versionhttpsbadgefuryionuembediolitelibwebapisvghttpsbadgefuryionuembediolitelibwebapi">Nuget installation <a href="https://badge.fury.io/nu/EmbedIO.LiteLibWebApi"><img src="https://badge.fury.io/nu/EmbedIO.LiteLibWebApi.svg" alt="NuGet version"></a></h3>
 <pre><code>PM&gt; Install-Package EmbedIO.LiteLibWebApi
 </code></pre><h2 id="markdown-static-module">Markdown Static Module</h2>
-<p>The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. 
+<p>The Markdown Static Module takes in a static Markdown file and converts it into HTML before returning a response. 
 It will accept markdown/html/htm extensions (This could become middleware later).</p>
 <pre><code class="lang-csharp">// Create Webserver and attach Markdown Static Module
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
 server.RegisterModule(new MarkdownStaticModule(@&quot;c:\web&quot;));
 </code></pre><h2 id="owin-integration">OWIN Integration</h2>
-<p>The support to OWIN is not under development, and it may not work correctly. EmbedIO can use the OWIN platform in two different ways:</p>
+<p><em>Note:</em> The support to OWIN is not under development, and it may not work correctly. 
+EmbedIO can use the OWIN platform in two different ways:</p>
 <ul>
 <li>You can use EmbedIO modules within an OWIN Server. In other words, host your application with an OWIN server and make use of EmbedIO modules.</li>
 </ul>
@@ -250,7 +251,7 @@ public class Startup
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2017 <a href="https://www.unosquare.com">Unosquare</a></span>
+            <span>Copyright © 2017-2018 <a href="https://www.unosquare.com">Unosquare</a></span>
           </div>
         </div>
       </footer>

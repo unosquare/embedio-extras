@@ -23,6 +23,7 @@ references:
   name: GetExpirationDate
   href: api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate
   nameWithType: BasicAuthorizationServerProvider.GetExpirationDate
 - uid: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)
@@ -35,6 +36,7 @@ references:
   name: ValidateClientAuthentication
   href: api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication
   nameWithType: BasicAuthorizationServerProvider.ValidateClientAuthentication
 - uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken
@@ -53,6 +55,7 @@ references:
   name: ExpirationDate
   href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_ExpirationDate_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate
   nameWithType: BearerToken.ExpirationDate
 - uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token
@@ -65,6 +68,7 @@ references:
   name: Token
   href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Token_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token
   nameWithType: BearerToken.Token
 - uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType
@@ -77,6 +81,7 @@ references:
   name: TokenType
   href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_TokenType_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType
   nameWithType: BearerToken.TokenType
 - uid: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username
@@ -89,6 +94,7 @@ references:
   name: Username
   href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html#Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Username_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username
   nameWithType: BearerToken.Username
 - uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule
@@ -110,6 +116,7 @@ references:
   name: BearerTokenModule
   href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule
   nameWithType: BearerTokenModule.BearerTokenModule
 - uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
@@ -122,6 +129,7 @@ references:
   name: Name
   href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
   nameWithType: BearerTokenModule.Name
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions
@@ -146,6 +154,7 @@ references:
   name: GetSecurityToken
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken
   nameWithType: Extensions.GetSecurityToken
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)
@@ -158,6 +167,7 @@ references:
   name: GetValidationContext
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext
   nameWithType: Extensions.GetValidationContext
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(HttpListenerContext)
@@ -170,6 +180,7 @@ references:
   name: Rejected
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected
   nameWithType: Extensions.Rejected
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)
@@ -185,6 +196,7 @@ references:
   name: UseBearerToken
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken
   nameWithType: Extensions.UseBearerToken
 - uid: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider
@@ -203,6 +215,7 @@ references:
   name: GetExpirationDate
   href: api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_GetExpirationDate_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate
   nameWithType: IAuthorizationServerProvider.GetExpirationDate
 - uid: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)
@@ -215,6 +228,7 @@ references:
   name: ValidateClientAuthentication
   href: api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html#Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_ValidateClientAuthentication_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication
   nameWithType: IAuthorizationServerProvider.ValidateClientAuthentication
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext
@@ -233,6 +247,7 @@ references:
   name: ValidateClientAuthenticationContext
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ValidateClientAuthenticationContext
   nameWithType: ValidateClientAuthenticationContext.ValidateClientAuthenticationContext
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
@@ -245,6 +260,7 @@ references:
   name: ClientId
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ClientId_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
   nameWithType: ValidateClientAuthenticationContext.ClientId
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
@@ -257,6 +273,7 @@ references:
   name: GetToken
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken
   nameWithType: ValidateClientAuthenticationContext.GetToken
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError
@@ -269,6 +286,7 @@ references:
   name: HasError
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HasError_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError
   nameWithType: ValidateClientAuthenticationContext.HasError
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
@@ -281,6 +299,7 @@ references:
   name: HttpContext
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HttpContext_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
   nameWithType: ValidateClientAuthenticationContext.HttpContext
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
@@ -293,6 +312,7 @@ references:
   name: IsValidated
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_IsValidated_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
   nameWithType: ValidateClientAuthenticationContext.IsValidated
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected
@@ -305,6 +325,7 @@ references:
   name: Rejected
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Rejected_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected
   nameWithType: ValidateClientAuthenticationContext.Rejected
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
@@ -317,6 +338,7 @@ references:
   name: StandardClaims
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_StandardClaims_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
   nameWithType: ValidateClientAuthenticationContext.StandardClaims
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
@@ -335,6 +357,7 @@ references:
   name: Validated
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated_
   commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
   nameWithType: ValidateClientAuthenticationContext.Validated
 - uid: Unosquare.Labs.EmbedIO.JsonServer
@@ -359,6 +382,7 @@ references:
   name: JsonServerModule
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule__ctor_
   commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.#ctor
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonServerModule
   nameWithType: JsonServerModule.JsonServerModule
 - uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath
@@ -371,6 +395,7 @@ references:
   name: BasePath
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_BasePath_
   commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath
   nameWithType: JsonServerModule.BasePath
 - uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
@@ -383,6 +408,7 @@ references:
   name: Data
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Data_
   commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data
   nameWithType: JsonServerModule.Data
 - uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath
@@ -395,6 +421,7 @@ references:
   name: JsonPath
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_JsonPath_
   commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath
   nameWithType: JsonServerModule.JsonPath
 - uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
@@ -407,6 +434,7 @@ references:
   name: Name
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Name_
   commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
   nameWithType: JsonServerModule.Name
 - uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
@@ -419,6 +447,7 @@ references:
   name: UpdateDataStore
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_
   commentId: Overload:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore
   nameWithType: JsonServerModule.UpdateDataStore
 - uid: Unosquare.Labs.EmbedIO.LiteLibWebApi
@@ -448,6 +477,7 @@ references:
   name: LiteLibModule
   href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1__ctor_
   commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.LiteLibModule
   fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).LiteLibModule
   nameWithType: LiteLibModule<T>.LiteLibModule
@@ -464,6 +494,7 @@ references:
   name: Name
   href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Name_
   commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Name
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.Name
   fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).Name
   nameWithType: LiteLibModule<T>.Name
@@ -490,6 +521,7 @@ references:
   name: MarkdownStaticModule
   href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule__ctor_
   commentId: Overload:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.#ctor
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.MarkdownStaticModule
   nameWithType: MarkdownStaticModule.MarkdownStaticModule
 - uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument
@@ -502,6 +534,7 @@ references:
   name: DefaultDocument
   href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_DefaultDocument_
   commentId: Overload:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument
   nameWithType: MarkdownStaticModule.DefaultDocument
 - uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocumentName
@@ -520,6 +553,7 @@ references:
   name: FileSystemPath
   href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_FileSystemPath_
   commentId: Overload:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath
   nameWithType: MarkdownStaticModule.FileSystemPath
 - uid: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name
@@ -532,6 +566,7 @@ references:
   name: Name
   href: api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html#Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_Name_
   commentId: Overload:Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name
   nameWithType: MarkdownStaticModule.Name
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware
@@ -556,6 +591,7 @@ references:
   name: UseEmbedIOCors
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseEmbedIOCors_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors
   nameWithType: Extensions.UseEmbedIOCors
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary{System.String,System.Object},HttpListenerContext)
@@ -571,6 +607,7 @@ references:
   name: UseHttpContext
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseHttpContext_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext
   nameWithType: Extensions.UseHttpContext
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,Func{IAppBuilder,IAppBuilder})
@@ -586,6 +623,7 @@ references:
   name: UseOwin
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseOwin_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin
   nameWithType: Extensions.UseOwin
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi(IAppBuilder,Assembly)
@@ -598,6 +636,7 @@ references:
   name: UseWebApi
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebApi_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebApi
   nameWithType: Extensions.UseWebApi
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Assembly)
@@ -616,6 +655,7 @@ references:
   name: UseWebSocket
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebSocket_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket
   nameWithType: Extensions.UseWebSocket
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.WebModulesKey
@@ -643,6 +683,7 @@ references:
   name: MiddlewareOwin
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html#Unosquare_Labs_EmbedIO_OwinMiddleware_MiddlewareOwin__ctor_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.#ctor
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.MiddlewareOwin
   nameWithType: MiddlewareOwin.MiddlewareOwin
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Environment
@@ -661,6 +702,7 @@ references:
   name: Invoke
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html#Unosquare_Labs_EmbedIO_OwinMiddleware_MiddlewareOwin_Invoke_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Invoke
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.Invoke
   nameWithType: MiddlewareOwin.Invoke
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.OwinApp
@@ -688,6 +730,7 @@ references:
   name: OwinModule
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinModule__ctor_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.#ctor
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.OwinModule
   nameWithType: OwinModule.OwinModule
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name
@@ -700,6 +743,7 @@ references:
   name: Name
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinModule_Name_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.Name
   nameWithType: OwinModule.Name
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory
@@ -721,6 +765,7 @@ references:
   name: Create
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinServerFactory_Create_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Create
   nameWithType: OwinServerFactory.Create
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize(System.Collections.Generic.IDictionary{System.String,System.Object})
@@ -736,6 +781,7 @@ references:
   name: Initialize
   href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html#Unosquare_Labs_EmbedIO_OwinMiddleware_OwinServerFactory_Initialize_
   commentId: Overload:Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.Initialize
   nameWithType: OwinServerFactory.Initialize
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.ServerFactoryName
@@ -766,6 +812,7 @@ references:
   name: GetPeople
   href: api/Unosquare.Labs.EmbedIOwin.PeopleController.html#Unosquare_Labs_EmbedIOwin_PeopleController_GetPeople_
   commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.GetPeople
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIOwin.PeopleController.GetPeople
   nameWithType: PeopleController.GetPeople
 - uid: Unosquare.Labs.EmbedIOwin.PeopleController.People
@@ -790,6 +837,7 @@ references:
   name: Age
   href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Age_
   commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Age
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Age
   nameWithType: PeopleController.Person.Age
 - uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress
@@ -802,6 +850,7 @@ references:
   name: EmailAddress
   href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_EmailAddress_
   commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.EmailAddress
   nameWithType: PeopleController.Person.EmailAddress
 - uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key
@@ -814,6 +863,7 @@ references:
   name: Key
   href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Key_
   commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Key
   nameWithType: PeopleController.Person.Key
 - uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name
@@ -826,6 +876,7 @@ references:
   name: Name
   href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_Name_
   commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.Name
   nameWithType: PeopleController.Person.Name
 - uid: Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl
@@ -838,6 +889,7 @@ references:
   name: PhotoUrl
   href: api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html#Unosquare_Labs_EmbedIOwin_PeopleController_Person_PhotoUrl_
   commentId: Overload:Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIOwin.PeopleController.Person.PhotoUrl
   nameWithType: PeopleController.Person.PhotoUrl
 - uid: Unosquare.Labs.EmbedIOwin.Program
@@ -862,6 +914,7 @@ references:
   name: Configuration
   href: api/Unosquare.Labs.EmbedIOwin.Startup.html#Unosquare_Labs_EmbedIOwin_Startup_Configuration_
   commentId: Overload:Unosquare.Labs.EmbedIOwin.Startup.Configuration
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIOwin.Startup.Configuration
   nameWithType: Startup.Configuration
 - uid: Unosquare.Labs.EmbedIOwin.Startup.InitRoutes(IRouteTable)
@@ -874,5 +927,6 @@ references:
   name: InitRoutes
   href: api/Unosquare.Labs.EmbedIOwin.Startup.html#Unosquare_Labs_EmbedIOwin_Startup_InitRoutes_
   commentId: Overload:Unosquare.Labs.EmbedIOwin.Startup.InitRoutes
+  isSpec: "True"
   fullName: Unosquare.Labs.EmbedIOwin.Startup.InitRoutes
   nameWithType: Startup.InitRoutes
