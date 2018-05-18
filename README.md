@@ -45,11 +45,11 @@ server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@"c:\web", "da
 
 Supported methods: 
 
-* GET collection (//yourhost/entity) 
-* GET single (//yourhost/entity/1 where 1 is the ID)
-* POST (//yourhost/entity with POST body the JSON object)
-* PUT (//yourhost/entity/1 with POST body the JSON object)
-* DELETE (//yourhost/entity/1 where 1 is the ID)
+* `GET` collection (`http://yourhost/entity`) 
+* `GET` single (`http://yourhost/entity/1` where 1 is the ID)
+* `POST` (`http://yourhost/entity` with POST body the JSON object)
+* `PUT` (`http://yourhost/entity/1` with POST body the JSON object)
+* `DELETE` (`http://yourhost/entity/1` where 1 is the ID)
 
 ## LiteLib WebAPI
 
@@ -63,11 +63,11 @@ server.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/db
 
 Supported methods: 
 
-* GET collection (//yourhost/entity) 
-* GET single (//yourhost/entity/1 where 1 is the ID)
-* POST (//yourhost/entity with POST body the JSON object)
-* PUT (//yourhost/entity/1 with POST body the JSON object)
-* DELETE (//yourhost/entity/1 where 1 is the ID)
+* `GET` collection (`http://yourhost/entity`) 
+* `GET` single (`http://yourhost/entity/1` where 1 is the ID)
+* `POST` (`http://yourhost/entity` with POST body the JSON object)
+* `PUT` (`http://yourhost/entity/1` with POST body the JSON object)
+* `DELETE` (`http://yourhost/entity/1` where 1 is the ID)
 
 
 ### Nuget installation [![NuGet version](https://badge.fury.io/nu/EmbedIO.LiteLibWebApi.svg)](https://badge.fury.io/nu/EmbedIO.LiteLibWebApi)
@@ -78,7 +78,7 @@ PM> Install-Package EmbedIO.LiteLibWebApi
 
 ## Markdown Static Module
 
-The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. 
+The Markdown Static Module takes in a static Markdown file and converts it into HTML before returning a response. 
 It will accept markdown/html/htm extensions (This could become middleware later).
 
 ```csharp
@@ -89,7 +89,8 @@ server.RegisterModule(new MarkdownStaticModule(@"c:\web"));
 
 ## OWIN Integration
 
-The support to OWIN is not under development, and it may not work correctly. EmbedIO can use the OWIN platform in two different ways:
+*Note:* The support to OWIN is not under development, and it may not work correctly. 
+EmbedIO can use the OWIN platform in two different ways:
 
 * You can use EmbedIO modules within an OWIN Server. In other words, host your application with an OWIN server and make use of EmbedIO modules.
 
