@@ -9,7 +9,7 @@
     using Swan.Formatters;
     using System.Net.Http;
     using System.Net;
-#if NET46
+#if NET461
     using Unosquare.Net;
 #else
     using System.Net;

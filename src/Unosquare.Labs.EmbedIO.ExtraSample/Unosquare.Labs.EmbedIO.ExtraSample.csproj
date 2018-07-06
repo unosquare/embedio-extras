@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Copyright>Copyright © Unosquare 2013-2017</Copyright>
-    <TargetFrameworks>netcoreapp2.0;net47;net46</TargetFrameworks>
+    <Copyright>Copyright © Unosquare 2013-2018</Copyright>
+    <TargetFrameworks>netcoreapp2.1;net461</TargetFrameworks>
     <AssemblyName>Unosquare.Labs.EmbedIO.ExtraSample</AssemblyName>
     <OutputType>Exe</OutputType>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,17 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiteLib" Version="0.15.0" />
+    <PackageReference Include="LiteLib" Version="0.16.1" />
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" />
-    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.106" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net47' ">
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   
 </Project>

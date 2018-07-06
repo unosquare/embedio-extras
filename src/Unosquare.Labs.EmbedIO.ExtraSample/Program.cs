@@ -1,12 +1,12 @@
-﻿using System.IO;
-using Unosquare.Labs.EmbedIO.BearerToken;
-using Unosquare.Labs.EmbedIO.JsonServer;
-using Unosquare.Labs.EmbedIO.LiteLibWebApi;
-using Unosquare.Labs.EmbedIO.Markdown;
-using Unosquare.Swan;
-
-namespace Unosquare.Labs.EmbedIO.ExtraSample
+﻿namespace Unosquare.Labs.EmbedIO.ExtraSample
 {
+    using System.IO;
+    using Unosquare.Labs.EmbedIO.BearerToken;
+    using Unosquare.Labs.EmbedIO.JsonServer;
+    using Unosquare.Labs.EmbedIO.LiteLibWebApi;
+    using Unosquare.Labs.EmbedIO.Markdown;
+    using Unosquare.Swan;
+
     internal class Program
     {
         /// <summary>
