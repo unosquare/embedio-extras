@@ -54,6 +54,7 @@
             {
                 string token;
                 var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
+
                 using (var res = await client.SendAsync(req))
                 {
                     Assert.AreEqual(res.StatusCode, HttpStatusCode.OK);
