@@ -16,7 +16,6 @@
         public bool IsShipped { get; set; }
         public int Amount { get; set; }
         public string ShippedDate { get; set; }
-
     }
 
     internal class TestDbContext : LiteDbContext
