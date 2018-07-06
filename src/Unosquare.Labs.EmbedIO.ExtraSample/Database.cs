@@ -16,14 +16,16 @@
         public string ShipperCity { get; set; }
 
         public bool IsShipped { get; set; }
-        public int Amount { get; set; }
-        public string ShippedDate { get; set; }
 
+        public int Amount { get; set; }
+
+        public string ShippedDate { get; set; }
     }
 
     internal class TestDbContext : LiteDbContext
     {
-        public TestDbContext(string name = "testDb") : base(Path.Combine(Path.GetTempPath(), $"{name}.db"))
+        public TestDbContext(string name = "testDb") 
+            : base(Path.Combine(Path.GetTempPath(), $"{name}.db"))
         {
             if (Orders.Count() != 0) return;
 

@@ -83,7 +83,7 @@
         public async Task PutPostJson()
         {
             var payload = new { id = 1, title = "replace", author = "unosquare" };
-            var request = await JsonClient.Put(WebServerUrl + ApiPath + "/posts/1", payload);
+            await JsonClient.Put(WebServerUrl + ApiPath + "/posts/1", payload);
             
             var jsonString = await GetString(ApiPath + "/posts/1");
 
@@ -100,10 +100,9 @@
             using (var client = new HttpClient())
             {
                 var posts = await GetString(ApiPath + "/posts");
-                int total;
 
                 var resp = Json.Deserialize<List<object>>(posts);
-                total = resp.Count;
+                var total = resp.Count;
 
                 var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/posts/3");
                 using (var response = await client.SendAsync(request))

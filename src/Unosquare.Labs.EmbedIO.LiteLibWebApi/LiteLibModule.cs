@@ -1,20 +1,15 @@
 ﻿namespace Unosquare.Labs.EmbedIO.LiteLibWebApi
 {
     using Constants;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Reflection;
     using LiteLib;
     using Swan;
     using Swan.Formatters;
-#if NET461
-    using Net;
-#else
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
-
-#endif
+    using System.Reflection;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.
@@ -143,18 +138,17 @@
                 .Where(y => y.CanWrite)
                 .ToList();
 
-            if (data != null)
-            {
-                var dataDictionary = (IDictionary<string, object>) data;
+            if (data == null) return objTable;
 
-                foreach (KeyValuePair<string, object> entry in dataDictionary)
+            var dataDictionary = (IDictionary<string, object>) data;
+
+            foreach (KeyValuePair<string, object> entry in dataDictionary)
+            {
+                var targetProperty =
+                    targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
+                if (entry.Value != null && targetProperty.PropertyType == entry.Value.GetType())
                 {
-                    var targetProperty =
-                        targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
-                    if (entry.Value != null && targetProperty.PropertyType == entry.Value.GetType())
-                    {
-                        targetProperty.SetValue(objTable, entry.Value);
-                    }
+                    targetProperty.SetValue(objTable, entry.Value);
                 }
             }
 

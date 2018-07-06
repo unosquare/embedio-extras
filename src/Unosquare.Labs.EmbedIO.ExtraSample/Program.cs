@@ -1,11 +1,11 @@
 ﻿namespace Unosquare.Labs.EmbedIO.ExtraSample
 {
     using System.IO;
-    using Unosquare.Labs.EmbedIO.BearerToken;
-    using Unosquare.Labs.EmbedIO.JsonServer;
-    using Unosquare.Labs.EmbedIO.LiteLibWebApi;
-    using Unosquare.Labs.EmbedIO.Markdown;
-    using Unosquare.Swan;
+    using BearerToken;
+    using JsonServer;
+    using LiteLibWebApi;
+    using Markdown;
+    using Swan;
 
     internal class Program
     {
@@ -40,13 +40,11 @@
                 server.RunAsync();
 
                 // Fire up the browser to show the content if we are debugging!
-#if DEBUG && NET452
                 var browser = new System.Diagnostics.Process()
                 {
                     StartInfo = new System.Diagnostics.ProcessStartInfo(url) {UseShellExecute = true}
                 };
                 browser.Start();
-#endif
                 Terminal.ReadKey(true, true);
             }
         }
