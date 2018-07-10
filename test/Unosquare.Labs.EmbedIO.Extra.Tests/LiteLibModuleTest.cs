@@ -55,6 +55,7 @@
 
             var newOrder = new Order()
             {
+                UniqueId = "6",
                 CustomerName = "UnoLabs",
                 ShipperCity = "GDL",
                 ShippedDate = "2017-03-20",
@@ -75,6 +76,7 @@
         {
             var order = new Order
             {
+                UniqueId = "7",
                 CustomerName = "UnoLabs",
                 ShipperCity = "Zapopan",
                 ShippedDate = "2017-03-22",

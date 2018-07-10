@@ -103,7 +103,7 @@
         {
             var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
             var objTable = Activator.CreateInstance(dbSetType);
-            body.CopyPropertiesTo(objTable, null);
+            body.CopyKeyValuePairTo(objTable);
 
             _dbInstance.Insert(objTable);
 
