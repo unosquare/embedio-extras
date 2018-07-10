@@ -113,10 +113,10 @@
         private async Task<bool> UpdateRow(Type dbSetType, ILiteDbSet table, string rowId, HttpListenerContext context)
         {
             var objTable = Activator.CreateInstance(dbSetType);
-            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
-            ((IDictionary<string, object>) data.First()).CopyPropertiesTo(objTable, null);
+            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = rowId });
+            ((IDictionary<string, object>) data.First()).CopyKeyValuePairTo(objTable);
             var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
-            body.CopyPropertiesTo(objTable, new[] {"RowId"});
+            body.CopyKeyValuePairTo(objTable, new[] {"RowId"});
 
             await _dbInstance.UpdateAsync(objTable);
 
