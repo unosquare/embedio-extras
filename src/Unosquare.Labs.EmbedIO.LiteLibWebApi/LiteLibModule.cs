@@ -29,6 +29,11 @@
         public LiteLibModule(T instance, string basePath = "/api/")
         {
             _dbInstance = instance;
+            var types = _dbInstance.GetType()
+                .GetTypeInfo()
+                .Assembly
+                .GetTypes()
+                .ToList();
 
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
             {
@@ -40,10 +45,7 @@
 
                 var parts = path.Substring(basePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
 
-                var setType =
-                    _dbInstance.GetType()
-                        .GetTypeInfo()
-                        .Assembly.GetTypes()
+                var setType = types
                         .FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
 
                 if (setType == null) return Task.FromResult(false);
@@ -54,16 +56,9 @@
                     switch (verb)
                     {
                         case HttpVerbs.Get:
-                            var dataList = new List<object>();
                             var data = _dbInstance.Select<object>(table, "1=1");
 
-                            foreach (var row in data)
-                            {
-                                var item = SetValues(Activator.CreateInstance(setType), row);
-                                dataList.Add(item);
-                            }
-
-                            context.JsonResponse(dataList);
+                            context.JsonResponse(data.Select(row => SetValues(Activator.CreateInstance(setType), row)).ToList());
                             return Task.FromResult(true);
                         case HttpVerbs.Post:
                             return AddRow(context, setType);
@@ -132,26 +127,9 @@
             return true;
         }
 
-        private object SetValues(object objTable, object data)
+        private static object SetValues(object objTable, object data)
         {
-            var targetProperties = objTable.GetType().GetRuntimeProperties()
-                .Where(y => y.CanWrite)
-                .ToList();
-
-            if (data == null) return objTable;
-
-            var dataDictionary = (IDictionary<string, object>) data;
-
-            foreach (KeyValuePair<string, object> entry in dataDictionary)
-            {
-                var targetProperty =
-                    targetProperties.First(s => s.Name.ToLowerInvariant() == entry.Key.ToLowerInvariant());
-                if (entry.Value != null && targetProperty.PropertyType == entry.Value.GetType())
-                {
-                    targetProperty.SetValue(objTable, entry.Value);
-                }
-            }
-
+            ((IDictionary<string, object>) data)?.CopyKeyValuePairTo(objTable);
             return objTable;
         }
     }

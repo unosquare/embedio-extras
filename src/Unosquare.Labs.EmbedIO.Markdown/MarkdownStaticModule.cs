@@ -33,7 +33,7 @@
         public MarkdownStaticModule(string fileSystemPath)
         {
             if (Directory.Exists(fileSystemPath) == false)
-                throw new ArgumentException("Path '" + fileSystemPath + "' does not exist.");
+                throw new ArgumentException($"Path \'{fileSystemPath}\' does not exist.");
 
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;

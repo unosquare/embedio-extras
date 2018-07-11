@@ -44,7 +44,7 @@ You are using bearer token correctly.";
             if (Directory.Exists(rootPath) == false)
                 Directory.CreateDirectory(rootPath);
 
-            var files = new Dictionary<string, string>()
+            var files = new Dictionary<string, string>
             {
                 {"index.markdown", IndexMarkdown},
                 {"secure.markdown", SecureMarkdown},

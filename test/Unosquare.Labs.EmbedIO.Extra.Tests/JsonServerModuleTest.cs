@@ -65,17 +65,6 @@
                 {
                     Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 }
-
-                var indexRequest = new HttpRequestMessage(HttpMethod.Get, WebServerUrl + ApiPath + "/posts");
-                using (var indexResponse = await client.SendAsync(indexRequest))
-                {
-                    Assert.AreEqual(indexResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
-                    var jsonString = await indexResponse.Content.ReadAsStringAsync();
-                    Assert.IsNotEmpty(jsonString);
-                    var json = Json.Deserialize<List<object>>(jsonString);
-                    Assert.IsNotNull(json);
-                    Assert.AreEqual(json.Count, 4);
-                }
             }                
         }
         
@@ -99,22 +88,21 @@
         {
             using (var client = new HttpClient())
             {
-                var posts = await GetString(ApiPath + "/posts");
+                var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 123, ""title"": ""tubular2"", ""author"": ""unosquare"" }");
+                var request =
+                    new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts") { Content = new ByteArrayContent(byteArray) };
 
-                var resp = Json.Deserialize<List<object>>(posts);
-                var total = resp.Count;
-
-                var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/posts/3");
                 using (var response = await client.SendAsync(request))
                 {
                     Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 }
 
-                var jsonString = await GetString(ApiPath + "/posts");
-                Assert.IsNotEmpty(jsonString);
+                var deleteRequest = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/posts/123");
 
-                var json = Json.Deserialize<List<object>>(jsonString);
-                Assert.AreEqual(total - 1, json.Count);
+                using (var response = await client.SendAsync(deleteRequest))
+                {
+                    Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+                }
             }                
         }
     }
