@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="Unosquare.Swan.Lite" Version="0.32.3" />
   </ItemGroup>
 
 </Project>
