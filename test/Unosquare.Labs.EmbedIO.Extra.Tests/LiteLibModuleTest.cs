@@ -93,8 +93,7 @@
 
             Assert.AreEqual(result.ShippedDate, "2017-03-22");
 
-            // Uncomment when SWAN get fixed
-            //Assert.AreEqual(result.IsShipped, true);
+            Assert.AreEqual(result.IsShipped, true);
         }
 
         [Test]
