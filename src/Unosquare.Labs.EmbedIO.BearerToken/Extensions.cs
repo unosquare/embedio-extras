@@ -42,7 +42,7 @@
         /// <param name="context">The context.</param>
         /// <param name="secretKey">The secret key.</param>
         /// <returns>The security token from the HTTP Context</returns>
-        public static SecurityToken GetSecurityToken(this HttpListenerContext context, string secretKey = null)
+        public static SecurityToken GetSecurityToken(this HttpListenerContext context, string secretKey)
         => context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
 
         /// <summary>

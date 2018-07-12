@@ -9,11 +9,6 @@
     using Swan.Formatters;
     using System.Net.Http;
     using System.Net;
-#if NET46
-    using Unosquare.Net;
-#else
-    using System.Net;
-#endif
 
     [TestFixture]
     public class BearerTokenModuleTest : FixtureBase
@@ -29,7 +24,6 @@
         {
         }
         
-#if !NET46
         [Test]
         public void TestBasicAuthorizationServerProvider()
         {
@@ -37,7 +31,6 @@
                 .ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
                 .RunSynchronously());
         }
-#endif
 
         [Test]
         public async Task GetInvalidToken()
@@ -61,6 +54,7 @@
             {
                 string token;
                 var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
+
                 using (var res = await client.SendAsync(req))
                 {
                     Assert.AreEqual(res.StatusCode, HttpStatusCode.OK);

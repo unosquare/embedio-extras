@@ -53,7 +53,7 @@
             var getAllResponse = await GetString(ApiPath + "/order");
             var orders = Json.Deserialize<List<Order>>(getAllResponse).Count;
 
-            var newOrder = new Order()
+            var newOrder = new Order
             {
                 CustomerName = "UnoLabs",
                 ShipperCity = "GDL",
@@ -73,7 +73,7 @@
         [Test]
         public async Task PutLiteLib()
         {
-            var order = new Order
+           var order = new Order
             {
                 CustomerName = "UnoLabs",
                 ShipperCity = "Zapopan",

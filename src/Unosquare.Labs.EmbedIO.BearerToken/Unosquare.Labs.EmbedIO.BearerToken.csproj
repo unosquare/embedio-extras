@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Copyright>Copyright © Unosquare 2013-2017</Copyright>
+    <Copyright>Copyright © Unosquare 2013-2018</Copyright>
     <AssemblyTitle>Unosquare EmbedIO Bearer Token Module</AssemblyTitle>
     <VersionPrefix>1.2.0</VersionPrefix>
     <TargetFrameworks>netstandard2.0;net46;net47</TargetFrameworks>
@@ -9,15 +9,15 @@
     <AssemblyName>Unosquare.Labs.EmbedIO.BearerToken</AssemblyName>
     <DebugType>Full</DebugType>
     <Authors>Unosquare</Authors>
+    <LangVersion>7.3</LangVersion>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO" Version="1.11.2" />
+    <PackageReference Include="EmbedIO" Version="1.14.0" />
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
-    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.106" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.1.4" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.2.4" />
   </ItemGroup>
   
 </Project>

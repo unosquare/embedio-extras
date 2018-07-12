@@ -11,7 +11,6 @@
     using Unosquare.Net;
 #else
     using System.Net;
-
 #endif
 
     /// <summary>
@@ -34,7 +33,7 @@
         public MarkdownStaticModule(string fileSystemPath)
         {
             if (Directory.Exists(fileSystemPath) == false)
-                throw new ArgumentException("Path '" + fileSystemPath + "' does not exist.");
+                throw new ArgumentException($"Path \'{fileSystemPath}\' does not exist.");
 
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;
@@ -42,9 +41,7 @@
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, HandleGet);
         }
 
-        /// <summary>
-        /// Gets the name of this module.
-        /// </summary>
+        /// <inheritdoc />
         public override string Name => nameof(MarkdownStaticModule).Humanize();
 
         /// <summary>
