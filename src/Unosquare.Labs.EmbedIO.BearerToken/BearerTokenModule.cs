@@ -57,7 +57,35 @@
 
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
             {
-                if (routes != null && routes.Contains(context.RequestPath()) == false) return Task.FromResult(false);
+                if (routes != null) 
+                {
+                    var path = context.RequestPath();
+                    var match = false;
+                    foreach (var p in routes) 
+                    {
+                        var wildcard = p.IndexOf(ModuleMap.AnyPath, StringComparison.Ordinal);
+                        
+                        if ((wildcard == -1 && p.Equals(path))
+                            || (wildcard != -1
+                                && (
+                                   // wildcard at the end
+                                   path.StartsWith(p.Substring(0, p.Length - ModuleMap.AnyPath.Length))
+                                   // wildcard in the middle so check both start/end
+                                   || (path.StartsWith(p.Substring(0, wildcard))
+                                       && path.EndsWith(p.Substring(wildcard + 1)))
+                                   )
+                                )
+                        ) {
+                            match = true;
+                            break;
+                        }
+                    }
+
+                    if (!match) 
+                    {
+                        return Task.FromResult(false);
+                    }
+                }
 
                 // decode token to see if it's valid
                 if (context.GetSecurityToken(secretKey) != null)
