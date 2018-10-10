@@ -138,18 +138,18 @@ references:
   commentId: T:Unosquare.Labs.EmbedIO.BearerToken.Extensions
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions
   nameWithType: Extensions
-- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,SymmetricSecurityKey)
-  name: GetSecurityToken(HttpListenerContext, SymmetricSecurityKey)
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_HttpListenerContext_SymmetricSecurityKey_
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,SymmetricSecurityKey)
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext, SymmetricSecurityKey)
-  nameWithType: Extensions.GetSecurityToken(HttpListenerContext, SymmetricSecurityKey)
-- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,System.String)
-  name: GetSecurityToken(HttpListenerContext, String)
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_HttpListenerContext_System_String_
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,System.String)
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext, System.String)
-  nameWithType: Extensions.GetSecurityToken(HttpListenerContext, String)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext,SymmetricSecurityKey)
+  name: GetSecurityToken(IHttpContext, SymmetricSecurityKey)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_IHttpContext_SymmetricSecurityKey_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext,SymmetricSecurityKey)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext, SymmetricSecurityKey)
+  nameWithType: Extensions.GetSecurityToken(IHttpContext, SymmetricSecurityKey)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext,System.String)
+  name: GetSecurityToken(IHttpContext, String)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_IHttpContext_System_String_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext,System.String)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext, System.String)
+  nameWithType: Extensions.GetSecurityToken(IHttpContext, String)
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken*
   name: GetSecurityToken
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_
@@ -157,12 +157,12 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken
   nameWithType: Extensions.GetSecurityToken
-- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)
-  name: GetValidationContext(HttpListenerContext)
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_HttpListenerContext_
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)
-  nameWithType: Extensions.GetValidationContext(HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(IHttpContext)
+  name: GetValidationContext(IHttpContext)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_IHttpContext_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(IHttpContext)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(IHttpContext)
+  nameWithType: Extensions.GetValidationContext(IHttpContext)
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext*
   name: GetValidationContext
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_
@@ -170,12 +170,12 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext
   nameWithType: Extensions.GetValidationContext
-- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(HttpListenerContext)
-  name: Rejected(HttpListenerContext)
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_HttpListenerContext_
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(HttpListenerContext)
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(HttpListenerContext)
-  nameWithType: Extensions.Rejected(HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(IHttpContext)
+  name: Rejected(IHttpContext)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_IHttpContext_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(IHttpContext)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(IHttpContext)
+  nameWithType: Extensions.Rejected(IHttpContext)
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected*
   name: Rejected
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_
@@ -183,15 +183,15 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected
   nameWithType: Extensions.Rejected
-- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)
-  name: UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey)
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_WebServer_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)
-  name.vb: UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey)
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer, Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable<System.String>, SymmetricSecurityKey)
-  fullName.vb: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer, Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable(Of System.String), SymmetricSecurityKey)
-  nameWithType: Extensions.UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey)
-  nameWithType.vb: Extensions.UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(IWebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)
+  name: UseBearerToken(IWebServer, IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_IWebServer_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(IWebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)
+  name.vb: UseBearerToken(IWebServer, IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(IWebServer, Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable<System.String>, SymmetricSecurityKey)
+  fullName.vb: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(IWebServer, Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable(Of System.String), SymmetricSecurityKey)
+  nameWithType: Extensions.UseBearerToken(IWebServer, IAuthorizationServerProvider, IEnumerable<String>, SymmetricSecurityKey)
+  nameWithType.vb: Extensions.UseBearerToken(IWebServer, IAuthorizationServerProvider, IEnumerable(Of String), SymmetricSecurityKey)
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken*
   name: UseBearerToken
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_
@@ -237,12 +237,12 @@ references:
   commentId: T:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext
   nameWithType: ValidateClientAuthenticationContext
-- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(HttpListenerContext)
-  name: ValidateClientAuthenticationContext(HttpListenerContext)
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_HttpListenerContext_
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(HttpListenerContext)
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ValidateClientAuthenticationContext(HttpListenerContext)
-  nameWithType: ValidateClientAuthenticationContext.ValidateClientAuthenticationContext(HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(IHttpContext)
+  name: ValidateClientAuthenticationContext(IHttpContext)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_IHttpContext_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(IHttpContext)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ValidateClientAuthenticationContext(IHttpContext)
+  nameWithType: ValidateClientAuthenticationContext.ValidateClientAuthenticationContext(IHttpContext)
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor*
   name: ValidateClientAuthenticationContext
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_

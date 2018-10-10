@@ -82,7 +82,7 @@
   
   <h1 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext" class="text-break">Class ValidateClientAuthenticationContext
   </h1>
-  <div class="markdown level0 summary"><p>Context to share data with AuthorizationServerProvider</p>
+  <div class="markdown level0 summary"><p>Context to share data with AuthorizationServerProvider.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -124,13 +124,13 @@
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_HttpListenerContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(HttpListenerContext)">ValidateClientAuthenticationContext(HttpListenerContext)</h4>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext__ctor_IHttpContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.#ctor(IHttpContext)">ValidateClientAuthenticationContext(IHttpContext)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html">ValidateClientAuthenticationContext</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ValidateClientAuthenticationContext(HttpListenerContext httpContext)</code></pre>
+    <pre><code class="lang-csharp hljs">public ValidateClientAuthenticationContext(IHttpContext httpContext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -143,7 +143,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">HttpListenerContext</span></td>
+        <td><span class="xref">IHttpContext</span></td>
         <td><span class="parametername">httpContext</span></td>
         <td><p>The HTTP context.</p>
 </td>
@@ -161,7 +161,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>httpContext</p>
+        <td><p>httpContext.</p>
 </td>
       </tr>
     </tbody>
@@ -172,7 +172,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ClientId_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ClientId" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId">ClientId</h4>
-  <div class="markdown level1 summary"><p>The Client Id</p>
+  <div class="markdown level1 summary"><p>The Client Id.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -198,7 +198,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HasError_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HasError" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError">HasError</h4>
-  <div class="markdown level1 summary"><p>Flags if the Validation has errors</p>
+  <div class="markdown level1 summary"><p>Flags if the Validation has errors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -224,12 +224,12 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HttpContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HttpContext" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext">HttpContext</h4>
-  <div class="markdown level1 summary"><p>Http Context instance</p>
+  <div class="markdown level1 summary"><p>Http Context instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HttpListenerContext HttpContext { get; protected set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IHttpContext HttpContext { get; protected set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -241,7 +241,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">HttpListenerContext</span></td>
+        <td><span class="xref">IHttpContext</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -250,7 +250,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_IsValidated_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_IsValidated" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated">IsValidated</h4>
-  <div class="markdown level1 summary"><p>Indicates if the Validation is right</p>
+  <div class="markdown level1 summary"><p>Indicates if the Validation is right.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -276,7 +276,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_StandardClaims_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_StandardClaims" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims">StandardClaims</h4>
-  <div class="markdown level1 summary"><p>Claims</p>
+  <div class="markdown level1 summary"><p>Claims.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -304,7 +304,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_SymmetricSecurityKey_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)">GetToken(SymmetricSecurityKey)</h4>
-  <div class="markdown level1 summary"><p>Retrieve JsonWebToken</p>
+  <div class="markdown level1 summary"><p>Retrieve JsonWebToken.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -340,7 +340,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>The token string</p>
+        <td><p>The token string.</p>
 </td>
       </tr>
     </tbody>
@@ -349,7 +349,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Rejected_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Rejected" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected">Rejected()</h4>
-  <div class="markdown level1 summary"><p>Rejects a validation</p>
+  <div class="markdown level1 summary"><p>Rejects a validation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -360,7 +360,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated">Validated()</h4>
-  <div class="markdown level1 summary"><p>Validates credentials</p>
+  <div class="markdown level1 summary"><p>Validates credentials.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -371,7 +371,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated_System_String_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated(System.String)">Validated(String)</h4>
-  <div class="markdown level1 summary"><p>Validates credentials with clientId</p>
+  <div class="markdown level1 summary"><p>Validates credentials with clientId.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

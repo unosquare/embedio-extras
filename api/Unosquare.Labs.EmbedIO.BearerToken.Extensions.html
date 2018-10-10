@@ -82,7 +82,7 @@
   
   <h1 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions" class="text-break">Class Extensions
   </h1>
-  <div class="markdown level0 summary"><p>Extension methods</p>
+  <div class="markdown level0 summary"><p>Extension methods.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -124,13 +124,13 @@
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_HttpListenerContext_SymmetricSecurityKey_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,SymmetricSecurityKey)">GetSecurityToken(HttpListenerContext, SymmetricSecurityKey)</h4>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_IHttpContext_SymmetricSecurityKey_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext,SymmetricSecurityKey)">GetSecurityToken(IHttpContext, SymmetricSecurityKey)</h4>
   <div class="markdown level1 summary"><p>Gets the security token.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SecurityToken GetSecurityToken(this HttpListenerContext context, SymmetricSecurityKey secretKey = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static SecurityToken GetSecurityToken(this IHttpContext context, SymmetricSecurityKey secretKey = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -143,7 +143,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">HttpListenerContext</span></td>
+        <td><span class="xref">IHttpContext</span></td>
         <td><span class="parametername">context</span></td>
         <td><p>The context.</p>
 </td>
@@ -167,7 +167,7 @@
     <tbody>
       <tr>
         <td><span class="xref">SecurityToken</span></td>
-        <td><p>The security token from the HTTP Context</p>
+        <td><p>The security token from the HTTP Context.</p>
 </td>
       </tr>
     </tbody>
@@ -175,14 +175,14 @@
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_HttpListenerContext_System_String_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(HttpListenerContext,System.String)">GetSecurityToken(HttpListenerContext, String)</h4>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_IHttpContext_System_String_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext,System.String)">GetSecurityToken(IHttpContext, String)</h4>
   <div class="markdown level1 summary"><p>Gets the <see cref="!:SecurityToken"></see> of the current context.
 Returns null when the token is not found or not validated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SecurityToken GetSecurityToken(this HttpListenerContext context, string secretKey)</code></pre>
+    <pre><code class="lang-csharp hljs">public static SecurityToken GetSecurityToken(this IHttpContext context, string secretKey)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -195,7 +195,7 @@ Returns null when the token is not found or not validated.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">HttpListenerContext</span></td>
+        <td><span class="xref">IHttpContext</span></td>
         <td><span class="parametername">context</span></td>
         <td><p>The context.</p>
 </td>
@@ -219,7 +219,7 @@ Returns null when the token is not found or not validated.</p>
     <tbody>
       <tr>
         <td><span class="xref">SecurityToken</span></td>
-        <td><p>The security token from the HTTP Context</p>
+        <td><p>The security token from the HTTP Context.</p>
 </td>
       </tr>
     </tbody>
@@ -227,13 +227,13 @@ Returns null when the token is not found or not validated.</p>
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_HttpListenerContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(HttpListenerContext)">GetValidationContext(HttpListenerContext)</h4>
-  <div class="markdown level1 summary"><p>Retrieves a ValidationContext</p>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetValidationContext_IHttpContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetValidationContext(IHttpContext)">GetValidationContext(IHttpContext)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a ValidationContext.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValidateClientAuthenticationContext GetValidationContext(this HttpListenerContext context)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValidateClientAuthenticationContext GetValidationContext(this IHttpContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -246,7 +246,7 @@ Returns null when the token is not found or not validated.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">HttpListenerContext</span></td>
+        <td><span class="xref">IHttpContext</span></td>
         <td><span class="parametername">context</span></td>
         <td><p>The context.</p>
 </td>
@@ -264,7 +264,7 @@ Returns null when the token is not found or not validated.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html">ValidateClientAuthenticationContext</a></td>
-        <td><p>The Validation Context from the HTTP Context</p>
+        <td><p>The Validation Context from the HTTP Context.</p>
 </td>
       </tr>
     </tbody>
@@ -272,13 +272,13 @@ Returns null when the token is not found or not validated.</p>
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_HttpListenerContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(HttpListenerContext)">Rejected(HttpListenerContext)</h4>
-  <div class="markdown level1 summary"><p>Rejects a authentication challenge</p>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_Rejected_IHttpContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.Rejected(IHttpContext)">Rejected(IHttpContext)</h4>
+  <div class="markdown level1 summary"><p>Rejects a authentication challenge.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Rejected(this HttpListenerContext context)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Rejected(this IHttpContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -291,7 +291,7 @@ Returns null when the token is not found or not validated.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">HttpListenerContext</span></td>
+        <td><span class="xref">IHttpContext</span></td>
         <td><span class="parametername">context</span></td>
         <td><p>The context.</p>
 </td>
@@ -301,13 +301,13 @@ Returns null when the token is not found or not validated.</p>
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_WebServer_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(WebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)">UseBearerToken(WebServer, IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey)</h4>
-  <div class="markdown level1 summary"><p>Fluent-like method to attach BearerToken</p>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_Extensions_UseBearerToken_IWebServer_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.Extensions.UseBearerToken(IWebServer,Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)">UseBearerToken(IWebServer, IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey)</h4>
+  <div class="markdown level1 summary"><p>Fluent-like method to attach BearerToken.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseBearerToken(this WebServer webserver, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void UseBearerToken(this IWebServer webserver, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -320,7 +320,7 @@ Returns null when the token is not found or not validated.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">WebServer</span></td>
+        <td><span class="xref">IWebServer</span></td>
         <td><span class="parametername">webserver</span></td>
         <td><p>The webserver.</p>
 </td>
