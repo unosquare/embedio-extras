@@ -4,13 +4,11 @@
     using Microsoft.IdentityModel.Tokens;
     using System.Threading.Tasks;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
-    using Swan;
     using Constants;
 
     /// <summary>
-    /// EmbedIO module to allow authorizations with Bearer Tokens
+    /// EmbedIO module to allow authorizations with Bearer Tokens.
     /// </summary>
     public class BearerTokenModule : WebModuleBase
     {
@@ -100,9 +98,7 @@
             });
         }
 
-        /// <summary>
-        /// Returns Module Name
-        /// </summary>
-        public override string Name => nameof(BearerTokenModule).Humanize();
+        /// <inheritdoc />
+        public override string Name => nameof(BearerTokenModule);
     }
 }

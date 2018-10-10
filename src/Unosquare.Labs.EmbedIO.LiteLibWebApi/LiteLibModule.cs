@@ -7,14 +7,13 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Net;
     using System.Reflection;
     using System.Threading.Tasks;
 
     /// <summary>
     /// Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.
     /// </summary>
-    /// <typeparam name="T">The type of LiteDbContext</typeparam>
+    /// <typeparam name="T">The type of LiteDbContext.</typeparam>
     /// <seealso cref="EmbedIO.WebModuleBase" />
     public class LiteLibModule<T> : WebModuleBase
         where T : LiteDbContext
@@ -94,7 +93,7 @@
         /// <inheritdoc />
         public override string Name => nameof(LiteLibModule<T>).Humanize();
 
-        private Task<bool> AddRow(HttpListenerContext context, Type dbSetType)
+        private Task<bool> AddRow(IHttpContext context, Type dbSetType)
         {
             var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
             var objTable = Activator.CreateInstance(dbSetType);
@@ -105,7 +104,7 @@
             return Task.FromResult(true);
         }
 
-        private async Task<bool> UpdateRow(Type dbSetType, ILiteDbSet table, string rowId, HttpListenerContext context)
+        private async Task<bool> UpdateRow(Type dbSetType, ILiteDbSet table, string rowId, IHttpContext context)
         {
             var objTable = Activator.CreateInstance(dbSetType);
             var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = rowId });

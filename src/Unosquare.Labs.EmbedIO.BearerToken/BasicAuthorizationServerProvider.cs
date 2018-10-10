@@ -4,12 +4,12 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Basic Authorization Server Provider implementation
+    /// Basic Authorization Server Provider implementation.
     /// </summary>
     public class BasicAuthorizationServerProvider : IAuthorizationServerProvider
     {
         /// <summary>
-        /// Validates a Client Authentication
+        /// Validates a Client Authentication.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns></returns>
@@ -30,9 +30,9 @@
         }
 
         /// <summary>
-        /// Gets a Expiration Date
+        /// Gets a Expiration Date.
         /// </summary>
-        /// <returns>Ticks until expiration date</returns>
+        /// <returns>Ticks until expiration date.</returns>
         public long GetExpirationDate() => DateTime.UtcNow.AddHours(12).Ticks;
     }
 }
