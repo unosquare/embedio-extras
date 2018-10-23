@@ -1,9 +1,9 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
-    using System.Security.Claims;
     using Microsoft.IdentityModel.Tokens;
-    using System.IdentityModel.Tokens.Jwt;
     using System;
+    using System.IdentityModel.Tokens.Jwt;
+    using System.Security.Claims;
 
     /// <summary>
     /// Context to share data with AuthorizationServerProvider.
@@ -84,12 +84,13 @@
         public string GetToken(SymmetricSecurityKey secretKey)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var plainToken = tokenHandler.CreateToken(new SecurityTokenDescriptor()
+            var plainToken = tokenHandler.CreateToken(new SecurityTokenDescriptor
             {
                 Subject = StandardClaims,
                 SigningCredentials = new SigningCredentials(secretKey,
                     SecurityAlgorithms.HmacSha256Signature),
             });
+
             return tokenHandler.WriteToken(plainToken);
         }
     }

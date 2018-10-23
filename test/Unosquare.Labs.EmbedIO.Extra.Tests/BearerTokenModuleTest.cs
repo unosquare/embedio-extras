@@ -70,7 +70,7 @@
 
                 using (var indexResponse = await client.SendAsync(indexRequest))
                 {
-                    Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.Unauthorized);
+                    Assert.AreEqual(indexResponse.StatusCode, HttpStatusCode.Unauthorized);
                 }
 
                 indexRequest = new HttpRequestMessage(HttpMethod.Get, WebServerUrl + "index.html");
@@ -78,7 +78,7 @@
 
                 using (var indexResponse = await client.SendAsync(indexRequest))
                 {
-                    Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.OK);
+                    Assert.AreEqual(indexResponse.StatusCode, HttpStatusCode.OK);
                 }
             }
         }

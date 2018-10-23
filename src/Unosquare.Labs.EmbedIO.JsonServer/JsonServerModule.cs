@@ -77,7 +77,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="ct">The cancellation token.</param>
-        /// <returns></returns>
+        /// <returns>A task representing the request action./returns>
         private Task<bool> HandleRequest(IHttpContext context, CancellationToken ct)
         {
             var path = context.RequestPath();
@@ -87,47 +87,40 @@
                 return Task.FromResult(false);
 
             if (path == BasePath)
-            {
-                context.JsonResponse((object) Data);
-                return Task.FromResult(true);
-            }
+                return context.JsonResponseAsync((object) Data);
 
-            var parts = path.Substring(BasePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
+            var parts = path.Substring(BasePath.Length)
+                .Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
 
             var table = Data[parts[0]];
 
-            if (table == null) return Task.FromResult(false);
+            if (table == null) 
+                return Task.FromResult(false);
 
-            if (parts.Length == 1)
+            switch (parts.Length)
             {
-                if (verb == HttpVerbs.Get)
-                {
-                    context.JsonResponse((object) table);
-                    return Task.FromResult(true);
-                }
-
-                if (verb == HttpVerbs.Post)
-                {
+                case 1 when verb == HttpVerbs.Get:
+                    return context.JsonResponseAsync((object) table);
+                case 1 when verb == HttpVerbs.Post:
                     return AddRow(context, table);
-                }
-            }
-
-            if (parts.Length == 2)
-            {
-                foreach (var row in table)
+                case 2:
                 {
-                    if (row["id"].ToString() != parts[1]) continue;
-
-                    switch (verb)
+                    foreach (var row in table)
                     {
-                        case HttpVerbs.Get:
-                            context.JsonResponse((object) row);
-                            return Task.FromResult(true);
-                        case HttpVerbs.Put:
-                            return UpdateRow(context, row);
-                        case HttpVerbs.Delete:
-                            return RemoveRow(table, row);
+                        if (row["id"].ToString() != parts[1]) continue;
+
+                        switch (verb)
+                        {
+                            case HttpVerbs.Get:
+                                return context.JsonResponseAsync((object) row);
+                            case HttpVerbs.Put:
+                                return UpdateRow(context, row);
+                            case HttpVerbs.Delete:
+                                return RemoveRow(table, row);
+                        }
                     }
+
+                    break;
                 }
             }
 
@@ -148,7 +141,7 @@
             var array = (ICollection<object>) table;
             array.Remove(row);
             ThreadPool.QueueUserWorkItem(UpdateDataStore);
-
+            
             return Task.FromResult(true);
         }
 
@@ -162,7 +155,7 @@
             }
 
             ThreadPool.QueueUserWorkItem(UpdateDataStore);
-
+            
             return Task.FromResult(true);
         }
     }

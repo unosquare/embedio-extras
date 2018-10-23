@@ -84,13 +84,16 @@
         /// <param name="authorizationProvider">The authorization provider.</param>
         /// <param name="routes">The routes.</param>
         /// <param name="secretKey">The secret key.</param>
-        public static void UseBearerToken(this IWebServer webserver,
+        /// <returns>The same web server.</returns>
+        public static IWebServer UseBearerToken(this IWebServer webserver,
             IAuthorizationServerProvider authorizationProvider = null,
             IEnumerable<string> routes = null,
             SymmetricSecurityKey secretKey = null)
         {
             webserver.RegisterModule(
                 new BearerTokenModule(authorizationProvider ?? new BasicAuthorizationServerProvider(), routes, secretKey));
+
+            return webserver;
         }
     }
 }

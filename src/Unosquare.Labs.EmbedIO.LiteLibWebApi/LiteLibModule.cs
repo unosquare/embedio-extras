@@ -18,6 +18,8 @@
     public class LiteLibModule<T> : WebModuleBase
         where T : LiteDbContext
     {
+        private const string RowSelector = "[RowId] = @RowId";
+
         private readonly T _dbInstance;
 
         /// <summary>
@@ -34,93 +36,80 @@
                 .GetTypes()
                 .ToList();
 
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
+            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, async (context, ct) =>
             {
                 var path = context.RequestPath();
                 var verb = context.RequestVerb();
 
                 if (path.StartsWith(basePath) == false)
-                    return Task.FromResult(false);
+                    return false;
 
-                var parts = path.Substring(basePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
+                var parts = path.Substring(basePath.Length)
+                    .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
                 var setType = types
                         .FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
 
-                if (setType == null) return Task.FromResult(false);
+                if (setType == null) 
+                    return false;
+                
                 var table = _dbInstance.Set(setType);
 
-                if (parts.Length == 1)
+                switch (parts.Length)
                 {
-                    switch (verb)
-                    {
-                        case HttpVerbs.Get:
-                            var data = _dbInstance.Select<object>(table, "1=1");
+                    case 1 when verb == HttpVerbs.Get:
+                        var current = await _dbInstance.SelectAsync<object>(table, "1=1");
 
-                            context.JsonResponse(data.Select(row => SetValues(Activator.CreateInstance(setType), row)).ToList());
-                            return Task.FromResult(true);
-                        case HttpVerbs.Post:
-                            return AddRow(context, setType);
-                    }
+                        return await context.JsonResponseAsync(current.Select(row => SetValues(Activator.CreateInstance(setType), row)).ToList());
+                    case 1 when verb == HttpVerbs.Post:
+                        return await AddRow(context, setType);
+                    case 2 when verb == HttpVerbs.Get:
+                        var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = parts[1] });
+                        var objTable = SetValues(Activator.CreateInstance(setType), data.First());
+
+                        return await context.JsonResponseAsync(objTable);
+                    case 2 when verb == HttpVerbs.Put:
+                        return await UpdateRow(setType, table, parts[1], context);
+                    case 2 when verb == HttpVerbs.Delete:
+                        return await RemoveRow(table, parts[1], setType);
                 }
 
-                if (parts.Length == 2)
-                {
-                    switch (verb)
-                    {
-                        case HttpVerbs.Get:
-                        {
-                            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = parts[1]});
-                            var objTable = SetValues(Activator.CreateInstance(setType), data.First());
-                            context.JsonResponse(objTable);
-                            return Task.FromResult(true);
-                        }
-                        case HttpVerbs.Put:
-                        {
-                            return UpdateRow(setType, table, parts[1], context);
-                        }
-                        case HttpVerbs.Delete:
-                        {
-                            return RemoveRow(table, parts[1], setType);
-                        }
-                    }
-                }
-
-                return Task.FromResult(false);
+                return false;
             });
         }
 
         /// <inheritdoc />
         public override string Name => nameof(LiteLibModule<T>).Humanize();
 
-        private Task<bool> AddRow(IHttpContext context, Type dbSetType)
+        private async Task<bool> AddRow(IHttpContext context, Type setType)
         {
-            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
-            var objTable = Activator.CreateInstance(dbSetType);
+            var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
+            var objTable = Activator.CreateInstance(setType);
             body.CopyKeyValuePairTo(objTable);
 
-            _dbInstance.Insert(objTable);
+            await _dbInstance.InsertAsync(objTable);
 
-            return Task.FromResult(true);
+            return true;
         }
 
-        private async Task<bool> UpdateRow(Type dbSetType, ILiteDbSet table, string rowId, IHttpContext context)
+        private async Task<bool> UpdateRow(Type setType, ILiteDbSet table, string rowId, IHttpContext context)
         {
-            var objTable = Activator.CreateInstance(dbSetType);
-            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new { RowId = rowId });
-            ((IDictionary<string, object>) data.First()).CopyKeyValuePairTo(objTable);
-            var body = (IDictionary<string, object>) Json.Deserialize(context.RequestBody());
-            body.CopyKeyValuePairTo(objTable, new[] {"RowId"});
+            var objTable = Activator.CreateInstance(setType);
+            var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
+            ((IDictionary<string, object>)data.First()).CopyKeyValuePairTo(objTable);
+            var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
+            body.CopyKeyValuePairTo(objTable, new[] { "RowId" });
 
             await _dbInstance.UpdateAsync(objTable);
 
             return true;
         }
 
-        private async Task<bool> RemoveRow(ILiteDbSet table, string rowId, Type dbSetType)
+        private async Task<bool> RemoveRow(ILiteDbSet table, string rowId, Type setType)
         {
-            var data = _dbInstance.Select<object>(table, "[RowId] = @RowId", new {RowId = rowId});
-            var objTable = SetValues(Activator.CreateInstance(dbSetType), data.First());
+            var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
+            var objTable = SetValues(Activator.CreateInstance(setType), data.First());
+
             await _dbInstance.DeleteAsync(objTable);
 
             return true;
@@ -128,7 +117,7 @@
 
         private static object SetValues(object objTable, object data)
         {
-            ((IDictionary<string, object>) data)?.CopyKeyValuePairTo(objTable);
+            ((IDictionary<string, object>)data)?.CopyKeyValuePairTo(objTable);
             return objTable;
         }
     }

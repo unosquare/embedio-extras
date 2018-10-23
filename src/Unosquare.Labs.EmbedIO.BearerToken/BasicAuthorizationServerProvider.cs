@@ -8,11 +8,7 @@
     /// </summary>
     public class BasicAuthorizationServerProvider : IAuthorizationServerProvider
     {
-        /// <summary>
-        /// Validates a Client Authentication.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <returns></returns>
+        /// <inheritdoc />
 #pragma warning disable 1998
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
 #pragma warning restore 1998
@@ -29,10 +25,7 @@
             }
         }
 
-        /// <summary>
-        /// Gets a Expiration Date.
-        /// </summary>
-        /// <returns>Ticks until expiration date.</returns>
+        /// <inheritdoc />
         public long GetExpirationDate() => DateTime.UtcNow.AddHours(12).Ticks;
     }
 }

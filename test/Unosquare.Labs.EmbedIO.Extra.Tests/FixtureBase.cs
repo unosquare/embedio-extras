@@ -13,7 +13,7 @@
 
         protected FixtureBase(Action<WebServer> builder)
         {
-            Swan.Terminal.Settings.DisplayLoggingMessageType = Swan.LogMessageType.None;
+            Swan.Terminal.Settings.GlobalLoggingMessageType = Swan.LogMessageType.None;
             _builder = builder;
         }
 

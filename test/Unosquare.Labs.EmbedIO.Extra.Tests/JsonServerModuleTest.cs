@@ -1,7 +1,6 @@
 ﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
     using NUnit.Framework;
-    using System.Collections.Generic;
     using System.IO;
     using System.Net;
     using System.Net.Http;
