@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Extensions
    | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.39.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -307,7 +307,7 @@ Returns null when the token is not found or not validated.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UseBearerToken(this IWebServer webserver, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IWebServer UseBearerToken(this IWebServer webserver, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -341,6 +341,22 @@ Returns null when the token is not found or not validated.</p>
         <td><span class="xref">SymmetricSecurityKey</span></td>
         <td><span class="parametername">secretKey</span></td>
         <td><p>The secret key.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IWebServer</span></td>
+        <td><p>The same web server.</p>
 </td>
       </tr>
     </tbody>

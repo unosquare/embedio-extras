@@ -132,6 +132,19 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name
   nameWithType: BearerTokenModule.Name
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.SecretKey
+  name: SecretKey
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_SecretKey
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.SecretKey
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.SecretKey
+  nameWithType: BearerTokenModule.SecretKey
+- uid: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.SecretKey*
+  name: SecretKey
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html#Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_SecretKey_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.SecretKey
+  isSpec: "True"
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.SecretKey
+  nameWithType: BearerTokenModule.SecretKey
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions
   name: Extensions
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html
