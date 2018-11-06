@@ -18,7 +18,8 @@
 
         public LiteLibModuleTest()
             : base(ws => ws.RegisterModule(
-                new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/")))
+                new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/")),
+                true)
         {
             // placeholder
         }

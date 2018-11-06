@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiteLib" Version="0.17.2" />
+    <PackageReference Include="LiteLib" Version="0.18.0" />
   </ItemGroup>
   
 </Project>
