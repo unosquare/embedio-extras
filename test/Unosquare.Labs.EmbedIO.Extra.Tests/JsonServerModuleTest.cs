@@ -58,22 +58,24 @@
             using (var client = new HttpClient())
             {
                 var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }");
-                var request =
-                    new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts") { Content = new ByteArrayContent(byteArray) };
+                var request = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts")
+                {
+                    Content = new ByteArrayContent(byteArray)
+                };
 
                 using (var response = await client.SendAsync(request))
                 {
                     Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 }
-            }                
+            }
         }
-        
+
         [Test]
         public async Task PutPostJson()
         {
             var payload = new { id = 1, title = "replace", author = "unosquare" };
             await JsonClient.Put(WebServerUrl + ApiPath + "/posts/1", payload);
-            
+
             var jsonString = await GetString(ApiPath + "/posts/1");
 
             Assert.IsNotEmpty(jsonString);
@@ -103,7 +105,7 @@
                 {
                     Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
                 }
-            }                
+            }
         }
     }
 }
