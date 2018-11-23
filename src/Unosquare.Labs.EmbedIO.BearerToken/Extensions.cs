@@ -22,14 +22,14 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>The Validation Context from the HTTP Context</returns>
-        public static ValidateClientAuthenticationContext GetValidationContext(this HttpListenerContext context)
+        public static ValidateClientAuthenticationContext GetValidationContext(this IHttpContext context)
          => new ValidateClientAuthenticationContext(context);
 
         /// <summary>
         /// Rejects a authentication challenge
         /// </summary>
         /// <param name="context">The context.</param>
-        public static void Rejected(this HttpListenerContext context)
+        public static void Rejected(this IHttpContext context)
         {
             context.Response.StatusCode = (int)System.Net.HttpStatusCode.Unauthorized;
             context.Response.AddHeader("WWW-Authenticate", "Bearer");
@@ -42,7 +42,7 @@
         /// <param name="context">The context.</param>
         /// <param name="secretKey">The secret key.</param>
         /// <returns>The security token from the HTTP Context</returns>
-        public static SecurityToken GetSecurityToken(this HttpListenerContext context, string secretKey)
+        public static SecurityToken GetSecurityToken(this IHttpContext context, string secretKey)
         => context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
 
         /// <summary>
@@ -51,7 +51,7 @@
         /// <param name="context">The context.</param>
         /// <param name="secretKey">The secret key.</param>
         /// <returns>The security token from the HTTP Context</returns>
-        public static SecurityToken GetSecurityToken(this HttpListenerContext context, SymmetricSecurityKey secretKey = null)
+        public static SecurityToken GetSecurityToken(this IHttpContext context, SymmetricSecurityKey secretKey = null)
         {
             var authHeader = context.RequestHeader("Authorization");
 
@@ -89,7 +89,7 @@
         /// <param name="authorizationProvider">The authorization provider.</param>
         /// <param name="routes">The routes.</param>
         /// <param name="secretKey">The secret key.</param>
-        public static void UseBearerToken(this WebServer webserver,
+        public static void UseBearerToken(this IWebServer webserver,
             IAuthorizationServerProvider authorizationProvider = null,
             IEnumerable<string> routes = null,
             SymmetricSecurityKey secretKey = null)
