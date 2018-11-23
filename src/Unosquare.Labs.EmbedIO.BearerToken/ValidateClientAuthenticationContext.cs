@@ -20,7 +20,7 @@
         /// </summary>
         /// <param name="httpContext">The HTTP context.</param>
         /// <exception cref="System.ArgumentNullException">httpContext</exception>
-        public ValidateClientAuthenticationContext(HttpListenerContext httpContext)
+        public ValidateClientAuthenticationContext(IHttpContext httpContext)
         {
             HttpContext = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
 
@@ -46,7 +46,7 @@
         /// <summary>
         /// Http Context instance
         /// </summary>
-        public HttpListenerContext HttpContext { get; protected set; }
+        public IHttpContext HttpContext { get; protected set; }
 
         /// <summary>
         /// Claims
