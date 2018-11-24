@@ -1,6 +1,5 @@
 ﻿namespace Unosquare.Labs.EmbedIO.ExtraSample
 {
-    using System.ComponentModel.DataAnnotations;
     using System.IO;
     using LiteLib;
 

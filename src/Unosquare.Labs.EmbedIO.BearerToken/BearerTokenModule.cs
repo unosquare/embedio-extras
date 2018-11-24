@@ -4,13 +4,11 @@
     using Microsoft.IdentityModel.Tokens;
     using System.Threading.Tasks;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
-    using Swan;
     using Constants;
 
     /// <summary>
-    /// EmbedIO module to allow authorizations with Bearer Tokens
+    /// EmbedIO module to allow authorizations with Bearer Tokens.
     /// </summary>
     public class BearerTokenModule : WebModuleBase
     {
@@ -27,25 +25,22 @@
             SymmetricSecurityKey secretKey = null, 
             string endpoint = "/token")
         {
-            if (secretKey == null)
-            {
-                // TODO: Make secretKey parameter mandatory and and an overload that takes in a string for a secretKey
-                secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF"));
-            }
+            // TODO: Make secretKey parameter mandatory and and an overload that takes in a string for a secretKey
+            SecretKey = secretKey ?? new SymmetricSecurityKey(Encoding.UTF8.GetBytes("0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF"));
             
-            AddHandler(endpoint, HttpVerbs.Post, (context, ct) =>
+            AddHandler(endpoint, HttpVerbs.Post, async (context, ct) =>
             {
                 var validationContext = context.GetValidationContext();
-                authorizationServerProvider.ValidateClientAuthentication(validationContext);
+                await authorizationServerProvider.ValidateClientAuthentication(validationContext);
 
                 if (validationContext.IsValidated)
                 {
-                    context.JsonResponse(new BearerToken
+                    await context.JsonResponseAsync(new BearerToken
                     {
-                        Token = validationContext.GetToken(secretKey),
+                        Token = validationContext.GetToken(SecretKey),
                         TokenType = "bearer",
                         ExpirationDate = authorizationServerProvider.GetExpirationDate(),
-                        Username = validationContext.ClientId
+                        Username = validationContext.ClientId,
                     });
                 }
                 else
@@ -53,7 +48,7 @@
                     context.Rejected();
                 }
 
-                return Task.FromResult(true);
+                return true;
             });
 
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
@@ -62,6 +57,7 @@
                 {
                     var path = context.RequestPath();
                     var match = false;
+
                     foreach (var p in routes) 
                     {
                         var wildcard = p.IndexOf(ModuleMap.AnyPath, StringComparison.Ordinal);
@@ -76,7 +72,8 @@
                                        && path.EndsWith(p.Substring(wildcard + 1)))
                                    )
                                 )
-                        ) {
+                        ) 
+                        {
                             match = true;
                             break;
                         }
@@ -89,7 +86,7 @@
                 }
 
                 // decode token to see if it's valid
-                if (context.GetSecurityToken(secretKey) != null)
+                if (context.GetSecurityToken(SecretKey) != null)
                 {
                     return Task.FromResult(false);
                 }
@@ -101,8 +98,14 @@
         }
 
         /// <summary>
-        /// Returns Module Name
+        /// Gets the secret key.
         /// </summary>
-        public override string Name => nameof(BearerTokenModule).Humanize();
+        /// <value>
+        /// The secret key.
+        /// </value>
+        public SymmetricSecurityKey SecretKey { get; }
+
+        /// <inheritdoc />
+        public override string Name => nameof(BearerTokenModule);
     }
 }

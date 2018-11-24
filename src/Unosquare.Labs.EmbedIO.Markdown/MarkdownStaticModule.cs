@@ -6,22 +6,16 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using Swan;
-#if NET46
-    using Unosquare.Net;
-#else
-    using System.Net;
-#endif
 
     /// <summary>
     /// The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. 
-    /// It will accept markdown/html/htm extensions
+    /// It will accept markdown/html/htm extensions.
     /// </summary>
     /// <seealso cref="Unosquare.Labs.EmbedIO.WebModuleBase" />
     public class MarkdownStaticModule : WebModuleBase
     {
         /// <summary>
-        /// Default document constant to "index.markdown"
+        /// Default document constant to "index.markdown".
         /// </summary>
         public const string DefaultDocumentName = "index.markdown";
 
@@ -42,12 +36,12 @@
         }
 
         /// <inheritdoc />
-        public override string Name => nameof(MarkdownStaticModule).Humanize();
+        public override string Name => nameof(MarkdownStaticModule);
 
         /// <summary>
         /// Gets or sets the default document.
         /// Defaults to "index.html"
-        /// Example: "root.xml"
+        /// Example: "root.xml".
         /// </summary>
         public string DefaultDocument { get; set; }
 
@@ -56,20 +50,9 @@
         /// </summary>
         public string FileSystemPath { get; protected set; }
 
-        private Task<bool> HandleGet(HttpListenerContext context, CancellationToken ct)
+        private Task<bool> HandleGet(IHttpContext context, CancellationToken ct)
         {
-            var urlPath = context.Request.Url.LocalPath.Replace('/', Path.DirectorySeparatorChar);
-
-            // adjust the path to see if we've got a default document
-            if (urlPath.Last() == Path.DirectorySeparatorChar)
-                urlPath = urlPath + DefaultDocument;
-
-            urlPath = urlPath.TrimStart(Path.DirectorySeparatorChar);
-
-            if (Path.GetExtension(urlPath) == ".html") urlPath = urlPath.Replace(".html", ".markdown");
-            if (Path.GetExtension(urlPath) == ".htm") urlPath = urlPath.Replace(".htm", ".markdown");
-
-            var localPath = Path.Combine(FileSystemPath, urlPath);
+            var localPath = GetLocalPath(context);
 
             if (!File.Exists(localPath))
                 return Task.FromResult(false);
@@ -84,6 +67,22 @@
             }
 
             return Task.FromResult(true);
+        }
+
+        private string GetLocalPath(IHttpContext context)
+        {
+            var urlPath = context.Request.Url.LocalPath.Replace('/', Path.DirectorySeparatorChar);
+
+            // adjust the path to see if we've got a default document
+            if (urlPath.Last() == Path.DirectorySeparatorChar)
+                urlPath = urlPath + DefaultDocument;
+
+            urlPath = urlPath.TrimStart(Path.DirectorySeparatorChar);
+
+            if (Path.GetExtension(urlPath) == ".html") urlPath = urlPath.Replace(".html", ".markdown");
+            if (Path.GetExtension(urlPath) == ".htm") urlPath = urlPath.Replace(".htm", ".markdown");
+
+            return Path.Combine(FileSystemPath, urlPath);
         }
     }
 }
