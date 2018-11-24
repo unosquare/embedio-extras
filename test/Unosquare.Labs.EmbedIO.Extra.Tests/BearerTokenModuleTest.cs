@@ -1,14 +1,14 @@
 ﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
-    using System;
-    using System.Threading.Tasks;
-    using NUnit.Framework;
     using BearerToken;
-    using TestObjects;
     using Markdown;
+    using NUnit.Framework;
     using Swan.Formatters;
-    using System.Net.Http;
+    using System;
     using System.Net;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using TestObjects;
 
     [TestFixture]
     public class BearerTokenModuleTest : FixtureBase
@@ -16,7 +16,7 @@
         protected BasicAuthorizationServerProvider BasicProvider = new BasicAuthorizationServerProvider();
 
         public BearerTokenModuleTest()
-            : base((ws) => 
+            : base(ws => 
             {
                 ws.RegisterModule(new BearerTokenModule(new BasicAuthorizationServerProvider()));
                 ws.RegisterModule(new MarkdownStaticModule(TestHelper.SetupStaticFolder()));
@@ -70,7 +70,7 @@
 
                 using (var indexResponse = await client.SendAsync(indexRequest))
                 {
-                    Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.Unauthorized);
+                    Assert.AreEqual(indexResponse.StatusCode, HttpStatusCode.Unauthorized);
                 }
 
                 indexRequest = new HttpRequestMessage(HttpMethod.Get, WebServerUrl + "index.html");
@@ -78,7 +78,7 @@
 
                 using (var indexResponse = await client.SendAsync(indexRequest))
                 {
-                    Assert.AreEqual(indexResponse.StatusCode, System.Net.HttpStatusCode.OK);
+                    Assert.AreEqual(indexResponse.StatusCode, HttpStatusCode.OK);
                 }
             }
         }

@@ -32,15 +32,17 @@
             // files module
             using (var server = new WebServer(url))
             {
-                server.EnableCors();
-                server.RegisterModule(new BearerTokenModule(basicAuthProvider, new[] {"/secure.html"}));
+                server
+                    .EnableCors()
+                    .UseBearerToken(basicAuthProvider, new[] {"/secure.html"});
+
                 server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
                 server.RegisterModule(new MarkdownStaticModule(WebRootPath));
                 server.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
                 server.RunAsync();
 
                 // Fire up the browser to show the content if we are debugging!
-                var browser = new System.Diagnostics.Process()
+                var browser = new System.Diagnostics.Process
                 {
                     StartInfo = new System.Diagnostics.ProcessStartInfo(url) {UseShellExecute = true}
                 };

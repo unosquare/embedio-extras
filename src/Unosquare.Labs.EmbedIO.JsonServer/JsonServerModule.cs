@@ -1,6 +1,5 @@
 ﻿namespace Unosquare.Labs.EmbedIO.JsonServer
 {
-    using Swan;
     using Constants;
     using Swan.Formatters;
     using System;
@@ -8,14 +7,9 @@
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
-#if NET46
-    using Net;
-#else
-    using System.Net;
-#endif
 
     /// <summary>
-    /// JsonServer Module
+    /// JsonServer Module.
     /// </summary>
     public class JsonServerModule : WebModuleBase
     {
@@ -46,12 +40,12 @@
         }
 
         /// <summary>
-        /// Dynamic database
+        /// Dynamic database.
         /// </summary>
         public dynamic Data { get; set; }
 
         /// <summary>
-        /// Default JSON file path
+        /// Default JSON file path.
         /// </summary>
         public string JsonPath { get; set; }
 
@@ -63,13 +57,11 @@
         /// </value>
         public string BasePath { get; set; }
 
-        /// <summary>
-        /// Gets the Module's name
-        /// </summary>
-        public override string Name => nameof(JsonServerModule).Humanize();
+        /// <inheritdoc />
+        public override string Name => nameof(JsonServerModule);
 
         /// <summary>
-        /// Updates JSON file in disk
+        /// Updates JSON file in disk.
         /// </summary>
         /// <param name="state">The state.</param>
         public void UpdateDataStore(object state)
@@ -85,8 +77,8 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="ct">The cancellation token.</param>
-        /// <returns></returns>
-        private Task<bool> HandleRequest(HttpListenerContext context, CancellationToken ct)
+        /// <returns>A task representing the request action./returns>
+        private Task<bool> HandleRequest(IHttpContext context, CancellationToken ct)
         {
             var path = context.RequestPath();
             var verb = context.RequestVerb();
@@ -95,53 +87,47 @@
                 return Task.FromResult(false);
 
             if (path == BasePath)
+                return context.JsonResponseAsync((object) Data);
+
+            var parts = path.Substring(BasePath.Length)
+                .Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
+
+            var table = Data[parts[0]];
+
+            if (table == null) 
+                return Task.FromResult(false);
+
+            switch (parts.Length)
             {
-                context.JsonResponse((object) Data);
-                return Task.FromResult(true);
-            }
-
-            var parts = path.Substring(BasePath.Length).Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
-
-            dynamic table = Data[parts[0]];
-            if (table == null) return Task.FromResult(false);
-
-            if (parts.Length == 1)
-            {
-                if (verb == HttpVerbs.Get)
-                {
-                    context.JsonResponse((object) table);
-                    return Task.FromResult(true);
-                }
-
-                if (verb == HttpVerbs.Post)
-                {
+                case 1 when verb == HttpVerbs.Get:
+                    return context.JsonResponseAsync((object) table);
+                case 1 when verb == HttpVerbs.Post:
                     return AddRow(context, table);
-                }
-            }
-
-            if (parts.Length == 2)
-            {
-                foreach (dynamic row in table)
+                case 2:
                 {
-                    if (row["id"].ToString() != parts[1]) continue;
-
-                    switch (verb)
+                    foreach (var row in table)
                     {
-                        case HttpVerbs.Get:
-                            context.JsonResponse((object) row);
-                            return Task.FromResult(true);
-                        case HttpVerbs.Put:
-                            return UpdateRow(context, row);
-                        case HttpVerbs.Delete:
-                            return RemoveRow(table, row);
+                        if (row["id"].ToString() != parts[1]) continue;
+
+                        switch (verb)
+                        {
+                            case HttpVerbs.Get:
+                                return context.JsonResponseAsync((object) row);
+                            case HttpVerbs.Put:
+                                return UpdateRow(context, row);
+                            case HttpVerbs.Delete:
+                                return RemoveRow(table, row);
+                        }
                     }
+
+                    break;
                 }
             }
 
             return Task.FromResult(false);
         }
 
-        private Task<bool> AddRow(HttpListenerContext context, dynamic table)
+        private Task<bool> AddRow(IHttpContext context, dynamic table)
         {
             var array = (IList<object>) table;
             array.Add(Json.Deserialize(context.RequestBody()));
@@ -155,11 +141,11 @@
             var array = (ICollection<object>) table;
             array.Remove(row);
             ThreadPool.QueueUserWorkItem(UpdateDataStore);
-
+            
             return Task.FromResult(true);
         }
 
-        private Task<bool> UpdateRow(HttpListenerContext context, dynamic row)
+        private Task<bool> UpdateRow(IHttpContext context, dynamic row)
         {
             var update = Json.Deserialize<Dictionary<string, object>>(context.RequestBody());
 
@@ -169,7 +155,7 @@
             }
 
             ThreadPool.QueueUserWorkItem(UpdateDataStore);
-
+            
             return Task.FromResult(true);
         }
     }

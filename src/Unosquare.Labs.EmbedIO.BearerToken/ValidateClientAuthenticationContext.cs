@@ -1,17 +1,12 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
-    using System.Security.Claims;
     using Microsoft.IdentityModel.Tokens;
-    using System.IdentityModel.Tokens.Jwt;
     using System;
-#if NET46
-    using Net;
-#else
-    using System.Net;
-#endif
+    using System.IdentityModel.Tokens.Jwt;
+    using System.Security.Claims;
 
     /// <summary>
-    /// Context to share data with AuthorizationServerProvider
+    /// Context to share data with AuthorizationServerProvider.
     /// </summary>
     public class ValidateClientAuthenticationContext
     {
@@ -19,8 +14,8 @@
         /// Initializes a new instance of the <see cref="ValidateClientAuthenticationContext"/> class.
         /// </summary>
         /// <param name="httpContext">The HTTP context.</param>
-        /// <exception cref="System.ArgumentNullException">httpContext</exception>
-        public ValidateClientAuthenticationContext(HttpListenerContext httpContext)
+        /// <exception cref="System.ArgumentNullException">httpContext.</exception>
+        public ValidateClientAuthenticationContext(IHttpContext httpContext)
         {
             HttpContext = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
 
@@ -29,32 +24,32 @@
         }
 
         /// <summary>
-        /// The Client Id
+        /// The Client Id.
         /// </summary>
         public string ClientId { get; protected set; }
 
         /// <summary>
-        /// Flags if the Validation has errors
+        /// Flags if the Validation has errors.
         /// </summary>
         public bool HasError { get; protected set; }
 
         /// <summary>
-        /// Indicates if the Validation is right
+        /// Indicates if the Validation is right.
         /// </summary>
         public bool IsValidated { get; protected set; }
 
         /// <summary>
-        /// Http Context instance
+        /// Http Context instance.
         /// </summary>
-        public HttpListenerContext HttpContext { get; protected set; }
+        public IHttpContext HttpContext { get; protected set; }
 
         /// <summary>
-        /// Claims
+        /// Claims.
         /// </summary>
         public ClaimsIdentity StandardClaims { get; set; }
 
         /// <summary>
-        /// Rejects a validation
+        /// Rejects a validation.
         /// </summary>
         public void Rejected()
         {
@@ -63,7 +58,7 @@
         }
 
         /// <summary>
-        /// Validates credentials with clientId
+        /// Validates credentials with clientId.
         /// </summary>
         /// <param name="clientId">The client identifier.</param>
         public void Validated(string clientId)
@@ -73,7 +68,7 @@
         }
 
         /// <summary>
-        /// Validates credentials
+        /// Validates credentials.
         /// </summary>
         public void Validated()
         {
@@ -82,19 +77,20 @@
         }
 
         /// <summary>
-        /// Retrieve JsonWebToken
+        /// Retrieve JsonWebToken.
         /// </summary>
         /// <param name="secretKey">The secret key.</param>
-        /// <returns>The token string</returns>
+        /// <returns>The token string.</returns>
         public string GetToken(SymmetricSecurityKey secretKey)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var plainToken = tokenHandler.CreateToken(new SecurityTokenDescriptor()
+            var plainToken = tokenHandler.CreateToken(new SecurityTokenDescriptor
             {
                 Subject = StandardClaims,
                 SigningCredentials = new SigningCredentials(secretKey,
-                    SecurityAlgorithms.HmacSha256Signature)
+                    SecurityAlgorithms.HmacSha256Signature),
             });
+
             return tokenHandler.WriteToken(plainToken);
         }
     }

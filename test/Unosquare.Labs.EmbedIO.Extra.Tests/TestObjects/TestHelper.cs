@@ -7,7 +7,7 @@
 
     internal class TestHelper
     {
-        private static readonly string IndexMarkdown = @"# Hello EmbedIO
+        private const string IndexMarkdown = @"# Hello EmbedIO
 
 This is just a sample. [Go to help](/help.html).
 
@@ -20,11 +20,11 @@ If you are using testing Bearer Tokens, try to access to [secure page](/secure.h
 
 [Check JSON API](/api/)";
 
-        private static readonly string SecureMarkdown = @"# Secure
+        private const string SecureMarkdown = @"# Secure
 
 You are using bearer token correctly.";
 
-        private static readonly string DatabaseJson = @"{
+        private const string DatabaseJson = @"{
   ""posts"": [
     { ""id"": 1, ""title"": ""json-server"", ""author"": ""typicode"" },
     { ""id"": 2, ""title"": ""embedio"", ""author"": ""unosquare"" },
