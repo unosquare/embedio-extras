@@ -70,6 +70,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Class1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Class1.html",
+          "hash": "lU86vU4xh12qVfFLxZEJqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.html",
+          "hash": "7OFFGedf+N3UINDfauLmSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.yml",
       "output": {
         ".html": {
@@ -230,7 +254,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html",
-          "hash": "CsyO/F05YBzb+RyNl74tNA=="
+          "hash": "ADFyZ4SJ31RhT3IiqyaU0g=="
         }
       },
       "is_incremental": false,
@@ -350,7 +374,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "6MR/Zlv9HBI2viS/Wzferg=="
+          "hash": "+INVYWEOtB1DAkx3AIoTQA=="
         }
       },
       "is_incremental": false,
@@ -364,11 +388,11 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
