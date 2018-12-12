@@ -1,10 +1,9 @@
-﻿using System;
-
-namespace Unosquare.Labs.EmbedIO.ExtraSample
+﻿namespace Unosquare.Labs.EmbedIO.ExtraSample
 {
-    using System.Threading.Tasks;
-    using System.Threading;
+    using System;
     using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using BearerToken;
     using JsonServer;
     using LiteLibWebApi;
