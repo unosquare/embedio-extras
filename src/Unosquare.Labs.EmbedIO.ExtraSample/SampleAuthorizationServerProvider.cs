@@ -1,22 +1,19 @@
-﻿namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿namespace Unosquare.Labs.EmbedIO.ExtraSample
 {
     using System;
     using System.Threading.Tasks;
+    using BearerToken;
 
-    /// <summary>
-    /// Basic Authorization Server Provider implementation.
-    /// </summary>
-    public class BasicAuthorizationServerProvider : IAuthorizationServerProvider
+    internal class SampleAuthorizationServerProvider : IAuthorizationServerProvider
     {
-        /// <inheritdoc />
-#pragma warning disable 1998
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
-#pragma warning restore 1998
         {
             var data = context.HttpContext.RequestFormDataDictionary();
 
             if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
             {
+                context.Identity.AddClaim(new System.Security.Claims.Claim("Role", "Admin"));
+
                 context.Validated(data.ContainsKey("username") ? data["username"].ToString() : string.Empty);
             }
             else
@@ -25,7 +22,6 @@
             }
         }
 
-        /// <inheritdoc />
         public long GetExpirationDate() => DateTime.UtcNow.AddHours(12).Ticks;
     }
 }

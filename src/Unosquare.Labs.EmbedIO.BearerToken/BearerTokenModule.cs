@@ -40,7 +40,7 @@
                         Token = validationContext.GetToken(SecretKey),
                         TokenType = "bearer",
                         ExpirationDate = authorizationServerProvider.GetExpirationDate(),
-                        Username = validationContext.ClientId,
+                        Username = validationContext.IdentityName,
                     });
                 }
                 else
@@ -53,31 +53,9 @@
 
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
             {
-                if (routes != null) 
+                if (routes != null)
                 {
-                    var path = context.RequestPath();
-                    var match = false;
-
-                    foreach (var p in routes) 
-                    {
-                        var wildcard = p.IndexOf(ModuleMap.AnyPath, StringComparison.Ordinal);
-                        
-                        if ((wildcard == -1 && p.Equals(path))
-                            || (wildcard != -1
-                                && (
-                                   // wildcard at the end
-                                   path.StartsWith(p.Substring(0, p.Length - ModuleMap.AnyPath.Length))
-                                   // wildcard in the middle so check both start/end
-                                   || (path.StartsWith(p.Substring(0, wildcard))
-                                       && path.EndsWith(p.Substring(wildcard + 1)))
-                                   )
-                                )
-                        ) 
-                        {
-                            match = true;
-                            break;
-                        }
-                    }
+                    var match = Match(routes, context);
 
                     if (!match) 
                     {
@@ -107,5 +85,33 @@
 
         /// <inheritdoc />
         public override string Name => nameof(BearerTokenModule);
+        private static bool Match(IEnumerable<string> routes, IHttpContext context)
+        {
+            var path = context.RequestPath();
+            var match = false;
+
+            foreach (var p in routes)
+            {
+                var wildcard = p.IndexOf(ModuleMap.AnyPath, StringComparison.Ordinal);
+
+                if ((wildcard == -1 && p.Equals(path))
+                    || (wildcard != -1
+                        && (
+                            // wildcard at the end
+                            path.StartsWith(p.Substring(0, p.Length - ModuleMap.AnyPath.Length))
+                            // wildcard in the middle so check both start/end
+                            || (path.StartsWith(p.Substring(0, wildcard))
+                                && path.EndsWith(p.Substring(wildcard + 1)))
+                        )
+                    )
+                )
+                {
+                    match = true;
+                    break;
+                }
+            }
+
+            return match;
+        }
     }
 }
