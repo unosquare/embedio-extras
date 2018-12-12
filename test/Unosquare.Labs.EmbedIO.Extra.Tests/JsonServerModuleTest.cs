@@ -19,7 +19,7 @@
         public JsonServerModuleTest()
             : base(ws => ws.RegisterModule(
                 new JsonServerModule("/" + ApiPath, Path.Combine(TestHelper.SetupStaticFolder(), "database.json"))),
-                true)
+                false)
         {
             // placeholder
         }
