@@ -151,6 +151,28 @@ references:
   commentId: T:Unosquare.Labs.EmbedIO.BearerToken.Extensions
   fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions
   nameWithType: Extensions
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal(IHttpContext,SymmetricSecurityKey)
+  name: GetPrincipal(IHttpContext, SymmetricSecurityKey)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetPrincipal_IHttpContext_SymmetricSecurityKey_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal(IHttpContext,SymmetricSecurityKey)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal(IHttpContext, SymmetricSecurityKey)
+  nameWithType: Extensions.GetPrincipal(IHttpContext, SymmetricSecurityKey)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal(IHttpContext,SymmetricSecurityKey,SecurityToken@)
+  name: GetPrincipal(IHttpContext, SymmetricSecurityKey, out SecurityToken)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetPrincipal_IHttpContext_SymmetricSecurityKey_SecurityToken__
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal(IHttpContext,SymmetricSecurityKey,SecurityToken@)
+  name.vb: GetPrincipal(IHttpContext, SymmetricSecurityKey, ByRef SecurityToken)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal(IHttpContext, SymmetricSecurityKey, out SecurityToken)
+  fullName.vb: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal(IHttpContext, SymmetricSecurityKey, ByRef SecurityToken)
+  nameWithType: Extensions.GetPrincipal(IHttpContext, SymmetricSecurityKey, out SecurityToken)
+  nameWithType.vb: Extensions.GetPrincipal(IHttpContext, SymmetricSecurityKey, ByRef SecurityToken)
+- uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal*
+  name: GetPrincipal
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetPrincipal_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal
+  isSpec: "True"
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetPrincipal
+  nameWithType: Extensions.GetPrincipal
 - uid: Unosquare.Labs.EmbedIO.BearerToken.Extensions.GetSecurityToken(IHttpContext,SymmetricSecurityKey)
   name: GetSecurityToken(IHttpContext, SymmetricSecurityKey)
   href: api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html#Unosquare_Labs_EmbedIO_BearerToken_Extensions_GetSecurityToken_IHttpContext_SymmetricSecurityKey_
