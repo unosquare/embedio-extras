@@ -263,19 +263,6 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ValidateClientAuthenticationContext
   nameWithType: ValidateClientAuthenticationContext.ValidateClientAuthenticationContext
-- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
-  name: ClientId
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ClientId
-  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
-  nameWithType: ValidateClientAuthenticationContext.ClientId
-- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId*
-  name: ClientId
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ClientId_
-  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
-  isSpec: "True"
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ClientId
-  nameWithType: ValidateClientAuthenticationContext.ClientId
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
   name: GetToken(SymmetricSecurityKey)
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_SymmetricSecurityKey_
@@ -315,6 +302,32 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HttpContext
   nameWithType: ValidateClientAuthenticationContext.HttpContext
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Identity
+  name: Identity
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Identity
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Identity
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Identity
+  nameWithType: ValidateClientAuthenticationContext.Identity
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Identity*
+  name: Identity
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Identity_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Identity
+  isSpec: "True"
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Identity
+  nameWithType: ValidateClientAuthenticationContext.Identity
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IdentityName
+  name: IdentityName
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_IdentityName
+  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IdentityName
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IdentityName
+  nameWithType: ValidateClientAuthenticationContext.IdentityName
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IdentityName*
+  name: IdentityName
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_IdentityName_
+  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IdentityName
+  isSpec: "True"
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IdentityName
+  nameWithType: ValidateClientAuthenticationContext.IdentityName
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.IsValidated
   name: IsValidated
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_IsValidated
@@ -341,25 +354,6 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected
   nameWithType: ValidateClientAuthenticationContext.Rejected
-- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
-  name: StandardClaims
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_StandardClaims
-  commentId: P:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
-  nameWithType: ValidateClientAuthenticationContext.StandardClaims
-- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims*
-  name: StandardClaims
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_StandardClaims_
-  commentId: Overload:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
-  isSpec: "True"
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.StandardClaims
-  nameWithType: ValidateClientAuthenticationContext.StandardClaims
-- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
-  name: Validated()
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated()
-  nameWithType: ValidateClientAuthenticationContext.Validated()
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated(System.String)
   name: Validated(String)
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated_System_String_
