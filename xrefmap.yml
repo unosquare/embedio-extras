@@ -1,18 +1,6 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: Unosquare.EmbedIO.AspNetCore
-  name: Unosquare.EmbedIO.AspNetCore
-  href: api/Unosquare.EmbedIO.AspNetCore.html
-  commentId: N:Unosquare.EmbedIO.AspNetCore
-  fullName: Unosquare.EmbedIO.AspNetCore
-  nameWithType: Unosquare.EmbedIO.AspNetCore
-- uid: Unosquare.EmbedIO.AspNetCore.Class1
-  name: Class1
-  href: api/Unosquare.EmbedIO.AspNetCore.Class1.html
-  commentId: T:Unosquare.EmbedIO.AspNetCore.Class1
-  fullName: Unosquare.EmbedIO.AspNetCore.Class1
-  nameWithType: Class1
 - uid: Unosquare.Labs.EmbedIO.BearerToken
   name: Unosquare.Labs.EmbedIO.BearerToken
   href: api/Unosquare.Labs.EmbedIO.BearerToken.html
@@ -635,13 +623,13 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext
   nameWithType: Extensions.UseHttpContext
-- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,System.Func{IAppBuilder,IAppBuilder})
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,Func{IAppBuilder,IAppBuilder})
   name: UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
-  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseOwin_WebServer_System_Func_IAppBuilder_IAppBuilder__
-  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,System.Func{IAppBuilder,IAppBuilder})
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseOwin_WebServer_Func_IAppBuilder_IAppBuilder__
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,Func{IAppBuilder,IAppBuilder})
   name.vb: UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
-  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, System.Func<IAppBuilder, IAppBuilder>)
-  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, System.Func(Of IAppBuilder, IAppBuilder))
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
   nameWithType: Extensions.UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
   nameWithType.vb: Extensions.UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin*
@@ -670,11 +658,11 @@ references:
   commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Assembly)
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder, Assembly)
   nameWithType: Extensions.UseWebSocket(IAppBuilder, Assembly)
-- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,System.Type)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Type)
   name: UseWebSocket(IAppBuilder, Type)
-  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebSocket_IAppBuilder_System_Type_
-  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,System.Type)
-  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder, System.Type)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebSocket_IAppBuilder_Type_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Type)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder, Type)
   nameWithType: Extensions.UseWebSocket(IAppBuilder, Type)
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket*
   name: UseWebSocket
