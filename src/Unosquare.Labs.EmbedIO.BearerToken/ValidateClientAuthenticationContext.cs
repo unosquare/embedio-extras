@@ -19,7 +19,6 @@
         {
             HttpContext = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
 
-            // TODO: Add Claims
             Identity = new ClaimsIdentity();
         }
 
@@ -64,6 +63,7 @@
         public void Validated(string identityName = null)
         {
             IdentityName = identityName;
+            Identity.AddClaim(new Claim(ClaimTypes.Name, identityName));
             IsValidated = true;
             HasError = false;
         }
