@@ -98,6 +98,7 @@
             }
             catch (Exception ex)
             {
+                securityToken = null;
                 ex.Log(nameof(BearerTokenModule));
             }
 

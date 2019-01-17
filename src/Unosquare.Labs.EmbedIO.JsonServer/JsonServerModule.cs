@@ -77,7 +77,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="ct">The cancellation token.</param>
-        /// <returns>A task representing the request action./returns>
+        /// <returns>A task representing the request action.</returns>
         private Task<bool> HandleRequest(IHttpContext context, CancellationToken ct)
         {
             var path = context.RequestPath();
@@ -87,7 +87,7 @@
                 return Task.FromResult(false);
 
             if (path == BasePath)
-                return context.JsonResponseAsync((object) Data);
+                return context.JsonResponseAsync((object) Data, ct);
 
             var parts = path.Substring(BasePath.Length)
                 .Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
@@ -100,7 +100,7 @@
             switch (parts.Length)
             {
                 case 1 when verb == HttpVerbs.Get:
-                    return context.JsonResponseAsync((object) table);
+                    return context.JsonResponseAsync((object) table, ct);
                 case 1 when verb == HttpVerbs.Post:
                     return AddRow(context, table);
                 case 2:
@@ -112,7 +112,7 @@
                         switch (verb)
                         {
                             case HttpVerbs.Get:
-                                return context.JsonResponseAsync((object) row);
+                                return context.JsonResponseAsync((object) row, ct);
                             case HttpVerbs.Put:
                                 return UpdateRow(context, row);
                             case HttpVerbs.Delete:
