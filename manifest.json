@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "d4d/No1gg1rA/L2ISAaBSQ=="
+          "hash": "+NhKzdt9n2A9jISVs2Bfig=="
         }
       },
       "is_incremental": false,
@@ -81,6 +81,102 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Sample.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.Program.html",
+          "hash": "hN4sYquaNyZxPuyxjl5NmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Sample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.html",
+          "hash": "CgamV9uV6fxA8wx/2p8EXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.html",
+          "hash": "uKT2zKygHCRsPCmotFIcow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html",
+          "hash": "ykHhmci2Z6DpTkuttN0Dgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html",
+          "hash": "7wxuIG8AwhXBHLotivM90g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html",
+          "hash": "U+GQR/Ui7FFaouZ9ScHVoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.html",
+          "hash": "2Twa8vYiPXKnGv77aOls3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.html",
+          "hash": "J0k72UKTDNg4cCyQOSDjGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.yml",
       "output": {
         ".html": {
@@ -121,7 +217,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html",
-          "hash": "5LqEWVJP2/WdIWJgXQ3yeg=="
+          "hash": "h5JYUHk/oIeOesjLX6aLbQ=="
         }
       },
       "is_incremental": false,
@@ -145,7 +241,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html",
-          "hash": "RKvnSlIW5ZmMVO+NYSKQYA=="
+          "hash": "pUzPQ7iHl+g6grKIvoHh6g=="
         }
       },
       "is_incremental": false,
@@ -241,7 +337,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html",
-          "hash": "HSyjRyfz2ArpctJnf2NU7w=="
+          "hash": "6HcStJS/QzNTaNKnp2K+Bw=="
         }
       },
       "is_incremental": false,
@@ -313,7 +409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIOwin.PeopleController.html",
-          "hash": "wt2aeEGGp0DyK5dvFHsNHg=="
+          "hash": "vlYXI8hp/o5NWP2PGnQohQ=="
         }
       },
       "is_incremental": false,
@@ -361,7 +457,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "6MR/Zlv9HBI2viS/Wzferg=="
+          "hash": "rEVZrwVqZwhE28+mya2+MQ=="
         }
       },
       "is_incremental": false,
