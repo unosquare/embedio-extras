@@ -1,12 +1,20 @@
-﻿using System;
+﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using System;
+using System.IO;
 
 namespace Unosquare.EmbedIO.AspNetCore.Sample
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var host = new WebHostBuilder()
+            .UseEmbedIO()
+            .UseStartup<Startup>()
+            .Build();
+
+            host.Run();
         }
     }
 }
