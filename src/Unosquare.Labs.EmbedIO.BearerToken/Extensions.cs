@@ -1,11 +1,12 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
-    using System;
-    using System.Text;
-    using System.Collections.Generic;
     using Microsoft.IdentityModel.Tokens;
-    using System.IdentityModel.Tokens.Jwt;
     using Swan;
+    using System;
+    using System.Collections.Generic;
+    using System.IdentityModel.Tokens.Jwt;
+    using System.Security.Claims;
+    using System.Text;
 
     /// <summary>
     /// Extension methods.
@@ -18,7 +19,7 @@
         /// <param name="context">The context.</param>
         /// <returns>The Validation Context from the HTTP Context.</returns>
         public static ValidateClientAuthenticationContext GetValidationContext(this IHttpContext context)
-         => new ValidateClientAuthenticationContext(context);
+            => new ValidateClientAuthenticationContext(context);
 
         /// <summary>
         /// Rejects a authentication challenge.
@@ -26,7 +27,7 @@
         /// <param name="context">The context.</param>
         public static void Rejected(this IHttpContext context)
         {
-            context.Response.StatusCode = (int)System.Net.HttpStatusCode.Unauthorized;
+            context.Response.StatusCode = (int) System.Net.HttpStatusCode.Unauthorized;
             context.Response.AddHeader("WWW-Authenticate", "Bearer");
         }
 
@@ -38,7 +39,7 @@
         /// <param name="secretKey">The secret key.</param>
         /// <returns>The security token from the HTTP Context.</returns>
         public static SecurityToken GetSecurityToken(this IHttpContext context, string secretKey)
-        => context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
+            => context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
 
         /// <summary>
         /// Gets the security token.
@@ -48,7 +49,34 @@
         /// <returns>The security token from the HTTP Context.</returns>
         public static SecurityToken GetSecurityToken(this IHttpContext context, SymmetricSecurityKey secretKey = null)
         {
+            context.GetPrincipal(secretKey, out var securityToken);
+
+            return securityToken;
+        }
+
+        /// <summary>
+        /// Gets the principal.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="secretKey">The secret key.</param>
+        /// <returns>The security token from the HTTP Context.</returns>
+        public static ClaimsPrincipal GetPrincipal(this IHttpContext context, SymmetricSecurityKey secretKey = null)
+            => context.GetPrincipal(secretKey, out _);
+
+        /// <summary>
+        /// Gets the principal.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="secretKey">The secret key.</param>
+        /// <param name="securityToken">The security token.</param>
+        /// <returns>The claims.</returns>
+        public static ClaimsPrincipal GetPrincipal(
+            this IHttpContext context,
+            SymmetricSecurityKey secretKey,
+            out SecurityToken securityToken)
+        {
             var authHeader = context.RequestHeader("Authorization");
+            securityToken = null;
 
             if (string.IsNullOrWhiteSpace(authHeader) || !authHeader.StartsWith("Bearer "))
             {
@@ -66,11 +94,11 @@
                     IssuerSigningKey = secretKey,
                 };
 
-                tokenHandler.ValidateToken(token, tokenParams, out var validatedToken);
-                return validatedToken;
+                return tokenHandler.ValidateToken(token, tokenParams, out securityToken);
             }
             catch (Exception ex)
             {
+                securityToken = null;
                 ex.Log(nameof(BearerTokenModule));
             }
 
@@ -91,7 +119,10 @@
             SymmetricSecurityKey secretKey = null)
         {
             webserver.RegisterModule(
-                new BearerTokenModule(authorizationProvider ?? new BasicAuthorizationServerProvider(), routes, secretKey));
+                new BearerTokenModule(
+                    authorizationProvider ?? new BasicAuthorizationServerProvider(), 
+                    routes,
+                    secretKey));
 
             return webserver;
         }

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AssemblyTitle>Unosquare EmbedIO LiteLib Module</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0;</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Unosquare.Labs.EmbedIO.LiteLibWebApi</AssemblyName>
     <DebugType>Full</DebugType>
@@ -12,14 +12,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO" Version="2.0.0" />
-    <PackageReference Include="LiteLib" Version="0.18.0" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta009">
+    <PackageReference Include="EmbedIO" Version="2.2.0" />
+    <PackageReference Include="LiteLib" Version="0.19.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-beta.61">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
-    <PackageReference Include="Unosquare.Swan.Lite" Version="0.35.0" />
   </ItemGroup>
 
 </Project>

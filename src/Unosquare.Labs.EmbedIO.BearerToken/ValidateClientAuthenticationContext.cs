@@ -19,14 +19,13 @@
         {
             HttpContext = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
 
-            // TODO: Add Claims
-            StandardClaims = new ClaimsIdentity();
+            Identity = new ClaimsIdentity();
         }
 
         /// <summary>
         /// The Client Id.
         /// </summary>
-        public string ClientId { get; protected set; }
+        public string IdentityName { get; protected set; }
 
         /// <summary>
         /// Flags if the Validation has errors.
@@ -46,7 +45,7 @@
         /// <summary>
         /// Claims.
         /// </summary>
-        public ClaimsIdentity StandardClaims { get; set; }
+        public ClaimsIdentity Identity { get; set; }
 
         /// <summary>
         /// Rejects a validation.
@@ -58,20 +57,13 @@
         }
 
         /// <summary>
-        /// Validates credentials with clientId.
+        /// Validates credentials with identity name.
         /// </summary>
-        /// <param name="clientId">The client identifier.</param>
-        public void Validated(string clientId)
+        /// <param name="identityName">Name of the identity.</param>
+        public void Validated(string identityName = null)
         {
-            ClientId = clientId;
-            Validated();
-        }
-
-        /// <summary>
-        /// Validates credentials.
-        /// </summary>
-        public void Validated()
-        {
+            IdentityName = identityName;
+            Identity.AddClaim(new Claim(ClaimTypes.Name, identityName));
             IsValidated = true;
             HasError = false;
         }
@@ -84,9 +76,11 @@
         public string GetToken(SymmetricSecurityKey secretKey)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
+
             var plainToken = tokenHandler.CreateToken(new SecurityTokenDescriptor
             {
-                Subject = StandardClaims,
+                Subject = Identity,
+                Issuer = "Embedio Bearer Token",
                 SigningCredentials = new SigningCredentials(secretKey,
                     SecurityAlgorithms.HmacSha256Signature),
             });

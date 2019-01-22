@@ -2,7 +2,6 @@ version: '1.0.{build}'
 image: Visual Studio 2017
 configuration:
 - Release
-platform: Any CPU
 notifications:
 - provider: Slack
   auth_token:
@@ -26,16 +25,20 @@ before_build:
             git checkout $env:APPVEYOR_REPO_BRANCH -q
             cinst docfx -y
         }
-- appveyor-retry dotnet restore Unosquare.Labs.EmbedIO.Extras.sln
+- dotnet restore Unosquare.Labs.EmbedIO.Extras.sln
 - mkdir tools
 - nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory tools
 build_script:
 - msbuild Unosquare.Labs.EmbedIO.Extras.sln /p:Configuration=Release
 test_script:
-- dotnet test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f netcoreapp2.1
-- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f netcoreapp2.1" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet -oldstyle
-- tools\coveralls.net.0.7.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
+- dotnet test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f netcoreapp2.2
+- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION% -f netcoreapp2.2" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet -oldstyle
+- ps: |
+        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+        {
+            tools\coveralls.net.0.7.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
+        }
 after_build:
 - ps: |
         if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
