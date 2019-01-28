@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication" />
     <ProjectReference Include="..\Unosquare.EmbedIO.AspNetCore\Unosquare.EmbedIO.AspNetCore.csproj" />
   </ItemGroup>
 

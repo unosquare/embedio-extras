@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Hosting.Server;
-using Microsoft.AspNetCore.Hosting.Server.Features;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Unosquare.EmbedIO.AspNetCore.Wrappers;
-using Unosquare.Labs.EmbedIO;
-
-namespace Unosquare.EmbedIO.AspNetCore
+﻿namespace Unosquare.EmbedIO.AspNetCore
 {
-    internal class EmbedIOServer : IServer, IDisposable
+    using Microsoft.AspNetCore.Hosting.Server;
+    using Microsoft.AspNetCore.Hosting.Server.Features;
+    using Microsoft.AspNetCore.Http.Features;
+    using Microsoft.Extensions.Logging;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Wrappers;
+    using Unosquare.Labs.EmbedIO;
+
+    internal class EmbedIOServer : IServer
     {
         public IFeatureCollection Features { get; } = new Microsoft.AspNetCore.Http.Features.FeatureCollection();
 
@@ -35,24 +35,20 @@ namespace Unosquare.EmbedIO.AspNetCore
             aspNetModule = new AspNetModule(new HttpApplicationWrapper<TContext>(application), Features);
 
             // Setup web server
-            webServer = new WebServer();
+            webServer = new WebServer(serverAddresses.Addresses.Select(x => x + "/").ToArray());
             webServer.RegisterModule(aspNetModule);
 
-            webServer.UrlPrefixes.Remove("http://*/");
-            foreach (string address in serverAddresses.Addresses)
-                webServer.UrlPrefixes.Add(address + "/");
-
             // Start listener
-            webServer.RunAsync();
+            webServer.RunAsync(cancellationToken);
 
-            return Task.FromResult(0);
+            return Task.CompletedTask;
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
             webServer.Dispose();
 
-            return Task.FromResult(0);
+            return Task.CompletedTask;
         }
     }
 }
