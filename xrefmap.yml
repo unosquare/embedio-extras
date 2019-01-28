@@ -79,13 +79,13 @@ references:
   isSpec: "True"
   fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.HeaderDictionary
   nameWithType: HeaderDictionary.HeaderDictionary
-- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(System.Collections.Generic.KeyValuePair{System.String,StringValues})
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(KeyValuePair{System.String,StringValues})
   name: Add(KeyValuePair<String, StringValues>)
-  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Add_System_Collections_Generic_KeyValuePair_System_String_StringValues__
-  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(System.Collections.Generic.KeyValuePair{System.String,StringValues})
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Add_KeyValuePair_System_String_StringValues__
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(KeyValuePair{System.String,StringValues})
   name.vb: Add(KeyValuePair(Of String, StringValues))
-  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(System.Collections.Generic.KeyValuePair<System.String, StringValues>)
-  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(System.Collections.Generic.KeyValuePair(Of System.String, StringValues))
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(KeyValuePair<System.String, StringValues>)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(KeyValuePair(Of System.String, StringValues))
   nameWithType: HeaderDictionary.Add(KeyValuePair<String, StringValues>)
   nameWithType.vb: HeaderDictionary.Add(KeyValuePair(Of String, StringValues))
 - uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(System.String,StringValues)
@@ -127,13 +127,13 @@ references:
   isSpec: "True"
   fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Collection
   nameWithType: HeaderDictionary.Collection
-- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(System.Collections.Generic.KeyValuePair{System.String,StringValues})
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(KeyValuePair{System.String,StringValues})
   name: Contains(KeyValuePair<String, StringValues>)
-  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Contains_System_Collections_Generic_KeyValuePair_System_String_StringValues__
-  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(System.Collections.Generic.KeyValuePair{System.String,StringValues})
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Contains_KeyValuePair_System_String_StringValues__
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(KeyValuePair{System.String,StringValues})
   name.vb: Contains(KeyValuePair(Of String, StringValues))
-  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(System.Collections.Generic.KeyValuePair<System.String, StringValues>)
-  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(System.Collections.Generic.KeyValuePair(Of System.String, StringValues))
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(KeyValuePair<System.String, StringValues>)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(KeyValuePair(Of System.String, StringValues))
   nameWithType: HeaderDictionary.Contains(KeyValuePair<String, StringValues>)
   nameWithType.vb: HeaderDictionary.Contains(KeyValuePair(Of String, StringValues))
 - uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains*
@@ -169,13 +169,13 @@ references:
   isSpec: "True"
   fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContentLength
   nameWithType: HeaderDictionary.ContentLength
-- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(System.Collections.Generic.KeyValuePair{System.String,StringValues}[],System.Int32)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(KeyValuePair{System.String,StringValues}[],System.Int32)
   name: CopyTo(KeyValuePair<String, StringValues>[], Int32)
-  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_CopyTo_System_Collections_Generic_KeyValuePair_System_String_StringValues____System_Int32_
-  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(System.Collections.Generic.KeyValuePair{System.String,StringValues}[],System.Int32)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_CopyTo_KeyValuePair_System_String_StringValues____System_Int32_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(KeyValuePair{System.String,StringValues}[],System.Int32)
   name.vb: CopyTo(KeyValuePair(Of String, StringValues)(), Int32)
-  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(System.Collections.Generic.KeyValuePair<System.String, StringValues>[], System.Int32)
-  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(System.Collections.Generic.KeyValuePair(Of System.String, StringValues)(), System.Int32)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(KeyValuePair<System.String, StringValues>[], System.Int32)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(KeyValuePair(Of System.String, StringValues)(), System.Int32)
   nameWithType: HeaderDictionary.CopyTo(KeyValuePair<String, StringValues>[], Int32)
   nameWithType.vb: HeaderDictionary.CopyTo(KeyValuePair(Of String, StringValues)(), Int32)
 - uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo*
@@ -253,13 +253,13 @@ references:
   isSpec: "True"
   fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Keys
   nameWithType: HeaderDictionary.Keys
-- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(System.Collections.Generic.KeyValuePair{System.String,StringValues})
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(KeyValuePair{System.String,StringValues})
   name: Remove(KeyValuePair<String, StringValues>)
-  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Remove_System_Collections_Generic_KeyValuePair_System_String_StringValues__
-  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(System.Collections.Generic.KeyValuePair{System.String,StringValues})
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Remove_KeyValuePair_System_String_StringValues__
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(KeyValuePair{System.String,StringValues})
   name.vb: Remove(KeyValuePair(Of String, StringValues))
-  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(System.Collections.Generic.KeyValuePair<System.String, StringValues>)
-  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(System.Collections.Generic.KeyValuePair(Of System.String, StringValues))
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(KeyValuePair<System.String, StringValues>)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(KeyValuePair(Of System.String, StringValues))
   nameWithType: HeaderDictionary.Remove(KeyValuePair<String, StringValues>)
   nameWithType.vb: HeaderDictionary.Remove(KeyValuePair(Of String, StringValues))
 - uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(System.String)
@@ -348,12 +348,12 @@ references:
   fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).CreateContext
   nameWithType: HttpApplicationWrapper<TContext>.CreateContext
   nameWithType.vb: HttpApplicationWrapper(Of TContext).CreateContext
-- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext(System.Object,System.Exception)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext(System.Object,Exception)
   name: DisposeContext(Object, Exception)
-  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1_DisposeContext_System_Object_System_Exception_
-  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext(System.Object,System.Exception)
-  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.DisposeContext(System.Object, System.Exception)
-  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).DisposeContext(System.Object, System.Exception)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1_DisposeContext_System_Object_Exception_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext(System.Object,Exception)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.DisposeContext(System.Object, Exception)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).DisposeContext(System.Object, Exception)
   nameWithType: HttpApplicationWrapper<TContext>.DisposeContext(Object, Exception)
   nameWithType.vb: HttpApplicationWrapper(Of TContext).DisposeContext(Object, Exception)
 - uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext*
@@ -1052,13 +1052,13 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseEmbedIOCors
   nameWithType: Extensions.UseEmbedIOCors
-- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(System.Collections.Generic.IDictionary{System.String,System.Object},HttpListenerContext)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary{System.String,System.Object},HttpListenerContext)
   name: UseHttpContext(IDictionary<String, Object>, HttpListenerContext)
-  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseHttpContext_System_Collections_Generic_IDictionary_System_String_System_Object__HttpListenerContext_
-  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(System.Collections.Generic.IDictionary{System.String,System.Object},HttpListenerContext)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseHttpContext_IDictionary_System_String_System_Object__HttpListenerContext_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary{System.String,System.Object},HttpListenerContext)
   name.vb: UseHttpContext(IDictionary(Of String, Object), HttpListenerContext)
-  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(System.Collections.Generic.IDictionary<System.String, System.Object>, HttpListenerContext)
-  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(System.Collections.Generic.IDictionary(Of System.String, System.Object), HttpListenerContext)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary<System.String, System.Object>, HttpListenerContext)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext(IDictionary(Of System.String, System.Object), HttpListenerContext)
   nameWithType: Extensions.UseHttpContext(IDictionary<String, Object>, HttpListenerContext)
   nameWithType.vb: Extensions.UseHttpContext(IDictionary(Of String, Object), HttpListenerContext)
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext*
@@ -1068,13 +1068,13 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseHttpContext
   nameWithType: Extensions.UseHttpContext
-- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,System.Func{IAppBuilder,IAppBuilder})
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,Func{IAppBuilder,IAppBuilder})
   name: UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
-  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseOwin_WebServer_System_Func_IAppBuilder_IAppBuilder__
-  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,System.Func{IAppBuilder,IAppBuilder})
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseOwin_WebServer_Func_IAppBuilder_IAppBuilder__
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer,Func{IAppBuilder,IAppBuilder})
   name.vb: UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
-  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, System.Func<IAppBuilder, IAppBuilder>)
-  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, System.Func(Of IAppBuilder, IAppBuilder))
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
+  fullName.vb: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
   nameWithType: Extensions.UseOwin(WebServer, Func<IAppBuilder, IAppBuilder>)
   nameWithType.vb: Extensions.UseOwin(WebServer, Func(Of IAppBuilder, IAppBuilder))
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseOwin*
@@ -1103,11 +1103,11 @@ references:
   commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Assembly)
   fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder, Assembly)
   nameWithType: Extensions.UseWebSocket(IAppBuilder, Assembly)
-- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,System.Type)
+- uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Type)
   name: UseWebSocket(IAppBuilder, Type)
-  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebSocket_IAppBuilder_System_Type_
-  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,System.Type)
-  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder, System.Type)
+  href: api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html#Unosquare_Labs_EmbedIO_OwinMiddleware_Extensions_UseWebSocket_IAppBuilder_Type_
+  commentId: M:Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder,Type)
+  fullName: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket(IAppBuilder, Type)
   nameWithType: Extensions.UseWebSocket(IAppBuilder, Type)
 - uid: Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.UseWebSocket*
   name: UseWebSocket

@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "+NhKzdt9n2A9jISVs2Bfig=="
+          "hash": "jWdbB7D/+ApCLPKPgKnmeQ=="
         }
       },
       "is_incremental": false,
@@ -85,7 +85,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.Program.html",
-          "hash": "hN4sYquaNyZxPuyxjl5NmA=="
+          "hash": "FIIcZOW4fcLiKV8tSJinQA=="
         }
       },
       "is_incremental": false,
@@ -97,7 +97,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.html",
-          "hash": "CgamV9uV6fxA8wx/2p8EXQ=="
+          "hash": "GEZghFTP/vUWrndrmoyL7A=="
         }
       },
       "is_incremental": false,
@@ -109,7 +109,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.html",
-          "hash": "uKT2zKygHCRsPCmotFIcow=="
+          "hash": "IDVMDpElKjEJLUdVRFH1VA=="
         }
       },
       "is_incremental": false,
@@ -121,7 +121,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html",
-          "hash": "ykHhmci2Z6DpTkuttN0Dgw=="
+          "hash": "KBDlsw7ihnQkUojwrhWGYQ=="
         }
       },
       "is_incremental": false,
@@ -133,7 +133,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html",
-          "hash": "7wxuIG8AwhXBHLotivM90g=="
+          "hash": "Ne4Ckk8Qp+LyC8OdmIQ9NQ=="
         }
       },
       "is_incremental": false,
@@ -145,7 +145,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html",
-          "hash": "U+GQR/Ui7FFaouZ9ScHVoA=="
+          "hash": "RUUnAX+gHcoG5L7v4xgPkQ=="
         }
       },
       "is_incremental": false,
@@ -157,7 +157,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.html",
-          "hash": "2Twa8vYiPXKnGv77aOls3A=="
+          "hash": "uQzOEq1zaWqoD94boHxQbQ=="
         }
       },
       "is_incremental": false,
@@ -169,7 +169,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.html",
-          "hash": "J0k72UKTDNg4cCyQOSDjGg=="
+          "hash": "irU2JARoIWW3GcJ2CcqEXw=="
         }
       },
       "is_incremental": false,
@@ -181,7 +181,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html",
-          "hash": "Vnf0J7hiWcZpiVNB9shP8w=="
+          "hash": "2d5JZGPnYALwFzLnrC2aiw=="
         }
       },
       "is_incremental": false,
@@ -193,7 +193,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html",
-          "hash": "kp5tsT9xDmjqnszin2Godw=="
+          "hash": "cv0L0hzaM4SQh7/mZOR6TA=="
         }
       },
       "is_incremental": false,
@@ -205,7 +205,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html",
-          "hash": "3BwDpRICmqKbHEunjP3/1g=="
+          "hash": "cFyOevDM6QmmimlAVnQfrQ=="
         }
       },
       "is_incremental": false,
@@ -217,7 +217,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html",
-          "hash": "5LqEWVJP2/WdIWJgXQ3yeg=="
+          "hash": "UD/i2R5upJ4lp2QY/ZuCfg=="
         }
       },
       "is_incremental": false,
@@ -229,7 +229,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html",
-          "hash": "TxM50tOBqPTd46kI6MdQKw=="
+          "hash": "RlQarLUjfulkmcWMRbWLHQ=="
         }
       },
       "is_incremental": false,
@@ -241,7 +241,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html",
-          "hash": "RKvnSlIW5ZmMVO+NYSKQYA=="
+          "hash": "oPr1MJhV39nTvAS8+VkSdQ=="
         }
       },
       "is_incremental": false,
@@ -253,7 +253,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.html",
-          "hash": "86DbDA9hP+AA2NO5XLLeLw=="
+          "hash": "Dsg5/5Mju/mzxKl5TMi/Fg=="
         }
       },
       "is_incremental": false,
@@ -265,7 +265,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html",
-          "hash": "3oJdibz0Fbbm6QEk4QpjLw=="
+          "hash": "bYcKeuHkXeW57+Zmywb/KA=="
         }
       },
       "is_incremental": false,
@@ -277,7 +277,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.JsonServer.html",
-          "hash": "IzoElUzCtH4GBnWGNUEwQA=="
+          "hash": "XbYhi6LzJDHXG86Gnl+I9g=="
         }
       },
       "is_incremental": false,
@@ -289,7 +289,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html",
-          "hash": "P6uQOQn2HL8mBn8vEPn8XQ=="
+          "hash": "YG3hI6ZyqM0C3DjK9EcCrQ=="
         }
       },
       "is_incremental": false,
@@ -301,7 +301,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.html",
-          "hash": "3+J1BmE3TM/Nwhf7+5+Z5g=="
+          "hash": "24FDH+D2PP+UlwmiHO64vg=="
         }
       },
       "is_incremental": false,
@@ -313,7 +313,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html",
-          "hash": "erQ1QcO1KNaKnR6pBC4ygg=="
+          "hash": "nQtDYw/7HLF821FiHS9+3A=="
         }
       },
       "is_incremental": false,
@@ -325,7 +325,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.Markdown.html",
-          "hash": "K2rGQcIn3cAOQUIjj2tapA=="
+          "hash": "vOzitp6xD1qjz7egN8EC0w=="
         }
       },
       "is_incremental": false,
@@ -337,7 +337,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.Extensions.html",
-          "hash": "6HcStJS/QzNTaNKnp2K+Bw=="
+          "hash": "NguAJ+Akrcyad5DAYR+bbg=="
         }
       },
       "is_incremental": false,
@@ -349,7 +349,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.MiddlewareOwin.html",
-          "hash": "PkOWriW0sEuIsyaDzSJvtQ=="
+          "hash": "BSl5Njztoa4RfPiF+CnPSg=="
         }
       },
       "is_incremental": false,
@@ -361,7 +361,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinModule.html",
-          "hash": "PLDrWq0bMdAp99mUeXyVuQ=="
+          "hash": "y/jwgsEjR1HH2FhPmhY5fw=="
         }
       },
       "is_incremental": false,
@@ -373,7 +373,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.OwinServerFactory.html",
-          "hash": "Bt2FdrkVsDK48xdlgsljIg=="
+          "hash": "VhKdZVxM4N3vrZz3oJtXtQ=="
         }
       },
       "is_incremental": false,
@@ -385,7 +385,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIO.OwinMiddleware.html",
-          "hash": "V+WuRWXM40KAMQ1EYq9Jbg=="
+          "hash": "zY0uKVNmDFDSD1kH3PGJiw=="
         }
       },
       "is_incremental": false,
@@ -397,7 +397,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIOwin.PeopleController.Person.html",
-          "hash": "c+J1CbhVbGcmR2AM7ggM8g=="
+          "hash": "HRVvkacH9OkUEM0i1GA3Cw=="
         }
       },
       "is_incremental": false,
@@ -409,7 +409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIOwin.PeopleController.html",
-          "hash": "vlYXI8hp/o5NWP2PGnQohQ=="
+          "hash": "G/mZV+xPglC3XVXdlL78lw=="
         }
       },
       "is_incremental": false,
@@ -421,7 +421,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIOwin.Program.html",
-          "hash": "sZyT38J+o4kI0Y/gSMFX/Q=="
+          "hash": "rpQKAzW0DUVtd6cRPU6yiw=="
         }
       },
       "is_incremental": false,
@@ -433,7 +433,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIOwin.Startup.html",
-          "hash": "Nx5aAZ+IhCo5yrwC1cB5AA=="
+          "hash": "/CjH/kDKaIW02yXw44jjXQ=="
         }
       },
       "is_incremental": false,
@@ -445,7 +445,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.Labs.EmbedIOwin.html",
-          "hash": "476BUqK3Xa1Ggi2IIwDw3w=="
+          "hash": "DFM0yXegCel3mkIClH+Wpw=="
         }
       },
       "is_incremental": false,
@@ -468,26 +468,36 @@
     {
       "status": {
         "can_incremental": true,
-        "incrementalPhase": "build"
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
       },
       "processors": {
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
-          "incrementalPhase": "build"
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 1
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
-          "incrementalPhase": "build"
+          "incrementalPhase": "build",
+          "total_file_count": 31,
+          "skipped_file_count": 31
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
         }
       }
     },
@@ -495,7 +505,9 @@
       "status": {
         "can_incremental": false,
         "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing"
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
       },
       "processors": {}
     }
