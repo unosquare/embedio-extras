@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "21ELPLWkK58oNzZWt5DjtQ=="
+          "hash": "LWhxiV0s2dOW7EeE4Ko2hQ=="
         }
       },
       "is_incremental": false,
@@ -74,6 +74,102 @@
       "output": {
         "resource": {
           "relative_path": "embedio.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Sample.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.Program.html",
+          "hash": "dPGQqpGBxZ2YDMYsXiZ09A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Sample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.html",
+          "hash": "GZzrS1VyzBydKdr2MWFkWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.html",
+          "hash": "zPWe073m2YkgzbUna//9vg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html",
+          "hash": "Uc0vmpRNzp/M1htTU3UMlw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html",
+          "hash": "cPqewuD0lXFpHXtvNPzbkA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html",
+          "hash": "08CiQZlVdYtBX2SSWuRajQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.html",
+          "hash": "ABUzGa6IPluh2M/vNRGitA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.html",
+          "hash": "jb+xkBM1akfHFgzm4C6Rzw=="
         }
       },
       "is_incremental": false,
@@ -361,7 +457,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "6MR/Zlv9HBI2viS/Wzferg=="
+          "hash": "rEVZrwVqZwhE28+mya2+MQ=="
         }
       },
       "is_incremental": false,
@@ -377,17 +473,17 @@
         "skipped_file_count": 0
       },
       "processors": {
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 31,
+          "skipped_file_count": 31
+        },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 1,
           "skipped_file_count": 1
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 23,
-          "skipped_file_count": 23
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
