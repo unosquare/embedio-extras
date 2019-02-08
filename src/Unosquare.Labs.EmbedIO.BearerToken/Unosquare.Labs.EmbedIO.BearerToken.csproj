@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Copyright>Copyright © Unosquare 2013-2018</Copyright>
+    <Copyright>Copyright © Unosquare 2013-2019</Copyright>
     <AssemblyTitle>Unosquare EmbedIO Bearer Token Module</AssemblyTitle>
-    <VersionPrefix>2.0.0</VersionPrefix>
-    <TargetFrameworks>netstandard2.0;net452;net472</TargetFrameworks>
+    <VersionPrefix>1.2.2</VersionPrefix>
+    <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Unosquare.Labs.EmbedIO.BearerToken</AssemblyName>
     <DebugType>Full</DebugType>
@@ -14,8 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO" Version="2.2.3" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta009">
+    <PackageReference Include="EmbedIO" Version="2.2.6" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-beta.61">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
