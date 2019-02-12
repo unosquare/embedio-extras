@@ -1,11 +1,11 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
-    using System;
+    using Constants;
     using Microsoft.IdentityModel.Tokens;
-    using System.Threading.Tasks;
+    using System;
     using System.Collections.Generic;
     using System.Text;
-    using Constants;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// EmbedIO module to allow authorizations with Bearer Tokens.
@@ -35,9 +35,11 @@
 
                 if (validationContext.IsValidated)
                 {
+                    var expiryDate = DateTime.SpecifyKind(DateTime.FromBinary(authorizationServerProvider.GetExpirationDate()), DateTimeKind.Utc);
+
                     await context.JsonResponseAsync(new BearerToken
                     {
-                        Token = validationContext.GetToken(SecretKey),
+                        Token = validationContext.GetToken(SecretKey, expiryDate),
                         TokenType = "bearer",
                         ExpirationDate = authorizationServerProvider.GetExpirationDate(),
                         Username = validationContext.IdentityName,

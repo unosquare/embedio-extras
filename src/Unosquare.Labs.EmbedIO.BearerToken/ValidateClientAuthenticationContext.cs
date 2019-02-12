@@ -72,8 +72,11 @@
         /// Retrieve JsonWebToken.
         /// </summary>
         /// <param name="secretKey">The secret key.</param>
-        /// <returns>The token string.</returns>
-        public string GetToken(SymmetricSecurityKey secretKey)
+        /// <param name="expires">The expires.</param>
+        /// <returns>
+        /// The token string.
+        /// </returns>
+        public string GetToken(SymmetricSecurityKey secretKey, DateTime? expires = null)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -81,6 +84,7 @@
             {
                 Subject = Identity,
                 Issuer = "Embedio Bearer Token",
+                Expires = expires,
                 SigningCredentials = new SigningCredentials(secretKey,
                     SecurityAlgorithms.HmacSha256Signature),
             });

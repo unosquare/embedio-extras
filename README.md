@@ -5,6 +5,8 @@
 
 # EmbedIO Extras
 
+![EmbedIO](https://raw.githubusercontent.com/unosquare/embedio/master/images/embedio.png)
+
 :star: *Please star this project if you find it useful!*
 
 Additional Modules showing how to extend [EmbedIO](https://github.com/unosquare/embedio). Feel free to use these modules in your projects.

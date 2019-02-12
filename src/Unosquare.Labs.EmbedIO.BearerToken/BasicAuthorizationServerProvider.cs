@@ -9,11 +9,9 @@
     public class BasicAuthorizationServerProvider : IAuthorizationServerProvider
     {
         /// <inheritdoc />
-#pragma warning disable 1998
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
-#pragma warning restore 1998
         {
-            var data = context.HttpContext.RequestFormDataDictionary();
+            var data = await context.HttpContext.RequestFormDataDictionaryAsync();
 
             if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
             {
