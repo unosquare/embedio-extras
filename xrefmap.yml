@@ -469,12 +469,12 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
   nameWithType: JsonServerModule.Name
-- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
-  name: UpdateDataStore(Object)
-  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_System_Object_
-  commentId: M:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
-  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
-  nameWithType: JsonServerModule.UpdateDataStore(Object)
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore
+  name: UpdateDataStore()
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore
+  commentId: M:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore()
+  nameWithType: JsonServerModule.UpdateDataStore()
 - uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore*
   name: UpdateDataStore
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_
