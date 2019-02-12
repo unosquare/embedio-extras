@@ -81,9 +81,15 @@
         /// <inheritdoc />
         public override string Name => nameof(LiteLibModule<T>).Humanize();
 
+        private static object SetValues(object objTable, object data)
+        {
+            ((IDictionary<string, object>)data)?.CopyKeyValuePairTo(objTable);
+            return objTable;
+        }
+
         private async Task<bool> AddRow(IHttpContext context, Type setType)
         {
-            var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
+            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync());
             var objTable = Activator.CreateInstance(setType);
             body.CopyKeyValuePairTo(objTable);
 
@@ -97,7 +103,7 @@
             var objTable = Activator.CreateInstance(setType);
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
             ((IDictionary<string, object>)data.First()).CopyKeyValuePairTo(objTable);
-            var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
+            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync());
             body.CopyKeyValuePairTo(objTable, new[] { "RowId" });
 
             await _dbInstance.UpdateAsync(objTable);
@@ -113,12 +119,6 @@
             await _dbInstance.DeleteAsync(objTable);
 
             return true;
-        }
-
-        private static object SetValues(object objTable, object data)
-        {
-            ((IDictionary<string, object>)data)?.CopyKeyValuePairTo(objTable);
-            return objTable;
         }
     }
 }

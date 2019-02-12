@@ -63,8 +63,7 @@
         /// <summary>
         /// Updates JSON file in disk.
         /// </summary>
-        /// <param name="state">The state.</param>
-        public void UpdateDataStore(object state)
+        public void UpdateDataStore()
         {
             if (string.IsNullOrWhiteSpace(JsonPath))
                 return;
@@ -127,36 +126,36 @@
             return Task.FromResult(false);
         }
 
-        private Task<bool> AddRow(IHttpContext context, dynamic table)
+        private async Task<bool> AddRow(IHttpContext context, dynamic table)
         {
             var array = (IList<object>) table;
-            array.Add(Json.Deserialize(context.RequestBody()));
-            ThreadPool.QueueUserWorkItem(UpdateDataStore);
-
-            return Task.FromResult(true);
+            array.Add(Json.Deserialize(await context.RequestBodyAsync()));
+            var _ = Task.Run(UpdateDataStore);
+            
+            return true;
         }
 
         private Task<bool> RemoveRow(dynamic table, dynamic row)
         {
             var array = (ICollection<object>) table;
             array.Remove(row);
-            ThreadPool.QueueUserWorkItem(UpdateDataStore);
+            Task.Run(UpdateDataStore);
             
             return Task.FromResult(true);
         }
 
-        private Task<bool> UpdateRow(IHttpContext context, dynamic row)
+        private async Task<bool> UpdateRow(IHttpContext context, dynamic row)
         {
-            var update = Json.Deserialize<Dictionary<string, object>>(context.RequestBody());
+            var update = Json.Deserialize<Dictionary<string, object>>(await context.RequestBodyAsync());
 
             foreach (var property in update)
             {
                 row[property.Key] = property.Value;
             }
 
-            ThreadPool.QueueUserWorkItem(UpdateDataStore);
+            var _ = Task.Run(UpdateDataStore);
             
-            return Task.FromResult(true);
+            return true;
         }
     }
 }
