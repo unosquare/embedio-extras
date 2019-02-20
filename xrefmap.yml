@@ -1,6 +1,435 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: Unosquare.EmbedIO.AspNetCore
+  name: Unosquare.EmbedIO.AspNetCore
+  href: api/Unosquare.EmbedIO.AspNetCore.html
+  commentId: N:Unosquare.EmbedIO.AspNetCore
+  fullName: Unosquare.EmbedIO.AspNetCore
+  nameWithType: Unosquare.EmbedIO.AspNetCore
+- uid: Unosquare.EmbedIO.AspNetCore.Sample
+  name: Unosquare.EmbedIO.AspNetCore.Sample
+  href: api/Unosquare.EmbedIO.AspNetCore.Sample.html
+  commentId: N:Unosquare.EmbedIO.AspNetCore.Sample
+  fullName: Unosquare.EmbedIO.AspNetCore.Sample
+  nameWithType: Unosquare.EmbedIO.AspNetCore.Sample
+- uid: Unosquare.EmbedIO.AspNetCore.Sample.Program
+  name: Program
+  href: api/Unosquare.EmbedIO.AspNetCore.Sample.Program.html
+  commentId: T:Unosquare.EmbedIO.AspNetCore.Sample.Program
+  fullName: Unosquare.EmbedIO.AspNetCore.Sample.Program
+  nameWithType: Program
+- uid: Unosquare.EmbedIO.AspNetCore.Sample.Program.Main(System.String[])
+  name: Main(String[])
+  href: api/Unosquare.EmbedIO.AspNetCore.Sample.Program.html#Unosquare_EmbedIO_AspNetCore_Sample_Program_Main_System_String___
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Sample.Program.Main(System.String[])
+  name.vb: Main(String())
+  fullName: Unosquare.EmbedIO.AspNetCore.Sample.Program.Main(System.String[])
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Sample.Program.Main(System.String())
+  nameWithType: Program.Main(String[])
+  nameWithType.vb: Program.Main(String())
+- uid: Unosquare.EmbedIO.AspNetCore.Sample.Program.Main*
+  name: Main
+  href: api/Unosquare.EmbedIO.AspNetCore.Sample.Program.html#Unosquare_EmbedIO_AspNetCore_Sample_Program_Main_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Sample.Program.Main
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Sample.Program.Main
+  nameWithType: Program.Main
+- uid: Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions
+  name: WebHostBuilderExtensions
+  href: api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.html
+  commentId: T:Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions
+  fullName: Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions
+  nameWithType: WebHostBuilderExtensions
+- uid: Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.UseEmbedIO(IWebHostBuilder)
+  name: UseEmbedIO(IWebHostBuilder)
+  href: api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.html#Unosquare_EmbedIO_AspNetCore_WebHostBuilderExtensions_UseEmbedIO_IWebHostBuilder_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.UseEmbedIO(IWebHostBuilder)
+  fullName: Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.UseEmbedIO(IWebHostBuilder)
+  nameWithType: WebHostBuilderExtensions.UseEmbedIO(IWebHostBuilder)
+- uid: Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.UseEmbedIO*
+  name: UseEmbedIO
+  href: api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.html#Unosquare_EmbedIO_AspNetCore_WebHostBuilderExtensions_UseEmbedIO_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.UseEmbedIO
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.UseEmbedIO
+  nameWithType: WebHostBuilderExtensions.UseEmbedIO
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers
+  name: Unosquare.EmbedIO.AspNetCore.Wrappers
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.html
+  commentId: N:Unosquare.EmbedIO.AspNetCore.Wrappers
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers
+  nameWithType: Unosquare.EmbedIO.AspNetCore.Wrappers
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary
+  name: HeaderDictionary
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html
+  commentId: T:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary
+  nameWithType: HeaderDictionary
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.#ctor(NameValueCollection)
+  name: HeaderDictionary(NameValueCollection)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary__ctor_NameValueCollection_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.#ctor(NameValueCollection)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.HeaderDictionary(NameValueCollection)
+  nameWithType: HeaderDictionary.HeaderDictionary(NameValueCollection)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.#ctor*
+  name: HeaderDictionary
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary__ctor_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.#ctor
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.HeaderDictionary
+  nameWithType: HeaderDictionary.HeaderDictionary
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(KeyValuePair{System.String,StringValues})
+  name: Add(KeyValuePair<String, StringValues>)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Add_KeyValuePair_System_String_StringValues__
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(KeyValuePair{System.String,StringValues})
+  name.vb: Add(KeyValuePair(Of String, StringValues))
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(KeyValuePair<System.String, StringValues>)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(KeyValuePair(Of System.String, StringValues))
+  nameWithType: HeaderDictionary.Add(KeyValuePair<String, StringValues>)
+  nameWithType.vb: HeaderDictionary.Add(KeyValuePair(Of String, StringValues))
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(System.String,StringValues)
+  name: Add(String, StringValues)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Add_System_String_StringValues_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(System.String,StringValues)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add(System.String, StringValues)
+  nameWithType: HeaderDictionary.Add(String, StringValues)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add*
+  name: Add
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Add_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Add
+  nameWithType: HeaderDictionary.Add
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Clear
+  name: Clear()
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Clear
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Clear
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Clear()
+  nameWithType: HeaderDictionary.Clear()
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Clear*
+  name: Clear
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Clear_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Clear
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Clear
+  nameWithType: HeaderDictionary.Clear
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Collection
+  name: Collection
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Collection
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Collection
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Collection
+  nameWithType: HeaderDictionary.Collection
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Collection*
+  name: Collection
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Collection_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Collection
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Collection
+  nameWithType: HeaderDictionary.Collection
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(KeyValuePair{System.String,StringValues})
+  name: Contains(KeyValuePair<String, StringValues>)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Contains_KeyValuePair_System_String_StringValues__
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(KeyValuePair{System.String,StringValues})
+  name.vb: Contains(KeyValuePair(Of String, StringValues))
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(KeyValuePair<System.String, StringValues>)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains(KeyValuePair(Of System.String, StringValues))
+  nameWithType: HeaderDictionary.Contains(KeyValuePair<String, StringValues>)
+  nameWithType.vb: HeaderDictionary.Contains(KeyValuePair(Of String, StringValues))
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains*
+  name: Contains
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Contains_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Contains
+  nameWithType: HeaderDictionary.Contains
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContainsKey(System.String)
+  name: ContainsKey(String)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_ContainsKey_System_String_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContainsKey(System.String)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContainsKey(System.String)
+  nameWithType: HeaderDictionary.ContainsKey(String)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContainsKey*
+  name: ContainsKey
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_ContainsKey_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContainsKey
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContainsKey
+  nameWithType: HeaderDictionary.ContainsKey
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContentLength
+  name: ContentLength
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_ContentLength
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContentLength
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContentLength
+  nameWithType: HeaderDictionary.ContentLength
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContentLength*
+  name: ContentLength
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_ContentLength_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContentLength
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.ContentLength
+  nameWithType: HeaderDictionary.ContentLength
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(KeyValuePair{System.String,StringValues}[],System.Int32)
+  name: CopyTo(KeyValuePair<String, StringValues>[], Int32)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_CopyTo_KeyValuePair_System_String_StringValues____System_Int32_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(KeyValuePair{System.String,StringValues}[],System.Int32)
+  name.vb: CopyTo(KeyValuePair(Of String, StringValues)(), Int32)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(KeyValuePair<System.String, StringValues>[], System.Int32)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo(KeyValuePair(Of System.String, StringValues)(), System.Int32)
+  nameWithType: HeaderDictionary.CopyTo(KeyValuePair<String, StringValues>[], Int32)
+  nameWithType.vb: HeaderDictionary.CopyTo(KeyValuePair(Of String, StringValues)(), Int32)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo*
+  name: CopyTo
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_CopyTo_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.CopyTo
+  nameWithType: HeaderDictionary.CopyTo
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Count
+  name: Count
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Count
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Count
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Count
+  nameWithType: HeaderDictionary.Count
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Count*
+  name: Count
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Count_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Count
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Count
+  nameWithType: HeaderDictionary.Count
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.GetEnumerator
+  name: GetEnumerator()
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_GetEnumerator
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.GetEnumerator
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.GetEnumerator()
+  nameWithType: HeaderDictionary.GetEnumerator()
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.GetEnumerator*
+  name: GetEnumerator
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_GetEnumerator_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.GetEnumerator
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.GetEnumerator
+  nameWithType: HeaderDictionary.GetEnumerator
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.IsReadOnly
+  name: IsReadOnly
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_IsReadOnly
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.IsReadOnly
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.IsReadOnly
+  nameWithType: HeaderDictionary.IsReadOnly
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.IsReadOnly*
+  name: IsReadOnly
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_IsReadOnly_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.IsReadOnly
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.IsReadOnly
+  nameWithType: HeaderDictionary.IsReadOnly
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Item(System.String)
+  name: Item[String]
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Item_System_String_
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Item(System.String)
+  name.vb: Item(String)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Item[System.String]
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Item(System.String)
+  nameWithType: HeaderDictionary.Item[String]
+  nameWithType.vb: HeaderDictionary.Item(String)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Item*
+  name: Item
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Item_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Item
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Item
+  nameWithType: HeaderDictionary.Item
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Keys
+  name: Keys
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Keys
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Keys
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Keys
+  nameWithType: HeaderDictionary.Keys
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Keys*
+  name: Keys
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Keys_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Keys
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Keys
+  nameWithType: HeaderDictionary.Keys
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(KeyValuePair{System.String,StringValues})
+  name: Remove(KeyValuePair<String, StringValues>)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Remove_KeyValuePair_System_String_StringValues__
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(KeyValuePair{System.String,StringValues})
+  name.vb: Remove(KeyValuePair(Of String, StringValues))
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(KeyValuePair<System.String, StringValues>)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(KeyValuePair(Of System.String, StringValues))
+  nameWithType: HeaderDictionary.Remove(KeyValuePair<String, StringValues>)
+  nameWithType.vb: HeaderDictionary.Remove(KeyValuePair(Of String, StringValues))
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(System.String)
+  name: Remove(String)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Remove_System_String_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(System.String)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove(System.String)
+  nameWithType: HeaderDictionary.Remove(String)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove*
+  name: Remove
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Remove_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Remove
+  nameWithType: HeaderDictionary.Remove
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.TryGetValue(System.String,StringValues@)
+  name: TryGetValue(String, out StringValues)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_TryGetValue_System_String_StringValues__
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.TryGetValue(System.String,StringValues@)
+  name.vb: TryGetValue(String, ByRef StringValues)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.TryGetValue(System.String, out StringValues)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.TryGetValue(System.String, ByRef StringValues)
+  nameWithType: HeaderDictionary.TryGetValue(String, out StringValues)
+  nameWithType.vb: HeaderDictionary.TryGetValue(String, ByRef StringValues)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.TryGetValue*
+  name: TryGetValue
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_TryGetValue_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.TryGetValue
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.TryGetValue
+  nameWithType: HeaderDictionary.TryGetValue
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Values
+  name: Values
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Values
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Values
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Values
+  nameWithType: HeaderDictionary.Values
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Values*
+  name: Values
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HeaderDictionary_Values_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Values
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.Values
+  nameWithType: HeaderDictionary.Values
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1
+  name: HttpApplicationWrapper<TContext>
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html
+  commentId: T:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1
+  name.vb: HttpApplicationWrapper(Of TContext)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext)
+  nameWithType: HttpApplicationWrapper<TContext>
+  nameWithType.vb: HttpApplicationWrapper(Of TContext)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.#ctor(IHttpApplication{`0})
+  name: HttpApplicationWrapper(IHttpApplication<TContext>)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1__ctor_IHttpApplication__0__
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.#ctor(IHttpApplication{`0})
+  name.vb: HttpApplicationWrapper(IHttpApplication(Of TContext))
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.HttpApplicationWrapper(IHttpApplication<TContext>)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).HttpApplicationWrapper(IHttpApplication(Of TContext))
+  nameWithType: HttpApplicationWrapper<TContext>.HttpApplicationWrapper(IHttpApplication<TContext>)
+  nameWithType.vb: HttpApplicationWrapper(Of TContext).HttpApplicationWrapper(IHttpApplication(Of TContext))
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.#ctor*
+  name: HttpApplicationWrapper
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1__ctor_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.#ctor
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.HttpApplicationWrapper
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).HttpApplicationWrapper
+  nameWithType: HttpApplicationWrapper<TContext>.HttpApplicationWrapper
+  nameWithType.vb: HttpApplicationWrapper(Of TContext).HttpApplicationWrapper
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.CreateContext(IFeatureCollection)
+  name: CreateContext(IFeatureCollection)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1_CreateContext_IFeatureCollection_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.CreateContext(IFeatureCollection)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.CreateContext(IFeatureCollection)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).CreateContext(IFeatureCollection)
+  nameWithType: HttpApplicationWrapper<TContext>.CreateContext(IFeatureCollection)
+  nameWithType.vb: HttpApplicationWrapper(Of TContext).CreateContext(IFeatureCollection)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.CreateContext*
+  name: CreateContext
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1_CreateContext_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.CreateContext
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.CreateContext
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).CreateContext
+  nameWithType: HttpApplicationWrapper<TContext>.CreateContext
+  nameWithType.vb: HttpApplicationWrapper(Of TContext).CreateContext
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext(System.Object,Exception)
+  name: DisposeContext(Object, Exception)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1_DisposeContext_System_Object_Exception_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext(System.Object,Exception)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.DisposeContext(System.Object, Exception)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).DisposeContext(System.Object, Exception)
+  nameWithType: HttpApplicationWrapper<TContext>.DisposeContext(Object, Exception)
+  nameWithType.vb: HttpApplicationWrapper(Of TContext).DisposeContext(Object, Exception)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext*
+  name: DisposeContext
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1_DisposeContext_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.DisposeContext
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.DisposeContext
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).DisposeContext
+  nameWithType: HttpApplicationWrapper<TContext>.DisposeContext
+  nameWithType.vb: HttpApplicationWrapper(Of TContext).DisposeContext
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.ProcessRequestAsync(System.Object)
+  name: ProcessRequestAsync(Object)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1_ProcessRequestAsync_System_Object_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.ProcessRequestAsync(System.Object)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.ProcessRequestAsync(System.Object)
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).ProcessRequestAsync(System.Object)
+  nameWithType: HttpApplicationWrapper<TContext>.ProcessRequestAsync(Object)
+  nameWithType.vb: HttpApplicationWrapper(Of TContext).ProcessRequestAsync(Object)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.ProcessRequestAsync*
+  name: ProcessRequestAsync
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html#Unosquare_EmbedIO_AspNetCore_Wrappers_HttpApplicationWrapper_1_ProcessRequestAsync_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper`1.ProcessRequestAsync
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper<TContext>.ProcessRequestAsync
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper(Of TContext).ProcessRequestAsync
+  nameWithType: HttpApplicationWrapper<TContext>.ProcessRequestAsync
+  nameWithType.vb: HttpApplicationWrapper(Of TContext).ProcessRequestAsync
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary
+  name: ResponseHeaderDictionary
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html
+  commentId: T:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary
+  nameWithType: ResponseHeaderDictionary
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.#ctor(IHttpResponse)
+  name: ResponseHeaderDictionary(IHttpResponse)
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary__ctor_IHttpResponse_
+  commentId: M:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.#ctor(IHttpResponse)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.ResponseHeaderDictionary(IHttpResponse)
+  nameWithType: ResponseHeaderDictionary.ResponseHeaderDictionary(IHttpResponse)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.#ctor*
+  name: ResponseHeaderDictionary
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary__ctor_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.#ctor
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.ResponseHeaderDictionary
+  nameWithType: ResponseHeaderDictionary.ResponseHeaderDictionary
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Item(System.String)
+  name: Item[String]
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary_Item_System_String_
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Item(System.String)
+  name.vb: Item(String)
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Item[System.String]
+  fullName.vb: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Item(System.String)
+  nameWithType: ResponseHeaderDictionary.Item[String]
+  nameWithType.vb: ResponseHeaderDictionary.Item(String)
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Item*
+  name: Item
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary_Item_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Item
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Item
+  nameWithType: ResponseHeaderDictionary.Item
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
+  name: Respnse
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary_Respnse
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
+  nameWithType: ResponseHeaderDictionary.Respnse
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse*
+  name: Respnse
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary_Respnse_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
+  isSpec: "True"
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
+  nameWithType: ResponseHeaderDictionary.Respnse
 - uid: Unosquare.Labs.EmbedIO.BearerToken
   name: Unosquare.Labs.EmbedIO.BearerToken
   href: api/Unosquare.Labs.EmbedIO.BearerToken.html
@@ -285,15 +714,12 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ValidateClientAuthenticationContext
   nameWithType: ValidateClientAuthenticationContext.ValidateClientAuthenticationContext
-- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey,System.Nullable{System.DateTime})
-  name: GetToken(SymmetricSecurityKey, Nullable<DateTime>)
-  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_SymmetricSecurityKey_System_Nullable_System_DateTime__
-  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey,System.Nullable{System.DateTime})
-  name.vb: GetToken(SymmetricSecurityKey, Nullable(Of DateTime))
-  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey, System.Nullable<System.DateTime>)
-  fullName.vb: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey, System.Nullable(Of System.DateTime))
-  nameWithType: ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey, Nullable<DateTime>)
-  nameWithType.vb: ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey, Nullable(Of DateTime))
+- uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
+  name: GetToken(SymmetricSecurityKey)
+  href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_SymmetricSecurityKey_
+  commentId: M:Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
+  fullName: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
+  nameWithType: ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)
 - uid: Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken*
   name: GetToken
   href: api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html#Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_
@@ -469,12 +895,12 @@ references:
   isSpec: "True"
   fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name
   nameWithType: JsonServerModule.Name
-- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore
-  name: UpdateDataStore()
-  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore
-  commentId: M:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore
-  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore()
-  nameWithType: JsonServerModule.UpdateDataStore()
+- uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
+  name: UpdateDataStore(Object)
+  href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_System_Object_
+  commentId: M:Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
+  fullName: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore(System.Object)
+  nameWithType: JsonServerModule.UpdateDataStore(Object)
 - uid: Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore*
   name: UpdateDataStore
   href: api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html#Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_
