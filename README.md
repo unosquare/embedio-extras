@@ -183,6 +183,8 @@ public class Program
     }
 }
 ```
+## ASP.NET Core
+You can use EmbedIO as a custom server.
 
 ### Nuget installation [![NuGet version](https://badge.fury.io/nu/EmbedIO.OWIN.svg)](http://badge.fury.io/nu/EmbedIO.OWIN)
 
