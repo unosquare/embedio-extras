@@ -11,7 +11,7 @@
         /// <inheritdoc />
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
         {
-            var data = await context.HttpContext.RequestFormDataDictionaryAsync();
+            var data = await context.HttpContext.RequestFormDataDictionaryAsync().ConfigureAwait(false);
 
             if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
             {

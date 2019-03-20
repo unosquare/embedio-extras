@@ -14,7 +14,7 @@
     /// Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.
     /// </summary>
     /// <typeparam name="T">The type of LiteDbContext.</typeparam>
-    /// <seealso cref="EmbedIO.WebModuleBase" />
+    /// <seealso cref="WebModuleBase" />
     public class LiteLibModule<T> : WebModuleBase
         where T : LiteDbContext
     {
@@ -41,7 +41,7 @@
                 var path = context.RequestPath();
                 var verb = context.RequestVerb();
 
-                if (path.StartsWith(basePath) == false)
+                if (!path.StartsWith(basePath, StringComparison.OrdinalIgnoreCase))
                     return false;
 
                 var parts = path.Substring(basePath.Length)
@@ -89,11 +89,11 @@
 
         private async Task<bool> AddRow(IHttpContext context, Type setType)
         {
-            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync());
+            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync().ConfigureAwait(false));
             var objTable = Activator.CreateInstance(setType);
             body.CopyKeyValuePairTo(objTable);
 
-            await _dbInstance.InsertAsync(objTable);
+            await _dbInstance.InsertAsync(objTable).ConfigureAwait(false);
 
             return true;
         }
@@ -103,10 +103,10 @@
             var objTable = Activator.CreateInstance(setType);
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
             ((IDictionary<string, object>)data.First()).CopyKeyValuePairTo(objTable);
-            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync());
+            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync().ConfigureAwait(false));
             body.CopyKeyValuePairTo(objTable, new[] { "RowId" });
 
-            await _dbInstance.UpdateAsync(objTable);
+            await _dbInstance.UpdateAsync(objTable).ConfigureAwait(false);
 
             return true;
         }
@@ -116,7 +116,7 @@
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
             var objTable = SetValues(Activator.CreateInstance(setType), data.First());
 
-            await _dbInstance.DeleteAsync(objTable);
+            await _dbInstance.DeleteAsync(objTable).ConfigureAwait(false);
 
             return true;
         }

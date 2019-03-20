@@ -82,7 +82,7 @@
             var path = context.RequestPath();
             var verb = context.RequestVerb();
 
-            if (path.StartsWith(BasePath) == false)
+            if (!path.StartsWith(BasePath, StringComparison.OrdinalIgnoreCase))
                 return Task.FromResult(false);
 
             if (path == BasePath)
@@ -129,8 +129,8 @@
         private async Task<bool> AddRow(IHttpContext context, dynamic table)
         {
             var array = (IList<object>) table;
-            array.Add(Json.Deserialize(await context.RequestBodyAsync()));
-            var _ = Task.Run(UpdateDataStore);
+            array.Add(await context.ParseJsonAsync<object>().ConfigureAwait(false));
+            Task.Run(UpdateDataStore);
             
             return true;
         }
@@ -146,14 +146,14 @@
 
         private async Task<bool> UpdateRow(IHttpContext context, dynamic row)
         {
-            var update = Json.Deserialize<Dictionary<string, object>>(await context.RequestBodyAsync());
+            var update = await context.ParseJsonAsync<Dictionary<string, object>>().ConfigureAwait(false);
 
             foreach (var property in update)
             {
                 row[property.Key] = property.Value;
             }
 
-            var _ = Task.Run(UpdateDataStore);
+            Task.Run(UpdateDataStore);
             
             return true;
         }
