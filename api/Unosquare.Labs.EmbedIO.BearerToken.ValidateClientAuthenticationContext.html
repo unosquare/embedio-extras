@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ValidateClientAuthenticationContext
    | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.40.12.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -28,7 +28,7 @@
       <header>
         
         <nav class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
+          <div class="container-fluid">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -51,14 +51,14 @@
         </nav>
         
         <div class="subnav navbar">
-          <div class="container hide-when-search" id="breadcrumb">
+          <div class="container-fluid hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
               <li></li>
             </ul>
           </div>
         </div>
       </header>
-      <div class="container body-content">
+      <div class="container-fluid body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
@@ -66,7 +66,7 @@
           <ul id="pagination"></ul>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
+      <div role="main" class="container-fluid body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
@@ -169,6 +169,33 @@
   </h3>
   
   
+  <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ErrorPayload_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ErrorPayload*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_ErrorPayload" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.ErrorPayload">ErrorPayload</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the error payload.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object ErrorPayload { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>The error payload.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HasError_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_HasError" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.HasError">HasError</h4>
   <div class="markdown level1 summary"><p>Flags if the Validation has errors.</p>
@@ -223,7 +250,7 @@
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Identity_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Identity*"></a>
   <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Identity" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Identity">Identity</h4>
-  <div class="markdown level1 summary"><p>Claims.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the identity.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -241,7 +268,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Security.Claims.ClaimsIdentity</span></td>
-        <td></td>
+        <td><p>The identity.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -302,13 +330,13 @@
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_SymmetricSecurityKey_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey)">GetToken(SymmetricSecurityKey)</h4>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_GetToken_SymmetricSecurityKey_System_Nullable_System_DateTime__" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.GetToken(SymmetricSecurityKey,System.Nullable{System.DateTime})">GetToken(SymmetricSecurityKey, Nullable&lt;DateTime&gt;)</h4>
   <div class="markdown level1 summary"><p>Retrieve JsonWebToken.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetToken(SymmetricSecurityKey secretKey)</code></pre>
+    <pre><code class="lang-csharp hljs">public string GetToken(SymmetricSecurityKey secretKey, DateTime? expires = default(DateTime? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -324,6 +352,12 @@
         <td><span class="xref">SymmetricSecurityKey</span></td>
         <td><span class="parametername">secretKey</span></td>
         <td><p>The secret key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">expires</span></td>
+        <td><p>The expires.</p>
 </td>
       </tr>
     </tbody>
@@ -347,14 +381,32 @@
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Rejected_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Rejected" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected">Rejected()</h4>
-  <div class="markdown level1 summary"><p>Rejects a validation.</p>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Rejected_System_Object_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Rejected(System.Object)">Rejected(Object)</h4>
+  <div class="markdown level1 summary"><p>Rejects a validation with optional payload to be sent as JSON.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Rejected()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Rejected(object errorPayload = null)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">errorPayload</span></td>
+        <td><p>The error payload.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_Validated_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated*"></a>
