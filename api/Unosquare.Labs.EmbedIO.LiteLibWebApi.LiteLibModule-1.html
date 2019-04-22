@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class LiteLibModule&lt;T&gt;
    | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.41.0.0">
+    <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -89,10 +89,14 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">LiteLibModule&lt;T&gt;</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.LiteLibWebApi.html">Unosquare.Labs.EmbedIO.LiteLibWebApi</a></h6>
   <h5 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LiteLibModule&lt;T&gt; : WebModuleBase where T : LiteDbContext</code></pre>
+    <pre><code class="lang-csharp hljs">public class LiteLibModule&lt;T&gt; : WebModuleBase, IDisposable where T : LiteDbContext</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -174,6 +178,51 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  
+  
+  <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_System_Boolean_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Dispose the module.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p><code>true</code> if the object is disposing.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
 
 <h3 id="disqus_thread">Comments</h3>
 <script>

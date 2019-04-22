@@ -527,6 +527,31 @@ references:
   fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).LiteLibModule
   nameWithType: LiteLibModule<T>.LiteLibModule
   nameWithType.vb: LiteLibModule(Of T).LiteLibModule
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose
+  name: Dispose()
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose
+  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.Dispose()
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).Dispose()
+  nameWithType: LiteLibModule<T>.Dispose()
+  nameWithType.vb: LiteLibModule(Of T).Dispose()
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_System_Boolean_
+  commentId: M:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose(System.Boolean)
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.Dispose(System.Boolean)
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).Dispose(System.Boolean)
+  nameWithType: LiteLibModule<T>.Dispose(Boolean)
+  nameWithType.vb: LiteLibModule(Of T).Dispose(Boolean)
+- uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose*
+  name: Dispose
+  href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_
+  commentId: Overload:Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose
+  isSpec: "True"
+  fullName: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule<T>.Dispose
+  fullName.vb: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule(Of T).Dispose
+  nameWithType: LiteLibModule<T>.Dispose
+  nameWithType.vb: LiteLibModule(Of T).Dispose
 - uid: Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Name
   name: Name
   href: api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html#Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Name
