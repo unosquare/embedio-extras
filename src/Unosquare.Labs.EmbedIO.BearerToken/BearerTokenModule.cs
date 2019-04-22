@@ -79,6 +79,7 @@
 
         /// <inheritdoc />
         public override string Name => nameof(BearerTokenModule);
+
         private static bool Match(IEnumerable<string> routes, IHttpContext context)
         {
             var path = context.RequestPath();

@@ -11,7 +11,7 @@
     /// The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. 
     /// It will accept markdown/html/htm extensions.
     /// </summary>
-    /// <seealso cref="Unosquare.Labs.EmbedIO.WebModuleBase" />
+    /// <seealso cref="WebModuleBase" />
     public class MarkdownStaticModule : WebModuleBase
     {
         /// <summary>

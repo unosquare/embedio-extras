@@ -15,12 +15,14 @@
     /// </summary>
     /// <typeparam name="T">The type of LiteDbContext.</typeparam>
     /// <seealso cref="WebModuleBase" />
-    public class LiteLibModule<T> : WebModuleBase
+    public class LiteLibModule<T> : WebModuleBase, IDisposable
         where T : LiteDbContext
     {
         private const string RowSelector = "[RowId] = @RowId";
 
         private readonly T _dbInstance;
+
+        private bool _disposedValue; // To detect redundant calls
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LiteLibModule{T}"/> class.
@@ -81,6 +83,28 @@
         /// <inheritdoc />
         public override string Name => nameof(LiteLibModule<T>).Humanize();
 
+        /// <inheritdoc />
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Dispose the module.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> if the object is disposing.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposedValue) return;
+            if (disposing)
+            {
+                _dbInstance.Dispose();
+            }
+
+            _disposedValue = true;
+        }
+
         private static object SetValues(object objTable, object data)
         {
             ((IDictionary<string, object>)data)?.CopyKeyValuePairTo(objTable);
@@ -104,7 +128,7 @@
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
             ((IDictionary<string, object>)data.First()).CopyKeyValuePairTo(objTable);
             var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync().ConfigureAwait(false));
-            body.CopyKeyValuePairTo(objTable, new[] { "RowId" });
+            body.CopyKeyValuePairTo(objTable, "RowId");
 
             await _dbInstance.UpdateAsync(objTable).ConfigureAwait(false);
 
