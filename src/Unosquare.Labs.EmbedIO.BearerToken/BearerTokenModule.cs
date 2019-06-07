@@ -1,11 +1,11 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
-    using System;
+    using Constants;
     using Microsoft.IdentityModel.Tokens;
-    using System.Threading.Tasks;
+    using System;
     using System.Collections.Generic;
     using System.Text;
-    using Constants;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// EmbedIO module to allow authorizations with Bearer Tokens.
@@ -33,31 +33,25 @@
                 var validationContext = context.GetValidationContext();
                 await authorizationServerProvider.ValidateClientAuthentication(validationContext);
 
-                if (validationContext.IsValidated)
-                {
-                    await context.JsonResponseAsync(new BearerToken
-                    {
-                        Token = validationContext.GetToken(SecretKey),
-                        TokenType = "bearer",
-                        ExpirationDate = authorizationServerProvider.GetExpirationDate(),
-                        Username = validationContext.IdentityName,
-                    });
-                }
-                else
-                {
-                    context.Rejected();
-                }
+                if (!validationContext.IsValidated) 
+                    return await context.Rejected(validationContext.ErrorPayload);
 
-                return true;
+                var expiryDate = DateTime.SpecifyKind(DateTime.FromBinary(authorizationServerProvider.GetExpirationDate()), DateTimeKind.Utc);
+
+                return await context.JsonResponseAsync(new BearerToken
+                {
+                    Token = validationContext.GetToken(SecretKey, expiryDate),
+                    TokenType = "bearer",
+                    ExpirationDate = authorizationServerProvider.GetExpirationDate(),
+                    Username = validationContext.IdentityName,
+                });
             });
 
             AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, (context, ct) =>
             {
                 if (routes != null)
                 {
-                    var match = Match(routes, context);
-
-                    if (!match) 
+                    if (!Match(routes, context)) 
                     {
                         return Task.FromResult(false);
                     }
@@ -85,6 +79,7 @@
 
         /// <inheritdoc />
         public override string Name => nameof(BearerTokenModule);
+
         private static bool Match(IEnumerable<string> routes, IHttpContext context)
         {
             var path = context.RequestPath();
@@ -94,14 +89,14 @@
             {
                 var wildcard = p.IndexOf(ModuleMap.AnyPath, StringComparison.Ordinal);
 
-                if ((wildcard == -1 && p.Equals(path))
+                if ((wildcard == -1 && p == path)
                     || (wildcard != -1
                         && (
                             // wildcard at the end
-                            path.StartsWith(p.Substring(0, p.Length - ModuleMap.AnyPath.Length))
+                            path.StartsWith(p.Substring(0, p.Length - ModuleMap.AnyPath.Length), StringComparison.OrdinalIgnoreCase)
                             // wildcard in the middle so check both start/end
-                            || (path.StartsWith(p.Substring(0, wildcard))
-                                && path.EndsWith(p.Substring(wildcard + 1)))
+                            || (path.StartsWith(p.Substring(0, wildcard), StringComparison.OrdinalIgnoreCase)
+                                && path.EndsWith(p.Substring(wildcard + 1), StringComparison.OrdinalIgnoreCase))
                         )
                     )
                 )

@@ -1,6 +1,7 @@
 ﻿namespace Unosquare.Labs.EmbedIO.BearerToken
 {
     using Microsoft.IdentityModel.Tokens;
+    using System.Threading.Tasks;
     using Swan;
     using System;
     using System.Collections.Generic;
@@ -25,10 +26,14 @@
         /// Rejects a authentication challenge.
         /// </summary>
         /// <param name="context">The context.</param>
-        public static void Rejected(this IHttpContext context)
+        /// <param name="error">The error.</param>
+        /// <returns>A task representing the rejection of the authorization action.</returns>
+        public static Task<bool> Rejected(this IHttpContext context, object error = null) 
         {
             context.Response.StatusCode = (int) System.Net.HttpStatusCode.Unauthorized;
             context.Response.AddHeader("WWW-Authenticate", "Bearer");
+
+            return error != null ? context.JsonResponseAsync(error) : Task.FromResult(true);
         }
 
         /// <summary>
@@ -78,7 +83,7 @@
             var authHeader = context.RequestHeader("Authorization");
             securityToken = null;
 
-            if (string.IsNullOrWhiteSpace(authHeader) || !authHeader.StartsWith("Bearer "))
+            if (string.IsNullOrWhiteSpace(authHeader) || !authHeader.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
             {
                 return null;
             }

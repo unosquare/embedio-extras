@@ -8,7 +8,7 @@
     {
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
         {
-            var data = context.HttpContext.RequestFormDataDictionary();
+            var data = await context.HttpContext.RequestFormDataDictionaryAsync().ConfigureAwait(false);
 
             if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
             {

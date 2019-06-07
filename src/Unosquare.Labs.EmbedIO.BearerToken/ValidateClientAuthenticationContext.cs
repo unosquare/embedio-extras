@@ -43,17 +43,30 @@
         public IHttpContext HttpContext { get; protected set; }
 
         /// <summary>
-        /// Claims.
+        /// Gets or sets the identity.
         /// </summary>
+        /// <value>
+        /// The identity.
+        /// </value>
         public ClaimsIdentity Identity { get; set; }
 
         /// <summary>
-        /// Rejects a validation.
+        /// Gets or sets the error payload.
         /// </summary>
-        public void Rejected()
+        /// <value>
+        /// The error payload.
+        /// </value>
+        public object ErrorPayload { get; protected set; }
+
+        /// <summary>
+        /// Rejects a validation with optional payload to be sent as JSON.
+        /// </summary>
+        /// <param name="errorPayload">The error payload.</param>
+        public void Rejected(object errorPayload = null)
         {
             IsValidated = false;
             HasError = true;
+            ErrorPayload = errorPayload;
         }
 
         /// <summary>
@@ -72,8 +85,11 @@
         /// Retrieve JsonWebToken.
         /// </summary>
         /// <param name="secretKey">The secret key.</param>
-        /// <returns>The token string.</returns>
-        public string GetToken(SymmetricSecurityKey secretKey)
+        /// <param name="expires">The expires.</param>
+        /// <returns>
+        /// The token string.
+        /// </returns>
+        public string GetToken(SymmetricSecurityKey secretKey, DateTime? expires = null)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -81,6 +97,7 @@
             {
                 Subject = Identity,
                 Issuer = "Embedio Bearer Token",
+                Expires = expires,
                 SigningCredentials = new SigningCredentials(secretKey,
                     SecurityAlgorithms.HmacSha256Signature),
             });

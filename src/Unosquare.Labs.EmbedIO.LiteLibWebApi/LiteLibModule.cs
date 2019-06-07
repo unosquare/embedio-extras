@@ -14,13 +14,15 @@
     /// Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.
     /// </summary>
     /// <typeparam name="T">The type of LiteDbContext.</typeparam>
-    /// <seealso cref="EmbedIO.WebModuleBase" />
-    public class LiteLibModule<T> : WebModuleBase
+    /// <seealso cref="WebModuleBase" />
+    public class LiteLibModule<T> : WebModuleBase, IDisposable
         where T : LiteDbContext
     {
         private const string RowSelector = "[RowId] = @RowId";
 
         private readonly T _dbInstance;
+
+        private bool _disposedValue; // To detect redundant calls
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LiteLibModule{T}"/> class.
@@ -41,7 +43,7 @@
                 var path = context.RequestPath();
                 var verb = context.RequestVerb();
 
-                if (path.StartsWith(basePath) == false)
+                if (!path.StartsWith(basePath, StringComparison.OrdinalIgnoreCase))
                     return false;
 
                 var parts = path.Substring(basePath.Length)
@@ -81,13 +83,41 @@
         /// <inheritdoc />
         public override string Name => nameof(LiteLibModule<T>).Humanize();
 
+        /// <inheritdoc />
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Dispose the module.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> if the object is disposing.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposedValue) return;
+            if (disposing)
+            {
+                _dbInstance.Dispose();
+            }
+
+            _disposedValue = true;
+        }
+
+        private static object SetValues(object objTable, object data)
+        {
+            ((IDictionary<string, object>)data)?.CopyKeyValuePairTo(objTable);
+            return objTable;
+        }
+
         private async Task<bool> AddRow(IHttpContext context, Type setType)
         {
-            var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
+            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync().ConfigureAwait(false));
             var objTable = Activator.CreateInstance(setType);
             body.CopyKeyValuePairTo(objTable);
 
-            await _dbInstance.InsertAsync(objTable);
+            await _dbInstance.InsertAsync(objTable).ConfigureAwait(false);
 
             return true;
         }
@@ -97,10 +127,10 @@
             var objTable = Activator.CreateInstance(setType);
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
             ((IDictionary<string, object>)data.First()).CopyKeyValuePairTo(objTable);
-            var body = (IDictionary<string, object>)Json.Deserialize(context.RequestBody());
-            body.CopyKeyValuePairTo(objTable, new[] { "RowId" });
+            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync().ConfigureAwait(false));
+            body.CopyKeyValuePairTo(objTable, "RowId");
 
-            await _dbInstance.UpdateAsync(objTable);
+            await _dbInstance.UpdateAsync(objTable).ConfigureAwait(false);
 
             return true;
         }
@@ -110,15 +140,9 @@
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
             var objTable = SetValues(Activator.CreateInstance(setType), data.First());
 
-            await _dbInstance.DeleteAsync(objTable);
+            await _dbInstance.DeleteAsync(objTable).ConfigureAwait(false);
 
             return true;
-        }
-
-        private static object SetValues(object objTable, object data)
-        {
-            ((IDictionary<string, object>)data)?.CopyKeyValuePairTo(objTable);
-            return objTable;
         }
     }
 }

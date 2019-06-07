@@ -28,8 +28,8 @@
         {
             var url = args.Length > 0 ? args[0] : "http://localhost:9696/";
             
-            var ctSource = new CancellationTokenSource();
-            ctSource.Token.Register(() => "Shutting down".Info());
+            var tokenSource = new CancellationTokenSource();
+            tokenSource.Token.Register(() => "Shutting down".Info());
 
             // Create basic authentication provider
             var authServer = new SampleAuthorizationServerProvider();
@@ -42,8 +42,8 @@
                 // Wait for any key to be pressed before disposing of our web server.
                 Console.ReadLine();
 
-                ctSource.Cancel();
-            }, ctSource.Token);
+                tokenSource.Cancel();
+            }, tokenSource.Token);
 
             // Our web server is disposable. 
             using (var server = new WebServer(url))
@@ -68,8 +68,8 @@
                 browser.Start();
 
                 // Once we've registered our modules and configured them, we call the RunAsync() method.
-                if (!ctSource.IsCancellationRequested)
-                    await server.RunAsync(ctSource.Token);
+                if (!tokenSource.IsCancellationRequested)
+                    await server.RunAsync(tokenSource.Token);
 
                 "Bye".Info();
 
