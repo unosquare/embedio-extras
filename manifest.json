@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "AlB5VPyq6/cKsyfvFMF8Ew=="
+          "hash": "XWYU2NC4xC9S8BPhmx4j9Q=="
         }
       },
       "is_incremental": false,
@@ -74,6 +74,102 @@
       "output": {
         "resource": {
           "relative_path": "embedio.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Sample.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.Program.html",
+          "hash": "TueSa+UkbcnZhqmEGz6cDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Sample.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.html",
+          "hash": "lwIeMqmpWmnnjAp7HUA25Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.WebHostBuilderExtensions.html",
+          "hash": "4ieFk1/CC8lOV0ea/KAA/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html",
+          "hash": "+euptkJ0YXHGhXsZSZsZAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html",
+          "hash": "yi5XPA9ovWdEFsKQzXYCbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html",
+          "hash": "xucCE12oGPUVzvXQ9DE69A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.Wrappers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Wrappers.html",
+          "hash": "qOS9QQepot/J64XPTnMqBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Unosquare.EmbedIO.AspNetCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Unosquare.EmbedIO.AspNetCore.html",
+          "hash": "7V5l51WkK6ofjkXhAy2aUg=="
         }
       },
       "is_incremental": false,
@@ -241,7 +337,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "vOpzk91n0bXPwcOGQGwidA=="
+          "hash": "wRU4HGvB/8/WnOhwDHPX2A=="
         }
       },
       "is_incremental": false,
@@ -266,8 +362,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 13,
-          "skipped_file_count": 13
+          "total_file_count": 21,
+          "skipped_file_count": 21
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
