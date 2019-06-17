@@ -1,4 +1,6 @@
-﻿namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿using EmbedIO;
+
+namespace Unosquare.Labs.EmbedIO.BearerToken
 {
     using System;
     using System.Threading.Tasks;
@@ -11,7 +13,7 @@
         /// <inheritdoc />
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
         {
-            var data = await context.HttpContext.RequestFormDataDictionaryAsync().ConfigureAwait(false);
+            var data = await context.HttpContext.GetRequestFormDataAsync(default).ConfigureAwait(false);
 
             if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
             {

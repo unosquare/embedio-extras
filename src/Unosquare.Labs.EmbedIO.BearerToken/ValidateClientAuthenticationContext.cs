@@ -1,4 +1,6 @@
-﻿namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿using EmbedIO;
+
+namespace Unosquare.Labs.EmbedIO.BearerToken
 {
     using Microsoft.IdentityModel.Tokens;
     using System;

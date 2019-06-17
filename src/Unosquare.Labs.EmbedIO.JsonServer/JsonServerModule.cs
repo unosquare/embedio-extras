@@ -1,6 +1,7 @@
-﻿namespace Unosquare.Labs.EmbedIO.JsonServer
+﻿using EmbedIO;
+
+namespace Unosquare.Labs.EmbedIO.JsonServer
 {
-    using Constants;
     using Swan.Formatters;
     using System;
     using System.Collections.Generic;
@@ -19,6 +20,7 @@
         /// <param name="basePath">The base path.</param>
         /// <param name="jsonPath">The json path.</param>
         public JsonServerModule(string basePath = "/api/", string jsonPath = null)
+        : base(basePath)
         {
             JsonPath = jsonPath;
             BasePath = basePath;
@@ -86,41 +88,41 @@
                 return Task.FromResult(false);
 
             if (path == BasePath)
-                return context.JsonResponseAsync((object) Data, ct);
+                return context.JsonResponseAsync((object)Data, ct);
 
             var parts = path.Substring(BasePath.Length)
-                .Split(new[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
+                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
             var table = Data[parts[0]];
 
-            if (table == null) 
+            if (table == null)
                 return Task.FromResult(false);
 
             switch (parts.Length)
             {
                 case 1 when verb == HttpVerbs.Get:
-                    return context.JsonResponseAsync((object) table, ct);
+                    return context.JsonResponseAsync((object)table, ct);
                 case 1 when verb == HttpVerbs.Post:
                     return AddRow(context, table);
                 case 2:
-                {
-                    foreach (var row in table)
                     {
-                        if (row["id"].ToString() != parts[1]) continue;
-
-                        switch (verb)
+                        foreach (var row in table)
                         {
-                            case HttpVerbs.Get:
-                                return context.JsonResponseAsync((object) row, ct);
-                            case HttpVerbs.Put:
-                                return UpdateRow(context, row);
-                            case HttpVerbs.Delete:
-                                return RemoveRow(table, row);
-                        }
-                    }
+                            if (row["id"].ToString() != parts[1]) continue;
 
-                    break;
-                }
+                            switch (verb)
+                            {
+                                case HttpVerbs.Get:
+                                    return context.JsonResponseAsync((object)row, ct);
+                                case HttpVerbs.Put:
+                                    return UpdateRow(context, row);
+                                case HttpVerbs.Delete:
+                                    return RemoveRow(table, row);
+                            }
+                        }
+
+                        break;
+                    }
             }
 
             return Task.FromResult(false);
@@ -128,19 +130,19 @@
 
         private async Task<bool> AddRow(IHttpContext context, dynamic table)
         {
-            var array = (IList<object>) table;
+            var array = (IList<object>)table;
             array.Add(await context.ParseJsonAsync<object>().ConfigureAwait(false));
             Task.Run(UpdateDataStore);
-            
+
             return true;
         }
 
         private Task<bool> RemoveRow(dynamic table, dynamic row)
         {
-            var array = (ICollection<object>) table;
+            var array = (ICollection<object>)table;
             array.Remove(row);
             Task.Run(UpdateDataStore);
-            
+
             return Task.FromResult(true);
         }
 
@@ -154,7 +156,7 @@
             }
 
             Task.Run(UpdateDataStore);
-            
+
             return true;
         }
     }
