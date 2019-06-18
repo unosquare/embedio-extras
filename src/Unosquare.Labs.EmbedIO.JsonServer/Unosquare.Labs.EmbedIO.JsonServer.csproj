@@ -4,10 +4,11 @@
     <AssemblyTitle>Unosquare EmbedIO JsonServer Module</AssemblyTitle>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AssemblyName>Unosquare.Labs.EmbedIO.JsonServer</AssemblyName>
+    <AssemblyName>EmbedIO.JsonServer</AssemblyName>
     <Authors>Unosquare</Authors>
     <LangVersion>7.3</LangVersion>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+    <RootNamespace>EmbedIO.JsonServer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

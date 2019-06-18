@@ -1,4 +1,6 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
+﻿using EmbedIO.LiteLibWebApi;
+
+namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
     using NUnit.Framework;
     using System.Collections.Generic;
@@ -6,7 +8,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using TestObjects;
-    using LiteLibWebApi;
     using Swan.Formatters;
     using Swan.Networking;
     using System.Net.Http;

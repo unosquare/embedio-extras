@@ -1,4 +1,6 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
+﻿using EmbedIO.JsonServer;
+
+namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
     using NUnit.Framework;
     using System.IO;
@@ -7,7 +9,6 @@
     using System.Text;
     using System.Threading.Tasks;
     using TestObjects;
-    using JsonServer;
     using Swan.Formatters;
     using Swan.Networking;
 

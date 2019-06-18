@@ -2,7 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
-    using BearerToken;
+    using EmbedIO.BearerToken;
 
     internal class SampleAuthorizationServerProvider : IAuthorizationServerProvider
     {

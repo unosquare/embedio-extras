@@ -1,13 +1,11 @@
-﻿using EmbedIO;
-
-namespace Unosquare.Labs.EmbedIO.JsonServer
+﻿namespace EmbedIO.JsonServer
 {
-    using Swan.Formatters;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using Unosquare.Swan.Formatters;
 
     /// <summary>
     /// JsonServer Module.
@@ -37,8 +35,6 @@ namespace Unosquare.Labs.EmbedIO.JsonServer
                     File.Create(jsonPath);
                 }
             }
-
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Any, HandleRequest);
         }
 
         /// <summary>
@@ -58,10 +54,7 @@ namespace Unosquare.Labs.EmbedIO.JsonServer
         /// The base path.
         /// </value>
         public string BasePath { get; set; }
-
-        /// <inheritdoc />
-        public override string Name => nameof(JsonServerModule);
-
+        
         /// <summary>
         /// Updates JSON file in disk.
         /// </summary>
@@ -72,66 +65,11 @@ namespace Unosquare.Labs.EmbedIO.JsonServer
 
             File.WriteAllText(JsonPath, Json.Serialize(Data, true));
         }
-
-        /// <summary>
-        /// Handles the request.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="ct">The cancellation token.</param>
-        /// <returns>A task representing the request action.</returns>
-        private Task<bool> HandleRequest(IHttpContext context, CancellationToken ct)
-        {
-            var path = context.RequestPath();
-            var verb = context.RequestVerb();
-
-            if (!path.StartsWith(BasePath, StringComparison.OrdinalIgnoreCase))
-                return Task.FromResult(false);
-
-            if (path == BasePath)
-                return context.JsonResponseAsync((object)Data, ct);
-
-            var parts = path.Substring(BasePath.Length)
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-
-            var table = Data[parts[0]];
-
-            if (table == null)
-                return Task.FromResult(false);
-
-            switch (parts.Length)
-            {
-                case 1 when verb == HttpVerbs.Get:
-                    return context.JsonResponseAsync((object)table, ct);
-                case 1 when verb == HttpVerbs.Post:
-                    return AddRow(context, table);
-                case 2:
-                    {
-                        foreach (var row in table)
-                        {
-                            if (row["id"].ToString() != parts[1]) continue;
-
-                            switch (verb)
-                            {
-                                case HttpVerbs.Get:
-                                    return context.JsonResponseAsync((object)row, ct);
-                                case HttpVerbs.Put:
-                                    return UpdateRow(context, row);
-                                case HttpVerbs.Delete:
-                                    return RemoveRow(table, row);
-                            }
-                        }
-
-                        break;
-                    }
-            }
-
-            return Task.FromResult(false);
-        }
-
-        private async Task<bool> AddRow(IHttpContext context, dynamic table)
+        
+        private async Task<bool> AddRow(IHttpContext context, dynamic table, CancellationToken cancellationToken)
         {
             var array = (IList<object>)table;
-            array.Add(await context.ParseJsonAsync<object>().ConfigureAwait(false));
+            array.Add(await context.GetRequestDataAsync<object>(cancellationToken).ConfigureAwait(false));
             Task.Run(UpdateDataStore);
 
             return true;
@@ -146,9 +84,9 @@ namespace Unosquare.Labs.EmbedIO.JsonServer
             return Task.FromResult(true);
         }
 
-        private async Task<bool> UpdateRow(IHttpContext context, dynamic row)
+        private async Task<bool> UpdateRow(IHttpContext context, dynamic row, CancellationToken cancellationToken)
         {
-            var update = await context.ParseJsonAsync<Dictionary<string, object>>().ConfigureAwait(false);
+            var update = await context.GetRequestDataAsync<Dictionary<string, object>>(cancellationToken).ConfigureAwait(false);
 
             foreach (var property in update)
             {
@@ -158,6 +96,51 @@ namespace Unosquare.Labs.EmbedIO.JsonServer
             Task.Run(UpdateDataStore);
 
             return true;
+        }
+
+        /// <inheritdoc />
+        protected override Task<bool> OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        {
+            var verb = context.Request.HttpVerb;
+
+            if (path == BasePath)
+                return context.SendDataAsync((object)Data, cancellationToken);
+
+            var parts = path.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+            var table = Data[parts[0]];
+
+            if (table == null)
+                return Task.FromResult(false);
+
+            switch (parts.Length)
+            {
+                case 1 when verb == HttpVerbs.Get:
+                    return context.SendDataAsync((object)table, cancellationToken);
+                case 1 when verb == HttpVerbs.Post:
+                    return AddRow(context, table, cancellationToken);
+                case 2:
+                {
+                    foreach (var row in table)
+                    {
+                        if (row["id"].ToString() != parts[1]) continue;
+
+                        switch (verb)
+                        {
+                            case HttpVerbs.Get:
+                                return context.SendDataAsync((object)row, cancellationToken);
+                            case HttpVerbs.Put:
+                                return UpdateRow(context, row, cancellationToken);
+                            case HttpVerbs.Delete:
+                                return RemoveRow(table, row);
+                        }
+                    }
+
+                    break;
+                }
+            }
+
+            return Task.FromResult(false);
         }
     }
 }

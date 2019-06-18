@@ -1,16 +1,14 @@
-﻿using System.Threading;
-using EmbedIO;
-
-namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿namespace EmbedIO.BearerToken
 {
-    using Microsoft.IdentityModel.Tokens;
-    using System.Threading.Tasks;
-    using Swan;
     using System;
     using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
     using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.IdentityModel.Tokens;
+    using Unosquare.Swan;
 
     /// <summary>
     /// Extension methods.

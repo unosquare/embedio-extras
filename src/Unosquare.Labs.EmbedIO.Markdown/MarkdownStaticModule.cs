@@ -1,6 +1,5 @@
-﻿namespace Unosquare.Labs.EmbedIO.Markdown
+﻿namespace EmbedIO.Markdown
 {
-    using Constants;
     using System;
     using System.IO;
     using System.Linq;

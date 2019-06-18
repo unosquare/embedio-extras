@@ -1,7 +1,8 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
+﻿using EmbedIO.BearerToken;
+using EmbedIO.Markdown;
+
+namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
-    using BearerToken;
-    using Markdown;
     using NUnit.Framework;
     using Swan.Formatters;
     using System;

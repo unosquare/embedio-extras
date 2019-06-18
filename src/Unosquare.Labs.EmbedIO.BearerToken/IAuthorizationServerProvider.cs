@@ -1,4 +1,4 @@
-﻿namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿namespace EmbedIO.BearerToken
 {
     using System.Threading.Tasks;
 

@@ -1,9 +1,10 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
+﻿using EmbedIO.Markdown;
+
+namespace Unosquare.Labs.EmbedIO.Extra.Tests
 {
     using System.Threading.Tasks;
     using NUnit.Framework;
     using TestObjects;
-    using Markdown;
 
     [TestFixture]
     public class MarkdownModuleTest : FixtureBase
