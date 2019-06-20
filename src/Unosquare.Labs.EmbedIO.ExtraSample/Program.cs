@@ -1,13 +1,14 @@
-﻿namespace Unosquare.Labs.EmbedIO.ExtraSample
+﻿namespace EmbedIO.ExtraSample
 {
     using System;
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using EmbedIO.BearerToken;
     using EmbedIO.JsonServer;
     using EmbedIO.LiteLibWebApi;
     using EmbedIO.Markdown;
-    using Swan;
+    using Unosquare.Swan;
 
     internal class Program
     {
@@ -48,12 +49,11 @@
             using (var server = new WebServer(url))
             {
                 server
-                    .EnableCors()
-                    .UseBearerToken(authServer, new[] {"/secure.html"});
-
-                server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")));
-                server.RegisterModule(new MarkdownStaticModule(WebRootPath));
-                server.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+                    .WithCors()
+                    .WithBearerToken("/", authServer, new[] {"/secure.html"})
+                    .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
+                    .WithModule(new MarkdownStaticModule("/", WebRootPath))
+                    .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
                 
                 // Fire up the browser to show the content!
                 var browser = new System.Diagnostics.Process

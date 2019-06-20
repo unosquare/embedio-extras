@@ -1,16 +1,15 @@
-﻿using EmbedIO.Markdown;
+﻿using System.Threading.Tasks;
+using EmbedIO.Extra.Tests.TestObjects;
+using EmbedIO.Markdown;
+using NUnit.Framework;
 
-namespace Unosquare.Labs.EmbedIO.Extra.Tests
+namespace EmbedIO.Extra.Tests
 {
-    using System.Threading.Tasks;
-    using NUnit.Framework;
-    using TestObjects;
-
     [TestFixture]
     public class MarkdownModuleTest : FixtureBase
     {
         public MarkdownModuleTest() 
-            : base(ws => ws.RegisterModule(new MarkdownStaticModule(TestHelper.SetupStaticFolder())),
+            : base(ws => ws.WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder())),
                 true)
         {
             // placeholder

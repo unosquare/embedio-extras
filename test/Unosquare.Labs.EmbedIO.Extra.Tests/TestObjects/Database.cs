@@ -1,8 +1,8 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
-{
-    using System.IO;
-    using LiteLib;
+﻿using System.IO;
+using Unosquare.Labs.LiteLib;
 
+namespace EmbedIO.Extra.Tests.TestObjects
+{
     internal class Order : LiteModel
     {
         [LiteIndex]

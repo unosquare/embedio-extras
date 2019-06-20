@@ -1,5 +1,6 @@
 ﻿namespace EmbedIO.BearerToken
 {
+    using System.Threading;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -11,8 +12,11 @@
         /// Validates a Client Authentication.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <returns>A task representing the client authentication.</returns>
-        Task ValidateClientAuthentication(ValidateClientAuthenticationContext context);
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>
+        /// A task representing the client authentication.
+        /// </returns>
+        Task ValidateClientAuthentication(ValidateClientAuthenticationContext context, CancellationToken cancellationToken);
 
         /// <summary>
         /// Gets a Expiration Date.

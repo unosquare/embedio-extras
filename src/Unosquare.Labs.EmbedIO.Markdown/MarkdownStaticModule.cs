@@ -19,24 +19,22 @@
         public const string DefaultDocumentName = "index.markdown";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownStaticModule"/> class.
+        /// Initializes a new instance of the <see cref="MarkdownStaticModule" /> class.
         /// </summary>
+        /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="fileSystemPath">The file system path.</param>
+        /// <exception cref="ArgumentException">Path \'{fileSystemPath}\' does not exist.</exception>
         /// <exception cref="System.ArgumentException">Path '" + fileSystemPath + "' does not exist.</exception>
-        public MarkdownStaticModule(string fileSystemPath)
+        public MarkdownStaticModule(string baseUrlPath, string fileSystemPath)
+        :base(baseUrlPath)
         {
             if (Directory.Exists(fileSystemPath) == false)
                 throw new ArgumentException($"Path \'{fileSystemPath}\' does not exist.");
 
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;
-
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, HandleGet);
         }
-
-        /// <inheritdoc />
-        public override string Name => nameof(MarkdownStaticModule);
-
+        
         /// <summary>
         /// Gets or sets the default document.
         /// Defaults to "index.html"
@@ -48,10 +46,27 @@
         /// Gets the file system path from which files are retrieved.
         /// </summary>
         public string FileSystemPath { get; protected set; }
-
-        private Task<bool> HandleGet(IHttpContext context, CancellationToken ct)
+        
+        private string GetLocalPath(string path)
         {
-            var localPath = GetLocalPath(context);
+            var urlPath = path.Replace('/', Path.DirectorySeparatorChar);
+
+            // adjust the path to see if we've got a default document
+            if (urlPath.Last() == Path.DirectorySeparatorChar)
+                urlPath = urlPath + DefaultDocument;
+
+            urlPath = urlPath.TrimStart(Path.DirectorySeparatorChar);
+
+            if (Path.GetExtension(urlPath) == ".html") urlPath = urlPath.Replace(".html", ".markdown");
+            if (Path.GetExtension(urlPath) == ".htm") urlPath = urlPath.Replace(".htm", ".markdown");
+
+            return Path.Combine(FileSystemPath, urlPath);
+        }
+
+        /// <inheritdoc />
+        protected override Task<bool> OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        {
+            var localPath = GetLocalPath(path);
 
             if (!File.Exists(localPath))
                 return Task.FromResult(false);
@@ -66,22 +81,6 @@
             }
 
             return Task.FromResult(true);
-        }
-
-        private string GetLocalPath(IHttpContext context)
-        {
-            var urlPath = context.Request.Url.LocalPath.Replace('/', Path.DirectorySeparatorChar);
-
-            // adjust the path to see if we've got a default document
-            if (urlPath.Last() == Path.DirectorySeparatorChar)
-                urlPath = urlPath + DefaultDocument;
-
-            urlPath = urlPath.TrimStart(Path.DirectorySeparatorChar);
-
-            if (Path.GetExtension(urlPath) == ".html") urlPath = urlPath.Replace(".html", ".markdown");
-            if (Path.GetExtension(urlPath) == ".htm") urlPath = urlPath.Replace(".htm", ".markdown");
-
-            return Path.Combine(FileSystemPath, urlPath);
         }
     }
 }

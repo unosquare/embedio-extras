@@ -1,7 +1,7 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
-{
-    using System.Threading;
+﻿using System.Threading;
 
+namespace EmbedIO.Extra.Tests.TestObjects
+{
     internal static class Resources
     {
         private const string ServerAddress = "http://localhost:{0}/";

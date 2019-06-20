@@ -72,7 +72,7 @@ namespace EmbedIO.LiteLibWebApi
 
         private async Task<bool> AddRow(IHttpContext context, Type setType)
         {
-            var body = (IDictionary<string, object>)Json.Deserialize(await context.RequestBodyAsync().ConfigureAwait(false));
+            var body = (IDictionary<string, object>)Json.Deserialize(await context.GetRequestBodyAsStringAsync().ConfigureAwait(false));
             var objTable = Activator.CreateInstance(setType);
             body.CopyKeyValuePairTo(objTable);
 
@@ -81,12 +81,12 @@ namespace EmbedIO.LiteLibWebApi
             return true;
         }
 
-        private async Task<bool> UpdateRow(Type setType, ILiteDbSet table, string rowId, IHttpContext context, CancellationToken cancellationToken)
+        private async Task<bool> UpdateRow(Type setType, ILiteDbSet table, string rowId, IHttpContext context)
         {
             var objTable = Activator.CreateInstance(setType);
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
             ((IDictionary<string, object>)data.First()).CopyKeyValuePairTo(objTable);
-            var body = (IDictionary<string, object>)Json.Deserialize(await context.GetRequestBodyAsStringAsync(cancellationToken).ConfigureAwait(false));
+            var body = (IDictionary<string, object>)Json.Deserialize(await context.GetRequestBodyAsStringAsync().ConfigureAwait(false));
             body.CopyKeyValuePairTo(objTable, "RowId");
 
             await _dbInstance.UpdateAsync(objTable).ConfigureAwait(false);
@@ -104,6 +104,7 @@ namespace EmbedIO.LiteLibWebApi
             return true;
         }
 
+        /// <inheritdoc />
         protected override async Task<bool> OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
         {
             var verb = context.Request.HttpVerb;

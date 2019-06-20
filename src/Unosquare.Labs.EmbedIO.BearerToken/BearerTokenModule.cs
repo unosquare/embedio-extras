@@ -81,7 +81,7 @@
             if (path == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
             {
                 var validationContext = context.GetValidationContext();
-                await _authorizationServerProvider.ValidateClientAuthentication(validationContext);
+                await _authorizationServerProvider.ValidateClientAuthentication(validationContext, cancellationToken);
 
                 if (!validationContext.IsValidated)
                     return await context.Rejected(validationContext.ErrorPayload);

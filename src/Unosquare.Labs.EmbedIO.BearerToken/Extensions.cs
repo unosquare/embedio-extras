@@ -123,7 +123,7 @@
         /// <returns>
         /// The same web server.
         /// </returns>
-        public static IWebServer UseBearerToken(
+        public static IWebServer WithBearerToken(
             this IWebServer webserver,
             string baseUrlPath,
             IAuthorizationServerProvider authorizationProvider = null,

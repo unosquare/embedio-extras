@@ -1,12 +1,12 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
-{
-    using NUnit.Framework;
-    using System.Net.Http;
-    using System;
-    using System.Threading.Tasks;
-    using TestObjects;
-    using Unosquare.Labs.EmbedIO.Tests;
+﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using EmbedIO.Extra.Tests.TestObjects;
+using EmbedIO.Testing;
+using NUnit.Framework;
 
+namespace EmbedIO.Extra.Tests
+{
     public abstract class FixtureBase
     {
         private readonly Action<IWebServer> _builder;
@@ -14,7 +14,7 @@
 
         protected FixtureBase(Action<IWebServer> builder, bool useTestWebServer = false)
         {
-            Swan.Terminal.Settings.GlobalLoggingMessageType = Swan.LogMessageType.None;
+            Unosquare.Swan.Terminal.Settings.GlobalLoggingMessageType = Unosquare.Swan.LogMessageType.None;
 
             _builder = builder;
             _useTestWebServer = useTestWebServer;

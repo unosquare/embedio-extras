@@ -1,7 +1,7 @@
-﻿namespace Unosquare.Labs.EmbedIO.ExtraSample
+﻿namespace EmbedIO.ExtraSample
 {
     using System.IO;
-    using LiteLib;
+    using Unosquare.Labs.LiteLib;
 
     internal class Order : LiteModel
     {

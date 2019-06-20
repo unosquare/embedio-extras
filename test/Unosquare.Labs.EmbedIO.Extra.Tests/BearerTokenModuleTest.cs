@@ -1,35 +1,34 @@
-﻿using EmbedIO.BearerToken;
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using EmbedIO.BearerToken;
+using EmbedIO.Extra.Tests.TestObjects;
 using EmbedIO.Markdown;
+using NUnit.Framework;
+using Unosquare.Swan.Formatters;
 
-namespace Unosquare.Labs.EmbedIO.Extra.Tests
+namespace EmbedIO.Extra.Tests
 {
-    using NUnit.Framework;
-    using Swan.Formatters;
-    using System;
-    using System.Net;
-    using System.Net.Http;
-    using System.Threading.Tasks;
-    using TestObjects;
-
     [TestFixture]
     public class BearerTokenModuleTest : FixtureBase
     {
         protected BasicAuthorizationServerProvider BasicProvider = new BasicAuthorizationServerProvider();
 
         public BearerTokenModuleTest()
-            : base(ws => 
+            : base(ws =>
             {
-                ws.RegisterModule(new BearerTokenModule(new BasicAuthorizationServerProvider()));
-                ws.RegisterModule(new MarkdownStaticModule(TestHelper.SetupStaticFolder()));
+                ws.WithBearerToken("/", new BasicAuthorizationServerProvider());
+                ws.WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder()));
             })
         {
         }
-        
+
         [Test]
         public void TestBasicAuthorizationServerProvider()
         {
             Assert.Throws<ArgumentNullException>(() => BasicProvider
-                .ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
+                .ValidateClientAuthentication(new ValidateClientAuthenticationContext(null), default)
                 .RunSynchronously());
         }
 
@@ -44,7 +43,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 {
                     Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
                 }
-            }                
+            }
         }
 
         [Test]
@@ -60,7 +59,7 @@ namespace Unosquare.Labs.EmbedIO.Extra.Tests
                 {
                     Assert.AreEqual(res.StatusCode, HttpStatusCode.OK);
                     var jsonString = await res.Content.ReadAsStringAsync();
-                    var json = Json.Deserialize<BearerToken>(jsonString);
+                    var json = Json.Deserialize<BearerToken.BearerToken>(jsonString);
                     Assert.IsNotNull(json);
                     Assert.IsNotEmpty(json.Token);
                     Assert.IsNotEmpty(json.Username);
