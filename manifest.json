@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "PK1Hg+TImnEd2ri5yvM9Eg=="
+          "hash": "92fWEQ67/ZecDvZ28Azcrw=="
         }
       },
       "is_incremental": false,
@@ -81,11 +81,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.BasicAuthorizationServerProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html",
-          "hash": "dQ3+F/VtjNfHalx3oPzhQw=="
+          "relative_path": "api/EmbedIO.BearerToken.BasicAuthorizationServerProvider.html",
+          "hash": "9ZbK0Q3+NRe5AYoO3KtYpA=="
         }
       },
       "is_incremental": false,
@@ -93,11 +93,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.BearerToken.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html",
-          "hash": "/749v9JrQsxmaEIGqzNl2w=="
+          "relative_path": "api/EmbedIO.BearerToken.BearerToken.html",
+          "hash": "/NpL9tA1vWivHXAmJyfIKQ=="
         }
       },
       "is_incremental": false,
@@ -105,11 +105,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.BearerTokenModule.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html",
-          "hash": "WTjJ8WXYEE3kMqS6GMMseg=="
+          "relative_path": "api/EmbedIO.BearerToken.BearerTokenModule.html",
+          "hash": "nf7/v3HM9lBy3aznmgFpDw=="
         }
       },
       "is_incremental": false,
@@ -117,11 +117,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html",
-          "hash": "pZhx7digBEjQgci3nqa8rA=="
+          "relative_path": "api/EmbedIO.BearerToken.Extensions.html",
+          "hash": "xGmGjWcVn6UxAquObIcgIw=="
         }
       },
       "is_incremental": false,
@@ -129,11 +129,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.IAuthorizationServerProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html",
-          "hash": "vCCowMJVnIsn/8vYtr5wGw=="
+          "relative_path": "api/EmbedIO.BearerToken.IAuthorizationServerProvider.html",
+          "hash": "T9qslGOoqjwmXd4d+cStgw=="
         }
       },
       "is_incremental": false,
@@ -141,11 +141,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.ValidateClientAuthenticationContext.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html",
-          "hash": "ACxZR4zHG2a/Zhet2C9puA=="
+          "relative_path": "api/EmbedIO.BearerToken.ValidateClientAuthenticationContext.html",
+          "hash": "3AjpIHjdwrNbYmW8bgBPiA=="
         }
       },
       "is_incremental": false,
@@ -153,11 +153,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.html",
-          "hash": "dqGbGTqXIbFsllu3GraXsw=="
+          "relative_path": "api/EmbedIO.BearerToken.html",
+          "hash": "hltdoMEFVjbLuLjKsxqw5Q=="
         }
       },
       "is_incremental": false,
@@ -165,11 +165,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.yml",
+      "source_relative_path": "obj/api/EmbedIO.JsonServer.JsonServerModule.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html",
-          "hash": "5l+r9hO5Y4KFzt1cOn5TnQ=="
+          "relative_path": "api/EmbedIO.JsonServer.JsonServerModule.html",
+          "hash": "WLZ4NTxGr1dGmbaft4FRow=="
         }
       },
       "is_incremental": false,
@@ -177,11 +177,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.JsonServer.yml",
+      "source_relative_path": "obj/api/EmbedIO.JsonServer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.JsonServer.html",
-          "hash": "J3RPrFK7K606oQq5DMc/jQ=="
+          "relative_path": "api/EmbedIO.JsonServer.html",
+          "hash": "IV5GWzIAlzq/lnwXcTTjYg=="
         }
       },
       "is_incremental": false,
@@ -189,11 +189,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.yml",
+      "source_relative_path": "obj/api/EmbedIO.LiteLibWebApi.LiteLibModule-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html",
-          "hash": "sXEqQOKeUq9KckzJjL9t4A=="
+          "relative_path": "api/EmbedIO.LiteLibWebApi.LiteLibModule-1.html",
+          "hash": "FXwg044vOpG+SJL46AQF5g=="
         }
       },
       "is_incremental": false,
@@ -201,11 +201,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.LiteLibWebApi.yml",
+      "source_relative_path": "obj/api/EmbedIO.LiteLibWebApi.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.html",
-          "hash": "lDjxgfZa/JA+URcCZUfu4w=="
+          "relative_path": "api/EmbedIO.LiteLibWebApi.html",
+          "hash": "u6LymtTvZ8DmE8fE2E8prQ=="
         }
       },
       "is_incremental": false,
@@ -213,11 +213,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.yml",
+      "source_relative_path": "obj/api/EmbedIO.Markdown.MarkdownStaticModule.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html",
-          "hash": "TdcBNe1CNwlhJkE5Wtwr4Q=="
+          "relative_path": "api/EmbedIO.Markdown.MarkdownStaticModule.html",
+          "hash": "5kv5E49BQFfyLKvRzUmJXg=="
         }
       },
       "is_incremental": false,
@@ -225,11 +225,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.Markdown.yml",
+      "source_relative_path": "obj/api/EmbedIO.Markdown.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.Markdown.html",
-          "hash": "JwiEseb3f0Z1LG7V6vUZqA=="
+          "relative_path": "api/EmbedIO.Markdown.html",
+          "hash": "GXjeYLmLJNzmN/H1MDQMsQ=="
         }
       },
       "is_incremental": false,
@@ -241,7 +241,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "vOpzk91n0bXPwcOGQGwidA=="
+          "hash": "tJcae51QyO6+fTXsOF8EyQ=="
         }
       },
       "is_incremental": false,

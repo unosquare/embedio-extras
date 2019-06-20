@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class BearerToken
+    <title>Class BasicAuthorizationServerProvider
    | Unosquare EmbedIO Extras </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class BearerToken
+    <meta name="title" content="Class BasicAuthorizationServerProvider
    | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.43.0.0">
+    <meta name="generator" content="docfx 2.43.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -76,18 +76,22 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken">
+            <article class="content wrap" id="_content" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider">
   
   
-  <h1 id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken" class="text-break">Class BearerToken
+  <h1 id="EmbedIO_BearerToken_BasicAuthorizationServerProvider" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider" class="text-break">Class BasicAuthorizationServerProvider
   </h1>
-  <div class="markdown level0 summary"><p>Represents a Bearer Token JSON response.</p>
+  <div class="markdown level0 summary"><p>Basic Authorization Server Provider implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">BearerToken</span></div>
+    <div class="level1"><span class="xref">BasicAuthorizationServerProvider</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -113,25 +117,25 @@
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.html">Unosquare.Labs.EmbedIO.BearerToken</a></h6>
-  <h5 id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="EmbedIO.BearerToken.html">EmbedIO.BearerToken</a></h6>
+  <h5 id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BearerToken</code></pre>
+    <pre><code class="lang-csharp hljs">public class BasicAuthorizationServerProvider : IAuthorizationServerProvider</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_ExpirationDate_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_ExpirationDate" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken.ExpirationDate">ExpirationDate</h4>
-  <div class="markdown level1 summary"><p>Expiration Date.</p>
+  <a id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate_" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate*"></a>
+  <h4 id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate">GetExpirationDate()</h4>
+  <div class="markdown level1 summary"><p>Gets a Expiration Date.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public long ExpirationDate { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public long GetExpirationDate()</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -142,22 +146,47 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Int64</span></td>
-        <td></td>
+        <td><p>Ticks until expiration date.</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Token_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Token" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Token">Token</h4>
-  <div class="markdown level1 summary"><p>The JsonWebToken.</p>
+  <a id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication*"></a>
+  <h4 id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_EmbedIO_BearerToken_ValidateClientAuthenticationContext_System_Threading_CancellationToken_" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication(EmbedIO.BearerToken.ValidateClientAuthenticationContext,System.Threading.CancellationToken)">ValidateClientAuthentication(ValidateClientAuthenticationContext, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Validates a Client Authentication.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Token { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Task ValidateClientAuthentication(ValidateClientAuthenticationContext context, CancellationToken cancellationToken)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="EmbedIO.BearerToken.ValidateClientAuthenticationContext.html">ValidateClientAuthenticationContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -167,63 +196,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A task representing the client authentication.</p>
+</td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_TokenType_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_TokenType" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken.TokenType">TokenType</h4>
-  <div class="markdown level1 summary"><p>The Token type.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string TokenType { get; set; }</code></pre>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Username_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerToken_Username" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerToken.Username">Username</h4>
-  <div class="markdown level1 summary"><p>Client username.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Username { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 <h3 id="disqus_thread">Comments</h3>
 <script>
