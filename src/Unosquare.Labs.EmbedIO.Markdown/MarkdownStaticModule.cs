@@ -24,9 +24,8 @@
         /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="fileSystemPath">The file system path.</param>
         /// <exception cref="ArgumentException">Path \'{fileSystemPath}\' does not exist.</exception>
-        /// <exception cref="System.ArgumentException">Path '" + fileSystemPath + "' does not exist.</exception>
         public MarkdownStaticModule(string baseUrlPath, string fileSystemPath)
-        :base(baseUrlPath)
+            : base(baseUrlPath)
         {
             if (Directory.Exists(fileSystemPath) == false)
                 throw new ArgumentException($"Path \'{fileSystemPath}\' does not exist.");
@@ -34,7 +33,7 @@
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;
         }
-        
+
         /// <summary>
         /// Gets or sets the default document.
         /// Defaults to "index.html"
@@ -46,7 +45,7 @@
         /// Gets the file system path from which files are retrieved.
         /// </summary>
         public string FileSystemPath { get; protected set; }
-        
+
         private string GetLocalPath(string path)
         {
             var urlPath = path.Replace('/', Path.DirectorySeparatorChar);
@@ -64,7 +63,10 @@
         }
 
         /// <inheritdoc />
-        protected override Task<bool> OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        protected override Task<bool> OnRequestAsync(
+            IHttpContext context, 
+            string path,
+            CancellationToken cancellationToken)
         {
             var localPath = GetLocalPath(path);
 
