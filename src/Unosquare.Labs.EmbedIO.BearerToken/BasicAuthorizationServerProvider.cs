@@ -1,6 +1,7 @@
 ﻿namespace EmbedIO.BearerToken
 {
     using System;
+    using Utilities;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -14,9 +15,9 @@
         {
             var data = await context.HttpContext.GetRequestFormDataAsync(cancellationToken).ConfigureAwait(false);
 
-            if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
+            if (data?.ContainsKey("grant_type") == true && data["grant_type"] == "password")
             {
-                context.Validated(data.ContainsKey("username") ? data["username"].ToString() : string.Empty);
+                context.Validated(data.ContainsKey("username") ? data["username"] : string.Empty);
             }
             else
             {

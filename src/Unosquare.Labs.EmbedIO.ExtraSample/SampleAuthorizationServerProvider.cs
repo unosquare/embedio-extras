@@ -1,9 +1,10 @@
 ﻿namespace EmbedIO.ExtraSample
 {
     using System;
+    using Utilities;
     using System.Threading;
     using System.Threading.Tasks;
-    using EmbedIO.BearerToken;
+    using BearerToken;
 
     internal class SampleAuthorizationServerProvider : IAuthorizationServerProvider
     {
@@ -11,11 +12,11 @@
         {
             var data = await context.HttpContext.GetRequestFormDataAsync(cancellationToken).ConfigureAwait(false);
 
-            if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
+            if (data?.ContainsKey("grant_type") == true && data["grant_type"] == "password")
             {
                 context.Identity.AddClaim(new System.Security.Claims.Claim("Role", "Admin"));
 
-                context.Validated(data.ContainsKey("username") ? data["username"].ToString() : string.Empty);
+                context.Validated(data.ContainsKey("username") ? data["username"] : string.Empty);
             }
             else
             {

@@ -24,7 +24,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
     <packagereference Include="NUnit3TestAdapter" Version="3.13.0" />
     <PackageReference Include="LiteLib" Version="0.21.0" />
     <PackageReference Include="NUnit" Version="3.12.0" />

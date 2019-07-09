@@ -28,7 +28,10 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="error">The error.</param>
-        /// <returns>A task representing the rejection of the authorization action.</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>
+        /// A task representing the rejection of the authorization action.
+        /// </returns>
         public static Task<bool> Rejected(this IHttpContext context, object error = null, CancellationToken cancellationToken = default)
         {
             context.Response.StatusCode = (int)System.Net.HttpStatusCode.Unauthorized;
