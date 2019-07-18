@@ -81,8 +81,6 @@
         /// <inheritdoc />
         protected override async Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
         {
-            context.Handled = true;
-
             if (path == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
             {
                 var validationContext = context.GetValidationContext();
@@ -106,6 +104,7 @@
                     },
                     cancellationToken);
 
+                context.Handled = true;
                 return;
             }
 
@@ -113,7 +112,6 @@
             {
                 if (!Match(path))
                 {
-                    context.Handled = false;
                     return;
                 }
             }
@@ -121,11 +119,11 @@
             // decode token to see if it's valid
             if (context.GetSecurityToken(SecretKey) != null)
             {
-                context.Handled = false;
                 return;
             }
 
             context.Rejected(cancellationToken: cancellationToken);
+            context.Handled = true;
         }
     }
 }
