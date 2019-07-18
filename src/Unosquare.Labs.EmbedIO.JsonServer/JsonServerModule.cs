@@ -99,7 +99,7 @@
         }
 
         /// <inheritdoc />
-        protected override Task<bool> OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        protected override Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
         {
             var verb = context.Request.HttpVerb;
 

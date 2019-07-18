@@ -1,8 +1,7 @@
-﻿using System.Threading;
-
-namespace EmbedIO.LiteLibWebApi
+﻿namespace EmbedIO.LiteLibWebApi
 {
     using System;
+    using System.Threading;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
@@ -22,9 +21,9 @@ namespace EmbedIO.LiteLibWebApi
         private const string RowSelector = "[RowId] = @RowId";
 
         private readonly T _dbInstance;
+        private readonly Type[] _dbTypes;
 
         private bool _disposedValue; // To detect redundant calls
-        private readonly Type[] _dbTypes;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LiteLibModule{T}" /> class.
@@ -70,18 +69,16 @@ namespace EmbedIO.LiteLibWebApi
             return objTable;
         }
 
-        private async Task<bool> AddRow(IHttpContext context, Type setType)
+        private async Task AddRow(IHttpContext context, Type setType)
         {
             var body = (IDictionary<string, object>)Json.Deserialize(await context.GetRequestBodyAsStringAsync().ConfigureAwait(false));
             var objTable = Activator.CreateInstance(setType);
             body.CopyKeyValuePairTo(objTable);
 
             await _dbInstance.InsertAsync(objTable).ConfigureAwait(false);
-
-            return true;
         }
 
-        private async Task<bool> UpdateRow(Type setType, ILiteDbSet table, string rowId, IHttpContext context)
+        private async Task UpdateRow(Type setType, ILiteDbSet table, string rowId, IHttpContext context)
         {
             var objTable = Activator.CreateInstance(setType);
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
@@ -90,22 +87,18 @@ namespace EmbedIO.LiteLibWebApi
             body.CopyKeyValuePairTo(objTable, "RowId");
 
             await _dbInstance.UpdateAsync(objTable).ConfigureAwait(false);
-
-            return true;
         }
 
-        private async Task<bool> RemoveRow(ILiteDbSet table, string rowId, Type setType)
+        private async Task RemoveRow(ILiteDbSet table, string rowId, Type setType)
         {
             var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = rowId });
             var objTable = SetValues(Activator.CreateInstance(setType), data.First());
 
             await _dbInstance.DeleteAsync(objTable).ConfigureAwait(false);
-
-            return true;
         }
 
         /// <inheritdoc />
-        protected override async Task<bool> OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        protected override async Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
         {
             var verb = context.Request.HttpVerb;
                 
@@ -114,8 +107,8 @@ namespace EmbedIO.LiteLibWebApi
             var setType = _dbTypes
                 .FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
 
-            if (setType == null) 
-                return false;
+            if (setType == null)
+                throw HttpException.NotFound();
                 
             var table = _dbInstance.Set(setType);
 
@@ -124,21 +117,26 @@ namespace EmbedIO.LiteLibWebApi
                 case 1 when verb == HttpVerbs.Get:
                     var current = await _dbInstance.SelectAsync<object>(table, "1=1");
 
-                    return await context.SendDataAsync(current.Select(row => SetValues(Activator.CreateInstance(setType), row)).ToList(), cancellationToken);
+                    await context.SendDataAsync(current.Select(row => SetValues(Activator.CreateInstance(setType), row)).ToList(), cancellationToken);
+                    return;
                 case 1 when verb == HttpVerbs.Post:
-                    return await AddRow(context, setType);
+                    await AddRow(context, setType);
+                    return;
                 case 2 when verb == HttpVerbs.Get:
                     var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = parts[1] });
                     var objTable = SetValues(Activator.CreateInstance(setType), data.First());
 
-                    return await context.SendDataAsync(objTable, cancellationToken);
+                    await context.SendDataAsync(objTable, cancellationToken);
+                    return;
                 case 2 when verb == HttpVerbs.Put:
-                    return await UpdateRow(setType, table, parts[1], context);
+                    await UpdateRow(setType, table, parts[1], context);
+                    return;
                 case 2 when verb == HttpVerbs.Delete:
-                    return await RemoveRow(table, parts[1], setType);
+                    await RemoveRow(table, parts[1], setType);
+                    return;
             }
 
-            return false;
+            throw HttpException.BadRequest();
         }
     }
 }

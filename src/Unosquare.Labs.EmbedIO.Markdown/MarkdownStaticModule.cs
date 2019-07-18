@@ -63,7 +63,7 @@
         }
 
         /// <inheritdoc />
-        protected override Task<bool> OnRequestAsync(
+        protected override Task OnRequestAsync(
             IHttpContext context, 
             string path,
             CancellationToken cancellationToken)
@@ -71,18 +71,21 @@
             var localPath = GetLocalPath(path);
 
             if (!File.Exists(localPath))
-                return Task.FromResult(false);
+                throw HttpException.NotFound();
 
             using (var reader = File.OpenText(localPath))
             {
-                using (var writer = new StreamWriter(context.Response.OutputStream))
+                using (var outputStream = context.OpenResponseStream())
                 {
-                    CommonMark.CommonMarkConverter.Convert(reader, writer);
-                    context.Response.ContentType = "text/html";
+                    using (var writer = new StreamWriter(outputStream))
+                    {
+                        CommonMark.CommonMarkConverter.Convert(reader, writer);
+                        context.Response.ContentType = "text/html";
+                    }
                 }
             }
 
-            return Task.FromResult(true);
+            return Task.CompletedTask;
         }
     }
 }
