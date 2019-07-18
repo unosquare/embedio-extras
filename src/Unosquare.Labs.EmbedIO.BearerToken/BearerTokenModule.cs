@@ -47,6 +47,9 @@
         /// </value>
         public SymmetricSecurityKey SecretKey { get; }
 
+        /// <inheritdoc />
+        public override bool IsFinalHandler => false;
+
         private bool Match(string path)
         {
             var match = false;
@@ -76,19 +79,24 @@
         }
 
         /// <inheritdoc />
-        protected override async Task<bool> OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        protected override async Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
         {
+            context.Handled = true;
+
             if (path == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
             {
                 var validationContext = context.GetValidationContext();
                 await _authorizationServerProvider.ValidateClientAuthentication(validationContext, cancellationToken);
 
                 if (!validationContext.IsValidated)
-                    return await context.Rejected(validationContext.ErrorPayload);
+                {
+                    await context.Rejected(validationContext.ErrorPayload);
+                    return;
+                }
 
                 var expiryDate = DateTime.SpecifyKind(DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()), DateTimeKind.Utc);
 
-                return await context.SendDataAsync(
+                await context.SendDataAsync(
                     new BearerToken
                     {
                         Token = validationContext.GetToken(SecretKey, expiryDate),
@@ -97,25 +105,27 @@
                         Username = validationContext.IdentityName,
                     },
                     cancellationToken);
+
+                return;
             }
 
             if (_routes != null)
             {
                 if (!Match(path))
                 {
-                    return false;
+                    context.Handled = false;
+                    return;
                 }
             }
 
             // decode token to see if it's valid
             if (context.GetSecurityToken(SecretKey) != null)
             {
-                return false;
+                context.Handled = false;
+                return;
             }
 
             context.Rejected(cancellationToken: cancellationToken);
-
-            return true;
         }
     }
 }

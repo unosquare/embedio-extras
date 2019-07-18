@@ -32,7 +32,7 @@
         /// <returns>
         /// A task representing the rejection of the authorization action.
         /// </returns>
-        public static Task<bool> Rejected(this IHttpContext context, object error = null, CancellationToken cancellationToken = default)
+        public static Task Rejected(this IHttpContext context, object error = null, CancellationToken cancellationToken = default)
         {
             context.Response.StatusCode = (int)System.Net.HttpStatusCode.Unauthorized;
             context.Response.Headers.Add(HttpHeaderNames.WWWAuthenticate, "Bearer");
