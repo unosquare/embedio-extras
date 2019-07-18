@@ -119,6 +119,19 @@ references:
   isSpec: "True"
   fullName: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule
   nameWithType: BearerTokenModule.BearerTokenModule
+- uid: EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler
+  name: IsFinalHandler
+  href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule_IsFinalHandler
+  commentId: P:EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler
+  fullName: EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler
+  nameWithType: BearerTokenModule.IsFinalHandler
+- uid: EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler*
+  name: IsFinalHandler
+  href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule_IsFinalHandler_
+  commentId: Overload:EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler
+  isSpec: "True"
+  fullName: EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler
+  nameWithType: BearerTokenModule.IsFinalHandler
 - uid: EmbedIO.BearerToken.BearerTokenModule.OnRequestAsync(IHttpContext,System.String,System.Threading.CancellationToken)
   name: OnRequestAsync(IHttpContext, String, CancellationToken)
   href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule_OnRequestAsync_IHttpContext_System_String_System_Threading_CancellationToken_
@@ -552,12 +565,12 @@ references:
   fullName.vb: EmbedIO.LiteLibWebApi.LiteLibModule(Of T).Dispose
   nameWithType: LiteLibModule<T>.Dispose
   nameWithType.vb: LiteLibModule(Of T).Dispose
-- uid: EmbedIO.LiteLibWebApi.LiteLibModule`1.OnRequestAsync(IHttpContext,System.String,CancellationToken)
+- uid: EmbedIO.LiteLibWebApi.LiteLibModule`1.OnRequestAsync(IHttpContext,System.String,System.Threading.CancellationToken)
   name: OnRequestAsync(IHttpContext, String, CancellationToken)
-  href: api/EmbedIO.LiteLibWebApi.LiteLibModule-1.html#EmbedIO_LiteLibWebApi_LiteLibModule_1_OnRequestAsync_IHttpContext_System_String_CancellationToken_
-  commentId: M:EmbedIO.LiteLibWebApi.LiteLibModule`1.OnRequestAsync(IHttpContext,System.String,CancellationToken)
-  fullName: EmbedIO.LiteLibWebApi.LiteLibModule<T>.OnRequestAsync(IHttpContext, System.String, CancellationToken)
-  fullName.vb: EmbedIO.LiteLibWebApi.LiteLibModule(Of T).OnRequestAsync(IHttpContext, System.String, CancellationToken)
+  href: api/EmbedIO.LiteLibWebApi.LiteLibModule-1.html#EmbedIO_LiteLibWebApi_LiteLibModule_1_OnRequestAsync_IHttpContext_System_String_System_Threading_CancellationToken_
+  commentId: M:EmbedIO.LiteLibWebApi.LiteLibModule`1.OnRequestAsync(IHttpContext,System.String,System.Threading.CancellationToken)
+  fullName: EmbedIO.LiteLibWebApi.LiteLibModule<T>.OnRequestAsync(IHttpContext, System.String, System.Threading.CancellationToken)
+  fullName.vb: EmbedIO.LiteLibWebApi.LiteLibModule(Of T).OnRequestAsync(IHttpContext, System.String, System.Threading.CancellationToken)
   nameWithType: LiteLibModule<T>.OnRequestAsync(IHttpContext, String, CancellationToken)
   nameWithType.vb: LiteLibModule(Of T).OnRequestAsync(IHttpContext, String, CancellationToken)
 - uid: EmbedIO.LiteLibWebApi.LiteLibModule`1.OnRequestAsync*

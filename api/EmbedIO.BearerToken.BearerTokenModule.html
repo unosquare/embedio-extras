@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BearerTokenModule
    | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.43.2.0">
+    <meta name="generator" content="docfx 2.43.3.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -153,6 +153,31 @@
   </h3>
   
   
+  <a id="EmbedIO_BearerToken_BearerTokenModule_IsFinalHandler_" data-uid="EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler*"></a>
+  <h4 id="EmbedIO_BearerToken_BearerTokenModule_IsFinalHandler" data-uid="EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler">IsFinalHandler</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsFinalHandler { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="EmbedIO_BearerToken_BearerTokenModule_SecretKey_" data-uid="EmbedIO.BearerToken.BearerTokenModule.SecretKey*"></a>
   <h4 id="EmbedIO_BearerToken_BearerTokenModule_SecretKey" data-uid="EmbedIO.BearerToken.BearerTokenModule.SecretKey">SecretKey</h4>
   <div class="markdown level1 summary"><p>Gets the secret key.</p>
@@ -188,7 +213,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Task&lt;bool&gt; OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -227,7 +252,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
         <td></td>
       </tr>
     </tbody>
