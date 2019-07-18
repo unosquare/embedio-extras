@@ -23,29 +23,21 @@
             JsonPath = jsonPath;
             BasePath = basePath;
 
-            if (string.IsNullOrWhiteSpace(jsonPath) == false)
-            {
-                if (File.Exists(jsonPath))
-                {
-                    var jsonData = File.ReadAllText(jsonPath);
-                    Data = Json.Deserialize(jsonData);
-                }
-                else
-                {
-                    File.Create(jsonPath);
-                }
-            }
+            if (string.IsNullOrWhiteSpace(jsonPath) || !File.Exists(jsonPath)) return;
+
+            var jsonData = File.ReadAllText(jsonPath);
+            Data = Json.Deserialize(jsonData);
         }
 
         /// <summary>
         /// Dynamic database.
         /// </summary>
-        public dynamic Data { get; set; }
+        public dynamic Data { get; }
 
         /// <summary>
         /// Default JSON file path.
         /// </summary>
-        public string JsonPath { get; set; }
+        public string JsonPath { get; }
 
         /// <summary>
         /// Gets or sets the base path.
@@ -53,8 +45,8 @@
         /// <value>
         /// The base path.
         /// </value>
-        public string BasePath { get; set; }
-        
+        public string BasePath { get; }
+
         /// <summary>
         /// Updates JSON file in disk.
         /// </summary>
@@ -65,26 +57,67 @@
 
             File.WriteAllText(JsonPath, Json.Serialize(Data, true));
         }
-        
-        private async Task<bool> AddRow(IHttpContext context, dynamic table, CancellationToken cancellationToken)
+
+        /// <inheritdoc />
+        protected override Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        {
+            if (path == BasePath)
+                return context.SendDataAsync((object)Data, cancellationToken);
+
+            var parts = path.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+            var table = Data[parts[0]];
+
+            if (table == null)
+                throw HttpException.NotFound();
+
+            var verb = context.Request.HttpVerb;
+
+            switch (parts.Length)
+            {
+                case 1 when verb == HttpVerbs.Get:
+                    return context.SendDataAsync((object)table, cancellationToken);
+                case 1 when verb == HttpVerbs.Post:
+                    return AddRow(context, table, cancellationToken);
+                case 2:
+                    {
+                        foreach (var row in table)
+                        {
+                            if (row["id"].ToString() != parts[1]) continue;
+
+                            switch (verb)
+                            {
+                                case HttpVerbs.Get:
+                                    return context.SendDataAsync((object)row, cancellationToken);
+                                case HttpVerbs.Put:
+                                    return UpdateRow(context, row, cancellationToken);
+                                case HttpVerbs.Delete:
+                                    return RemoveRow(table, row);
+                            }
+                        }
+
+                        break;
+                    }
+            }
+
+            throw HttpException.BadRequest();
+        }
+
+        private async Task AddRow(IHttpContext context, dynamic table, CancellationToken cancellationToken)
         {
             var array = (IList<object>)table;
             array.Add(await context.GetRequestDataAsync<object>(cancellationToken).ConfigureAwait(false));
             Task.Run(UpdateDataStore);
-
-            return true;
         }
 
-        private Task<bool> RemoveRow(dynamic table, dynamic row)
+        private void RemoveRow(dynamic table, dynamic row)
         {
             var array = (ICollection<object>)table;
             array.Remove(row);
             Task.Run(UpdateDataStore);
-
-            return Task.FromResult(true);
         }
 
-        private async Task<bool> UpdateRow(IHttpContext context, dynamic row, CancellationToken cancellationToken)
+        private async Task UpdateRow(IHttpContext context, dynamic row, CancellationToken cancellationToken)
         {
             var update = await context.GetRequestDataAsync<Dictionary<string, object>>(cancellationToken).ConfigureAwait(false);
 
@@ -94,53 +127,6 @@
             }
 
             Task.Run(UpdateDataStore);
-
-            return true;
-        }
-
-        /// <inheritdoc />
-        protected override Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
-        {
-            var verb = context.Request.HttpVerb;
-
-            if (path == BasePath)
-                return context.SendDataAsync((object)Data, cancellationToken);
-
-            var parts = path.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-
-            var table = Data[parts[0]];
-
-            if (table == null)
-                return Task.FromResult(false);
-
-            switch (parts.Length)
-            {
-                case 1 when verb == HttpVerbs.Get:
-                    return context.SendDataAsync((object)table, cancellationToken);
-                case 1 when verb == HttpVerbs.Post:
-                    return AddRow(context, table, cancellationToken);
-                case 2:
-                {
-                    foreach (var row in table)
-                    {
-                        if (row["id"].ToString() != parts[1]) continue;
-
-                        switch (verb)
-                        {
-                            case HttpVerbs.Get:
-                                return context.SendDataAsync((object)row, cancellationToken);
-                            case HttpVerbs.Put:
-                                return UpdateRow(context, row, cancellationToken);
-                            case HttpVerbs.Delete:
-                                return RemoveRow(table, row);
-                        }
-                    }
-
-                    break;
-                }
-            }
-
-            return Task.FromResult(false);
         }
     }
 }

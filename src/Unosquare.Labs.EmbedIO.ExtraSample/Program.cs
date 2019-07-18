@@ -4,10 +4,10 @@
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
-    using EmbedIO.BearerToken;
-    using EmbedIO.JsonServer;
-    using EmbedIO.LiteLibWebApi;
-    using EmbedIO.Markdown;
+    using BearerToken;
+    using JsonServer;
+    using LiteLibWebApi;
+    using Markdown;
     using Unosquare.Swan;
 
     internal class Program
@@ -27,52 +27,54 @@
         private static async Task Main(string[] args)
         {
             var url = args.Length > 0 ? args[0] : "http://localhost:9696/";
-            
-            var tokenSource = new CancellationTokenSource();
-            tokenSource.Token.Register(() => "Shutting down".Info());
 
-            // Create basic authentication provider
-            var authServer = new SampleAuthorizationServerProvider();
-            
-            // Set a task waiting for press key to exit
+            using (var tokenSource = new CancellationTokenSource())
+            {
+                tokenSource.Token.Register(() => "Shutting down".Info());
+
+                // Create basic authentication provider
+                var authServer = new SampleAuthorizationServerProvider();
+
+                // Set a task waiting for press key to exit
 #pragma warning disable 4014
-            Task.Run(() =>
+                Task.Run(() =>
 #pragma warning restore 4014
-            {
-                // Wait for any key to be pressed before disposing of our web server.
-                Console.ReadLine();
-
-                tokenSource.Cancel();
-            }, tokenSource.Token);
-
-            // Our web server is disposable. 
-            using (var server = new WebServer(url))
-            {
-                server
-                    .WithCors()
-                    .WithBearerToken("/", authServer, new[] {"/secure.html"})
-                    .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
-                    .WithModule(new MarkdownStaticModule("/", WebRootPath))
-                    .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
-                
-                // Fire up the browser to show the content!
-                var browser = new System.Diagnostics.Process
                 {
-                    StartInfo = new System.Diagnostics.ProcessStartInfo(url.Replace("*", "localhost"))
+                    // Wait for any key to be pressed before disposing of our web server.
+                    Console.ReadLine();
+
+                    tokenSource.Cancel();
+                }, tokenSource.Token);
+
+                // Our web server is disposable. 
+                using (var server = new WebServer(url))
+                {
+                    server
+                        .WithCors()
+                        .WithBearerToken("/", authServer, new[] { "/secure.html" })
+                        .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
+                        .WithModule(new MarkdownStaticModule("/", WebRootPath))
+                        .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+
+                    // Fire up the browser to show the content!
+                    var browser = new System.Diagnostics.Process
                     {
-                        UseShellExecute = true,
-                    },
-                };
+                        StartInfo = new System.Diagnostics.ProcessStartInfo(url.Replace("*", "localhost"))
+                        {
+                            UseShellExecute = true,
+                        },
+                    };
 
-                browser.Start();
+                    browser.Start();
 
-                // Once we've registered our modules and configured them, we call the RunAsync() method.
-                if (!tokenSource.IsCancellationRequested)
-                    await server.RunAsync(tokenSource.Token);
+                    // Once we've registered our modules and configured them, we call the RunAsync() method.
+                    if (!tokenSource.IsCancellationRequested)
+                        await server.RunAsync(tokenSource.Token);
 
-                "Bye".Info();
+                    "Bye".Info();
 
-                Terminal.Flush();
+                    Terminal.Flush();
+                }
             }
         }
     }
