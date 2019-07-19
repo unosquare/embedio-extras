@@ -42,6 +42,9 @@
         }
         
         /// <inheritdoc />
+        public override bool IsFinalHandler { get; } = true;
+
+        /// <inheritdoc />
         public void Dispose()
         {
             Dispose(true);

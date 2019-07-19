@@ -28,6 +28,9 @@
             var jsonData = File.ReadAllText(jsonPath);
             Data = Json.Deserialize(jsonData);
         }
+        
+        /// <inheritdoc />
+        public override bool IsFinalHandler { get; } = true;
 
         /// <summary>
         /// Dynamic database.

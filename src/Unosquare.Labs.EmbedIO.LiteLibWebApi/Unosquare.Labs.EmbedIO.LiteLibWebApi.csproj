@@ -13,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO" Version="3.0.0-preview8" />
-    <PackageReference Include="LiteLib" Version="0.22.0" />
+    <PackageReference Include="EmbedIO" Version="3.0.0-preview91" />
+    <PackageReference Include="LiteLib" Version="0.23.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

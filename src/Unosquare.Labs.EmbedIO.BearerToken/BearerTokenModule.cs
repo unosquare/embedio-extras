@@ -83,28 +83,7 @@
         {
             if (path == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
             {
-                var validationContext = context.GetValidationContext();
-                await _authorizationServerProvider.ValidateClientAuthentication(validationContext, cancellationToken);
-
-                if (!validationContext.IsValidated)
-                {
-                    await context.Rejected(validationContext.ErrorPayload);
-                    return;
-                }
-
-                var expiryDate = DateTime.SpecifyKind(DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()), DateTimeKind.Utc);
-
-                await context.SendDataAsync(
-                    new BearerToken
-                    {
-                        Token = validationContext.GetToken(SecretKey, expiryDate),
-                        TokenType = "bearer",
-                        ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
-                        Username = validationContext.IdentityName,
-                    },
-                    cancellationToken);
-
-                context.Handled = true;
+                await OnTokenRequest(context, cancellationToken);
                 return;
             }
 
@@ -124,6 +103,33 @@
 
             context.Rejected(cancellationToken: cancellationToken);
             context.Handled = true;
+        }
+
+        private async Task OnTokenRequest(IHttpContext context, CancellationToken cancellationToken)
+        {
+            context.Handled = true;
+
+            var validationContext = context.GetValidationContext();
+            await _authorizationServerProvider.ValidateClientAuthentication(validationContext, cancellationToken);
+
+            if (!validationContext.IsValidated)
+            {
+                await context.Rejected(validationContext.ErrorPayload);
+                return;
+            }
+
+            var expiryDate = DateTime.SpecifyKind(DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()),
+                DateTimeKind.Utc);
+
+            await context.SendDataAsync(
+                new BearerToken
+                {
+                    Token = validationContext.GetToken(SecretKey, expiryDate),
+                    TokenType = "bearer",
+                    ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
+                    Username = validationContext.IdentityName,
+                },
+                cancellationToken);
         }
     }
 }

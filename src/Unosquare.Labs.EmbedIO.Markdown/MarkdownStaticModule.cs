@@ -33,13 +33,16 @@
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;
         }
+        
+        /// <inheritdoc />
+        public override bool IsFinalHandler { get; } = true;
 
         /// <summary>
         /// Gets or sets the default document.
         /// Defaults to "index.html"
         /// Example: "root.xml".
         /// </summary>
-        public string DefaultDocument { get; set; }
+        public string DefaultDocument { get; }
 
         /// <summary>
         /// Gets the file system path from which files are retrieved.
