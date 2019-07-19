@@ -469,6 +469,19 @@ references:
   isSpec: "True"
   fullName: EmbedIO.JsonServer.JsonServerModule.Data
   nameWithType: JsonServerModule.Data
+- uid: EmbedIO.JsonServer.JsonServerModule.IsFinalHandler
+  name: IsFinalHandler
+  href: api/EmbedIO.JsonServer.JsonServerModule.html#EmbedIO_JsonServer_JsonServerModule_IsFinalHandler
+  commentId: P:EmbedIO.JsonServer.JsonServerModule.IsFinalHandler
+  fullName: EmbedIO.JsonServer.JsonServerModule.IsFinalHandler
+  nameWithType: JsonServerModule.IsFinalHandler
+- uid: EmbedIO.JsonServer.JsonServerModule.IsFinalHandler*
+  name: IsFinalHandler
+  href: api/EmbedIO.JsonServer.JsonServerModule.html#EmbedIO_JsonServer_JsonServerModule_IsFinalHandler_
+  commentId: Overload:EmbedIO.JsonServer.JsonServerModule.IsFinalHandler
+  isSpec: "True"
+  fullName: EmbedIO.JsonServer.JsonServerModule.IsFinalHandler
+  nameWithType: JsonServerModule.IsFinalHandler
 - uid: EmbedIO.JsonServer.JsonServerModule.JsonPath
   name: JsonPath
   href: api/EmbedIO.JsonServer.JsonServerModule.html#EmbedIO_JsonServer_JsonServerModule_JsonPath
@@ -565,6 +578,23 @@ references:
   fullName.vb: EmbedIO.LiteLibWebApi.LiteLibModule(Of T).Dispose
   nameWithType: LiteLibModule<T>.Dispose
   nameWithType.vb: LiteLibModule(Of T).Dispose
+- uid: EmbedIO.LiteLibWebApi.LiteLibModule`1.IsFinalHandler
+  name: IsFinalHandler
+  href: api/EmbedIO.LiteLibWebApi.LiteLibModule-1.html#EmbedIO_LiteLibWebApi_LiteLibModule_1_IsFinalHandler
+  commentId: P:EmbedIO.LiteLibWebApi.LiteLibModule`1.IsFinalHandler
+  fullName: EmbedIO.LiteLibWebApi.LiteLibModule<T>.IsFinalHandler
+  fullName.vb: EmbedIO.LiteLibWebApi.LiteLibModule(Of T).IsFinalHandler
+  nameWithType: LiteLibModule<T>.IsFinalHandler
+  nameWithType.vb: LiteLibModule(Of T).IsFinalHandler
+- uid: EmbedIO.LiteLibWebApi.LiteLibModule`1.IsFinalHandler*
+  name: IsFinalHandler
+  href: api/EmbedIO.LiteLibWebApi.LiteLibModule-1.html#EmbedIO_LiteLibWebApi_LiteLibModule_1_IsFinalHandler_
+  commentId: Overload:EmbedIO.LiteLibWebApi.LiteLibModule`1.IsFinalHandler
+  isSpec: "True"
+  fullName: EmbedIO.LiteLibWebApi.LiteLibModule<T>.IsFinalHandler
+  fullName.vb: EmbedIO.LiteLibWebApi.LiteLibModule(Of T).IsFinalHandler
+  nameWithType: LiteLibModule<T>.IsFinalHandler
+  nameWithType.vb: LiteLibModule(Of T).IsFinalHandler
 - uid: EmbedIO.LiteLibWebApi.LiteLibModule`1.OnRequestAsync(IHttpContext,System.String,System.Threading.CancellationToken)
   name: OnRequestAsync(IHttpContext, String, CancellationToken)
   href: api/EmbedIO.LiteLibWebApi.LiteLibModule-1.html#EmbedIO_LiteLibWebApi_LiteLibModule_1_OnRequestAsync_IHttpContext_System_String_System_Threading_CancellationToken_
@@ -639,6 +669,19 @@ references:
   isSpec: "True"
   fullName: EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath
   nameWithType: MarkdownStaticModule.FileSystemPath
+- uid: EmbedIO.Markdown.MarkdownStaticModule.IsFinalHandler
+  name: IsFinalHandler
+  href: api/EmbedIO.Markdown.MarkdownStaticModule.html#EmbedIO_Markdown_MarkdownStaticModule_IsFinalHandler
+  commentId: P:EmbedIO.Markdown.MarkdownStaticModule.IsFinalHandler
+  fullName: EmbedIO.Markdown.MarkdownStaticModule.IsFinalHandler
+  nameWithType: MarkdownStaticModule.IsFinalHandler
+- uid: EmbedIO.Markdown.MarkdownStaticModule.IsFinalHandler*
+  name: IsFinalHandler
+  href: api/EmbedIO.Markdown.MarkdownStaticModule.html#EmbedIO_Markdown_MarkdownStaticModule_IsFinalHandler_
+  commentId: Overload:EmbedIO.Markdown.MarkdownStaticModule.IsFinalHandler
+  isSpec: "True"
+  fullName: EmbedIO.Markdown.MarkdownStaticModule.IsFinalHandler
+  nameWithType: MarkdownStaticModule.IsFinalHandler
 - uid: EmbedIO.Markdown.MarkdownStaticModule.OnRequestAsync(IHttpContext,System.String,System.Threading.CancellationToken)
   name: OnRequestAsync(IHttpContext, String, CancellationToken)
   href: api/EmbedIO.Markdown.MarkdownStaticModule.html#EmbedIO_Markdown_MarkdownStaticModule_OnRequestAsync_IHttpContext_System_String_System_Threading_CancellationToken_
