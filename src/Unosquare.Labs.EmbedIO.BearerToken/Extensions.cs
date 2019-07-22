@@ -1,8 +1,7 @@
-﻿using Unosquare.Swan.Formatters;
-
-namespace EmbedIO.BearerToken
+﻿namespace EmbedIO.BearerToken
 {
     using System;
+    using Unosquare.Swan.Formatters;
     using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
