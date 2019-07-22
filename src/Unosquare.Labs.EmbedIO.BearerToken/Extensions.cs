@@ -1,4 +1,6 @@
-﻿namespace EmbedIO.BearerToken
+﻿using Unosquare.Swan.Formatters;
+
+namespace EmbedIO.BearerToken
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +8,6 @@
     using System.Security.Claims;
     using System.Text;
     using System.Threading;
-    using System.Threading.Tasks;
     using Microsoft.IdentityModel.Tokens;
     using Unosquare.Swan;
 
@@ -29,15 +30,11 @@
         /// <param name="context">The context.</param>
         /// <param name="error">The error.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>
-        /// A task representing the rejection of the authorization action.
-        /// </returns>
-        public static Task Rejected(this IHttpContext context, object error = null, CancellationToken cancellationToken = default)
+        public static void Rejected(this IHttpContext context, object error = null, CancellationToken cancellationToken = default)
         {
-            context.Response.StatusCode = (int)System.Net.HttpStatusCode.Unauthorized;
             context.Response.Headers.Add(HttpHeaderNames.WWWAuthenticate, "Bearer");
 
-            return error != null ? context.SendDataAsync(error, cancellationToken) : Task.FromResult(true);
+            throw HttpException.Unauthorized(Json.Serialize(error));
         }
 
         /// <summary>
