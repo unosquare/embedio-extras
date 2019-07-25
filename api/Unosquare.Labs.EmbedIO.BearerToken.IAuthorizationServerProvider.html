@@ -76,16 +76,16 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="EmbedIO.BearerToken.IAuthorizationServerProvider">
+            <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider">
   
   
-  <h1 id="EmbedIO_BearerToken_IAuthorizationServerProvider" data-uid="EmbedIO.BearerToken.IAuthorizationServerProvider" class="text-break">Interface IAuthorizationServerProvider
+  <h1 id="Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider" data-uid="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider" class="text-break">Interface IAuthorizationServerProvider
   </h1>
   <div class="markdown level0 summary"><p>Authorization Server Provider interface.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="EmbedIO.BearerToken.html">EmbedIO.BearerToken</a></h6>
-  <h5 id="EmbedIO_BearerToken_IAuthorizationServerProvider_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.html">Unosquare.Labs.EmbedIO.BearerToken</a></h6>
+  <h5 id="Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface IAuthorizationServerProvider</code></pre>
   </div>
@@ -93,8 +93,8 @@
   </h3>
   
   
-  <a id="EmbedIO_BearerToken_IAuthorizationServerProvider_GetExpirationDate_" data-uid="EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate*"></a>
-  <h4 id="EmbedIO_BearerToken_IAuthorizationServerProvider_GetExpirationDate" data-uid="EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate">GetExpirationDate()</h4>
+  <a id="Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_GetExpirationDate_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_GetExpirationDate" data-uid="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.GetExpirationDate">GetExpirationDate()</h4>
   <div class="markdown level1 summary"><p>Gets a Expiration Date.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -120,14 +120,14 @@
   </table>
   
   
-  <a id="EmbedIO_BearerToken_IAuthorizationServerProvider_ValidateClientAuthentication_" data-uid="EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication*"></a>
-  <h4 id="EmbedIO_BearerToken_IAuthorizationServerProvider_ValidateClientAuthentication_EmbedIO_BearerToken_ValidateClientAuthenticationContext_System_Threading_CancellationToken_" data-uid="EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication(EmbedIO.BearerToken.ValidateClientAuthenticationContext,System.Threading.CancellationToken)">ValidateClientAuthentication(ValidateClientAuthenticationContext, CancellationToken)</h4>
+  <a id="Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_ValidateClientAuthentication_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_ValidateClientAuthentication_Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)">ValidateClientAuthentication(ValidateClientAuthenticationContext)</h4>
   <div class="markdown level1 summary"><p>Validates a Client Authentication.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task ValidateClientAuthentication(ValidateClientAuthenticationContext context, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -140,15 +140,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="EmbedIO.BearerToken.ValidateClientAuthenticationContext.html">ValidateClientAuthenticationContext</a></td>
+        <td><a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html">ValidateClientAuthenticationContext</a></td>
         <td><span class="parametername">context</span></td>
         <td><p>The context.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The cancellation token.</p>
 </td>
       </tr>
     </tbody>

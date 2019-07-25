@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class LiteLibModule&lt;T&gt;
+    <title>Class JsonServerModule
    | Unosquare EmbedIO Extras </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class LiteLibModule&lt;T&gt;
+    <meta name="title" content="Class JsonServerModule
    | Unosquare EmbedIO Extras ">
     <meta name="generator" content="docfx 2.43.3.0">
     
@@ -76,56 +76,36 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1">
+            <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule">
   
   
-  <h1 id="EmbedIO_LiteLibWebApi_LiteLibModule_1" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1" class="text-break">Class LiteLibModule&lt;T&gt;
+  <h1 id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule" class="text-break">Class JsonServerModule
   </h1>
-  <div class="markdown level0 summary"><p>Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.</p>
+  <div class="markdown level0 summary"><p>JsonServer Module.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">LiteLibModule&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">JsonServerModule</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.IDisposable</span></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="EmbedIO.LiteLibWebApi.html">EmbedIO.LiteLibWebApi</a></h6>
-  <h5 id="EmbedIO_LiteLibWebApi_LiteLibModule_1_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.JsonServer.html">Unosquare.Labs.EmbedIO.JsonServer</a></h6>
+  <h5 id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LiteLibModule&lt;T&gt; : WebModuleBase, IDisposable where T : LiteDbContext</code></pre>
+    <pre><code class="lang-csharp hljs">public class JsonServerModule : WebModuleBase</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The type of LiteDbContext.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="constructors">Constructors
   </h3>
   
   
-  <a id="EmbedIO_LiteLibWebApi_LiteLibModule_1__ctor_" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor*"></a>
-  <h4 id="EmbedIO_LiteLibWebApi_LiteLibModule_1__ctor__0_System_String_" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor(`0,System.String)">LiteLibModule(T, String)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="EmbedIO.LiteLibWebApi.LiteLibModule-1.html">LiteLibModule&lt;T&gt;</a> class.</p>
+  <a id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule__ctor_" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.#ctor*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule__ctor_System_String_System_String_" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.#ctor(System.String,System.String)">JsonServerModule(String, String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html">JsonServerModule</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LiteLibModule(T instance, string baseUrlPath = &quot;/api/&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public JsonServerModule(string basePath = &quot;/api/&quot;, string jsonPath = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -138,15 +118,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">instance</span></td>
-        <td><p>The instance.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">basePath</span></td>
+        <td><p>The base path.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">baseUrlPath</span></td>
-        <td><p>The base URL path.</p>
+        <td><span class="parametername">jsonPath</span></td>
+        <td><p>The json path.</p>
 </td>
       </tr>
     </tbody>
@@ -155,13 +135,14 @@
   </h3>
   
   
-  <a id="EmbedIO_LiteLibWebApi_LiteLibModule_1_IsFinalHandler_" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.IsFinalHandler*"></a>
-  <h4 id="EmbedIO_LiteLibWebApi_LiteLibModule_1_IsFinalHandler" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.IsFinalHandler">IsFinalHandler</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_BasePath_" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_BasePath" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.BasePath">BasePath</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the base path.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool IsFinalHandler { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string BasePath { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -173,7 +154,85 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The base path.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Data_" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Data" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Data">Data</h4>
+  <div class="markdown level1 summary"><p>Dynamic database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public dynamic Data { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_JsonPath_" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_JsonPath" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.JsonPath">JsonPath</h4>
+  <div class="markdown level1 summary"><p>Default JSON file path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string JsonPath { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Name_" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_Name" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.Name">Name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -182,98 +241,14 @@
   </h3>
   
   
-  <a id="EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose*"></a>
-  <h4 id="EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-  
-  
-  <a id="EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose*"></a>
-  <h4 id="EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_System_Boolean_" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose(System.Boolean)">Dispose(Boolean)</h4>
-  <div class="markdown level1 summary"><p>Dispose the module.</p>
+  <a id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_JsonServer_JsonServerModule_UpdateDataStore" data-uid="Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.UpdateDataStore">UpdateDataStore()</h4>
+  <div class="markdown level1 summary"><p>Updates JSON file in disk.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p><code>true</code> if the object is disposing.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="EmbedIO_LiteLibWebApi_LiteLibModule_1_OnRequestAsync_" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.OnRequestAsync*"></a>
-  <h4 id="EmbedIO_LiteLibWebApi_LiteLibModule_1_OnRequestAsync_IHttpContext_System_String_System_Threading_CancellationToken_" data-uid="EmbedIO.LiteLibWebApi.LiteLibModule`1.OnRequestAsync(IHttpContext,System.String,System.Threading.CancellationToken)">OnRequestAsync(IHttpContext, String, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IHttpContext</span></td>
-        <td><span class="parametername">context</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">path</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.IDisposable</span>
+    <pre><code class="lang-csharp hljs">public void UpdateDataStore()</code></pre>
   </div>
 
 <h3 id="disqus_thread">Comments</h3>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class BearerTokenModule
+    <title>Class BasicAuthorizationServerProvider
    | Unosquare EmbedIO Extras </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class BearerTokenModule
+    <meta name="title" content="Class BasicAuthorizationServerProvider
    | Unosquare EmbedIO Extras ">
     <meta name="generator" content="docfx 2.43.3.0">
     
@@ -76,144 +76,91 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="EmbedIO.BearerToken.BearerTokenModule">
+            <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider">
   
   
-  <h1 id="EmbedIO_BearerToken_BearerTokenModule" data-uid="EmbedIO.BearerToken.BearerTokenModule" class="text-break">Class BearerTokenModule
+  <h1 id="Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider" class="text-break">Class BasicAuthorizationServerProvider
   </h1>
-  <div class="markdown level0 summary"><p>EmbedIO module to allow authorizations with Bearer Tokens.</p>
+  <div class="markdown level0 summary"><p>Basic Authorization Server Provider implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">BearerTokenModule</span></div>
+    <div class="level1"><span class="xref">BasicAuthorizationServerProvider</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="EmbedIO.BearerToken.html">EmbedIO.BearerToken</a></h6>
-  <h5 id="EmbedIO_BearerToken_BearerTokenModule_syntax">Syntax</h5>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.html">Unosquare.Labs.EmbedIO.BearerToken</a></h6>
+  <h5 id="Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BearerTokenModule : WebModuleBase</code></pre>
+    <pre><code class="lang-csharp hljs">public class BasicAuthorizationServerProvider : IAuthorizationServerProvider</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="EmbedIO_BearerToken_BearerTokenModule__ctor_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor*"></a>
-  <h4 id="EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_System_String_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey,System.String)">BearerTokenModule(String, IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey, String)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="EmbedIO.BearerToken.BearerTokenModule.html">BearerTokenModule</a> class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BearerTokenModule(string baseUrlPath, IAuthorizationServerProvider authorizationServerProvider, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null, string endpoint = &quot;/token&quot;)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">baseUrlPath</span></td>
-        <td><p>The base URL path.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
-        <td><span class="parametername">authorizationServerProvider</span></td>
-        <td><p>The authorization server provider.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">routes</span></td>
-        <td><p>The routes.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">SymmetricSecurityKey</span></td>
-        <td><span class="parametername">secretKey</span></td>
-        <td><p>The secret key.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">endpoint</span></td>
-        <td><p>The endpoint.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  
-  
-  <a id="EmbedIO_BearerToken_BearerTokenModule_IsFinalHandler_" data-uid="EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler*"></a>
-  <h4 id="EmbedIO_BearerToken_BearerTokenModule_IsFinalHandler" data-uid="EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler">IsFinalHandler</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool IsFinalHandler { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="EmbedIO_BearerToken_BearerTokenModule_SecretKey_" data-uid="EmbedIO.BearerToken.BearerTokenModule.SecretKey*"></a>
-  <h4 id="EmbedIO_BearerToken_BearerTokenModule_SecretKey" data-uid="EmbedIO.BearerToken.BearerTokenModule.SecretKey">SecretKey</h4>
-  <div class="markdown level1 summary"><p>Gets the secret key.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SymmetricSecurityKey SecretKey { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">SymmetricSecurityKey</span></td>
-        <td><p>The secret key.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="EmbedIO_BearerToken_BearerTokenModule_OnRequestAsync_" data-uid="EmbedIO.BearerToken.BearerTokenModule.OnRequestAsync*"></a>
-  <h4 id="EmbedIO_BearerToken_BearerTokenModule_OnRequestAsync_IHttpContext_System_String_System_Threading_CancellationToken_" data-uid="EmbedIO.BearerToken.BearerTokenModule.OnRequestAsync(IHttpContext,System.String,System.Threading.CancellationToken)">OnRequestAsync(IHttpContext, String, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate">GetExpirationDate()</h4>
+  <div class="markdown level1 summary"><p>Gets a Expiration Date.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">public long GetExpirationDate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>Ticks until expiration date.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication*"></a>
+  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_Unosquare_Labs_EmbedIO_BearerToken_ValidateClientAuthenticationContext_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication(Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext)">ValidateClientAuthentication(ValidateClientAuthenticationContext)</h4>
+  <div class="markdown level1 summary"><p>Validates a Client Authentication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -226,19 +173,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IHttpContext</span></td>
+        <td><a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html">ValidateClientAuthenticationContext</a></td>
         <td><span class="parametername">context</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">path</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>The context.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -253,10 +191,15 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
+        <td><p>A task representing the client authentication.</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a>
+  </div>
 
 <h3 id="disqus_thread">Comments</h3>
 <script>
