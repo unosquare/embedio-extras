@@ -87,7 +87,7 @@ var routes = new[] { &quot;/secure.html&quot; };
 
 // Create Webserver and attach the Bearer Token Module
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
-server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
+server.WithBearerToken(&quot;/&quot;, basicAuthProvider, routes)
 </code></pre><h3 id="nuget-installation-nuget-versionhttpsbadgefuryionuembediobearertokensvghttpbadgefuryionuembediobearertoken">Nuget installation <a href="http://badge.fury.io/nu/EmbedIO.BearerToken"><img src="https://badge.fury.io/nu/EmbedIO.BearerToken.svg" alt="NuGet version"></a></h3>
 <pre><code>PM&gt; Install-Package EmbedIO.BearerToken
 </code></pre><h2 id="json-server-module">Json Server Module</h2>
@@ -95,7 +95,7 @@ server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
 JSON file as a database and use standard REST methods to create, update, retrieve and delete records from it. </p>
 <pre><code class="lang-csharp">// Create Webserver and attach JsonServerModule
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
-server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&quot;, &quot;database.json&quot;)));
+server.WithModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&quot;, &quot;database.json&quot;)));
 </code></pre><p>Supported methods: </p>
 <ul>
 <li><code>GET</code> collection (<code>http://yourhost/entity</code>) </li>
@@ -108,7 +108,7 @@ server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@&quot;c:\web&
 <p>Similar to Json Server Module, but you can serve an SQLite file with all HTTP verbs using <a href="https://github.com/unosquare/litelib">LiteLib</a> library.</p>
 <pre><code class="lang-csharp">// Create Webserver and attach LiteLibModule with a LiteLib DbContext
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
-server.RegisterModule(new LiteLibModule&lt;TestDbContext&gt;(new TestDbContext(), &quot;/dbapi/&quot;));
+server.WithModule(new LiteLibModule&lt;TestDbContext&gt;(new TestDbContext(), &quot;/dbapi/&quot;));
 </code></pre><p>Supported methods: </p>
 <ul>
 <li><code>GET</code> collection (<code>http://yourhost/entity</code>) </li>
@@ -124,7 +124,7 @@ server.RegisterModule(new LiteLibModule&lt;TestDbContext&gt;(new TestDbContext()
 It will accept markdown/html/htm extensions (This could become middleware later).</p>
 <pre><code class="lang-csharp">// Create Webserver and attach Markdown Static Module
 var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
-server.RegisterModule(new MarkdownStaticModule(@&quot;c:\web&quot;));
+server.WithModule(new MarkdownStaticModule(&quot;/&quot;, @&quot;c:\web&quot;));
 </code></pre></article>
           </div>
           
