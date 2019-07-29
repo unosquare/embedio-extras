@@ -25,7 +25,7 @@ var routes = new[] { "/secure.html" };
 
 // Create Webserver and attach the Bearer Token Module
 var server = WebServer.Create("http://localhost:9696/");
-server.RegisterModule(new BearerTokenModule(basicAuthProvider, routes));
+server.WithBearerToken("/", basicAuthProvider, routes)
 ```
 
 ### Nuget installation [![NuGet version](https://badge.fury.io/nu/EmbedIO.BearerToken.svg)](http://badge.fury.io/nu/EmbedIO.BearerToken)
@@ -42,7 +42,7 @@ JSON file as a database and use standard REST methods to create, update, retriev
 ```csharp
 // Create Webserver and attach JsonServerModule
 var server = WebServer.Create("http://localhost:9696/");
-server.RegisterModule(new JsonServerModule(jsonPath: Path.Combine(@"c:\web", "database.json")));
+server.WithModule(new JsonServerModule(jsonPath: Path.Combine(@"c:\web", "database.json")));
 ```
 
 Supported methods: 
@@ -60,7 +60,7 @@ Similar to Json Server Module, but you can serve an SQLite file with all HTTP ve
 ```csharp
 // Create Webserver and attach LiteLibModule with a LiteLib DbContext
 var server = WebServer.Create("http://localhost:9696/");
-server.RegisterModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+server.WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
 ```
 
 Supported methods: 
@@ -86,5 +86,5 @@ It will accept markdown/html/htm extensions (This could become middleware later)
 ```csharp
 // Create Webserver and attach Markdown Static Module
 var server = WebServer.Create("http://localhost:9696/");
-server.RegisterModule(new MarkdownStaticModule(@"c:\web"));
+server.WithModule(new MarkdownStaticModule("/", @"c:\web"));
 ```
