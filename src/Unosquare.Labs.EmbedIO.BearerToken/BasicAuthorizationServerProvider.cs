@@ -1,7 +1,8 @@
-﻿namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿namespace EmbedIO.BearerToken
 {
     using System;
     using System.Threading.Tasks;
+    using Utilities;
 
     /// <summary>
     /// Basic Authorization Server Provider implementation.
@@ -11,11 +12,11 @@
         /// <inheritdoc />
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
         {
-            var data = await context.HttpContext.RequestFormDataDictionaryAsync().ConfigureAwait(false);
+            var data = await context.HttpContext.GetRequestFormDataAsync().ConfigureAwait(false);
 
-            if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
+            if (data?.ContainsKey("grant_type") == true && data["grant_type"] == "password")
             {
-                context.Validated(data.ContainsKey("username") ? data["username"].ToString() : string.Empty);
+                context.Validated(data.ContainsKey("username") ? data["username"] : string.Empty);
             }
             else
             {

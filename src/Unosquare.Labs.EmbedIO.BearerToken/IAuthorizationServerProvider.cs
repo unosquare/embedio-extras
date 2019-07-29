@@ -1,4 +1,4 @@
-﻿namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿namespace EmbedIO.BearerToken
 {
     using System.Threading.Tasks;
 
@@ -11,7 +11,9 @@
         /// Validates a Client Authentication.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <returns>A task representing the client authentication.</returns>
+        /// <returns>
+        /// A task representing the client authentication.
+        /// </returns>
         Task ValidateClientAuthentication(ValidateClientAuthenticationContext context);
 
         /// <summary>

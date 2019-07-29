@@ -1,25 +1,24 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
-{
-    using NUnit.Framework;
-    using System.IO;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using TestObjects;
-    using JsonServer;
-    using Swan.Formatters;
-    using Swan.Networking;
+﻿using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using EmbedIO.Extra.Tests.TestObjects;
+using EmbedIO.JsonServer;
+using NUnit.Framework;
+using Unosquare.Swan.Formatters;
+using Unosquare.Swan.Networking;
 
+namespace EmbedIO.Extra.Tests
+{
     [TestFixture]
     public class JsonServerModuleTest : FixtureBase
     {
         protected const string ApiPath = "api/";
 
         public JsonServerModuleTest()
-            : base(ws => ws.RegisterModule(
-                new JsonServerModule("/" + ApiPath, Path.Combine(TestHelper.SetupStaticFolder(), "database.json"))),
-                false)
+            : base(ws => ws.WithModule(
+                new JsonServerModule("/" + ApiPath, Path.Combine(TestHelper.SetupStaticFolder(), "database.json"))))
         {
             // placeholder
         }

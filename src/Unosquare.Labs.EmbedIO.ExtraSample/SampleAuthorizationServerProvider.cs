@@ -1,20 +1,21 @@
-﻿namespace Unosquare.Labs.EmbedIO.ExtraSample
+﻿namespace EmbedIO.ExtraSample
 {
+    using BearerToken;
     using System;
     using System.Threading.Tasks;
-    using BearerToken;
+    using Utilities;
 
     internal class SampleAuthorizationServerProvider : IAuthorizationServerProvider
     {
         public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
         {
-            var data = await context.HttpContext.RequestFormDataDictionaryAsync().ConfigureAwait(false);
+            var data = await context.HttpContext.GetRequestFormDataAsync().ConfigureAwait(false);
 
-            if (data?.ContainsKey("grant_type") == true && data["grant_type"].ToString() == "password")
+            if (data?.ContainsKey("grant_type") == true && data["grant_type"] == "password")
             {
                 context.Identity.AddClaim(new System.Security.Claims.Claim("Role", "Admin"));
 
-                context.Validated(data.ContainsKey("username") ? data["username"].ToString() : string.Empty);
+                context.Validated(data.ContainsKey("username") ? data["username"] : string.Empty);
             }
             else
             {

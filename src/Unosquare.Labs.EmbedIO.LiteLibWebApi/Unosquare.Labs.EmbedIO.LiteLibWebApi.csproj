@@ -4,15 +4,16 @@
     <AssemblyTitle>Unosquare EmbedIO LiteLib Module</AssemblyTitle>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AssemblyName>Unosquare.Labs.EmbedIO.LiteLibWebApi</AssemblyName>
+    <AssemblyName>EmbedIO.LiteLibWebApi</AssemblyName>
     <DebugType>Full</DebugType>
     <Authors>Unosquare</Authors>
     <LangVersion>7.3</LangVersion>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+    <RootNamespace>EmbedIO.LiteLibWebApi</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO" Version="2.9.2" />
+    <PackageReference Include="EmbedIO" Version="3.0.0-rc002" />
     <PackageReference Include="LiteLib" Version="0.23.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3">
       <PrivateAssets>all</PrivateAssets>

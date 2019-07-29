@@ -1,25 +1,24 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests
-{
-    using NUnit.Framework;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
-    using System.Threading.Tasks;
-    using TestObjects;
-    using LiteLibWebApi;
-    using Swan.Formatters;
-    using Swan.Networking;
-    using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using EmbedIO.Extra.Tests.TestObjects;
+using EmbedIO.LiteLibWebApi;
+using NUnit.Framework;
+using Unosquare.Swan.Formatters;
+using Unosquare.Swan.Networking;
 
+namespace EmbedIO.Extra.Tests
+{
     [TestFixture]
     public class LiteLibModuleTest : FixtureBase
     {
         protected const string ApiPath = "dbapi";
 
         public LiteLibModuleTest()
-            : base(ws => ws.RegisterModule(
-                new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/")),
-                false)
+            : base(ws => ws.WithModule(
+                new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/")))
         {
             // placeholder
         }

@@ -1,10 +1,10 @@
-﻿namespace Unosquare.Labs.EmbedIO.Extra.Tests.TestObjects
-{
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Reflection;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
+namespace EmbedIO.Extra.Tests.TestObjects
+{
     internal class TestHelper
     {
         private const string IndexMarkdown = @"# Hello EmbedIO

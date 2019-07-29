@@ -1,13 +1,13 @@
-﻿namespace Unosquare.Labs.EmbedIO.BearerToken
+﻿namespace EmbedIO.BearerToken
 {
     using Microsoft.IdentityModel.Tokens;
-    using System.Threading.Tasks;
-    using Swan;
     using System;
     using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
     using System.Text;
+    using Unosquare.Swan;
+    using Unosquare.Swan.Formatters;
 
     /// <summary>
     /// Extension methods.
@@ -27,13 +27,11 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="error">The error.</param>
-        /// <returns>A task representing the rejection of the authorization action.</returns>
-        public static Task<bool> Rejected(this IHttpContext context, object error = null) 
+        public static void Rejected(this IHttpContext context, object error = null)
         {
-            context.Response.StatusCode = (int) System.Net.HttpStatusCode.Unauthorized;
-            context.Response.AddHeader("WWW-Authenticate", "Bearer");
+            context.Response.Headers.Add(HttpHeaderNames.WWWAuthenticate, "Bearer");
 
-            return error != null ? context.JsonResponseAsync(error) : Task.FromResult(true);
+            throw HttpException.Unauthorized(Json.Serialize(error));
         }
 
         /// <summary>
@@ -80,7 +78,8 @@
             SymmetricSecurityKey secretKey,
             out SecurityToken securityToken)
         {
-            var authHeader = context.RequestHeader("Authorization");
+            var authHeader = context.Request.Headers[HttpHeaderNames.Authorization];
+
             securityToken = null;
 
             if (string.IsNullOrWhiteSpace(authHeader) || !authHeader.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
@@ -114,22 +113,24 @@
         /// Fluent-like method to attach BearerToken.
         /// </summary>
         /// <param name="webserver">The webserver.</param>
+        /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="authorizationProvider">The authorization provider.</param>
         /// <param name="routes">The routes.</param>
         /// <param name="secretKey">The secret key.</param>
-        /// <returns>The same web server.</returns>
-        public static IWebServer UseBearerToken(this IWebServer webserver,
+        /// <returns>
+        /// The same web server.
+        /// </returns>
+        public static IWebServer WithBearerToken(
+            this IWebServer webserver,
+            string baseUrlPath,
             IAuthorizationServerProvider authorizationProvider = null,
             IEnumerable<string> routes = null,
-            SymmetricSecurityKey secretKey = null)
-        {
-            webserver.RegisterModule(
+            SymmetricSecurityKey secretKey = null) =>
+            webserver.WithModule(
                 new BearerTokenModule(
-                    authorizationProvider ?? new BasicAuthorizationServerProvider(), 
+                    baseUrlPath,
+                    authorizationProvider ?? new BasicAuthorizationServerProvider(),
                     routes,
                     secretKey));
-
-            return webserver;
-        }
     }
 }

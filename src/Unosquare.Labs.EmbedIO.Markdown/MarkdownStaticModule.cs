@@ -1,10 +1,8 @@
-﻿namespace Unosquare.Labs.EmbedIO.Markdown
+﻿namespace EmbedIO.Markdown
 {
-    using Constants;
     using System;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -20,58 +18,39 @@
         public const string DefaultDocumentName = "index.markdown";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownStaticModule"/> class.
+        /// Initializes a new instance of the <see cref="MarkdownStaticModule" /> class.
         /// </summary>
+        /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="fileSystemPath">The file system path.</param>
-        /// <exception cref="System.ArgumentException">Path '" + fileSystemPath + "' does not exist.</exception>
-        public MarkdownStaticModule(string fileSystemPath)
+        /// <exception cref="ArgumentException">Path \'{fileSystemPath}\' does not exist.</exception>
+        public MarkdownStaticModule(string baseUrlPath, string fileSystemPath)
+            : base(baseUrlPath)
         {
             if (Directory.Exists(fileSystemPath) == false)
                 throw new ArgumentException($"Path \'{fileSystemPath}\' does not exist.");
 
             FileSystemPath = fileSystemPath;
             DefaultDocument = DefaultDocumentName;
-
-            AddHandler(ModuleMap.AnyPath, HttpVerbs.Get, HandleGet);
         }
-
+        
         /// <inheritdoc />
-        public override string Name => nameof(MarkdownStaticModule);
+        public override bool IsFinalHandler { get; } = true;
 
         /// <summary>
         /// Gets or sets the default document.
         /// Defaults to "index.html"
         /// Example: "root.xml".
         /// </summary>
-        public string DefaultDocument { get; set; }
+        public string DefaultDocument { get; }
 
         /// <summary>
         /// Gets the file system path from which files are retrieved.
         /// </summary>
         public string FileSystemPath { get; protected set; }
 
-        private Task<bool> HandleGet(IHttpContext context, CancellationToken ct)
+        private string GetLocalPath(string path)
         {
-            var localPath = GetLocalPath(context);
-
-            if (!File.Exists(localPath))
-                return Task.FromResult(false);
-
-            using (var reader = File.OpenText(localPath))
-            {
-                using (var writer = new StreamWriter(context.Response.OutputStream))
-                {
-                    CommonMark.CommonMarkConverter.Convert(reader, writer);
-                    context.Response.ContentType = "text/html";
-                }
-            }
-
-            return Task.FromResult(true);
-        }
-
-        private string GetLocalPath(IHttpContext context)
-        {
-            var urlPath = context.Request.Url.LocalPath.Replace('/', Path.DirectorySeparatorChar);
+            var urlPath = path.Replace('/', Path.DirectorySeparatorChar);
 
             // adjust the path to see if we've got a default document
             if (urlPath.Last() == Path.DirectorySeparatorChar)
@@ -83,6 +62,29 @@
             if (Path.GetExtension(urlPath) == ".htm") urlPath = urlPath.Replace(".htm", ".markdown");
 
             return Path.Combine(FileSystemPath, urlPath);
+        }
+
+        /// <inheritdoc />
+        protected override Task OnRequestAsync(IHttpContext context)
+        {
+            var localPath = GetLocalPath(context.RequestedPath);
+
+            if (!File.Exists(localPath))
+                throw HttpException.NotFound();
+
+            using (var reader = File.OpenText(localPath))
+            {
+                using (var outputStream = context.OpenResponseStream())
+                {
+                    using (var writer = new StreamWriter(outputStream))
+                    {
+                        CommonMark.CommonMarkConverter.Convert(reader, writer);
+                        context.Response.ContentType = "text/html";
+                    }
+                }
+            }
+
+            return Task.CompletedTask;
         }
     }
 }
