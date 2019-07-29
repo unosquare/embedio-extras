@@ -76,10 +76,10 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule">
+            <article class="content wrap" id="_content" data-uid="EmbedIO.BearerToken.BearerTokenModule">
   
   
-  <h1 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule" class="text-break">Class BearerTokenModule
+  <h1 id="EmbedIO_BearerToken_BearerTokenModule" data-uid="EmbedIO.BearerToken.BearerTokenModule" class="text-break">Class BearerTokenModule
   </h1>
   <div class="markdown level0 summary"><p>EmbedIO module to allow authorizations with Bearer Tokens.</p>
 </div>
@@ -89,8 +89,8 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">BearerTokenModule</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.html">Unosquare.Labs.EmbedIO.BearerToken</a></h6>
-  <h5 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="EmbedIO.BearerToken.html">EmbedIO.BearerToken</a></h6>
+  <h5 id="EmbedIO_BearerToken_BearerTokenModule_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class BearerTokenModule : WebModuleBase</code></pre>
   </div>
@@ -98,14 +98,14 @@
   </h3>
   
   
-  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule__ctor_Unosquare_Labs_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_System_String_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.#ctor(Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey,System.String)">BearerTokenModule(IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey, String)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html">BearerTokenModule</a> class.</p>
+  <a id="EmbedIO_BearerToken_BearerTokenModule__ctor_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor*"></a>
+  <h4 id="EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_System_String_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey,System.String)">BearerTokenModule(String, IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey, String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="EmbedIO.BearerToken.BearerTokenModule.html">BearerTokenModule</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BearerTokenModule(IAuthorizationServerProvider authorizationServerProvider, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null, string endpoint = &quot;/token&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public BearerTokenModule(string baseUrlPath, IAuthorizationServerProvider authorizationServerProvider, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null, string endpoint = &quot;/token&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -118,7 +118,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">baseUrlPath</span></td>
+        <td><p>The base URL path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
         <td><span class="parametername">authorizationServerProvider</span></td>
         <td><p>The authorization server provider.</p>
 </td>
@@ -147,13 +153,13 @@
   </h3>
   
   
-  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_Name" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.Name">Name</h4>
+  <a id="EmbedIO_BearerToken_BearerTokenModule_IsFinalHandler_" data-uid="EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler*"></a>
+  <h4 id="EmbedIO_BearerToken_BearerTokenModule_IsFinalHandler" data-uid="EmbedIO.BearerToken.BearerTokenModule.IsFinalHandler">IsFinalHandler</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string Name { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool IsFinalHandler { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -165,15 +171,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_SecretKey_" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.SecretKey*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_BearerToken_BearerTokenModule_SecretKey" data-uid="Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.SecretKey">SecretKey</h4>
+  <a id="EmbedIO_BearerToken_BearerTokenModule_SecretKey_" data-uid="EmbedIO.BearerToken.BearerTokenModule.SecretKey*"></a>
+  <h4 id="EmbedIO_BearerToken_BearerTokenModule_SecretKey" data-uid="EmbedIO.BearerToken.BearerTokenModule.SecretKey">SecretKey</h4>
   <div class="markdown level1 summary"><p>Gets the secret key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -194,6 +200,50 @@
         <td><span class="xref">SymmetricSecurityKey</span></td>
         <td><p>The secret key.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="EmbedIO_BearerToken_BearerTokenModule_OnRequestAsync_" data-uid="EmbedIO.BearerToken.BearerTokenModule.OnRequestAsync*"></a>
+  <h4 id="EmbedIO_BearerToken_BearerTokenModule_OnRequestAsync_IHttpContext_" data-uid="EmbedIO.BearerToken.BearerTokenModule.OnRequestAsync(IHttpContext)">OnRequestAsync(IHttpContext)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task OnRequestAsync(IHttpContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IHttpContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

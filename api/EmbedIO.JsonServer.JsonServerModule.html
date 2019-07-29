@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class MarkdownStaticModule
+    <title>Class JsonServerModule
    | Unosquare EmbedIO Extras </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class MarkdownStaticModule
+    <meta name="title" content="Class JsonServerModule
    | Unosquare EmbedIO Extras ">
     <meta name="generator" content="docfx 2.43.3.0">
     
@@ -76,37 +76,36 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule">
+            <article class="content wrap" id="_content" data-uid="EmbedIO.JsonServer.JsonServerModule">
   
   
-  <h1 id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule" class="text-break">Class MarkdownStaticModule
+  <h1 id="EmbedIO_JsonServer_JsonServerModule" data-uid="EmbedIO.JsonServer.JsonServerModule" class="text-break">Class JsonServerModule
   </h1>
-  <div class="markdown level0 summary"><p>The Markdown Static Module takes in a static markdown file and converts it into HTML before returning a response. 
-It will accept markdown/html/htm extensions.</p>
+  <div class="markdown level0 summary"><p>JsonServer Module.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">MarkdownStaticModule</span></div>
+    <div class="level1"><span class="xref">JsonServerModule</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.Markdown.html">Unosquare.Labs.EmbedIO.Markdown</a></h6>
-  <h5 id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="EmbedIO.JsonServer.html">EmbedIO.JsonServer</a></h6>
+  <h5 id="EmbedIO_JsonServer_JsonServerModule_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MarkdownStaticModule : WebModuleBase</code></pre>
+    <pre><code class="lang-csharp hljs">public class JsonServerModule : WebModuleBase</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
-  <a id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule__ctor_" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.#ctor*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule__ctor_System_String_" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.#ctor(System.String)">MarkdownStaticModule(String)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html">MarkdownStaticModule</a> class.</p>
+  <a id="EmbedIO_JsonServer_JsonServerModule__ctor_" data-uid="EmbedIO.JsonServer.JsonServerModule.#ctor*"></a>
+  <h4 id="EmbedIO_JsonServer_JsonServerModule__ctor_System_String_System_String_" data-uid="EmbedIO.JsonServer.JsonServerModule.#ctor(System.String,System.String)">JsonServerModule(String, String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="EmbedIO.JsonServer.JsonServerModule.html">JsonServerModule</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MarkdownStaticModule(string fileSystemPath)</code></pre>
+    <pre><code class="lang-csharp hljs">public JsonServerModule(string basePath = &quot;/api/&quot;, string jsonPath = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -120,52 +119,15 @@ It will accept markdown/html/htm extensions.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">fileSystemPath</span></td>
-        <td><p>The file system path.</p>
+        <td><span class="parametername">basePath</span></td>
+        <td><p>The base path.</p>
 </td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Path &apos;&quot; + fileSystemPath + &quot;&apos; does not exist.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  <h4 id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_DefaultDocumentName" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocumentName">DefaultDocumentName</h4>
-  <div class="markdown level1 summary"><p>Default document constant to &quot;index.markdown&quot;.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string DefaultDocumentName = &quot;index.markdown&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><span class="parametername">jsonPath</span></td>
+        <td><p>The json path.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -173,16 +135,14 @@ It will accept markdown/html/htm extensions.</p>
   </h3>
   
   
-  <a id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_DefaultDocument_" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_DefaultDocument" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.DefaultDocument">DefaultDocument</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the default document.
-Defaults to &quot;index.html&quot;
-Example: &quot;root.xml&quot;.</p>
+  <a id="EmbedIO_JsonServer_JsonServerModule_BasePath_" data-uid="EmbedIO.JsonServer.JsonServerModule.BasePath*"></a>
+  <h4 id="EmbedIO_JsonServer_JsonServerModule_BasePath" data-uid="EmbedIO.JsonServer.JsonServerModule.BasePath">BasePath</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the base path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string DefaultDocument { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string BasePath { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -195,20 +155,21 @@ Example: &quot;root.xml&quot;.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>The base path.</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_FileSystemPath_" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_FileSystemPath" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.FileSystemPath">FileSystemPath</h4>
-  <div class="markdown level1 summary"><p>Gets the file system path from which files are retrieved.</p>
+  <a id="EmbedIO_JsonServer_JsonServerModule_Data_" data-uid="EmbedIO.JsonServer.JsonServerModule.Data*"></a>
+  <h4 id="EmbedIO_JsonServer_JsonServerModule_Data" data-uid="EmbedIO.JsonServer.JsonServerModule.Data">Data</h4>
+  <div class="markdown level1 summary"><p>Dynamic database.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string FileSystemPath { get; protected set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public dynamic Data { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -220,20 +181,46 @@ Example: &quot;root.xml&quot;.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Object</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_Name_" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_Markdown_MarkdownStaticModule_Name" data-uid="Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.Name">Name</h4>
+  <a id="EmbedIO_JsonServer_JsonServerModule_IsFinalHandler_" data-uid="EmbedIO.JsonServer.JsonServerModule.IsFinalHandler*"></a>
+  <h4 id="EmbedIO_JsonServer_JsonServerModule_IsFinalHandler" data-uid="EmbedIO.JsonServer.JsonServerModule.IsFinalHandler">IsFinalHandler</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string Name { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool IsFinalHandler { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="EmbedIO_JsonServer_JsonServerModule_JsonPath_" data-uid="EmbedIO.JsonServer.JsonServerModule.JsonPath*"></a>
+  <h4 id="EmbedIO_JsonServer_JsonServerModule_JsonPath" data-uid="EmbedIO.JsonServer.JsonServerModule.JsonPath">JsonPath</h4>
+  <div class="markdown level1 summary"><p>Default JSON file path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string JsonPath { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -250,6 +237,61 @@ Example: &quot;root.xml&quot;.</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="EmbedIO_JsonServer_JsonServerModule_OnRequestAsync_" data-uid="EmbedIO.JsonServer.JsonServerModule.OnRequestAsync*"></a>
+  <h4 id="EmbedIO_JsonServer_JsonServerModule_OnRequestAsync_IHttpContext_" data-uid="EmbedIO.JsonServer.JsonServerModule.OnRequestAsync(IHttpContext)">OnRequestAsync(IHttpContext)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task OnRequestAsync(IHttpContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IHttpContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="EmbedIO_JsonServer_JsonServerModule_UpdateDataStore_" data-uid="EmbedIO.JsonServer.JsonServerModule.UpdateDataStore*"></a>
+  <h4 id="EmbedIO_JsonServer_JsonServerModule_UpdateDataStore" data-uid="EmbedIO.JsonServer.JsonServerModule.UpdateDataStore">UpdateDataStore()</h4>
+  <div class="markdown level1 summary"><p>Updates JSON file in disk.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateDataStore()</code></pre>
+  </div>
 
 <h3 id="disqus_thread">Comments</h3>
 <script>

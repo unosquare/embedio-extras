@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "Hh3OPiJnzucUSkMKCUoYlw=="
+          "hash": "ac/p/NeAw5g3flI4Uyhi0Q=="
         }
       },
       "is_incremental": false,
@@ -81,11 +81,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.BasicAuthorizationServerProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BasicAuthorizationServerProvider.html",
-          "hash": "g+anjG1rPLL7P884zXNeMQ=="
+          "relative_path": "api/EmbedIO.BearerToken.BasicAuthorizationServerProvider.html",
+          "hash": "o9KsBU8mMF7T0jPhpq2aEQ=="
         }
       },
       "is_incremental": false,
@@ -93,11 +93,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.BearerToken.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerToken.html",
-          "hash": "ZiJZCIF2i2HT7GmCVcCNzw=="
+          "relative_path": "api/EmbedIO.BearerToken.BearerToken.html",
+          "hash": "SzKVssDoTiyqD2yHgi8cTw=="
         }
       },
       "is_incremental": false,
@@ -105,11 +105,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.BearerTokenModule.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.BearerTokenModule.html",
-          "hash": "d4gmJznXW9gfqzBmUL++ug=="
+          "relative_path": "api/EmbedIO.BearerToken.BearerTokenModule.html",
+          "hash": "COJamCqN+9l/6a/MxNnXBw=="
         }
       },
       "is_incremental": false,
@@ -117,11 +117,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.Extensions.html",
-          "hash": "9ucs5+fl+gU9vlCCxsYo8Q=="
+          "relative_path": "api/EmbedIO.BearerToken.Extensions.html",
+          "hash": "m5Eb/CIL9sDYLklPL4VyNQ=="
         }
       },
       "is_incremental": false,
@@ -129,11 +129,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.IAuthorizationServerProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.IAuthorizationServerProvider.html",
-          "hash": "Y78xy60dIn7AM0ibaDolog=="
+          "relative_path": "api/EmbedIO.BearerToken.IAuthorizationServerProvider.html",
+          "hash": "onujeFWyYwFRvjLiRvb8Lw=="
         }
       },
       "is_incremental": false,
@@ -141,11 +141,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.ValidateClientAuthenticationContext.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.ValidateClientAuthenticationContext.html",
-          "hash": "ea4JB5Pv6UMTFjmU/XIDqg=="
+          "relative_path": "api/EmbedIO.BearerToken.ValidateClientAuthenticationContext.html",
+          "hash": "WqKcen/8a5+XYu8WsRzZmw=="
         }
       },
       "is_incremental": false,
@@ -153,11 +153,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.BearerToken.yml",
+      "source_relative_path": "obj/api/EmbedIO.BearerToken.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.BearerToken.html",
-          "hash": "xgJn1B+AIgSNBfxMYyVtTQ=="
+          "relative_path": "api/EmbedIO.BearerToken.html",
+          "hash": "kURDRtrxmxHB+uWveeaknw=="
         }
       },
       "is_incremental": false,
@@ -165,11 +165,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.yml",
+      "source_relative_path": "obj/api/EmbedIO.JsonServer.JsonServerModule.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.JsonServer.JsonServerModule.html",
-          "hash": "0TCxcvNFQpX+z7R2BIm4tg=="
+          "relative_path": "api/EmbedIO.JsonServer.JsonServerModule.html",
+          "hash": "KHzbrv6E/RVyJlAx3SXI6w=="
         }
       },
       "is_incremental": false,
@@ -177,11 +177,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.JsonServer.yml",
+      "source_relative_path": "obj/api/EmbedIO.JsonServer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.JsonServer.html",
-          "hash": "LiiUSrDSBM01dRMuZFHtfg=="
+          "relative_path": "api/EmbedIO.JsonServer.html",
+          "hash": "9NQ1lPAUv31dqxJ/a5vAKQ=="
         }
       },
       "is_incremental": false,
@@ -189,11 +189,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.yml",
+      "source_relative_path": "obj/api/EmbedIO.LiteLibWebApi.LiteLibModule-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html",
-          "hash": "pMAUAXE2ZKG+ziDy0AGGmA=="
+          "relative_path": "api/EmbedIO.LiteLibWebApi.LiteLibModule-1.html",
+          "hash": "jvE3Beup00I5NXwSR8GI2Q=="
         }
       },
       "is_incremental": false,
@@ -201,11 +201,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.LiteLibWebApi.yml",
+      "source_relative_path": "obj/api/EmbedIO.LiteLibWebApi.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.LiteLibWebApi.html",
-          "hash": "105EiaIC38D2NNBLpDoXqA=="
+          "relative_path": "api/EmbedIO.LiteLibWebApi.html",
+          "hash": "2VxPOPwyR5qlR+/7ZDK4Fg=="
         }
       },
       "is_incremental": false,
@@ -213,11 +213,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.yml",
+      "source_relative_path": "obj/api/EmbedIO.Markdown.MarkdownStaticModule.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.Markdown.MarkdownStaticModule.html",
-          "hash": "AEbBJ3Akv7FBJsQE50tPDQ=="
+          "relative_path": "api/EmbedIO.Markdown.MarkdownStaticModule.html",
+          "hash": "1ujgxT90dP3lZy7Uzx+6SA=="
         }
       },
       "is_incremental": false,
@@ -225,11 +225,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Unosquare.Labs.EmbedIO.Markdown.yml",
+      "source_relative_path": "obj/api/EmbedIO.Markdown.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Unosquare.Labs.EmbedIO.Markdown.html",
-          "hash": "BOVfVEJDBGmzLfvoeLF5kw=="
+          "relative_path": "api/EmbedIO.Markdown.html",
+          "hash": "nCDlOqJNEQAo5Myyq7oeOw=="
         }
       },
       "is_incremental": false,
@@ -241,7 +241,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "vOpzk91n0bXPwcOGQGwidA=="
+          "hash": "tJcae51QyO6+fTXsOF8EyQ=="
         }
       },
       "is_incremental": false,
@@ -257,9 +257,9 @@
         "skipped_file_count": 0
       },
       "processors": {
-        "ResourceDocumentProcessor": {
+        "TocDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
@@ -276,9 +276,9 @@
           "total_file_count": 13,
           "skipped_file_count": 13
         },
-        "TocDocumentProcessor": {
+        "ResourceDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0

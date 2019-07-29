@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class LiteLibModule&lt;T&gt;
+    <title>Class BasicAuthorizationServerProvider
    | Unosquare EmbedIO Extras </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class LiteLibModule&lt;T&gt;
+    <meta name="title" content="Class BasicAuthorizationServerProvider
    | Unosquare EmbedIO Extras ">
     <meta name="generator" content="docfx 2.43.3.0">
     
@@ -76,130 +76,91 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1">
+            <article class="content wrap" id="_content" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider">
   
   
-  <h1 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1" class="text-break">Class LiteLibModule&lt;T&gt;
+  <h1 id="EmbedIO_BearerToken_BasicAuthorizationServerProvider" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider" class="text-break">Class BasicAuthorizationServerProvider
   </h1>
-  <div class="markdown level0 summary"><p>Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.</p>
+  <div class="markdown level0 summary"><p>Basic Authorization Server Provider implementation.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">LiteLibModule&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">BasicAuthorizationServerProvider</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">System.IDisposable</span></div>
+    <div><a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Unosquare.Labs.EmbedIO.LiteLibWebApi.html">Unosquare.Labs.EmbedIO.LiteLibWebApi</a></h6>
-  <h5 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_syntax">Syntax</h5>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="EmbedIO.BearerToken.html">EmbedIO.BearerToken</a></h6>
+  <h5 id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LiteLibModule&lt;T&gt; : WebModuleBase, IDisposable where T : LiteDbContext</code></pre>
+    <pre><code class="lang-csharp hljs">public class BasicAuthorizationServerProvider : IAuthorizationServerProvider</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The type of LiteDbContext.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1__ctor_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1__ctor__0_System_String_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.#ctor(`0,System.String)">LiteLibModule(T, String)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule-1.html">LiteLibModule&lt;T&gt;</a> class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LiteLibModule(T instance, string basePath = &quot;/api/&quot;)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">instance</span></td>
-        <td><p>The instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">basePath</span></td>
-        <td><p>The base path.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  
-  
-  <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Name_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Name*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Name" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Name">Name</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string Name { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-  
-  
-  <a id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose*"></a>
-  <h4 id="Unosquare_Labs_EmbedIO_LiteLibWebApi_LiteLibModule_1_Dispose_System_Boolean_" data-uid="Unosquare.Labs.EmbedIO.LiteLibWebApi.LiteLibModule`1.Dispose(System.Boolean)">Dispose(Boolean)</h4>
-  <div class="markdown level1 summary"><p>Dispose the module.</p>
+  <a id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate_" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate*"></a>
+  <h4 id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_GetExpirationDate" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider.GetExpirationDate">GetExpirationDate()</h4>
+  <div class="markdown level1 summary"><p>Gets a Expiration Date.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang-csharp hljs">public long GetExpirationDate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>Ticks until expiration date.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication*"></a>
+  <h4 id="EmbedIO_BearerToken_BasicAuthorizationServerProvider_ValidateClientAuthentication_EmbedIO_BearerToken_ValidateClientAuthenticationContext_" data-uid="EmbedIO.BearerToken.BasicAuthorizationServerProvider.ValidateClientAuthentication(EmbedIO.BearerToken.ValidateClientAuthenticationContext)">ValidateClientAuthentication(ValidateClientAuthenticationContext)</h4>
+  <div class="markdown level1 summary"><p>Validates a Client Authentication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -212,16 +173,32 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">disposing</span></td>
-        <td><p><code>true</code> if the object is disposing.</p>
+        <td><a class="xref" href="EmbedIO.BearerToken.ValidateClientAuthenticationContext.html">ValidateClientAuthenticationContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A task representing the client authentication.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a>
   </div>
 
 <h3 id="disqus_thread">Comments</h3>
