@@ -1,7 +1,6 @@
 ﻿namespace EmbedIO.LiteLibWebApi
 {
     using System;
-    using System.Threading;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
@@ -101,11 +100,11 @@
         }
 
         /// <inheritdoc />
-        protected override async Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        protected override async Task OnRequestAsync(IHttpContext context)
         {
             var verb = context.Request.HttpVerb;
                 
-            var parts = path.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var parts = context.RequestedPath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
             var setType = _dbTypes
                 .FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.OrdinalIgnoreCase));
@@ -120,7 +119,7 @@
                 case 1 when verb == HttpVerbs.Get:
                     var current = await _dbInstance.SelectAsync<object>(table, "1=1");
 
-                    await context.SendDataAsync(current.Select(row => SetValues(Activator.CreateInstance(setType), row)).ToList(), cancellationToken);
+                    await context.SendDataAsync(current.Select(row => SetValues(Activator.CreateInstance(setType), row)).ToList());
                     return;
                 case 1 when verb == HttpVerbs.Post:
                     await AddRow(context, setType);
@@ -129,7 +128,7 @@
                     var data = _dbInstance.Select<object>(table, RowSelector, new { RowId = parts[1] });
                     var objTable = SetValues(Activator.CreateInstance(setType), data.First());
 
-                    await context.SendDataAsync(objTable, cancellationToken);
+                    await context.SendDataAsync(objTable);
                     return;
                 case 2 when verb == HttpVerbs.Put:
                     await UpdateRow(setType, table, parts[1], context);

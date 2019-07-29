@@ -3,7 +3,6 @@
     using System;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -66,12 +65,9 @@
         }
 
         /// <inheritdoc />
-        protected override Task OnRequestAsync(
-            IHttpContext context, 
-            string path,
-            CancellationToken cancellationToken)
+        protected override Task OnRequestAsync(IHttpContext context)
         {
-            var localPath = GetLocalPath(path);
+            var localPath = GetLocalPath(context.RequestedPath);
 
             if (!File.Exists(localPath))
                 throw HttpException.NotFound();

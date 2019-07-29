@@ -28,7 +28,7 @@ namespace EmbedIO.Extra.Tests
         public void TestBasicAuthorizationServerProvider()
         {
             Assert.Throws<ArgumentNullException>(() => BasicProvider
-                .ValidateClientAuthentication(new ValidateClientAuthenticationContext(null), default)
+                .ValidateClientAuthentication(new ValidateClientAuthenticationContext(null))
                 .RunSynchronously());
         }
 

@@ -1,14 +1,13 @@
 ﻿namespace EmbedIO.BearerToken
 {
+    using Microsoft.IdentityModel.Tokens;
     using System;
-    using Unosquare.Swan.Formatters;
     using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
     using System.Text;
-    using System.Threading;
-    using Microsoft.IdentityModel.Tokens;
     using Unosquare.Swan;
+    using Unosquare.Swan.Formatters;
 
     /// <summary>
     /// Extension methods.
@@ -28,8 +27,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="error">The error.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        public static void Rejected(this IHttpContext context, object error = null, CancellationToken cancellationToken = default)
+        public static void Rejected(this IHttpContext context, object error = null)
         {
             context.Response.Headers.Add(HttpHeaderNames.WWWAuthenticate, "Bearer");
 

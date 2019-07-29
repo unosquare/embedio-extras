@@ -4,7 +4,6 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -79,17 +78,17 @@
         }
 
         /// <inheritdoc />
-        protected override async Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        protected override async Task OnRequestAsync(IHttpContext context)
         {
-            if (path == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
+            if (context.RequestedPath == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
             {
-                await OnTokenRequest(context, cancellationToken);
+                await OnTokenRequest(context);
                 return;
             }
 
             if (_routes != null)
             {
-                if (!Match(path))
+                if (!Match(context.RequestedPath))
                 {
                     return;
                 }
@@ -101,16 +100,16 @@
                 return;
             }
 
-            context.Rejected(cancellationToken: cancellationToken);
-            context.Handled = true;
+            context.Rejected();
+            context.SetHandled();
         }
 
-        private async Task OnTokenRequest(IHttpContext context, CancellationToken cancellationToken)
+        private async Task OnTokenRequest(IHttpContext context)
         {
-            context.Handled = true;
+            context.SetHandled();
 
             var validationContext = context.GetValidationContext();
-            await _authorizationServerProvider.ValidateClientAuthentication(validationContext, cancellationToken);
+            await _authorizationServerProvider.ValidateClientAuthentication(validationContext);
 
             if (!validationContext.IsValidated)
             {
@@ -128,8 +127,7 @@
                     TokenType = "bearer",
                     ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
                     Username = validationContext.IdentityName,
-                },
-                cancellationToken);
+                });
         }
     }
 }

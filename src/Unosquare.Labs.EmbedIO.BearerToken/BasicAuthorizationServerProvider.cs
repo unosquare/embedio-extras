@@ -1,9 +1,8 @@
 ﻿namespace EmbedIO.BearerToken
 {
     using System;
-    using Utilities;
-    using System.Threading;
     using System.Threading.Tasks;
+    using Utilities;
 
     /// <summary>
     /// Basic Authorization Server Provider implementation.
@@ -11,9 +10,9 @@
     public class BasicAuthorizationServerProvider : IAuthorizationServerProvider
     {
         /// <inheritdoc />
-        public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context, CancellationToken cancellationToken)
+        public async Task ValidateClientAuthentication(ValidateClientAuthenticationContext context)
         {
-            var data = await context.HttpContext.GetRequestFormDataAsync(cancellationToken).ConfigureAwait(false);
+            var data = await context.HttpContext.GetRequestFormDataAsync().ConfigureAwait(false);
 
             if (data?.ContainsKey("grant_type") == true && data["grant_type"] == "password")
             {

@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Threading;
     using System.Threading.Tasks;
     using Unosquare.Swan.Formatters;
 
@@ -62,12 +61,12 @@
         }
 
         /// <inheritdoc />
-        protected override Task OnRequestAsync(IHttpContext context, string path, CancellationToken cancellationToken)
+        protected override Task OnRequestAsync(IHttpContext context)
         {
-            if (path == BasePath)
-                return context.SendDataAsync((object)Data, cancellationToken);
+            if (context.RequestedPath == BasePath)
+                return context.SendDataAsync((object)Data);
 
-            var parts = path.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var parts = context.RequestedPath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
             var table = Data[parts[0]];
 
@@ -79,9 +78,9 @@
             switch (parts.Length)
             {
                 case 1 when verb == HttpVerbs.Get:
-                    return context.SendDataAsync((object)table, cancellationToken);
+                    return context.SendDataAsync((object)table);
                 case 1 when verb == HttpVerbs.Post:
-                    return AddRow(context, table, cancellationToken);
+                    return AddRow(context, table);
                 case 2:
                     {
                         foreach (var row in table)
@@ -91,9 +90,9 @@
                             switch (verb)
                             {
                                 case HttpVerbs.Get:
-                                    return context.SendDataAsync((object)row, cancellationToken);
+                                    return context.SendDataAsync((object)row);
                                 case HttpVerbs.Put:
-                                    return UpdateRow(context, row, cancellationToken);
+                                    return UpdateRow(context, row);
                                 case HttpVerbs.Delete:
                                     return RemoveRow(table, row);
                             }
@@ -106,10 +105,10 @@
             throw HttpException.BadRequest();
         }
 
-        private async Task AddRow(IHttpContext context, dynamic table, CancellationToken cancellationToken)
+        private async Task AddRow(IHttpContext context, dynamic table)
         {
             var array = (IList<object>)table;
-            array.Add(await context.GetRequestDataAsync<object>(cancellationToken).ConfigureAwait(false));
+            array.Add(await context.GetRequestDataAsync<object>().ConfigureAwait(false));
             Task.Run(UpdateDataStore);
         }
 
@@ -120,9 +119,9 @@
             Task.Run(UpdateDataStore);
         }
 
-        private async Task UpdateRow(IHttpContext context, dynamic row, CancellationToken cancellationToken)
+        private async Task UpdateRow(IHttpContext context, dynamic row)
         {
-            var update = await context.GetRequestDataAsync<Dictionary<string, object>>(cancellationToken).ConfigureAwait(false);
+            var update = await context.GetRequestDataAsync<Dictionary<string, object>>().ConfigureAwait(false);
 
             foreach (var property in update)
             {
