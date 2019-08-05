@@ -1111,16 +1111,16 @@ references:
   isSpec: "True"
   fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Item
   nameWithType: ResponseHeaderDictionary.Item
-- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
-  name: Respnse
-  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary_Respnse
-  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
-  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
-  nameWithType: ResponseHeaderDictionary.Respnse
-- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse*
-  name: Respnse
-  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary_Respnse_
-  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Response
+  name: Response
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary_Response
+  commentId: P:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Response
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Response
+  nameWithType: ResponseHeaderDictionary.Response
+- uid: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Response*
+  name: Response
+  href: api/Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html#Unosquare_EmbedIO_AspNetCore_Wrappers_ResponseHeaderDictionary_Response_
+  commentId: Overload:Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Response
   isSpec: "True"
-  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Respnse
-  nameWithType: ResponseHeaderDictionary.Respnse
+  fullName: Unosquare.EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.Response
+  nameWithType: ResponseHeaderDictionary.Response
