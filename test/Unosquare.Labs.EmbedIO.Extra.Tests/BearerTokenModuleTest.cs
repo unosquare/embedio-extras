@@ -6,7 +6,7 @@ using EmbedIO.BearerToken;
 using EmbedIO.Extra.Tests.TestObjects;
 using EmbedIO.Markdown;
 using NUnit.Framework;
-using Unosquare.Swan.Formatters;
+using Swan.Formatters;
 
 namespace EmbedIO.Extra.Tests
 {

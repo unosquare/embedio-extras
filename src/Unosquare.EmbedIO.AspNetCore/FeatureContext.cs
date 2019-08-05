@@ -1,4 +1,6 @@
-﻿namespace Unosquare.EmbedIO.AspNetCore
+﻿using EmbedIO;
+
+namespace Unosquare.EmbedIO.AspNetCore
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Http.Features;
@@ -11,7 +13,6 @@
     using System.Security.Claims;
     using System.Threading.Tasks;
     using Wrappers;
-    using Unosquare.Labs.EmbedIO;
     using HeaderDictionary = Wrappers.HeaderDictionary;
 
     internal class FeatureContext : IHttpRequestFeature, IHttpConnectionFeature, IHttpResponseFeature,
@@ -131,7 +132,7 @@
 
         string IHttpConnectionFeature.ConnectionId
         {
-            get => Context.Request.RequestTraceIdentifier.ToString();
+            get => Context.Id;
             set => throw new NotSupportedException();
         }
 
@@ -206,7 +207,7 @@
 
         string IHttpRequestIdentifierFeature.TraceIdentifier
         {
-            get => Context.Request.RequestTraceIdentifier.ToString();
+            get => Context.Id;
             set
             {
                 //  ignore

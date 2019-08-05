@@ -6,8 +6,8 @@
     using System.Reflection;
     using System.Threading.Tasks;
     using Unosquare.Labs.LiteLib;
-    using Unosquare.Swan;
-    using Unosquare.Swan.Formatters;
+    using Swan;
+    using Swan.Formatters;
 
     /// <summary>
     /// Represents a EmbedIO Module to create an automatic WebApi handler for each IDbSet from a LiteLib context.

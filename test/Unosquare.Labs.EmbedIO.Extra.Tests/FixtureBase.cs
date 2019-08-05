@@ -14,7 +14,8 @@ namespace EmbedIO.Extra.Tests
 
         protected FixtureBase(Action<IWebServer> builder, bool useTestWebServer = false)
         {
-            Unosquare.Swan.Terminal.Settings.GlobalLoggingMessageType = Unosquare.Swan.LogMessageType.None;
+            // TODO: Remvoe logging
+            // Unosquare.Swan.Terminal.Settings.GlobalLoggingMessageType = Unosquare.Swan.LogMessageType.None;
 
             _builder = builder;
             _useTestWebServer = useTestWebServer;

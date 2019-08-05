@@ -1,4 +1,7 @@
-﻿namespace EmbedIO.BearerToken
+﻿using Swan.Formatters;
+using Swan.Logging;
+
+namespace EmbedIO.BearerToken
 {
     using Microsoft.IdentityModel.Tokens;
     using System;
@@ -6,9 +9,7 @@
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
     using System.Text;
-    using Unosquare.Swan;
-    using Unosquare.Swan.Formatters;
-
+    
     /// <summary>
     /// Extension methods.
     /// </summary>

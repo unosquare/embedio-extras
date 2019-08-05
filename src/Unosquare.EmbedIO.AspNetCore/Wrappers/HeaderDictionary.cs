@@ -5,8 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using Unosquare.Labs.EmbedIO;
+using EmbedIO;
 
 namespace Unosquare.EmbedIO.AspNetCore.Wrappers
 {
@@ -21,14 +20,8 @@ namespace Unosquare.EmbedIO.AspNetCore.Wrappers
 
         public virtual StringValues this[string key]
         {
-            get
-            {
-                return Collection.GetValues(key);
-            }
-            set
-            {
-                Collection[key] = value;
-            }
+            get => Collection.GetValues(key);
+            set => Collection[key] = value;
         }
 
         public int Count => Collection.Count;
@@ -40,11 +33,11 @@ namespace Unosquare.EmbedIO.AspNetCore.Wrappers
         public long? ContentLength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Add(KeyValuePair<string, StringValues> item) => Add(item.Key, item.Value);
-        public void Add(string key, StringValues value)
-        {
-            Collection.Add(key, value);
-        }
+        
+        public void Add(string key, StringValues value) => Collection.Add(key, value);
+
         public bool Remove(KeyValuePair<string, StringValues> item) => Remove(item.Key);
+
         public bool Remove(string key)
         {
             if (!ContainsKey(key))
@@ -53,21 +46,14 @@ namespace Unosquare.EmbedIO.AspNetCore.Wrappers
             Collection.Remove(key);
             return true;
         }
-        public void Clear()
-        {
-            Collection.Clear();
-        }
+
+        public void Clear() => Collection.Clear();
 
         public bool Contains(KeyValuePair<string, StringValues> item) => ContainsKey(item.Key);
-        public bool ContainsKey(string key)
-        {
-            return Collection.Keys.OfType<string>().Contains(key);
-        }
+        
+        public bool ContainsKey(string key) => Collection.Keys.OfType<string>().Contains(key);
 
-        public void CopyTo(KeyValuePair<string, StringValues>[] array, int arrayIndex)
-        {
-            throw new NotImplementedException();
-        }
+        public void CopyTo(KeyValuePair<string, StringValues>[] array, int arrayIndex) => throw new NotImplementedException();
 
         public bool TryGetValue(string key, out StringValues value)
         {
@@ -93,14 +79,11 @@ namespace Unosquare.EmbedIO.AspNetCore.Wrappers
 
     public class ResponseHeaderDictionary : HeaderDictionary
     {
-        public IHttpResponse Respnse { get; }
+        public IHttpResponse Response { get; }
 
         public override StringValues this[string key]
         {
-            get
-            {
-                return base[key];
-            }
+            get => base[key];
             set
             {
                 if (key == "Content-Length")
@@ -110,9 +93,10 @@ namespace Unosquare.EmbedIO.AspNetCore.Wrappers
             }
         }
 
-        public ResponseHeaderDictionary(IHttpResponse response) : base(response.Headers)
+        public ResponseHeaderDictionary(IHttpResponse response)
+            : base(response.Headers)
         {
-            Respnse = response;
+            Response = response;
         }
     }
 }

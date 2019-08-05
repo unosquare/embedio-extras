@@ -1,4 +1,6 @@
-﻿namespace EmbedIO.ExtraSample
+﻿using Swan.Logging;
+
+namespace EmbedIO.ExtraSample
 {
     using System;
     using System.IO;
@@ -8,7 +10,7 @@
     using JsonServer;
     using LiteLibWebApi;
     using Markdown;
-    using Unosquare.Swan;
+    using Swan;
 
     internal class Program
     {
@@ -18,7 +20,7 @@
         /// <value>
         /// The HTML root path.
         /// </value>
-        public static string WebRootPath => Path.Combine(Runtime.EntryAssemblyDirectory, "web");
+        public static string WebRootPath => Path.Combine(SwanRuntime.EntryAssemblyDirectory, "web");
 
         /// <summary>
         /// Defines the entry point of the application.

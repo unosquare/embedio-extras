@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Unosquare.Swan.Formatters;
+    using Swan.Formatters;
 
     /// <summary>
     /// JsonServer Module.

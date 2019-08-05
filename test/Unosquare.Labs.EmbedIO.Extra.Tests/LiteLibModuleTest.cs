@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using EmbedIO.Extra.Tests.TestObjects;
 using EmbedIO.LiteLibWebApi;
 using NUnit.Framework;
-using Unosquare.Swan.Formatters;
-using Unosquare.Swan.Networking;
+using Swan.Formatters;
+using Swan.Net;
 
 namespace EmbedIO.Extra.Tests
 {
