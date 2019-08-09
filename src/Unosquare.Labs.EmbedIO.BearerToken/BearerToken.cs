@@ -1,4 +1,4 @@
-﻿using Swan.Attributes;
+﻿using Swan.Formatters;
 
 namespace EmbedIO.BearerToken
 {

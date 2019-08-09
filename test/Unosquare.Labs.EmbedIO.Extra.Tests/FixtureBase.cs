@@ -41,13 +41,13 @@ namespace EmbedIO.Extra.Tests
         public void Kill()
         {
             Task.Delay(500).Wait();
-            (WebServerInstance as IDisposable)?.Dispose();
+            WebServerInstance?.Dispose();
         }
 
         public async Task<string> GetString(string partialUrl = "")
         {
             if (WebServerInstance is TestWebServer testWebServer)
-                return await testWebServer.GetClient().GetAsync(partialUrl);
+                return await testWebServer.Client.GetStringAsync(partialUrl);
 
             using (var client = new HttpClient())
             {
@@ -56,25 +56,5 @@ namespace EmbedIO.Extra.Tests
                 return await client.GetStringAsync(uri);
             }
         }
-
-        public async Task<TestHttpResponse> SendAsync(TestHttpRequest request)
-        {
-            if (WebServerInstance is TestWebServer testWebServer)
-                return await testWebServer.GetClient().SendAsync(request);
-
-            using (var client = new HttpClient())
-            {
-                var response = await client.SendAsync(request.ToHttpRequestMessage());
-
-                return response.ToTestHttpResponse();
-            }
-        }
-    }
-
-    internal static class TestExtensions
-    {
-        public static HttpRequestMessage ToHttpRequestMessage(this TestHttpRequest request) => new HttpRequestMessage();
-
-        public static TestHttpResponse ToTestHttpResponse(this HttpResponseMessage response) => new TestHttpResponse();
     }
 }
