@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="EmbedIO" Version="3.0.0-rc006" />
-    <PackageReference Include="LiteLib" Version="1.0.0-preview001" />
+    <PackageReference Include="LiteLib" Version="1.0.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
