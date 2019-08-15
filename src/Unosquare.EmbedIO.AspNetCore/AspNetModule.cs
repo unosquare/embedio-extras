@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using EmbedIO;
+using EmbedIO.Routing;
 
 namespace Unosquare.EmbedIO.AspNetCore
 {
@@ -26,6 +27,11 @@ namespace Unosquare.EmbedIO.AspNetCore
             // do nothing
         }
 
+        public RouteMatch MatchUrlPath(string urlPath)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task HandleRequestAsync(IHttpContext context)
         {
             try
@@ -50,7 +56,8 @@ namespace Unosquare.EmbedIO.AspNetCore
             }
         }
 
-        public string BaseUrlPath { get; set; }
+        public string BaseRoute { get; set; }
+
         public bool IsFinalHandler { get; } = true;
         public ExceptionHandlerCallback OnUnhandledException { get; set; }
         public HttpExceptionHandlerCallback OnHttpException { get; set; }
