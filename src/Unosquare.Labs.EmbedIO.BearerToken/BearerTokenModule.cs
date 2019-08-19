@@ -38,13 +38,14 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BearerTokenModule"/> class.
+        /// Initializes a new instance of the <see cref="BearerTokenModule" /> class.
         /// </summary>
         /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="authorizationServerProvider">The authorization server provider.</param>
         /// <param name="secretKeyString">The secret key string.</param>
         /// <param name="routes">The routes.</param>
         /// <param name="endpoint">The endpoint.</param>
+        /// <exception cref="ArgumentException">A key must be 40 chars</exception>
         public BearerTokenModule(
             string baseUrlPath,
             IAuthorizationServerProvider authorizationServerProvider,
@@ -58,6 +59,8 @@
                 routes,
                 endpoint)
         {
+            if (secretKeyString.Length != 40)
+                throw new ArgumentException("A key must be 40 chars");
         }
 
         /// <summary>
@@ -128,28 +131,36 @@
 
         private async Task OnTokenRequest(IHttpContext context)
         {
-            context.SetHandled();
-
-            var validationContext = context.GetValidationContext();
-            await _authorizationServerProvider.ValidateClientAuthentication(validationContext);
-
-            if (!validationContext.IsValidated)
+            try
             {
-                context.Rejected(validationContext.ErrorPayload);
-                return;
-            }
+                context.SetHandled();
 
-            var expiryDate = DateTime.SpecifyKind(DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()),
-                DateTimeKind.Utc);
+                var validationContext = context.GetValidationContext();
+                await _authorizationServerProvider.ValidateClientAuthentication(validationContext);
 
-            await context.SendDataAsync(
-                new BearerToken
+                if (!validationContext.IsValidated)
                 {
-                    Token = validationContext.GetToken(SecretKey, expiryDate),
-                    TokenType = "bearer",
-                    ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
-                    Username = validationContext.IdentityName,
-                });
+                    context.Rejected(validationContext.ErrorPayload);
+                    return;
+                }
+
+                var expiryDate = DateTime.SpecifyKind(
+                    DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()),
+                    DateTimeKind.Utc);
+
+                await context.SendDataAsync(
+                    new BearerToken
+                    {
+                        Token = validationContext.GetToken(SecretKey, expiryDate),
+                        TokenType = "bearer",
+                        ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
+                        Username = validationContext.IdentityName,
+                    });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

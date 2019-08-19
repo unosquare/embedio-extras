@@ -18,7 +18,7 @@ namespace EmbedIO.Extra.Tests
         public BearerTokenModuleTest()
             : base(ws =>
             {
-                ws.WithBearerToken("/", "SECRETKEY", new BasicAuthorizationServerProvider());
+                ws.WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", new BasicAuthorizationServerProvider());
                 ws.WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder()));
             })
         {
@@ -50,6 +50,7 @@ namespace EmbedIO.Extra.Tests
         public async Task GetValidToken()
         {
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
+
             using (var client = new HttpClient())
             {
                 string token;
@@ -57,7 +58,7 @@ namespace EmbedIO.Extra.Tests
 
                 using (var res = await client.SendAsync(req))
                 {
-                    Assert.AreEqual(res.StatusCode, HttpStatusCode.OK);
+                    Assert.AreEqual(HttpStatusCode.OK, res.StatusCode);
                     var jsonString = await res.Content.ReadAsStringAsync();
                     var json = Json.Deserialize<BearerToken.BearerToken>(jsonString);
                     Assert.IsNotNull(json);
