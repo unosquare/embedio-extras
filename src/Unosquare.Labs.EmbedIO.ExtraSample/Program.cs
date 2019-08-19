@@ -52,7 +52,7 @@
                 {
                     server
                         .WithCors()
-                        .WithBearerToken("/", "SECRETKEY", authServer, new[] { "/secure.html" })
+                        .WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", authServer, new[] { "/secure.html" })
                         .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
                         .WithModule(new MarkdownStaticModule("/", WebRootPath))
                         .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
