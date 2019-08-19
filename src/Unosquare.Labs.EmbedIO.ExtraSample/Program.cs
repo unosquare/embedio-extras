@@ -1,7 +1,6 @@
-﻿using Swan.Logging;
-
-namespace EmbedIO.ExtraSample
+﻿namespace EmbedIO.ExtraSample
 {
+    using Swan.Logging;
     using System;
     using System.IO;
     using System.Threading;
@@ -53,7 +52,7 @@ namespace EmbedIO.ExtraSample
                 {
                     server
                         .WithCors()
-                        .WithBearerToken("/", authServer, new[] { "/secure.html" })
+                        .WithBearerToken("/", "SECRETKEY", authServer, new[] { "/secure.html" })
                         .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
                         .WithModule(new MarkdownStaticModule("/", WebRootPath))
                         .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));

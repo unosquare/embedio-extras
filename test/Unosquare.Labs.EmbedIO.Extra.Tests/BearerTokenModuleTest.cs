@@ -18,7 +18,7 @@ namespace EmbedIO.Extra.Tests
         public BearerTokenModuleTest()
             : base(ws =>
             {
-                ws.WithBearerToken("/", new BasicAuthorizationServerProvider());
+                ws.WithBearerToken("/", "SECRETKEY", new BasicAuthorizationServerProvider());
                 ws.WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder()));
             })
         {

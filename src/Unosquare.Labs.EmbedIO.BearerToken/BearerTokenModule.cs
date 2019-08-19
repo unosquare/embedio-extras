@@ -20,22 +20,44 @@
         /// </summary>
         /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="authorizationServerProvider">The authorization server provider.</param>
-        /// <param name="routes">The routes.</param>
         /// <param name="secretKey">The secret key.</param>
+        /// <param name="routes">The routes.</param>
         /// <param name="endpoint">The endpoint.</param>
         public BearerTokenModule(
             string baseUrlPath,
             IAuthorizationServerProvider authorizationServerProvider,
+            SymmetricSecurityKey secretKey,
             IEnumerable<string> routes = null,
-            SymmetricSecurityKey secretKey = null,
             string endpoint = "/token")
             : base(baseUrlPath)
         {
-            // TODO: Make secretKey parameter mandatory and and an overload that takes in a string for a secretKey
             SecretKey = secretKey ?? new SymmetricSecurityKey(Encoding.UTF8.GetBytes("0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF"));
             _tokenEndpoint = endpoint;
             _routes = routes;
             _authorizationServerProvider = authorizationServerProvider;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BearerTokenModule"/> class.
+        /// </summary>
+        /// <param name="baseUrlPath">The base URL path.</param>
+        /// <param name="authorizationServerProvider">The authorization server provider.</param>
+        /// <param name="secretKeyString">The secret key string.</param>
+        /// <param name="routes">The routes.</param>
+        /// <param name="endpoint">The endpoint.</param>
+        public BearerTokenModule(
+            string baseUrlPath,
+            IAuthorizationServerProvider authorizationServerProvider,
+            string secretKeyString,
+            IEnumerable<string> routes = null,
+            string endpoint = "/token")
+            : this(
+                baseUrlPath, 
+                authorizationServerProvider, 
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKeyString)),
+                routes,
+                endpoint)
+        {
         }
 
         /// <summary>

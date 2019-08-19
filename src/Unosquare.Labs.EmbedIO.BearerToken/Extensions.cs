@@ -1,15 +1,13 @@
-﻿using Swan.Formatters;
-using Swan.Logging;
-
-namespace EmbedIO.BearerToken
+﻿namespace EmbedIO.BearerToken
 {
     using Microsoft.IdentityModel.Tokens;
+    using Swan.Logging;
     using System;
     using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
     using System.Text;
-    
+
     /// <summary>
     /// Extension methods.
     /// </summary>
@@ -32,7 +30,7 @@ namespace EmbedIO.BearerToken
         {
             context.Response.Headers.Add(HttpHeaderNames.WWWAuthenticate, "Bearer");
 
-            throw HttpException.Unauthorized(Json.Serialize(error));
+            throw HttpException.Unauthorized(data: error);
         }
 
         /// <summary>
@@ -113,25 +111,49 @@ namespace EmbedIO.BearerToken
         /// <summary>
         /// Fluent-like method to attach BearerToken.
         /// </summary>
-        /// <param name="webserver">The webserver.</param>
+        /// <param name="this">The webserver.</param>
         /// <param name="baseUrlPath">The base URL path.</param>
+        /// <param name="secretKey">The secret key.</param>
         /// <param name="authorizationProvider">The authorization provider.</param>
         /// <param name="routes">The routes.</param>
-        /// <param name="secretKey">The secret key.</param>
         /// <returns>
         /// The same web server.
         /// </returns>
         public static IWebServer WithBearerToken(
-            this IWebServer webserver,
+            this IWebServer @this,
             string baseUrlPath,
+            SymmetricSecurityKey secretKey,
             IAuthorizationServerProvider authorizationProvider = null,
-            IEnumerable<string> routes = null,
-            SymmetricSecurityKey secretKey = null) =>
-            webserver.WithModule(
+            IEnumerable<string> routes = null
+            ) =>
+            @this.WithModule(
                 new BearerTokenModule(
                     baseUrlPath,
                     authorizationProvider ?? new BasicAuthorizationServerProvider(),
-                    routes,
-                    secretKey));
+                    secretKey,
+                    routes));
+
+        /// <summary>
+        /// Withes the bearer token.
+        /// </summary>
+        /// <param name="this">The webserver.</param>
+        /// <param name="baseUrlPath">The base URL path.</param>
+        /// <param name="secretKeyString">The secret key string.</param>
+        /// <param name="authorizationProvider">The authorization provider.</param>
+        /// <param name="routes">The routes.</param>
+        /// <returns></returns>
+        public static IWebServer WithBearerToken(
+            this IWebServer @this,
+            string baseUrlPath,
+            string secretKeyString,
+            IAuthorizationServerProvider authorizationProvider = null,
+            IEnumerable<string> routes = null
+        ) =>
+            @this.WithModule(
+                new BearerTokenModule(
+                    baseUrlPath,
+                    authorizationProvider ?? new BasicAuthorizationServerProvider(),
+                    secretKeyString,
+                    routes));
     }
 }
