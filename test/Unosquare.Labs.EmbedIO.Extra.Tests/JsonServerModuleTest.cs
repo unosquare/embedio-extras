@@ -57,7 +57,8 @@ namespace EmbedIO.Extra.Tests
             using (var client = new HttpClient())
             {
                 var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }");
-                var request = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts")
+
+                var request = new HttpRequestMessage(HttpMethod.Post, $"{WebServerUrl}{ApiPath}/posts")
                 {
                     Content = new ByteArrayContent(byteArray)
                 };
