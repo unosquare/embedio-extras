@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Hosting.Server;
-using Microsoft.AspNetCore.Http.Features;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Http.Features;
 
-namespace Unosquare.EmbedIO.AspNetCore.Wrappers
+namespace EmbedIO.AspNetCore.Wrappers
 {
     public class HttpApplicationWrapper<TContext> : IHttpApplication<object>
     {

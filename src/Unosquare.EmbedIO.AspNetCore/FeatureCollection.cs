@@ -1,13 +1,13 @@
-﻿namespace Unosquare.EmbedIO.AspNetCore
-{
-    using Microsoft.AspNetCore.Http.Features;
-    using Microsoft.AspNetCore.Http.Features.Authentication;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Http.Features.Authentication;
 
+namespace EmbedIO.AspNetCore
+{
     internal class FeatureCollection : IFeatureCollection
     {
         private static readonly Func<FeatureContext, object> IdentityFeature = x => x;
@@ -56,11 +56,8 @@
             this[typeof(TFeature)] = instance;
         }
 
-        public IEnumerator<KeyValuePair<Type, object>> GetEnumerator()
-        {
-            foreach (var pair in _features)
-                yield return new KeyValuePair<Type, object>(pair.Key, pair.Value);
-        }
+        public IEnumerator<KeyValuePair<Type, object>> GetEnumerator() 
+            => _features.Select(pair => new KeyValuePair<Type, object>(pair.Key, pair.Value)).GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }

@@ -1,15 +1,13 @@
-﻿using System.Threading;
-using EmbedIO;
+﻿using System;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using EmbedIO.Routing;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Http.Features;
 
-namespace Unosquare.EmbedIO.AspNetCore
+namespace EmbedIO.AspNetCore
 {
-    using Microsoft.AspNetCore.Hosting.Server;
-    using Microsoft.AspNetCore.Http.Features;
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
-
     internal class AspNetModule : IWebModule
     {
         public AspNetModule(IHttpApplication<object> application, IFeatureCollection features) 

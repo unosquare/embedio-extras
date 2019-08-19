@@ -1,4 +1,6 @@
-﻿namespace Unosquare.EmbedIO.AspNetCore.Sample
+﻿using EmbedIO.AspNetCore;
+
+namespace Unosquare.EmbedIO.AspNetCore.Sample
 {
     using Microsoft.AspNetCore.Hosting;
 

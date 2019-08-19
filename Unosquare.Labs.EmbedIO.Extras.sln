@@ -27,9 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.Labs.EmbedIO.Extr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.Labs.EmbedIO.LiteLibWebApi", "src\Unosquare.Labs.EmbedIO.LiteLibWebApi\Unosquare.Labs.EmbedIO.LiteLibWebApi.csproj", "{E5898073-C093-4ED9-AF58-784AAD405A1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.EmbedIO.AspNetCore", "src\Unosquare.EmbedIO.AspNetCore\Unosquare.EmbedIO.AspNetCore.csproj", "{B0E79E64-B215-4FE5-816C-6E1D699EC6AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmbedIO.AspNetCore", "src\Unosquare.EmbedIO.AspNetCore\EmbedIO.AspNetCore.csproj", "{B0E79E64-B215-4FE5-816C-6E1D699EC6AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unosquare.EmbedIO.AspNetCore.Sample", "src\Unosquare.EmbedIO.AspNetCore.Sample\Unosquare.EmbedIO.AspNetCore.Sample.csproj", "{58EE711D-5119-4DF2-A698-5D5B2E3A1ECE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unosquare.EmbedIO.AspNetCore.Sample", "src\Unosquare.EmbedIO.AspNetCore.Sample\Unosquare.EmbedIO.AspNetCore.Sample.csproj", "{58EE711D-5119-4DF2-A698-5D5B2E3A1ECE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

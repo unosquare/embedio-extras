@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.Features.Authentication;
 
-namespace Unosquare.EmbedIO.AspNetCore.Wrappers
+namespace EmbedIO.AspNetCore.Wrappers
 {
     class AuthenticationHandler : IAuthenticationHandler
     {

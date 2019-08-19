@@ -1,35 +1,30 @@
-﻿using EmbedIO;
+﻿using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using EmbedIO.AspNetCore.Wrappers;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.Logging;
+using Swan;
 
-namespace Unosquare.EmbedIO.AspNetCore
+namespace EmbedIO.AspNetCore
 {
-    using Microsoft.AspNetCore.Hosting.Server;
-    using Microsoft.AspNetCore.Hosting.Server.Features;
-    using Microsoft.AspNetCore.Http.Features;
-    using Microsoft.Extensions.Logging;
-    using Swan;
-    using System.Linq;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Wrappers;
-
     internal class EmbedIOServer : IServer
     {
-        public IFeatureCollection Features { get; } = new Microsoft.AspNetCore.Http.Features.FeatureCollection();
-
         private IWebServer _webServer;
         private AspNetModule _aspNetModule;
 
-        private readonly ServerAddressesFeature serverAddresses = new ServerAddressesFeature();
+        private readonly ServerAddressesFeature _serverAddresses = new ServerAddressesFeature();
 
-        public EmbedIOServer(ILoggerFactory loggerFactory)
+        public EmbedIOServer()
         {
-            Features.Set<IServerAddressesFeature>(serverAddresses);
+            Features.Set<IServerAddressesFeature>(_serverAddresses);
         }
+        
+        public IFeatureCollection Features { get; } = new Microsoft.AspNetCore.Http.Features.FeatureCollection();
 
-        public void Dispose()
-        {
-            _webServer.Dispose();
-        }
+        public void Dispose() => _webServer?.Dispose();
 
         public Task StartAsync<TContext>(IHttpApplication<TContext> application, CancellationToken cancellationToken)
         {
@@ -37,7 +32,7 @@ namespace Unosquare.EmbedIO.AspNetCore
             _aspNetModule = new AspNetModule(new HttpApplicationWrapper<TContext>(application), Features);
 
             // Setup web server
-            _webServer = new WebServer(serverAddresses.Addresses.Select(x => x + "/").ToArray());
+            _webServer = new WebServer(_serverAddresses.Addresses.Select(x => $"{x}/").ToArray());
             _webServer.Modules.Add(_aspNetModule);
 
             // Start listener
@@ -48,7 +43,7 @@ namespace Unosquare.EmbedIO.AspNetCore
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            _webServer.Dispose();
+            _webServer?.Dispose();
 
             return Task.CompletedTask;
         }

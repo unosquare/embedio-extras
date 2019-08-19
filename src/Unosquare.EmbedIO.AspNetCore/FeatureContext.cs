@@ -1,18 +1,17 @@
-﻿using EmbedIO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using EmbedIO.AspNetCore.Wrappers;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Http.Features.Authentication;
 
-namespace Unosquare.EmbedIO.AspNetCore
+namespace EmbedIO.AspNetCore
 {
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Http.Features;
-    using Microsoft.AspNetCore.Http.Features.Authentication;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Wrappers;
     using HeaderDictionary = Wrappers.HeaderDictionary;
 
     internal class FeatureContext : IHttpRequestFeature, IHttpConnectionFeature, IHttpResponseFeature,

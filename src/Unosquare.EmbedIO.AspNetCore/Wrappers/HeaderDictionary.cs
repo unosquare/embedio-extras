@@ -1,13 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using EmbedIO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 
-namespace Unosquare.EmbedIO.AspNetCore.Wrappers
+namespace EmbedIO.AspNetCore.Wrappers
 {
     public class HeaderDictionary : IHeaderDictionary
     {

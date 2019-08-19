@@ -7,7 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <ProjectReference Include="..\Unosquare.EmbedIO.AspNetCore\Unosquare.EmbedIO.AspNetCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unosquare.EmbedIO.AspNetCore\EmbedIO.AspNetCore.csproj" />
   </ItemGroup>
 
 </Project>
