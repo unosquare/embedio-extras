@@ -414,13 +414,13 @@ Returns null when the token is not found or not validated.</p>
   
   
   <a id="EmbedIO_BearerToken_Extensions_WithBearerToken_" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken*"></a>
-  <h4 id="EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey)">WithBearerToken(IWebServer, String, IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey)</h4>
+  <h4 id="EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_SymmetricSecurityKey_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,SymmetricSecurityKey,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String})">WithBearerToken(IWebServer, String, SymmetricSecurityKey, IAuthorizationServerProvider, IEnumerable&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Fluent-like method to attach BearerToken.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IWebServer WithBearerToken(this IWebServer webserver, string baseUrlPath, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IWebServer WithBearerToken(this IWebServer this, string baseUrlPath, SymmetricSecurityKey secretKey, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -434,7 +434,7 @@ Returns null when the token is not found or not validated.</p>
     <tbody>
       <tr>
         <td><span class="xref">IWebServer</span></td>
-        <td><span class="parametername">webserver</span></td>
+        <td><span class="parametername">this</span></td>
         <td><p>The webserver.</p>
 </td>
       </tr>
@@ -442,6 +442,12 @@ Returns null when the token is not found or not validated.</p>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">baseUrlPath</span></td>
         <td><p>The base URL path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">SymmetricSecurityKey</span></td>
+        <td><span class="parametername">secretKey</span></td>
+        <td><p>The secret key.</p>
 </td>
       </tr>
       <tr>
@@ -454,12 +460,6 @@ Returns null when the token is not found or not validated.</p>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">routes</span></td>
         <td><p>The routes.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">SymmetricSecurityKey</span></td>
-        <td><span class="parametername">secretKey</span></td>
-        <td><p>The secret key.</p>
 </td>
       </tr>
     </tbody>
@@ -477,6 +477,74 @@ Returns null when the token is not found or not validated.</p>
         <td><span class="xref">IWebServer</span></td>
         <td><p>The same web server.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="EmbedIO_BearerToken_Extensions_WithBearerToken_" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken*"></a>
+  <h4 id="EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String})">WithBearerToken(IWebServer, String, String, IAuthorizationServerProvider, IEnumerable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>Withes the bearer token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IWebServer WithBearerToken(this IWebServer this, string baseUrlPath, string secretKeyString, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IWebServer</span></td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The webserver.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">baseUrlPath</span></td>
+        <td><p>The base URL path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">secretKeyString</span></td>
+        <td><p>The secret key string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
+        <td><span class="parametername">authorizationProvider</span></td>
+        <td><p>The authorization provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">routes</span></td>
+        <td><p>The routes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IWebServer</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

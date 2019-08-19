@@ -99,13 +99,13 @@
   
   
   <a id="EmbedIO_BearerToken_BearerTokenModule__ctor_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor*"></a>
-  <h4 id="EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__SymmetricSecurityKey_System_String_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String},SymmetricSecurityKey,System.String)">BearerTokenModule(String, IAuthorizationServerProvider, IEnumerable&lt;String&gt;, SymmetricSecurityKey, String)</h4>
+  <h4 id="EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_SymmetricSecurityKey_System_Collections_Generic_IEnumerable_System_String__System_String_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,SymmetricSecurityKey,System.Collections.Generic.IEnumerable{System.String},System.String)">BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, IEnumerable&lt;String&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="EmbedIO.BearerToken.BearerTokenModule.html">BearerTokenModule</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BearerTokenModule(string baseUrlPath, IAuthorizationServerProvider authorizationServerProvider, IEnumerable&lt;string&gt; routes = null, SymmetricSecurityKey secretKey = null, string endpoint = &quot;/token&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public BearerTokenModule(string baseUrlPath, IAuthorizationServerProvider authorizationServerProvider, SymmetricSecurityKey secretKey, IEnumerable&lt;string&gt; routes = null, string endpoint = &quot;/token&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -130,15 +130,68 @@
 </td>
       </tr>
       <tr>
+        <td><span class="xref">SymmetricSecurityKey</span></td>
+        <td><span class="parametername">secretKey</span></td>
+        <td><p>The secret key.</p>
+</td>
+      </tr>
+      <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">routes</span></td>
         <td><p>The routes.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">SymmetricSecurityKey</span></td>
-        <td><span class="parametername">secretKey</span></td>
-        <td><p>The secret key.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">endpoint</span></td>
+        <td><p>The endpoint.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="EmbedIO_BearerToken_BearerTokenModule__ctor_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor*"></a>
+  <h4 id="EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_String_System_Collections_Generic_IEnumerable_System_String__System_String_" data-uid="EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">BearerTokenModule(String, IAuthorizationServerProvider, String, IEnumerable&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="EmbedIO.BearerToken.BearerTokenModule.html">BearerTokenModule</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BearerTokenModule(string baseUrlPath, IAuthorizationServerProvider authorizationServerProvider, string secretKeyString, IEnumerable&lt;string&gt; routes = null, string endpoint = &quot;/token&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">baseUrlPath</span></td>
+        <td><p>The base URL path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
+        <td><span class="parametername">authorizationServerProvider</span></td>
+        <td><p>The authorization server provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">secretKeyString</span></td>
+        <td><p>The secret key string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">routes</span></td>
+        <td><p>The routes.</p>
 </td>
       </tr>
       <tr>
