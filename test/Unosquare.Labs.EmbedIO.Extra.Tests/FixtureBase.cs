@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using EmbedIO.Extra.Tests.TestObjects;
 using EmbedIO.Testing;
 using NUnit.Framework;
-using Swan.Logging;
 
 namespace EmbedIO.Extra.Tests
 {
@@ -15,8 +14,6 @@ namespace EmbedIO.Extra.Tests
 
         protected FixtureBase(Action<IWebServer> builder, bool useTestWebServer = false)
         {
-            Logger.UnregisterLogger<ConsoleLogger>();
-
             _builder = builder;
             _useTestWebServer = useTestWebServer;
         }
