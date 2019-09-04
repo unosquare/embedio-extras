@@ -29,7 +29,7 @@
     <PackageReference Include="LiteLib" Version="1.0.0" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.0" />
-    <PackageReference Include="Unosquare.Swan" Version="2.0.1" />
+    <PackageReference Include="Unosquare.Swan" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
