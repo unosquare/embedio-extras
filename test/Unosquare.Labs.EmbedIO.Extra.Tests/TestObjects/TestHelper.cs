@@ -41,7 +41,7 @@ You are using bearer token correctly.";
             var assemblyPath = Path.GetDirectoryName(typeof(TestHelper).GetTypeInfo().Assembly.Location);
             var rootPath = Path.Combine(assemblyPath, "web");
 
-            if (Directory.Exists(rootPath) == false)
+            if (!Directory.Exists(rootPath))
                 Directory.CreateDirectory(rootPath);
 
             var files = new Dictionary<string, string>
@@ -51,9 +51,9 @@ You are using bearer token correctly.";
                 {"database.json", DatabaseJson}
             };
 
-            foreach (var file in files.Where(file => File.Exists(Path.Combine(rootPath, file.Key)) == false))
+            foreach (var (fileName, file) in files.Where(x => !File.Exists(Path.Combine(rootPath, x.Key))))
             {
-                File.WriteAllText(Path.Combine(rootPath, file.Key), file.Value);
+                File.WriteAllText(Path.Combine(rootPath, fileName), file);
             }
 
             return rootPath;

@@ -1,32 +1,30 @@
-﻿using System.IO;
+﻿using EmbedIO.Extra.Tests.TestObjects;
+using EmbedIO.JsonServer;
+using NUnit.Framework;
+using Swan.Formatters;
+using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using EmbedIO.Extra.Tests.TestObjects;
-using EmbedIO.JsonServer;
-using NUnit.Framework;
-using Swan.Formatters;
-using Swan.Net;
 
 namespace EmbedIO.Extra.Tests
 {
     [TestFixture]
-    public class JsonServerModuleTest : FixtureBase
+    public class JsonServerModuleTest : EndToEndFixtureBase
     {
         protected const string ApiPath = "api/";
 
-        public JsonServerModuleTest()
-            : base(ws => ws.WithModule(
-                new JsonServerModule("/" + ApiPath, Path.Combine(TestHelper.SetupStaticFolder(), "database.json"))))
+        protected override void OnSetUp()
         {
-            // placeholder
+            Server.WithModule(new JsonServerModule($"/{ApiPath}", Path.Combine(TestHelper.SetupStaticFolder(), "database.json")));
         }
 
         [Test]
         public async Task GetAllJson()
         {
-            var jsonString = await GetString(ApiPath);
+            var jsonString = await Client.GetStringAsync(ApiPath);
             Assert.IsNotEmpty(jsonString);
             var json = Json.Deserialize(jsonString);
             Assert.IsNotNull(json);
@@ -35,7 +33,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task GetAllPostsJson()
         {
-            var jsonString = await GetString(ApiPath + "posts");
+            var jsonString = await Client.GetStringAsync(ApiPath + "posts");
             Assert.IsNotEmpty(jsonString);
             var json = Json.Deserialize(jsonString);
             Assert.IsNotNull(json);
@@ -44,7 +42,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task GetFirstPostsJson()
         {
-            var jsonString = await GetString(ApiPath + "posts/1");
+            var jsonString = await Client.GetStringAsync(ApiPath + "posts/1");
             Assert.IsNotEmpty(jsonString);
             dynamic json = Json.Deserialize(jsonString);
             Assert.IsNotNull(json);
@@ -54,58 +52,46 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task AddPostJson()
         {
-            using (var client = new HttpClient())
+            var request = new HttpRequestMessage(HttpMethod.Post, $"{WebServerUrl}{ApiPath}/posts")
             {
-                var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }");
+                Content = new StringContent(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }"),
+            };
 
-                var request = new HttpRequestMessage(HttpMethod.Post, $"{WebServerUrl}{ApiPath}/posts")
-                {
-                    Content = new ByteArrayContent(byteArray)
-                };
-
-                using (var response = await client.SendAsync(request))
-                {
-                    Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
-                }
+            using (var response = await Client.SendAsync(request))
+            {
+                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
             }
         }
 
         [Test]
         public async Task PutPostJson()
         {
-            var payload = new { id = 1, title = "replace", author = "unosquare" };
-            await JsonClient.Put(WebServerUrl + ApiPath + "/posts/1", payload);
+            var request = new HttpRequestMessage(HttpMethod.Put, WebServerUrl + ApiPath + "/posts/1")
+            {
+                Content = new StringContent(@"{ ""id"": 1, ""title"": ""replace"", ""author"": ""unosquare"" }"),
+            };
 
-            var jsonString = await GetString(ApiPath + "/posts/1");
+            using (var response = await Client.SendAsync(request))
+            {
+                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
+            }
 
-            Assert.IsNotEmpty(jsonString);
-            dynamic json = Json.Deserialize(jsonString);
+            var jsonString = await Client.GetStringAsync($"{ApiPath}/posts/1");
+
+            var json = Json.Deserialize<Dictionary<string,string>>(jsonString);
 
             Assert.IsNotNull(json);
-            Assert.AreEqual(json["title"].ToString(), "replace");
+            Assert.AreEqual(json["title"], "replace");
         }
 
         [Test]
         public async Task DeletePostJson()
         {
-            using (var client = new HttpClient())
-            {
-                var byteArray = Encoding.UTF8.GetBytes(@"{ ""id"": 123, ""title"": ""tubular2"", ""author"": ""unosquare"" }");
-                var request =
-                    new HttpRequestMessage(HttpMethod.Post, WebServerUrl + ApiPath + "/posts") { Content = new ByteArrayContent(byteArray) };
+            await Client.PostAsync($"{ApiPath}/posts",
+                new StringContent(@"{ ""id"": 123, ""title"": ""tubular2"", ""author"": ""unosquare"" }"));
 
-                using (var response = await client.SendAsync(request))
-                {
-                    Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
-                }
-
-                var deleteRequest = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/posts/123");
-
-                using (var response = await client.SendAsync(deleteRequest))
-                {
-                    Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
-                }
-            }
+            var response = await Client.DeleteAsync($"{ApiPath}/posts/123");
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode, "Status Code OK");
         }
     }
 }

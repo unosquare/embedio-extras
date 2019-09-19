@@ -63,7 +63,7 @@
         /// <inheritdoc />
         protected override Task OnRequestAsync(IHttpContext context)
         {
-            if (context.RequestedPath == BasePath)
+            if (context.RequestedPath == "/")
                 return context.SendDataAsync((object)Data);
 
             var parts = context.RequestedPath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
@@ -94,7 +94,8 @@
                                 case HttpVerbs.Put:
                                     return UpdateRow(context, row);
                                 case HttpVerbs.Delete:
-                                    return RemoveRow(table, row);
+                                    RemoveRow(table, row);
+                                    return Task.CompletedTask;
                             }
                         }
 
