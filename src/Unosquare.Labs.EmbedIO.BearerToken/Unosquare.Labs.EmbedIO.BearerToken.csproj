@@ -9,12 +9,12 @@
     <Authors>Unosquare</Authors>
     <LangVersion>7.3</LangVersion>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
-    <Version>2.4.1</Version>
+    <Version>3.0.8</Version>
     <RootNamespace>EmbedIO.BearerToken</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO" Version="3.0.6" />
+    <PackageReference Include="EmbedIO" Version="3.0.8" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

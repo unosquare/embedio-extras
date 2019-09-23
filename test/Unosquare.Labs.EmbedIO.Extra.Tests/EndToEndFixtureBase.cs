@@ -37,6 +37,7 @@ namespace EmbedIO.Extra.Tests
         public void SetUp()
         {
             WebServerUrl = Resources.GetServerAddress();
+
             if (_useTestWebServer)
             {
                 var testWebServer = new TestWebServer(WebServerUrl);
