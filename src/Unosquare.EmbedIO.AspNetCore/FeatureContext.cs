@@ -43,7 +43,7 @@ namespace EmbedIO.AspNetCore
 
         IHeaderDictionary IHttpRequestFeature.Headers
         {
-            get => _requestHeaders ?? (_requestHeaders = new HeaderDictionary(Context.Request.Headers));
+            get => _requestHeaders ??= new HeaderDictionary(Context.Request.Headers);
             set => throw new NotSupportedException();
         }
 
@@ -145,7 +145,7 @@ namespace EmbedIO.AspNetCore
 
         IHeaderDictionary IHttpResponseFeature.Headers
         {
-            get => _responseHeaders ?? (_responseHeaders = new ResponseHeaderDictionary(Context.Response));
+            get => _responseHeaders ??= new ResponseHeaderDictionary(Context.Response);
             set => throw new NotSupportedException();
         }
 

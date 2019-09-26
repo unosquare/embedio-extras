@@ -1,12 +1,11 @@
-﻿using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using EmbedIO.AspNetCore.Wrappers;
+﻿using EmbedIO.AspNetCore.Wrappers;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Features;
-using Microsoft.Extensions.Logging;
 using Swan;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace EmbedIO.AspNetCore
 {

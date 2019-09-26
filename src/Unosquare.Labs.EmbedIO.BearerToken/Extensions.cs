@@ -26,7 +26,7 @@
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="error">The error.</param>
-        public static void Rejected(this IHttpContext context, object error = null)
+        public static void Rejected(this IHttpContext context, object? error = null)
         {
             context.Response.Headers.Add(HttpHeaderNames.WWWAuthenticate, "Bearer");
 
@@ -40,7 +40,7 @@
         /// <param name="context">The context.</param>
         /// <param name="secretKey">The secret key.</param>
         /// <returns>The security token from the HTTP Context.</returns>
-        public static SecurityToken GetSecurityToken(this IHttpContext context, string secretKey)
+        public static SecurityToken? GetSecurityToken(this IHttpContext context, string secretKey)
             => context.GetSecurityToken(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)));
 
         /// <summary>
@@ -49,7 +49,7 @@
         /// <param name="context">The context.</param>
         /// <param name="secretKey">The secret key.</param>
         /// <returns>The security token from the HTTP Context.</returns>
-        public static SecurityToken GetSecurityToken(this IHttpContext context, SymmetricSecurityKey secretKey = null)
+        public static SecurityToken? GetSecurityToken(this IHttpContext context, SymmetricSecurityKey? secretKey = null)
         {
             context.GetPrincipal(secretKey, out var securityToken);
 
@@ -62,7 +62,7 @@
         /// <param name="context">The context.</param>
         /// <param name="secretKey">The secret key.</param>
         /// <returns>The security token from the HTTP Context.</returns>
-        public static ClaimsPrincipal GetPrincipal(this IHttpContext context, SymmetricSecurityKey secretKey = null)
+        public static ClaimsPrincipal? GetPrincipal(this IHttpContext context, SymmetricSecurityKey? secretKey = null)
             => context.GetPrincipal(secretKey, out _);
 
         /// <summary>
@@ -72,10 +72,10 @@
         /// <param name="secretKey">The secret key.</param>
         /// <param name="securityToken">The security token.</param>
         /// <returns>The claims.</returns>
-        public static ClaimsPrincipal GetPrincipal(
+        public static ClaimsPrincipal? GetPrincipal(
             this IHttpContext context,
-            SymmetricSecurityKey secretKey,
-            out SecurityToken securityToken)
+            SymmetricSecurityKey? secretKey,
+            out SecurityToken? securityToken)
         {
             var authHeader = context.Request.Headers[HttpHeaderNames.Authorization];
 
@@ -123,9 +123,8 @@
             this IWebServer @this,
             string baseUrlPath,
             SymmetricSecurityKey secretKey,
-            IAuthorizationServerProvider authorizationProvider = null,
-            IEnumerable<string> routes = null
-            ) =>
+            IAuthorizationServerProvider? authorizationProvider = null,
+            IEnumerable<string>? routes = null) =>
             @this.WithModule(
                 new BearerTokenModule(
                     baseUrlPath,
@@ -141,14 +140,15 @@
         /// <param name="secretKeyString">The secret key string.</param>
         /// <param name="authorizationProvider">The authorization provider.</param>
         /// <param name="routes">The routes.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// The same web server.
+        /// </returns>
         public static IWebServer WithBearerToken(
             this IWebServer @this,
             string baseUrlPath,
             string secretKeyString,
-            IAuthorizationServerProvider authorizationProvider = null,
-            IEnumerable<string> routes = null
-        ) =>
+            IAuthorizationServerProvider? authorizationProvider = null,
+            IEnumerable<string>? routes = null) =>
             @this.WithModule(
                 new BearerTokenModule(
                     baseUrlPath,

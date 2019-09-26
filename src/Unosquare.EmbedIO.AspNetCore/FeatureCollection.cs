@@ -49,7 +49,7 @@ namespace EmbedIO.AspNetCore
             _features = DefaultFeatures.ToDictionary(p => p.Key, p => p.Value);
         }
 
-        public TFeature Get<TFeature>() => this[typeof(TFeature)] is TFeature feature ? feature : default(TFeature);
+        public TFeature Get<TFeature>() => this[typeof(TFeature)] is TFeature feature ? feature : default;
 
         public void Set<TFeature>(TFeature instance)
         {

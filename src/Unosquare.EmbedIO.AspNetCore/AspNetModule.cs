@@ -49,8 +49,8 @@ namespace EmbedIO.AspNetCore
             {
                 context.Response.StatusCode = 500;
 
-                using (var writer = new StreamWriter(context.Response.OutputStream))
-                    await writer.WriteAsync(e.ToString());
+                using var writer = new StreamWriter(context.Response.OutputStream);
+                await writer.WriteAsync(e.ToString());
             }
         }
 

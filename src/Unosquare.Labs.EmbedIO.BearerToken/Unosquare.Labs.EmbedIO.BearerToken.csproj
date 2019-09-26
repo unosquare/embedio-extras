@@ -7,7 +7,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>EmbedIO.BearerToken</AssemblyName>
     <Authors>Unosquare</Authors>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
     <Version>3.0.8</Version>
     <RootNamespace>EmbedIO.BearerToken</RootNamespace>

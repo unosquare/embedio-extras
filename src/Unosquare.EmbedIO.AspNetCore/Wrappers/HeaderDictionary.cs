@@ -61,11 +61,9 @@ namespace EmbedIO.AspNetCore.Wrappers
                 value = Collection.GetValues(key);
                 return true;
             }
-            else
-            {
-                value = default(StringValues);
-                return false;
-            }
+
+            value = default;
+            return false;
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

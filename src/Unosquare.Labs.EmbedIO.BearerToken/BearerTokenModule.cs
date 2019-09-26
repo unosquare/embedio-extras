@@ -27,7 +27,7 @@
             string baseUrlPath,
             IAuthorizationServerProvider authorizationServerProvider,
             SymmetricSecurityKey secretKey,
-            IEnumerable<string> routes = null,
+            IEnumerable<string>? routes = null,
             string endpoint = "/token")
             : base(baseUrlPath)
         {
@@ -50,7 +50,7 @@
             string baseUrlPath,
             IAuthorizationServerProvider authorizationServerProvider,
             string secretKeyString,
-            IEnumerable<string> routes = null,
+            IEnumerable<string>? routes = null,
             string endpoint = "/token")
             : this(
                 baseUrlPath, 
@@ -131,36 +131,29 @@
 
         private async Task OnTokenRequest(IHttpContext context)
         {
-            try
+            context.SetHandled();
+
+            var validationContext = context.GetValidationContext();
+            await _authorizationServerProvider.ValidateClientAuthentication(validationContext);
+
+            if (!validationContext.IsValidated)
             {
-                context.SetHandled();
+                context.Rejected(validationContext.ErrorPayload);
+                return;
+            }
 
-                var validationContext = context.GetValidationContext();
-                await _authorizationServerProvider.ValidateClientAuthentication(validationContext);
+            var expiryDate = DateTime.SpecifyKind(
+                DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()),
+                DateTimeKind.Utc);
 
-                if (!validationContext.IsValidated)
+            await context.SendDataAsync(
+                new BearerToken
                 {
-                    context.Rejected(validationContext.ErrorPayload);
-                    return;
-                }
-
-                var expiryDate = DateTime.SpecifyKind(
-                    DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()),
-                    DateTimeKind.Utc);
-
-                await context.SendDataAsync(
-                    new BearerToken
-                    {
-                        Token = validationContext.GetToken(SecretKey, expiryDate),
-                        TokenType = "bearer",
-                        ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
-                        Username = validationContext.IdentityName,
-                    });
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+                    Token = validationContext.GetToken(SecretKey, expiryDate),
+                    TokenType = "bearer",
+                    ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
+                    Username = validationContext.IdentityName,
+                });
         }
     }
 }
