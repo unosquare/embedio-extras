@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <Copyright>Copyright © Unosquare 2013-2018</Copyright>
-    <TargetFrameworks>netcoreapp2.2;net472</TargetFrameworks>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>EmbedIO.ExtraSample</AssemblyName>
     <OutputType>Exe</OutputType>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>8.0</LangVersion>
     <RootNamespace>EmbedIO.ExtraSample</RootNamespace>
   </PropertyGroup>
 

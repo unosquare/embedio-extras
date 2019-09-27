@@ -194,12 +194,6 @@ namespace EmbedIO.AspNetCore
             set => throw new NotSupportedException();
         }
 
-        IAuthenticationHandler IHttpAuthenticationFeature.Handler
-        {
-            get => throw new NotSupportedException();
-            set => throw new NotSupportedException();
-        }
-
         #endregion
 
         #region IHttpRequestIdentifierFeature
