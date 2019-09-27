@@ -9,8 +9,6 @@ notifications:
 environment:
   # Don't report back to the mothership
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
-  COVERALLS_REPO_TOKEN:  
-       secure: n2icO8IyqKYFitNKly4Hso3/yyRHe0pphXuOb3pCDTMcVc2Er6I2gWiCRS1YXwoJ
   op_build_user: "Geo Perez"
   op_build_user_email: "geovanni.perez@gmail.com"
   access_token:
@@ -22,20 +20,9 @@ before_build:
             git checkout $env:APPVEYOR_REPO_BRANCH -q
             cinst docfx -y
         }
-- dotnet restore Unosquare.Labs.EmbedIO.Extras.sln
-- mkdir tools
-- nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
-- nuget install coveralls.net -Version 0.7.0 -OutputDirectory tools
-build_script:
-- msbuild Unosquare.Labs.EmbedIO.Extras.sln /p:Configuration=Release
+- dotnet restore
 test_script:
-- dotnet test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION%
-- tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -target:"%ProgramFiles%\dotnet\dotnet.exe" -targetargs:"test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj -c %CONFIGURATION%" -output:coverage.xml -filter:"+[Unosquare.Labs.EmbedIO*]* -[Unosquare.Labs.EmbedIO.Extra.Tests*]*" -register:userdotnet -oldstyle
-- ps: |
-        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
-        {
-            tools\coveralls.net.0.7.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml --serviceName appveyor --jobId %APPVEYOR_BUILD_NUMBER%
-        }
+- dotnet test test\Unosquare.Labs.EmbedIO.Extra.Tests\Unosquare.Labs.EmbedIO.Extra.Tests.csproj
 after_build:
 - ps: |
         if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
