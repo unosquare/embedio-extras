@@ -74,6 +74,7 @@
         /// <inheritdoc />
         public override bool IsFinalHandler => false;
 
+        //This method is used to validate the root of the request match some of the registered routes.
         private bool Match(string path)
         {
             var match = false;
@@ -105,6 +106,8 @@
         /// <inheritdoc />
         protected override async Task OnRequestAsync(IHttpContext context)
         {
+            //The problem is in some point of this function. :(
+
             if (context.RequestedPath == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
             {
                 await OnTokenRequest(context);
@@ -113,7 +116,7 @@
 
             if (_routes != null)
             {
-                if (!Match(context.RequestedPath))
+                if (!Match(context.RequestedPath)) /
                 {
                     return;
                 }
