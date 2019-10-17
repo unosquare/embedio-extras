@@ -504,24 +504,24 @@ references:
   commentId: T:EmbedIO.BearerToken.BearerTokenModule
   fullName: EmbedIO.BearerToken.BearerTokenModule
   nameWithType: BearerTokenModule
-- uid: EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,SymmetricSecurityKey,System.Nullable{System.Collections.Generic.IEnumerable{System.String}},System.String)
-  name: BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, Nullable<IEnumerable<String>>, String)
-  href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_SymmetricSecurityKey_System_Nullable_System_Collections_Generic_IEnumerable_System_String___System_String_
-  commentId: M:EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,SymmetricSecurityKey,System.Nullable{System.Collections.Generic.IEnumerable{System.String}},System.String)
-  name.vb: BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, Nullable(Of IEnumerable(Of String)), String)
-  fullName: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, SymmetricSecurityKey, System.Nullable<System.Collections.Generic.IEnumerable<System.String>>, System.String)
-  fullName.vb: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, SymmetricSecurityKey, System.Nullable(Of System.Collections.Generic.IEnumerable(Of System.String)), System.String)
-  nameWithType: BearerTokenModule.BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, Nullable<IEnumerable<String>>, String)
-  nameWithType.vb: BearerTokenModule.BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, Nullable(Of IEnumerable(Of String)), String)
-- uid: EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.String,System.Nullable{System.Collections.Generic.IEnumerable{System.String}},System.String)
-  name: BearerTokenModule(String, IAuthorizationServerProvider, String, Nullable<IEnumerable<String>>, String)
-  href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_String_System_Nullable_System_Collections_Generic_IEnumerable_System_String___System_String_
-  commentId: M:EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.String,System.Nullable{System.Collections.Generic.IEnumerable{System.String}},System.String)
-  name.vb: BearerTokenModule(String, IAuthorizationServerProvider, String, Nullable(Of IEnumerable(Of String)), String)
-  fullName: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, System.String, System.Nullable<System.Collections.Generic.IEnumerable<System.String>>, System.String)
-  fullName.vb: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, System.String, System.Nullable(Of System.Collections.Generic.IEnumerable(Of System.String)), System.String)
-  nameWithType: BearerTokenModule.BearerTokenModule(String, IAuthorizationServerProvider, String, Nullable<IEnumerable<String>>, String)
-  nameWithType.vb: BearerTokenModule.BearerTokenModule(String, IAuthorizationServerProvider, String, Nullable(Of IEnumerable(Of String)), String)
+- uid: EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,SymmetricSecurityKey,System.Collections.Generic.IEnumerable{System.String},System.String)
+  name: BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, IEnumerable<String>, String)
+  href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_SymmetricSecurityKey_System_Collections_Generic_IEnumerable_System_String__System_String_
+  commentId: M:EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,SymmetricSecurityKey,System.Collections.Generic.IEnumerable{System.String},System.String)
+  name.vb: BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, IEnumerable(Of String), String)
+  fullName: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, SymmetricSecurityKey, System.Collections.Generic.IEnumerable<System.String>, System.String)
+  fullName.vb: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, SymmetricSecurityKey, System.Collections.Generic.IEnumerable(Of System.String), System.String)
+  nameWithType: BearerTokenModule.BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, IEnumerable<String>, String)
+  nameWithType.vb: BearerTokenModule.BearerTokenModule(String, IAuthorizationServerProvider, SymmetricSecurityKey, IEnumerable(Of String), String)
+- uid: EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)
+  name: BearerTokenModule(String, IAuthorizationServerProvider, String, IEnumerable<String>, String)
+  href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule__ctor_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_String_System_Collections_Generic_IEnumerable_System_String__System_String_
+  commentId: M:EmbedIO.BearerToken.BearerTokenModule.#ctor(System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)
+  name.vb: BearerTokenModule(String, IAuthorizationServerProvider, String, IEnumerable(Of String), String)
+  fullName: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, System.String, System.Collections.Generic.IEnumerable<System.String>, System.String)
+  fullName.vb: EmbedIO.BearerToken.BearerTokenModule.BearerTokenModule(System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, System.String, System.Collections.Generic.IEnumerable(Of System.String), System.String)
+  nameWithType: BearerTokenModule.BearerTokenModule(String, IAuthorizationServerProvider, String, IEnumerable<String>, String)
+  nameWithType.vb: BearerTokenModule.BearerTokenModule(String, IAuthorizationServerProvider, String, IEnumerable(Of String), String)
 - uid: EmbedIO.BearerToken.BearerTokenModule.#ctor*
   name: BearerTokenModule
   href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule__ctor_
@@ -634,15 +634,12 @@ references:
   isSpec: "True"
   fullName: EmbedIO.BearerToken.Extensions.GetValidationContext
   nameWithType: Extensions.GetValidationContext
-- uid: EmbedIO.BearerToken.Extensions.Rejected(IHttpContext,System.Nullable{System.Object})
-  name: Rejected(IHttpContext, Nullable<Object>)
-  href: api/EmbedIO.BearerToken.Extensions.html#EmbedIO_BearerToken_Extensions_Rejected_IHttpContext_System_Nullable_System_Object__
-  commentId: M:EmbedIO.BearerToken.Extensions.Rejected(IHttpContext,System.Nullable{System.Object})
-  name.vb: Rejected(IHttpContext, Nullable(Of Object))
-  fullName: EmbedIO.BearerToken.Extensions.Rejected(IHttpContext, System.Nullable<System.Object>)
-  fullName.vb: EmbedIO.BearerToken.Extensions.Rejected(IHttpContext, System.Nullable(Of System.Object))
-  nameWithType: Extensions.Rejected(IHttpContext, Nullable<Object>)
-  nameWithType.vb: Extensions.Rejected(IHttpContext, Nullable(Of Object))
+- uid: EmbedIO.BearerToken.Extensions.Rejected(IHttpContext,System.Object)
+  name: Rejected(IHttpContext, Object)
+  href: api/EmbedIO.BearerToken.Extensions.html#EmbedIO_BearerToken_Extensions_Rejected_IHttpContext_System_Object_
+  commentId: M:EmbedIO.BearerToken.Extensions.Rejected(IHttpContext,System.Object)
+  fullName: EmbedIO.BearerToken.Extensions.Rejected(IHttpContext, System.Object)
+  nameWithType: Extensions.Rejected(IHttpContext, Object)
 - uid: EmbedIO.BearerToken.Extensions.Rejected*
   name: Rejected
   href: api/EmbedIO.BearerToken.Extensions.html#EmbedIO_BearerToken_Extensions_Rejected_
@@ -650,24 +647,24 @@ references:
   isSpec: "True"
   fullName: EmbedIO.BearerToken.Extensions.Rejected
   nameWithType: Extensions.Rejected
-- uid: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,SymmetricSecurityKey,System.Nullable{EmbedIO.BearerToken.IAuthorizationServerProvider},System.Nullable{System.Collections.Generic.IEnumerable{System.String}})
-  name: WithBearerToken(IWebServer, String, SymmetricSecurityKey, Nullable<IAuthorizationServerProvider>, Nullable<IEnumerable<String>>)
-  href: api/EmbedIO.BearerToken.Extensions.html#EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_SymmetricSecurityKey_System_Nullable_EmbedIO_BearerToken_IAuthorizationServerProvider__System_Nullable_System_Collections_Generic_IEnumerable_System_String___
-  commentId: M:EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,SymmetricSecurityKey,System.Nullable{EmbedIO.BearerToken.IAuthorizationServerProvider},System.Nullable{System.Collections.Generic.IEnumerable{System.String}})
-  name.vb: WithBearerToken(IWebServer, String, SymmetricSecurityKey, Nullable(Of IAuthorizationServerProvider), Nullable(Of IEnumerable(Of String)))
-  fullName: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer, System.String, SymmetricSecurityKey, System.Nullable<EmbedIO.BearerToken.IAuthorizationServerProvider>, System.Nullable<System.Collections.Generic.IEnumerable<System.String>>)
-  fullName.vb: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer, System.String, SymmetricSecurityKey, System.Nullable(Of EmbedIO.BearerToken.IAuthorizationServerProvider), System.Nullable(Of System.Collections.Generic.IEnumerable(Of System.String)))
-  nameWithType: Extensions.WithBearerToken(IWebServer, String, SymmetricSecurityKey, Nullable<IAuthorizationServerProvider>, Nullable<IEnumerable<String>>)
-  nameWithType.vb: Extensions.WithBearerToken(IWebServer, String, SymmetricSecurityKey, Nullable(Of IAuthorizationServerProvider), Nullable(Of IEnumerable(Of String)))
-- uid: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,System.String,System.Nullable{EmbedIO.BearerToken.IAuthorizationServerProvider},System.Nullable{System.Collections.Generic.IEnumerable{System.String}})
-  name: WithBearerToken(IWebServer, String, String, Nullable<IAuthorizationServerProvider>, Nullable<IEnumerable<String>>)
-  href: api/EmbedIO.BearerToken.Extensions.html#EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_System_String_System_Nullable_EmbedIO_BearerToken_IAuthorizationServerProvider__System_Nullable_System_Collections_Generic_IEnumerable_System_String___
-  commentId: M:EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,System.String,System.Nullable{EmbedIO.BearerToken.IAuthorizationServerProvider},System.Nullable{System.Collections.Generic.IEnumerable{System.String}})
-  name.vb: WithBearerToken(IWebServer, String, String, Nullable(Of IAuthorizationServerProvider), Nullable(Of IEnumerable(Of String)))
-  fullName: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer, System.String, System.String, System.Nullable<EmbedIO.BearerToken.IAuthorizationServerProvider>, System.Nullable<System.Collections.Generic.IEnumerable<System.String>>)
-  fullName.vb: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer, System.String, System.String, System.Nullable(Of EmbedIO.BearerToken.IAuthorizationServerProvider), System.Nullable(Of System.Collections.Generic.IEnumerable(Of System.String)))
-  nameWithType: Extensions.WithBearerToken(IWebServer, String, String, Nullable<IAuthorizationServerProvider>, Nullable<IEnumerable<String>>)
-  nameWithType.vb: Extensions.WithBearerToken(IWebServer, String, String, Nullable(Of IAuthorizationServerProvider), Nullable(Of IEnumerable(Of String)))
+- uid: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,SymmetricSecurityKey,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String})
+  name: WithBearerToken(IWebServer, String, SymmetricSecurityKey, IAuthorizationServerProvider, IEnumerable<String>)
+  href: api/EmbedIO.BearerToken.Extensions.html#EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_SymmetricSecurityKey_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,SymmetricSecurityKey,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String})
+  name.vb: WithBearerToken(IWebServer, String, SymmetricSecurityKey, IAuthorizationServerProvider, IEnumerable(Of String))
+  fullName: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer, System.String, SymmetricSecurityKey, EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable<System.String>)
+  fullName.vb: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer, System.String, SymmetricSecurityKey, EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable(Of System.String))
+  nameWithType: Extensions.WithBearerToken(IWebServer, String, SymmetricSecurityKey, IAuthorizationServerProvider, IEnumerable<String>)
+  nameWithType.vb: Extensions.WithBearerToken(IWebServer, String, SymmetricSecurityKey, IAuthorizationServerProvider, IEnumerable(Of String))
+- uid: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String})
+  name: WithBearerToken(IWebServer, String, String, IAuthorizationServerProvider, IEnumerable<String>)
+  href: api/EmbedIO.BearerToken.Extensions.html#EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String})
+  name.vb: WithBearerToken(IWebServer, String, String, IAuthorizationServerProvider, IEnumerable(Of String))
+  fullName: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer, System.String, System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable<System.String>)
+  fullName.vb: EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer, System.String, System.String, EmbedIO.BearerToken.IAuthorizationServerProvider, System.Collections.Generic.IEnumerable(Of System.String))
+  nameWithType: Extensions.WithBearerToken(IWebServer, String, String, IAuthorizationServerProvider, IEnumerable<String>)
+  nameWithType.vb: Extensions.WithBearerToken(IWebServer, String, String, IAuthorizationServerProvider, IEnumerable(Of String))
 - uid: EmbedIO.BearerToken.Extensions.WithBearerToken*
   name: WithBearerToken
   href: api/EmbedIO.BearerToken.Extensions.html#EmbedIO_BearerToken_Extensions_WithBearerToken_

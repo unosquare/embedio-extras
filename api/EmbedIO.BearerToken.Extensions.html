@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Extensions
    | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.46.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -129,7 +129,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ClaimsPrincipal? GetPrincipal(this IHttpContext context, SymmetricSecurityKey? secretKey = default(SymmetricSecurityKey? ))</code></pre>
+    <pre><code class="lang-csharp hljs">public static ClaimsPrincipal GetPrincipal(this IHttpContext context, SymmetricSecurityKey? secretKey = default(SymmetricSecurityKey? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -165,7 +165,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Security.Claims.ClaimsPrincipal</span>&gt;</td>
+        <td><span class="xref">System.Security.Claims.ClaimsPrincipal</span></td>
         <td><p>The security token from the HTTP Context.</p>
 </td>
       </tr>
@@ -180,7 +180,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ClaimsPrincipal? GetPrincipal(this IHttpContext context, SymmetricSecurityKey? secretKey, out SecurityToken? securityToken)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ClaimsPrincipal GetPrincipal(this IHttpContext context, SymmetricSecurityKey? secretKey, out SecurityToken? securityToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -222,7 +222,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Security.Claims.ClaimsPrincipal</span>&gt;</td>
+        <td><span class="xref">System.Security.Claims.ClaimsPrincipal</span></td>
         <td><p>The claims.</p>
 </td>
       </tr>
@@ -379,13 +379,13 @@ Returns null when the token is not found or not validated.</p>
   
   
   <a id="EmbedIO_BearerToken_Extensions_Rejected_" data-uid="EmbedIO.BearerToken.Extensions.Rejected*"></a>
-  <h4 id="EmbedIO_BearerToken_Extensions_Rejected_IHttpContext_System_Nullable_System_Object__" data-uid="EmbedIO.BearerToken.Extensions.Rejected(IHttpContext,System.Nullable{System.Object})">Rejected(IHttpContext, Nullable&lt;Object&gt;)</h4>
+  <h4 id="EmbedIO_BearerToken_Extensions_Rejected_IHttpContext_System_Object_" data-uid="EmbedIO.BearerToken.Extensions.Rejected(IHttpContext,System.Object)">Rejected(IHttpContext, Object)</h4>
   <div class="markdown level1 summary"><p>Rejects a authentication challenge.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Rejected(this IHttpContext context, object? error = default(object? ))</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Rejected(this IHttpContext context, object error = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -404,7 +404,7 @@ Returns null when the token is not found or not validated.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">error</span></td>
         <td><p>The error.</p>
 </td>
@@ -414,13 +414,13 @@ Returns null when the token is not found or not validated.</p>
   
   
   <a id="EmbedIO_BearerToken_Extensions_WithBearerToken_" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken*"></a>
-  <h4 id="EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_SymmetricSecurityKey_System_Nullable_EmbedIO_BearerToken_IAuthorizationServerProvider__System_Nullable_System_Collections_Generic_IEnumerable_System_String___" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,SymmetricSecurityKey,System.Nullable{EmbedIO.BearerToken.IAuthorizationServerProvider},System.Nullable{System.Collections.Generic.IEnumerable{System.String}})">WithBearerToken(IWebServer, String, SymmetricSecurityKey, Nullable&lt;IAuthorizationServerProvider&gt;, Nullable&lt;IEnumerable&lt;String&gt;&gt;)</h4>
+  <h4 id="EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_SymmetricSecurityKey_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,SymmetricSecurityKey,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String})">WithBearerToken(IWebServer, String, SymmetricSecurityKey, IAuthorizationServerProvider, IEnumerable&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Fluent-like method to attach BearerToken.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IWebServer WithBearerToken(this IWebServer this, string baseUrlPath, SymmetricSecurityKey secretKey, IAuthorizationServerProvider? authorizationProvider = default(IAuthorizationServerProvider? ), IEnumerable&lt;string&gt;? routes = default(IEnumerable&lt;string&gt;? ))</code></pre>
+    <pre><code class="lang-csharp hljs">public static IWebServer WithBearerToken(this IWebServer this, string baseUrlPath, SymmetricSecurityKey secretKey, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -451,13 +451,13 @@ Returns null when the token is not found or not validated.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a>&gt;</td>
+        <td><a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
         <td><span class="parametername">authorizationProvider</span></td>
         <td><p>The authorization provider.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">routes</span></td>
         <td><p>The routes.</p>
 </td>
@@ -483,13 +483,13 @@ Returns null when the token is not found or not validated.</p>
   
   
   <a id="EmbedIO_BearerToken_Extensions_WithBearerToken_" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken*"></a>
-  <h4 id="EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_System_String_System_Nullable_EmbedIO_BearerToken_IAuthorizationServerProvider__System_Nullable_System_Collections_Generic_IEnumerable_System_String___" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,System.String,System.Nullable{EmbedIO.BearerToken.IAuthorizationServerProvider},System.Nullable{System.Collections.Generic.IEnumerable{System.String}})">WithBearerToken(IWebServer, String, String, Nullable&lt;IAuthorizationServerProvider&gt;, Nullable&lt;IEnumerable&lt;String&gt;&gt;)</h4>
+  <h4 id="EmbedIO_BearerToken_Extensions_WithBearerToken_IWebServer_System_String_System_String_EmbedIO_BearerToken_IAuthorizationServerProvider_System_Collections_Generic_IEnumerable_System_String__" data-uid="EmbedIO.BearerToken.Extensions.WithBearerToken(IWebServer,System.String,System.String,EmbedIO.BearerToken.IAuthorizationServerProvider,System.Collections.Generic.IEnumerable{System.String})">WithBearerToken(IWebServer, String, String, IAuthorizationServerProvider, IEnumerable&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Withes the bearer token.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IWebServer WithBearerToken(this IWebServer this, string baseUrlPath, string secretKeyString, IAuthorizationServerProvider? authorizationProvider = default(IAuthorizationServerProvider? ), IEnumerable&lt;string&gt;? routes = default(IEnumerable&lt;string&gt;? ))</code></pre>
+    <pre><code class="lang-csharp hljs">public static IWebServer WithBearerToken(this IWebServer this, string baseUrlPath, string secretKeyString, IAuthorizationServerProvider authorizationProvider = null, IEnumerable&lt;string&gt; routes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -520,13 +520,13 @@ Returns null when the token is not found or not validated.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a>&gt;</td>
+        <td><a class="xref" href="EmbedIO.BearerToken.IAuthorizationServerProvider.html">IAuthorizationServerProvider</a></td>
         <td><span class="parametername">authorizationProvider</span></td>
         <td><p>The authorization provider.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">routes</span></td>
         <td><p>The routes.</p>
 </td>
