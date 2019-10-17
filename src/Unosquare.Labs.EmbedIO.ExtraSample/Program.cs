@@ -10,6 +10,7 @@
     using LiteLibWebApi;
     using Markdown;
     using Swan;
+    using EmbedIO.ExtraSample.Controller;
 
     internal class Program
     {
@@ -52,11 +53,16 @@
                 {
                     server
                         .WithCors()
-                        .WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", authServer, new[] { "/secure.html" })
+                        .WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", authServer, new[] { "/api/" })  //"/secure.html" })
                         .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
                         .WithModule(new MarkdownStaticModule("/", WebRootPath))
-                        .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+                    //.WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"))
+                    .WithWebApi("/api", m => {
+                        m.RegisterController<WebController>();
+                    })    
+                    ;
 
+                    //                
                     // Fire up the browser to show the content!
                     var browser = new System.Diagnostics.Process
                     {
