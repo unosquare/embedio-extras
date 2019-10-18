@@ -28,7 +28,7 @@
         /// <param name="args">The arguments.</param>
         private static async Task Main(string[] args)
         {
-            var url = args.Length > 0 ? args[0] : "http://localhost:9696/";
+            var url = args.Length > 0 ? args[0] : "http://localhost:9696";
 
             using (var tokenSource = new CancellationTokenSource())
             {
@@ -53,13 +53,14 @@
                 {
                     server
                         .WithCors()
-                        .WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", authServer, new[] { "/api/" })  //"/secure.html" })
-                        .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
-                        .WithModule(new MarkdownStaticModule("/", WebRootPath))
-                    //.WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"))
-                    .WithWebApi("/api", m => {
+                     .WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", authServer, new[] { "/secure.html" })
+                       .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
+                     .WithModule(new MarkdownStaticModule("/", WebRootPath))
+//                    .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"))
+                    .WithWebApi("/api", m =>  //It's required to start with a /
+                    {
                         m.RegisterController<WebController>();
-                    })    
+                    })
                     ;
 
                     //                

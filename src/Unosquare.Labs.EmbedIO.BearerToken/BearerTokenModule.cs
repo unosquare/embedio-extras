@@ -53,8 +53,8 @@
             IEnumerable<string>? routes = null,
             string endpoint = "/token")
             : this(
-                baseUrlPath, 
-                authorizationServerProvider, 
+                baseUrlPath,
+                authorizationServerProvider,
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKeyString)),
                 routes,
                 endpoint)
@@ -110,24 +110,25 @@
 
             if (context.RequestedPath == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
             {
-                await OnTokenRequest(context);
+                await OnTokenRequest(context); //this is for log in 
                 return;
             }
 
-            if (_routes != null)
-            {
-                if (!Match(context.RequestedPath)) /
-                {
-                    return;
-                }
-            }
+            //if (_routes != null)
+            //{
+            //    if (!Match(context.RequestedPath))
+            //    {
+            //        return;
+            //    }
+            //}
 
             // decode token to see if it's valid
-            if (context.GetSecurityToken(SecretKey) != null)
+            if (context.GetSecurityToken(SecretKey) != null)//!= null) //validate that token is present and token is valid.
             {
                 return;
             }
 
+            //If the token is not valid or is not present in the request should be rejected.
             context.Rejected();
             context.SetHandled();
         }
