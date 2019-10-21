@@ -843,44 +843,6 @@ references:
   isSpec: "True"
   fullName: EmbedIO.BearerToken.ValidateClientAuthenticationContext.Validated
   nameWithType: ValidateClientAuthenticationContext.Validated
-- uid: EmbedIO.ExtraSample.Controller
-  name: EmbedIO.ExtraSample.Controller
-  href: api/EmbedIO.ExtraSample.Controller.html
-  commentId: N:EmbedIO.ExtraSample.Controller
-  fullName: EmbedIO.ExtraSample.Controller
-  nameWithType: EmbedIO.ExtraSample.Controller
-- uid: EmbedIO.ExtraSample.Controller.WebController
-  name: WebController
-  href: api/EmbedIO.ExtraSample.Controller.WebController.html
-  commentId: T:EmbedIO.ExtraSample.Controller.WebController
-  fullName: EmbedIO.ExtraSample.Controller.WebController
-  nameWithType: WebController
-- uid: EmbedIO.ExtraSample.Controller.WebController.#ctor
-  name: WebController()
-  href: api/EmbedIO.ExtraSample.Controller.WebController.html#EmbedIO_ExtraSample_Controller_WebController__ctor
-  commentId: M:EmbedIO.ExtraSample.Controller.WebController.#ctor
-  fullName: EmbedIO.ExtraSample.Controller.WebController.WebController()
-  nameWithType: WebController.WebController()
-- uid: EmbedIO.ExtraSample.Controller.WebController.#ctor*
-  name: WebController
-  href: api/EmbedIO.ExtraSample.Controller.WebController.html#EmbedIO_ExtraSample_Controller_WebController__ctor_
-  commentId: Overload:EmbedIO.ExtraSample.Controller.WebController.#ctor
-  isSpec: "True"
-  fullName: EmbedIO.ExtraSample.Controller.WebController.WebController
-  nameWithType: WebController.WebController
-- uid: EmbedIO.ExtraSample.Controller.WebController.Home
-  name: Home()
-  href: api/EmbedIO.ExtraSample.Controller.WebController.html#EmbedIO_ExtraSample_Controller_WebController_Home
-  commentId: M:EmbedIO.ExtraSample.Controller.WebController.Home
-  fullName: EmbedIO.ExtraSample.Controller.WebController.Home()
-  nameWithType: WebController.Home()
-- uid: EmbedIO.ExtraSample.Controller.WebController.Home*
-  name: Home
-  href: api/EmbedIO.ExtraSample.Controller.WebController.html#EmbedIO_ExtraSample_Controller_WebController_Home_
-  commentId: Overload:EmbedIO.ExtraSample.Controller.WebController.Home
-  isSpec: "True"
-  fullName: EmbedIO.ExtraSample.Controller.WebController.Home
-  nameWithType: WebController.Home
 - uid: EmbedIO.JsonServer
   name: EmbedIO.JsonServer
   href: api/EmbedIO.JsonServer.html

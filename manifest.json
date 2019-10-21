@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "4x/U2ZFqYiStlREG/Brcfg=="
+          "hash": "byppDsDFkYIlBmHLLhKPfw=="
         }
       },
       "is_incremental": false,
@@ -237,30 +237,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/EmbedIO.ExtraSample.Controller.WebController.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EmbedIO.ExtraSample.Controller.WebController.html",
-          "hash": "jLWuLFb7jVd8QL8IydPA5w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/EmbedIO.ExtraSample.Controller.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EmbedIO.ExtraSample.Controller.html",
-          "hash": "KwYUmpLkktmbxeE2erNNLg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/EmbedIO.JsonServer.JsonServerModule.yml",
       "output": {
         ".html": {
@@ -361,7 +337,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "oaW0s8HYovF7jWdhPusLbg=="
+          "hash": "s5ttJUQgfwPoIbKiFCluUg=="
         }
       },
       "is_incremental": false,
@@ -377,17 +353,17 @@
         "skipped_file_count": 0
       },
       "processors": {
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 21,
+          "skipped_file_count": 21
+        },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 1,
           "skipped_file_count": 1
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 23,
-          "skipped_file_count": 23
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
