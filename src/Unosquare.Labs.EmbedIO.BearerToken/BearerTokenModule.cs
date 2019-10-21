@@ -2,7 +2,6 @@
 {
     using Microsoft.IdentityModel.Tokens;
     using System;
-    using System.Collections.Generic;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -12,7 +11,6 @@
     public class BearerTokenModule : WebModuleBase
     {
         private readonly string _tokenEndpoint;
-        private readonly IEnumerable<string> _routes;
         private readonly IAuthorizationServerProvider _authorizationServerProvider;
 
         /// <summary>
@@ -21,19 +19,16 @@
         /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="authorizationServerProvider">The authorization server provider.</param>
         /// <param name="secretKey">The secret key.</param>
-        /// <param name="routes">The routes.</param>
-        /// <param name="endpoint">The endpoint.</param>
+        /// <param name="endpoint">The endpoint for the authorization (relative to baseUrlPath).</param>
         public BearerTokenModule(
             string baseUrlPath,
             IAuthorizationServerProvider authorizationServerProvider,
             SymmetricSecurityKey secretKey,
-            IEnumerable<string>? routes = null,
             string endpoint = "/token")
             : base(baseUrlPath)
         {
             SecretKey = secretKey ?? new SymmetricSecurityKey(Encoding.UTF8.GetBytes("0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF"));
             _tokenEndpoint = endpoint;
-            _routes = routes;
             _authorizationServerProvider = authorizationServerProvider;
         }
 
@@ -43,22 +38,23 @@
         /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="authorizationServerProvider">The authorization server provider.</param>
         /// <param name="secretKeyString">The secret key string.</param>
-        /// <param name="routes">The routes.</param>
-        /// <param name="endpoint">The endpoint.</param>
-        /// <exception cref="ArgumentException">A key must be 40 chars</exception>
+        /// <param name="endpoint">The endpoint for the authorization (relative to baseUrlPath).</param>
+        /// <exception cref="ArgumentNullException">secretKeyString</exception>
+        /// <exception cref="ArgumentException">A key must be 40 chars.</exception>
         public BearerTokenModule(
             string baseUrlPath,
             IAuthorizationServerProvider authorizationServerProvider,
             string secretKeyString,
-            IEnumerable<string>? routes = null,
             string endpoint = "/token")
             : this(
-                baseUrlPath, 
-                authorizationServerProvider, 
+                baseUrlPath,
+                authorizationServerProvider,
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKeyString)),
-                routes,
                 endpoint)
         {
+            if (secretKeyString == null)
+                throw new ArgumentNullException(nameof(secretKeyString));
+
             if (secretKeyString.Length != 40)
                 throw new ArgumentException("A key must be 40 chars");
         }
@@ -74,49 +70,13 @@
         /// <inheritdoc />
         public override bool IsFinalHandler => false;
 
-        private bool Match(string path)
-        {
-            var match = false;
-
-            foreach (var p in _routes)
-            {
-                var wildcard = p.IndexOf("*", StringComparison.Ordinal);
-
-                if ((wildcard == -1 && p == path)
-                    || (wildcard != -1
-                        && (
-                            // wildcard at the end
-                            path.StartsWith(p.Substring(0, p.Length - 1), StringComparison.OrdinalIgnoreCase)
-                            // wildcard in the middle so check both start/end
-                            || (path.StartsWith(p.Substring(0, wildcard), StringComparison.OrdinalIgnoreCase)
-                                && path.EndsWith(p.Substring(wildcard + 1), StringComparison.OrdinalIgnoreCase))
-                        )
-                    )
-                )
-                {
-                    match = true;
-                    break;
-                }
-            }
-
-            return match;
-        }
-
         /// <inheritdoc />
         protected override async Task OnRequestAsync(IHttpContext context)
         {
-            if (context.RequestedPath == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
+            if (context!.RequestedPath == _tokenEndpoint && context.Request.HttpVerb == HttpVerbs.Post)
             {
-                await OnTokenRequest(context);
+                await OnTokenRequest(context).ConfigureAwait(false);
                 return;
-            }
-
-            if (_routes != null)
-            {
-                if (!Match(context.RequestedPath))
-                {
-                    return;
-                }
             }
 
             // decode token to see if it's valid
@@ -134,7 +94,8 @@
             context.SetHandled();
 
             var validationContext = context.GetValidationContext();
-            await _authorizationServerProvider.ValidateClientAuthentication(validationContext);
+            await _authorizationServerProvider.ValidateClientAuthentication(validationContext)
+                .ConfigureAwait(false);
 
             if (!validationContext.IsValidated)
             {
@@ -146,14 +107,15 @@
                 DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()),
                 DateTimeKind.Utc);
 
-            await context.SendDataAsync(
-                new BearerToken
+            await context
+                .SendDataAsync(new BearerToken
                 {
                     Token = validationContext.GetToken(SecretKey, expiryDate),
                     TokenType = "bearer",
                     ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
                     Username = validationContext.IdentityName,
-                });
+                })
+                .ConfigureAwait(false);
         }
     }
 }

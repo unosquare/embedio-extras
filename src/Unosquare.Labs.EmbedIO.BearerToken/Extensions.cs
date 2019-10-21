@@ -3,7 +3,6 @@
     using Microsoft.IdentityModel.Tokens;
     using Swan.Logging;
     using System;
-    using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
     using System.Text;
@@ -77,7 +76,7 @@
             SymmetricSecurityKey? secretKey,
             out SecurityToken? securityToken)
         {
-            var authHeader = context.Request.Headers[HttpHeaderNames.Authorization];
+            var authHeader = context!.Request.Headers[HttpHeaderNames.Authorization];
 
             securityToken = null;
 
@@ -115,7 +114,6 @@
         /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="secretKey">The secret key.</param>
         /// <param name="authorizationProvider">The authorization provider.</param>
-        /// <param name="routes">The routes.</param>
         /// <returns>
         /// The same web server.
         /// </returns>
@@ -123,14 +121,12 @@
             this IWebServer @this,
             string baseUrlPath,
             SymmetricSecurityKey secretKey,
-            IAuthorizationServerProvider? authorizationProvider = null,
-            IEnumerable<string>? routes = null) =>
+            IAuthorizationServerProvider? authorizationProvider = null) =>
             @this.WithModule(
                 new BearerTokenModule(
                     baseUrlPath,
                     authorizationProvider ?? new BasicAuthorizationServerProvider(),
-                    secretKey,
-                    routes));
+                    secretKey));
 
         /// <summary>
         /// Withes the bearer token.
@@ -139,7 +135,6 @@
         /// <param name="baseUrlPath">The base URL path.</param>
         /// <param name="secretKeyString">The secret key string.</param>
         /// <param name="authorizationProvider">The authorization provider.</param>
-        /// <param name="routes">The routes.</param>
         /// <returns>
         /// The same web server.
         /// </returns>
@@ -147,13 +142,11 @@
             this IWebServer @this,
             string baseUrlPath,
             string secretKeyString,
-            IAuthorizationServerProvider? authorizationProvider = null,
-            IEnumerable<string>? routes = null) =>
+            IAuthorizationServerProvider? authorizationProvider = null) =>
             @this.WithModule(
                 new BearerTokenModule(
                     baseUrlPath,
                     authorizationProvider ?? new BasicAuthorizationServerProvider(),
-                    secretKeyString,
-                    routes));
+                    secretKeyString));
     }
 }

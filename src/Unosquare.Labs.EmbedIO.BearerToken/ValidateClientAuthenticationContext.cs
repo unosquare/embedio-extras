@@ -25,7 +25,7 @@
         /// <summary>
         /// The Client Id.
         /// </summary>
-        public string IdentityName { get; protected set; }
+        public string? IdentityName { get; protected set; }
 
         /// <summary>
         /// Flags if the Validation has errors.
@@ -56,13 +56,13 @@
         /// <value>
         /// The error payload.
         /// </value>
-        public object ErrorPayload { get; protected set; }
+        public object? ErrorPayload { get; protected set; }
 
         /// <summary>
         /// Rejects a validation with optional payload to be sent as JSON.
         /// </summary>
         /// <param name="errorPayload">The error payload.</param>
-        public void Rejected(object errorPayload = null)
+        public void Rejected(object? errorPayload = null)
         {
             IsValidated = false;
             HasError = true;
@@ -73,7 +73,7 @@
         /// Validates credentials with identity name.
         /// </summary>
         /// <param name="identityName">Name of the identity.</param>
-        public void Validated(string identityName = null)
+        public void Validated(string? identityName = null)
         {
             IdentityName = identityName;
             Identity.AddClaim(new Claim(ClaimTypes.Name, identityName));
@@ -93,14 +93,15 @@
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
-            var plainToken = tokenHandler.CreateToken(new SecurityTokenDescriptor
-            {
-                Subject = Identity,
-                Issuer = "Embedio Bearer Token",
-                Expires = expires,
-                SigningCredentials = new SigningCredentials(secretKey,
-                    SecurityAlgorithms.HmacSha256Signature),
-            });
+            var plainToken = tokenHandler
+                .CreateToken(new SecurityTokenDescriptor
+                {
+                    Subject = Identity,
+                    Issuer = "Embedio Bearer Token",
+                    Expires = expires,
+                    SigningCredentials = new SigningCredentials(secretKey,
+                        SecurityAlgorithms.HmacSha256Signature),
+                });
 
             return tokenHandler.WriteToken(plainToken);
         }

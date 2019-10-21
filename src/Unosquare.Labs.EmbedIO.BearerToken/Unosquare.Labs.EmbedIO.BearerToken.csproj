@@ -10,7 +10,7 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
-    <Version>3.0.8</Version>
+    <Version>3.1.0</Version>
     <RootNamespace>EmbedIO.BearerToken</RootNamespace>
   </PropertyGroup>
 
@@ -24,7 +24,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
   </ItemGroup>
   
 </Project>

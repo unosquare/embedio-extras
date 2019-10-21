@@ -29,54 +29,47 @@
         {
             var url = args.Length > 0 ? args[0] : "http://localhost:9696/";
 
-            using (var tokenSource = new CancellationTokenSource())
-            {
-                tokenSource.Token.Register(() => "Shutting down".Info());
+            using var tokenSource = new CancellationTokenSource();
+            tokenSource.Token.Register(() => "Shutting down".Info());
 
-                // Create basic authentication provider
-                var authServer = new SampleAuthorizationServerProvider();
+            // Create basic authentication provider
+            var authServer = new SampleAuthorizationServerProvider();
 
-                // Set a task waiting for press key to exit
+            // Set a task waiting for press key to exit
 #pragma warning disable 4014
-                Task.Run(() =>
+            Task.Run(() =>
 #pragma warning restore 4014
+            {
+                // Wait for any key to be pressed before disposing of our web server.
+                Console.ReadLine();
+
+                tokenSource.Cancel();
+            }, tokenSource.Token);
+
+            // Our web server is disposable. 
+            using var server = new WebServer(url)
+                .WithBearerToken("/api", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", authServer)
+                .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
+                .WithModule(new MarkdownStaticModule("/", WebRootPath));
+
+            // Fire up the browser to show the content!
+            var browser = new System.Diagnostics.Process
+            {
+                StartInfo = new System.Diagnostics.ProcessStartInfo(url.Replace("*", "localhost"))
                 {
-                    // Wait for any key to be pressed before disposing of our web server.
-                    Console.ReadLine();
+                    UseShellExecute = true,
+                },
+            };
 
-                    tokenSource.Cancel();
-                }, tokenSource.Token);
+            browser.Start();
 
-                // Our web server is disposable. 
-                using (var server = new WebServer(url))
-                {
-                    server
-                        .WithCors()
-                        .WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", authServer, new[] { "/secure.html" })
-                        .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
-                        .WithModule(new MarkdownStaticModule("/", WebRootPath))
-                        .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+            // Once we've registered our modules and configured them, we call the RunAsync() method.
+            if (!tokenSource.IsCancellationRequested)
+                await server.RunAsync(tokenSource.Token);
 
-                    // Fire up the browser to show the content!
-                    var browser = new System.Diagnostics.Process
-                    {
-                        StartInfo = new System.Diagnostics.ProcessStartInfo(url.Replace("*", "localhost"))
-                        {
-                            UseShellExecute = true,
-                        },
-                    };
+            "Bye".Info();
 
-                    browser.Start();
-
-                    // Once we've registered our modules and configured them, we call the RunAsync() method.
-                    if (!tokenSource.IsCancellationRequested)
-                        await server.RunAsync(tokenSource.Token);
-
-                    "Bye".Info();
-
-                    Terminal.Flush();
-                }
-            }
+            Terminal.Flush();
         }
     }
 }
