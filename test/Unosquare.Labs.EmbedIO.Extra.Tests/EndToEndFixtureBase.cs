@@ -78,4 +78,11 @@ namespace EmbedIO.Extra.Tests
         {
         }
     }
+
+    [SetUpFixture]
+    public class SetUpEndToEnd
+    {
+        [OneTimeSetUp]
+        public void RunBeforeAnyTests() => Swan.Logging.Logger.NoLogging();
+    }
 }

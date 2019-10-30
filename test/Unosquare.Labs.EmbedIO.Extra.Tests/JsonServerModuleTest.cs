@@ -32,7 +32,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task GetAllPostsJson()
         {
-            var jsonString = await Client.GetStringAsync(ApiPath + "posts");
+            var jsonString = await Client.GetStringAsync($"{ApiPath}posts");
             Assert.IsNotEmpty(jsonString);
             var json = Json.Deserialize(jsonString);
             Assert.IsNotNull(json);
@@ -41,7 +41,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task GetFirstPostsJson()
         {
-            var jsonString = await Client.GetStringAsync(ApiPath + "posts/1");
+            var jsonString = await Client.GetStringAsync($"{ApiPath}posts/1");
             Assert.IsNotEmpty(jsonString);
             dynamic json = Json.Deserialize(jsonString);
             Assert.IsNotNull(json);
@@ -63,7 +63,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task PutPostJson()
         {
-            var request = new HttpRequestMessage(HttpMethod.Put, WebServerUrl + ApiPath + "/posts/1")
+            var request = new HttpRequestMessage(HttpMethod.Put, $"{WebServerUrl}{ApiPath}/posts/1")
             {
                 Content = new StringContent(@"{ ""id"": 1, ""title"": ""replace"", ""author"": ""unosquare"" }"),
             };
