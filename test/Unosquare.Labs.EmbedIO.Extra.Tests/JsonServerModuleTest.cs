@@ -56,10 +56,8 @@ namespace EmbedIO.Extra.Tests
                 Content = new StringContent(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }"),
             };
 
-            using (var response = await Client.SendAsync(request))
-            {
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
-            }
+            using var response = await Client.SendAsync(request);
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
         }
 
         [Test]
@@ -70,14 +68,12 @@ namespace EmbedIO.Extra.Tests
                 Content = new StringContent(@"{ ""id"": 1, ""title"": ""replace"", ""author"": ""unosquare"" }"),
             };
 
-            using (var response = await Client.SendAsync(request))
-            {
-                Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
-            }
+            using var response = await Client.SendAsync(request);
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
             var jsonString = await Client.GetStringAsync($"{ApiPath}/posts/1");
 
-            var json = Json.Deserialize<Dictionary<string,string>>(jsonString);
+            var json = Json.Deserialize<Dictionary<string, string>>(jsonString);
 
             Assert.IsNotNull(json);
             Assert.AreEqual(json["title"], "replace");

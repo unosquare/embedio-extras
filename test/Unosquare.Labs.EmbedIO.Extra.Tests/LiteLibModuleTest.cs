@@ -7,7 +7,6 @@ using EmbedIO.Extra.Tests.TestObjects;
 using EmbedIO.LiteLibWebApi;
 using NUnit.Framework;
 using Swan.Formatters;
-using Swan.Net;
 
 namespace EmbedIO.Extra.Tests
 {
@@ -61,7 +60,7 @@ namespace EmbedIO.Extra.Tests
                 IsShipped = false
             };
 
-            Client.PostAsync(ApiPath + "/order", new StringContent(Json.Serialize(newOrder)));
+            await Client.PostAsync(ApiPath + "/order", new StringContent(Json.Serialize(newOrder)));
 
             getAllResponse = await Client.GetStringAsync(ApiPath + "/order");
             var ordersPlusOne = Json.Deserialize<List<Order>>(getAllResponse).Count;
@@ -80,8 +79,8 @@ namespace EmbedIO.Extra.Tests
                 Amount = 200,
                 IsShipped = true
             };
-            
-            Client.PutAsync(ApiPath + "/order/1", new StringContent(Json.Serialize(order)));
+
+            await Client.PutAsync(ApiPath + "/order/1", new StringContent(Json.Serialize(order)));
 
             var response = await Client.GetStringAsync(ApiPath + "/order/1");
             var result = Json.Deserialize<Order>(response);
@@ -105,10 +104,8 @@ namespace EmbedIO.Extra.Tests
 
             var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/order/" + last);
 
-            using (var webResponse = await Client.SendAsync(request))
-            {
-                Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
-            }
+            using var webResponse = await Client.SendAsync(request);
+            Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
             response = await Client.GetStringAsync(ApiPath + "/order");
             var newCount = Json.Deserialize<List<Order>>(response).Count;

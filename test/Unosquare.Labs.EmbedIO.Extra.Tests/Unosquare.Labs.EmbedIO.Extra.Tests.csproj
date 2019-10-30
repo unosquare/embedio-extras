@@ -18,18 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO.Testing" Version="3.0.8" />
+    <PackageReference Include="EmbedIO.Testing" Version="3.1.3" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.CSharp" Version="4.6.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
     <packagereference Include="NUnit3TestAdapter" Version="3.15.1" />
     <PackageReference Include="LiteLib" Version="1.0.0" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="SQLitePCLRaw.bundle_green" Version="1.1.14" />
-    <PackageReference Include="Unosquare.Swan" Version="2.4.2" />
   </ItemGroup>
 
 </Project>

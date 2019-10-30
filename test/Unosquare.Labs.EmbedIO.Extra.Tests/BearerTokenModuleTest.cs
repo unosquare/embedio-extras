@@ -34,10 +34,8 @@ namespace EmbedIO.Extra.Tests
         {
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=nothing");
             var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
-            using (var res = await Client.SendAsync(req))
-            {
-                Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
-            }
+            using var res = await Client.SendAsync(req);
+            Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
         }
 
         [Test]
@@ -45,19 +43,16 @@ namespace EmbedIO.Extra.Tests
         {
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
 
-            string token;
             var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
 
-            using (var res = await Client.SendAsync(req))
-            {
-                Assert.AreEqual(HttpStatusCode.OK, res.StatusCode);
-                var jsonString = await res.Content.ReadAsStringAsync();
-                var json = Json.Deserialize<BearerToken.BearerToken>(jsonString);
-                Assert.IsNotNull(json);
-                Assert.IsNotEmpty(json.Token);
-                Assert.IsNotEmpty(json.Username);
-                token = json.Token;
-            }
+            using var res = await Client.SendAsync(req);
+            Assert.AreEqual(HttpStatusCode.OK, res.StatusCode);
+            var jsonString = await res.Content.ReadAsStringAsync();
+            var json = Json.Deserialize<BearerToken.BearerToken>(jsonString);
+            Assert.IsNotNull(json);
+            Assert.IsNotEmpty(json.Token);
+            Assert.IsNotEmpty(json.Username);
+            var token = json.Token;
 
             var indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "index.html");
 

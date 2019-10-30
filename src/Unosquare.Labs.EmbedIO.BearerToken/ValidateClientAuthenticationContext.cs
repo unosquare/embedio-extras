@@ -14,7 +14,7 @@
         /// Initializes a new instance of the <see cref="ValidateClientAuthenticationContext"/> class.
         /// </summary>
         /// <param name="httpContext">The HTTP context.</param>
-        /// <exception cref="System.ArgumentNullException">httpContext.</exception>
+        /// <exception cref="ArgumentNullException">httpContext.</exception>
         public ValidateClientAuthenticationContext(IHttpContext httpContext)
         {
             HttpContext = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
