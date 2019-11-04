@@ -27,7 +27,7 @@
     <packagereference Include="NUnit3TestAdapter" Version="3.15.1" />
     <PackageReference Include="LiteLib" Version="1.0.0" />
     <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="1.1.14" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.2" />
   </ItemGroup>
 
 </Project>
