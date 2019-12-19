@@ -10,12 +10,12 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
-    <Version>3.1.3</Version>
+    <Version>3.2.0</Version>
     <RootNamespace>EmbedIO.BearerToken</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO" Version="3.1.4" />
+    <PackageReference Include="EmbedIO" Version="3.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
