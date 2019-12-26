@@ -549,6 +549,19 @@ references:
   isSpec: "True"
   fullName: EmbedIO.BearerToken.BearerTokenModule.OnRequestAsync
   nameWithType: BearerTokenModule.OnRequestAsync
+- uid: EmbedIO.BearerToken.BearerTokenModule.OnSuccessTransformation
+  name: OnSuccessTransformation
+  href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule_OnSuccessTransformation
+  commentId: P:EmbedIO.BearerToken.BearerTokenModule.OnSuccessTransformation
+  fullName: EmbedIO.BearerToken.BearerTokenModule.OnSuccessTransformation
+  nameWithType: BearerTokenModule.OnSuccessTransformation
+- uid: EmbedIO.BearerToken.BearerTokenModule.OnSuccessTransformation*
+  name: OnSuccessTransformation
+  href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule_OnSuccessTransformation_
+  commentId: Overload:EmbedIO.BearerToken.BearerTokenModule.OnSuccessTransformation
+  isSpec: "True"
+  fullName: EmbedIO.BearerToken.BearerTokenModule.OnSuccessTransformation
+  nameWithType: BearerTokenModule.OnSuccessTransformation
 - uid: EmbedIO.BearerToken.BearerTokenModule.SecretKey
   name: SecretKey
   href: api/EmbedIO.BearerToken.BearerTokenModule.html#EmbedIO_BearerToken_BearerTokenModule_SecretKey
