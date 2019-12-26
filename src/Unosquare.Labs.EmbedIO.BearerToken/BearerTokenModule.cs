@@ -1,6 +1,9 @@
-﻿namespace EmbedIO.BearerToken
+﻿using Swan.Formatters;
+
+namespace EmbedIO.BearerToken
 {
     using Microsoft.IdentityModel.Tokens;
+    using System.Collections.Generic;
     using System;
     using System.Text;
     using System.Threading.Tasks;
@@ -67,6 +70,14 @@
         /// </value>
         public SymmetricSecurityKey SecretKey { get; }
 
+        /// <summary>
+        /// Gets or sets the on success transformation method.
+        /// </summary>
+        /// <value>
+        /// The on success.
+        /// </value>
+        public Action<IDictionary<string, object>>? OnSuccessTransformation { get; set; }
+
         /// <inheritdoc />
         public override bool IsFinalHandler => false;
 
@@ -107,14 +118,20 @@
                 DateTime.FromBinary(_authorizationServerProvider.GetExpirationDate()),
                 DateTimeKind.Utc);
 
+            var token = new BearerToken
+            {
+                Token = validationContext.GetToken(SecretKey, expiryDate),
+                TokenType = "bearer",
+                ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
+                Username = validationContext.IdentityName,
+            };
+
+            var dictToken = Json.Deserialize<Dictionary<string, object>>(Json.Serialize(token));
+
+            OnSuccessTransformation?.Invoke(dictToken);
+
             await context
-                .SendDataAsync(new BearerToken
-                {
-                    Token = validationContext.GetToken(SecretKey, expiryDate),
-                    TokenType = "bearer",
-                    ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
-                    Username = validationContext.IdentityName,
-                })
+                .SendDataAsync(dictToken)
                 .ConfigureAwait(false);
         }
     }

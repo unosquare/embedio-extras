@@ -45,9 +45,17 @@
                 tokenSource.Cancel();
             }, tokenSource.Token);
 
+            var bearerTokenModule = new BearerTokenModule(
+                "/api",
+                authServer,
+                "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF")
+            {
+                OnSuccessTransformation = dict => { dict.Add("logged", true); },
+            };
+
             // Our web server is disposable. 
             using var server = new WebServer(url)
-                .WithBearerToken("/api", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", authServer)
+                .WithModule(bearerTokenModule)
                 .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json")))
                 .WithModule(new MarkdownStaticModule("/", WebRootPath));
 

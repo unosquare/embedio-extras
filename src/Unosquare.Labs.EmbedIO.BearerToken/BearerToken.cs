@@ -29,6 +29,6 @@ namespace EmbedIO.BearerToken
         /// Client username.
         /// </summary>
         [JsonProperty("userName")]
-        public string Username { get; set; }
+        public string? Username { get; set; }
     }
 }
