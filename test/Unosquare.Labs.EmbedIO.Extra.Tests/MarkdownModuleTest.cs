@@ -8,10 +8,7 @@ namespace EmbedIO.Extra.Tests
     [TestFixture]
     public class MarkdownModuleTest : EndToEndFixtureBase
     {
-        protected override void OnSetUp()
-        {
-            Server.WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder()));
-        }
+        protected override void OnSetUp() => Server.WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder()));
 
         [Test]
         public async Task GetIndex()

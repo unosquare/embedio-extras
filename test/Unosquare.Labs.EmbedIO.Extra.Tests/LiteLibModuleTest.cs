@@ -15,11 +15,8 @@ namespace EmbedIO.Extra.Tests
     {
         protected const string ApiPath = "dbapi";
 
-        protected override void OnSetUp()
-        {
-            Server.WithModule(
+        protected override void OnSetUp() => Server.WithModule(
                 new LiteLibModule<TestDbContext>(new TestDbContext(), $"/{ApiPath}/"));
-        }
 
         [Test]
         public async Task GetAllLiteLib()
@@ -48,7 +45,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task AddLiteLib()
         {
-            var getAllResponse = await Client.GetStringAsync(ApiPath + "/order");
+            var getAllResponse = await Client.GetStringAsync($"{ApiPath}/order");
             var orders = Json.Deserialize<List<Order>>(getAllResponse).Count;
 
             var newOrder = new Order
@@ -60,9 +57,9 @@ namespace EmbedIO.Extra.Tests
                 IsShipped = false
             };
 
-            await Client.PostAsync(ApiPath + "/order", new StringContent(Json.Serialize(newOrder)));
+            await Client.PostAsync($"{ApiPath}/order", new StringContent(Json.Serialize(newOrder)));
 
-            getAllResponse = await Client.GetStringAsync(ApiPath + "/order");
+            getAllResponse = await Client.GetStringAsync($"{ApiPath}/order");
             var ordersPlusOne = Json.Deserialize<List<Order>>(getAllResponse).Count;
 
             Assert.AreEqual(orders + 1, ordersPlusOne);
@@ -80,9 +77,9 @@ namespace EmbedIO.Extra.Tests
                 IsShipped = true
             };
 
-            await Client.PutAsync(ApiPath + "/order/1", new StringContent(Json.Serialize(order)));
+            await Client.PutAsync($"{ApiPath}/order/1", new StringContent(Json.Serialize(order)));
 
-            var response = await Client.GetStringAsync(ApiPath + "/order/1");
+            var response = await Client.GetStringAsync($"{ApiPath}/order/1");
             var result = Json.Deserialize<Order>(response);
 
             Assert.AreEqual(result.ShipperCity, "Zapopan");
@@ -94,7 +91,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task DeleteLiteLib()
         {
-            var response = await Client.GetStringAsync(ApiPath + "/order");
+            var response = await Client.GetStringAsync($"{ApiPath}/order");
 
             Assert.IsNotNull(response);
 
@@ -102,12 +99,12 @@ namespace EmbedIO.Extra.Tests
             var last = order.Last().RowId;
             var count = order.Count;
 
-            var request = new HttpRequestMessage(HttpMethod.Delete, WebServerUrl + ApiPath + "/order/" + last);
+            using var request = new HttpRequestMessage(HttpMethod.Delete, $"{WebServerUrl}{ApiPath}/order/{last}");
 
             using var webResponse = await Client.SendAsync(request);
             Assert.AreEqual(webResponse.StatusCode, HttpStatusCode.OK, "Status Code OK");
 
-            response = await Client.GetStringAsync(ApiPath + "/order");
+            response = await Client.GetStringAsync($"{ApiPath}/order");
             var newCount = Json.Deserialize<List<Order>>(response).Count;
 
             Assert.AreEqual(newCount, count - 1);

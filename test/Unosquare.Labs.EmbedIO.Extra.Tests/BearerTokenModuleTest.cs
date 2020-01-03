@@ -17,8 +17,9 @@ namespace EmbedIO.Extra.Tests
 
         protected override void OnSetUp()
         {
-            Server.WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", new BasicAuthorizationServerProvider());
-            Server.WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder()));
+            Server
+                .WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", new BasicAuthorizationServerProvider())
+                .WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder()));
         }
 
         [Test]
@@ -33,7 +34,8 @@ namespace EmbedIO.Extra.Tests
         public async Task GetInvalidToken()
         {
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=nothing");
-            var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
+
+            using var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
             using var res = await Client.SendAsync(req);
             Assert.AreEqual(res.StatusCode, HttpStatusCode.Unauthorized);
         }
@@ -43,7 +45,7 @@ namespace EmbedIO.Extra.Tests
         {
             var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
 
-            var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
+            using var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
 
             using var res = await Client.SendAsync(req);
             Assert.AreEqual(HttpStatusCode.OK, res.StatusCode);

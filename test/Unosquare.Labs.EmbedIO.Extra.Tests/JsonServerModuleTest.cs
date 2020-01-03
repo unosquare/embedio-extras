@@ -15,10 +15,8 @@ namespace EmbedIO.Extra.Tests
     {
         protected const string ApiPath = "api/";
 
-        protected override void OnSetUp()
-        {
-            Server.WithModule(new JsonServerModule($"/{ApiPath}", Path.Combine(TestHelper.SetupStaticFolder(), "database.json")));
-        }
+        protected override void OnSetUp() => Server.WithModule(new JsonServerModule($"/{ApiPath}",
+            Path.Combine(TestHelper.SetupStaticFolder(), "database.json")));
 
         [Test]
         public async Task GetAllJson()
@@ -51,7 +49,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task AddPostJson()
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, $"{WebServerUrl}{ApiPath}/posts")
+            using var request = new HttpRequestMessage(HttpMethod.Post, $"{WebServerUrl}{ApiPath}/posts")
             {
                 Content = new StringContent(@"{ ""id"": 4, ""title"": ""tubular2"", ""author"": ""unosquare"" }"),
             };
@@ -63,7 +61,7 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task PutPostJson()
         {
-            var request = new HttpRequestMessage(HttpMethod.Put, $"{WebServerUrl}{ApiPath}/posts/1")
+            using var request = new HttpRequestMessage(HttpMethod.Put, $"{WebServerUrl}{ApiPath}/posts/1")
             {
                 Content = new StringContent(@"{ ""id"": 1, ""title"": ""replace"", ""author"": ""unosquare"" }"),
             };
