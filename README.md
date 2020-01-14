@@ -14,17 +14,15 @@ Additional Modules showing how to extend [EmbedIO](https://github.com/unosquare/
 
 Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined '/token' path) and all you need to do is provide a user validation delegate which authenticates the user. The module will create a **JsonWebToken** which can then be used by your client application for further requests. The module can check all incoming requests or a predefined set of paths. The standard header in use is the **HTTP Authorization header**.
 
-You can easily add Bearer Token to your EmbedIO application using a Basic Authorization Server Provider or writing your own:
+You can easily add Bearer Token to your EmbedIO application using the default Basic Authorization Server Provider or writing your own by implementing `IAuthorizationServerProvider` interface.
+
+The following example will attach Bearer Token to the Web server in the "/api" base route and then a WebAPI Controller using the same base route.
 
 ```csharp
-// Create basic authentication provider
-var basicAuthProvider = new BasicAuthorizationServerProvider();
-// You can set which routes to check; an empty routes array will secure entire server
-var routes = new[] { "/secure.html" };
-
 // Create Webserver and attach the Bearer Token Module
-var server = WebServer.Create("http://localhost:9696/");
-server.WithBearerToken("/", basicAuthProvider, routes)
+var server = new WebServer(url)
+                .WithBearerToken("/api", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF")
+                .WithWebApi("/api", o => o.WithController<SecureController>());
 ```
 
 ### Nuget installation [![NuGet version](https://badge.fury.io/nu/EmbedIO.BearerToken.svg)](http://badge.fury.io/nu/EmbedIO.BearerToken)
