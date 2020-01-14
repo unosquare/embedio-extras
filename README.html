@@ -8,7 +8,7 @@
     <title>EmbedIO Extras | Unosquare EmbedIO Extras </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="EmbedIO Extras | Unosquare EmbedIO Extras ">
-    <meta name="generator" content="docfx 2.48.0.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -78,15 +78,12 @@
 <p>Additional Modules showing how to extend <a href="https://github.com/unosquare/embedio">EmbedIO</a>. Feel free to use these modules in your projects.</p>
 <h2 id="bearer-token-module">Bearer Token Module</h2>
 <p>Provides the ability to authenticate requests via a Bearer Token. This module creates a Token endpoint (at the predefined &#39;/token&#39; path) and all you need to do is provide a user validation delegate which authenticates the user. The module will create a <strong>JsonWebToken</strong> which can then be used by your client application for further requests. The module can check all incoming requests or a predefined set of paths. The standard header in use is the <strong>HTTP Authorization header</strong>.</p>
-<p>You can easily add Bearer Token to your EmbedIO application using a Basic Authorization Server Provider or writing your own:</p>
-<pre><code class="lang-csharp">// Create basic authentication provider
-var basicAuthProvider = new BasicAuthorizationServerProvider();
-// You can set which routes to check; an empty routes array will secure entire server
-var routes = new[] { &quot;/secure.html&quot; };
-
-// Create Webserver and attach the Bearer Token Module
-var server = WebServer.Create(&quot;http://localhost:9696/&quot;);
-server.WithBearerToken(&quot;/&quot;, basicAuthProvider, routes)
+<p>You can easily add Bearer Token to your EmbedIO application using the default Basic Authorization Server Provider or writing your own by implementing <code>IAuthorizationServerProvider</code> interface.</p>
+<p>The following example will attach Bearer Token to the Web server in the &quot;/api&quot; base route and then a WebAPI Controller using the same base route.</p>
+<pre><code class="lang-csharp">// Create Webserver and attach the Bearer Token Module
+var server = new WebServer(url)
+                .WithBearerToken(&quot;/api&quot;, &quot;0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF&quot;)
+                .WithWebApi(&quot;/api&quot;, o =&gt; o.WithController&lt;SecureController&gt;());
 </code></pre><h3 id="nuget-installation-nuget-versionhttpsbadgefuryionuembediobearertokensvghttpbadgefuryionuembediobearertoken">Nuget installation <a href="http://badge.fury.io/nu/EmbedIO.BearerToken"><img src="https://badge.fury.io/nu/EmbedIO.BearerToken.svg" alt="NuGet version"></a></h3>
 <pre><code>PM&gt; Install-Package EmbedIO.BearerToken
 </code></pre><h2 id="json-server-module">Json Server Module</h2>
