@@ -50,7 +50,7 @@
         /// <returns>The security token from the HTTP Context.</returns>
         public static SecurityToken? GetSecurityToken(this IHttpContext context, SymmetricSecurityKey? secretKey = null)
         {
-            context.GetPrincipal(secretKey, out var securityToken);
+            ((IHttpContextImpl)context).User = context.GetPrincipal(secretKey, out var securityToken);
 
             return securityToken;
         }
