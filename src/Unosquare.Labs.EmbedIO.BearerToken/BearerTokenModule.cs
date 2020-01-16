@@ -90,8 +90,10 @@ namespace EmbedIO.BearerToken
                 return;
             }
 
+            ((IHttpContextImpl)context).User = context.GetPrincipal(SecretKey, out var securityToken);
+
             // decode token to see if it's valid
-            if (context.GetSecurityToken(SecretKey) != null)
+            if (securityToken != null)
             {
                 return;
             }
