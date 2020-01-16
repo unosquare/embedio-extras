@@ -19,6 +19,10 @@ namespace EmbedIO.Extra.Tests
         {
             Server
                 .WithBearerToken("/", "0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJjbGF", new BasicAuthorizationServerProvider())
+                .WithWebApi("/api", m =>
+                {
+                    m.RegisterController<TestController>();
+                })
                 .WithModule(new MarkdownStaticModule("/", TestHelper.SetupStaticFolder()));
         }
 
@@ -43,7 +47,8 @@ namespace EmbedIO.Extra.Tests
         [Test]
         public async Task GetValidToken()
         {
-            var payload = System.Text.Encoding.UTF8.GetBytes("grant_type=password&username=test&password=test");
+            var username = "test";
+            var payload = System.Text.Encoding.UTF8.GetBytes($"grant_type=password&username={username}&password={username}");
 
             using var req = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "token") { Content = new ByteArrayContent(payload) };
 
@@ -56,19 +61,22 @@ namespace EmbedIO.Extra.Tests
             Assert.IsNotEmpty(json.Username);
             var token = json.Token;
 
-            var indexRequest = new HttpRequestMessage(HttpMethod.Post, WebServerUrl + "index.html");
+            var indexRequest = new HttpRequestMessage(HttpMethod.Get, WebServerUrl + "api/user");
 
-            using (var indexResponse = await Client.SendAsync(indexRequest))
+            using (var userResponse = await Client.SendAsync(indexRequest))
             {
-                Assert.AreEqual(indexResponse.StatusCode, HttpStatusCode.Unauthorized);
+                Assert.AreEqual(userResponse.StatusCode, HttpStatusCode.Unauthorized);
             }
 
-            indexRequest = new HttpRequestMessage(HttpMethod.Get, WebServerUrl + "index.html");
+            indexRequest = new HttpRequestMessage(HttpMethod.Get, WebServerUrl + "api/user");
             indexRequest.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            using (var indexResponse = await Client.SendAsync(indexRequest))
+            using (var userResponse = await Client.SendAsync(indexRequest))
             {
-                Assert.AreEqual(indexResponse.StatusCode, HttpStatusCode.OK);
+                Assert.AreEqual(userResponse.StatusCode, HttpStatusCode.OK);
+
+                var userResult = await userResponse.Content.ReadAsStringAsync();
+                Assert.AreEqual(userResult, username);
             }
         }
     }
