@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "WhW6rBQ7JNQcOWGCtjzm7g=="
+          "hash": "xMrC/dJKgPmqDDKt4DKqDQ=="
         }
       },
       "is_incremental": false,
@@ -85,7 +85,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.AspNetCore.WebHostBuilderExtensions.html",
-          "hash": "GgM14UmeIKDx8CQnS1IUMw=="
+          "hash": "h1F2MbgeAx+ebnnqnRvV4w=="
         }
       },
       "is_incremental": false,
@@ -97,7 +97,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.AspNetCore.Wrappers.HeaderDictionary.html",
-          "hash": "jY4qKozHeHpTsFvJxMB8Ww=="
+          "hash": "goz/niHEolRdC6kXvBvMbA=="
         }
       },
       "is_incremental": false,
@@ -109,7 +109,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.AspNetCore.Wrappers.HttpApplicationWrapper-1.html",
-          "hash": "HHC/PEW2aCT1lc8ZtERuDw=="
+          "hash": "++aDFoa3vNmxzOX3tSJQfw=="
         }
       },
       "is_incremental": false,
@@ -121,7 +121,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.AspNetCore.Wrappers.ResponseHeaderDictionary.html",
-          "hash": "OOta7rxFgVd4kA1E2EqX+w=="
+          "hash": "GBf+mGOiz8esiuUurgstSA=="
         }
       },
       "is_incremental": false,
@@ -133,7 +133,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.AspNetCore.Wrappers.html",
-          "hash": "lbUk8H9QUFAIQnr0XHhCRQ=="
+          "hash": "zNTp/8YggFrgY/qAO63ZWg=="
         }
       },
       "is_incremental": false,
@@ -145,7 +145,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.AspNetCore.html",
-          "hash": "lUDTKvMWV4YcbC0j8IcOhg=="
+          "hash": "oYI9PiM1QWKsavzLlbT4dQ=="
         }
       },
       "is_incremental": false,
@@ -157,7 +157,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.BearerToken.BasicAuthorizationServerProvider.html",
-          "hash": "v8grIEdlcwtFXHPYDtfW4g=="
+          "hash": "9OKFFBcdDCKV7iwqs6tLbw=="
         }
       },
       "is_incremental": false,
@@ -169,7 +169,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.BearerToken.BearerToken.html",
-          "hash": "Up0TuNEgY6DeRZkR5TT2nw=="
+          "hash": "teV/cQqf9Zcl+lJ8RhfH4w=="
         }
       },
       "is_incremental": false,
@@ -181,7 +181,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.BearerToken.BearerTokenModule.html",
-          "hash": "cTYA6OerOT4NHE+DPiCTAg=="
+          "hash": "0rsfXoAutoZx+9wP+WbU+Q=="
         }
       },
       "is_incremental": false,
@@ -193,7 +193,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.BearerToken.Extensions.html",
-          "hash": "3zvfx0v+wU5izaLvo1eR3g=="
+          "hash": "wVdXZe8DFa7rZAnIxRQd2g=="
         }
       },
       "is_incremental": false,
@@ -205,7 +205,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.BearerToken.IAuthorizationServerProvider.html",
-          "hash": "4U3/ISZ7gfdJzlObwRSh5w=="
+          "hash": "Gq3uwJjCoam8OQKkEBX0VQ=="
         }
       },
       "is_incremental": false,
@@ -217,7 +217,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.BearerToken.ValidateClientAuthenticationContext.html",
-          "hash": "JJcIEUsucB0j8xp7PwU11w=="
+          "hash": "2rdmQaMkA5/jFBG+8rRSDA=="
         }
       },
       "is_incremental": false,
@@ -229,7 +229,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.BearerToken.html",
-          "hash": "LNLe1bPc/waNLr3rR0Lahw=="
+          "hash": "TCnWM89qxqV+BQyx9W6c2g=="
         }
       },
       "is_incremental": false,
@@ -241,7 +241,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.JsonServer.JsonServerModule.html",
-          "hash": "W+OpcCEgejV1a6KExxkWgQ=="
+          "hash": "XQaBGN/EZ9WokLlTSHP8gw=="
         }
       },
       "is_incremental": false,
@@ -253,7 +253,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.JsonServer.html",
-          "hash": "enTZTKKUNM2JWKShTf7emg=="
+          "hash": "te3I3qGhkyW9nJwERRuNCA=="
         }
       },
       "is_incremental": false,
@@ -265,7 +265,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.LiteLibWebApi.LiteLibModule-1.html",
-          "hash": "NpimMOY0eI70X9T8h/FMRg=="
+          "hash": "W9icJzV5cyngxyOU/puUGQ=="
         }
       },
       "is_incremental": false,
@@ -277,7 +277,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.LiteLibWebApi.html",
-          "hash": "kD/BizkiS3hik9MAuIpmog=="
+          "hash": "O017bPs09TVHbaR17/SIvQ=="
         }
       },
       "is_incremental": false,
@@ -289,7 +289,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.Markdown.MarkdownStaticModule.html",
-          "hash": "1qYY4caYYsFmuDtxO2VvRg=="
+          "hash": "7Nrj0KFJKHjMmJtsnhGfGA=="
         }
       },
       "is_incremental": false,
@@ -301,7 +301,7 @@
       "output": {
         ".html": {
           "relative_path": "api/EmbedIO.Markdown.html",
-          "hash": "IXckYJ/CEXiULe9s/raPDQ=="
+          "hash": "84LyzZEIZVtOeO8ibUx1Ow=="
         }
       },
       "is_incremental": false,
@@ -313,7 +313,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.Program.html",
-          "hash": "Gu6pmRq82ffgMPt8fx6e2g=="
+          "hash": "lNVRp4YA/Fug6KlTyRGwHQ=="
         }
       },
       "is_incremental": false,
@@ -325,7 +325,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Unosquare.EmbedIO.AspNetCore.Sample.html",
-          "hash": "/gDbreI5IFMAJXYne8TBCg=="
+          "hash": "cdG520ZBrERu5K0kUlUkng=="
         }
       },
       "is_incremental": false,
@@ -347,23 +347,25 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 21,
-          "skipped_file_count": 21
-        },
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 1
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 21,
+          "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
