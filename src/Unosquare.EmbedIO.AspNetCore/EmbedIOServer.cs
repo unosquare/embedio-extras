@@ -32,7 +32,8 @@ namespace EmbedIO.AspNetCore
 
             // Setup web server
             _webServer = new WebServer(_serverAddresses.Addresses.Select(x => $"{x}/").ToArray());
-            _webServer.Modules.Add(_aspNetModule);
+            // TODO: Fix
+            //_webServer.Modules.Add(_aspNetModule);
 
             // Start listener
             _webServer.RunAsync(cancellationToken);

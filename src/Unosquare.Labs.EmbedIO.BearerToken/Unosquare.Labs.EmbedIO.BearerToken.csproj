@@ -10,7 +10,7 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <CodeAnalysisRuleSet>..\..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
-    <Version>3.3.2</Version>
+    <Version>3.4.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -18,13 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EmbedIO.Testing" Version="3.3.3" />
+    <PackageReference Include="EmbedIO.Testing" Version="3.4.2" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
-    <packagereference Include="NUnit3TestAdapter" Version="3.16.0">
+    <packagereference Include="NUnit3TestAdapter" Version="3.16.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </packagereference>
