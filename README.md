@@ -62,7 +62,7 @@ var server = new WebServer(url)
  internal class TestDbContext : LiteDbContext
     {
         public TestDbContext()
-            : base("user/4gd_dbase.db")
+            : base("dbase.db")
         {
             // Need to Define the tables Create  dyanmic types ?
         }
