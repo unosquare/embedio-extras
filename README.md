@@ -38,8 +38,8 @@ JSON file as a database and use standard REST methods to create, update, retriev
 
 ```csharp
 // Create Webserver and attach JsonServerModule
-var server = WebServer.Create("http://localhost:9696/");
-server.WithModule(new JsonServerModule(jsonPath: Path.Combine(@"c:\web", "database.json")));
+var server = new WebServer(url)
+                .WithModule(new JsonServerModule(jsonPath: Path.Combine(WebRootPath, "database.json");               
 ```
 
 Supported methods: 
@@ -56,8 +56,19 @@ Similar to Json Server Module, but you can serve an SQLite file with all HTTP ve
 
 ```csharp
 // Create Webserver and attach LiteLibModule with a LiteLib DbContext
-var server = WebServer.Create("http://localhost:9696/");
-server.WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi/"));
+var server = new WebServer(url)
+                .WithModule(new LiteLibModule<TestDbContext>(new TestDbContext(), "/dbapi"));
+                
+ internal class TestDbContext : LiteDbContext
+    {
+        public TestDbContext()
+            : base("user/4gd_dbase.db")
+        {
+            // Need to Define the tables Create  dyanmic types ?
+        }
+
+    }                
+                
 ```
 
 Supported methods: 
@@ -69,11 +80,6 @@ Supported methods:
 * `DELETE` (`http://yourhost/entity/1` where 1 is the ID)
 
 
-### Nuget installation [![NuGet version](https://badge.fury.io/nu/EmbedIO.LiteLibWebApi.svg)](https://badge.fury.io/nu/EmbedIO.LiteLibWebApi)
-
-```
-PM> Install-Package EmbedIO.LiteLibWebApi
-```
 
 ## Markdown Static Module
 
@@ -82,6 +88,6 @@ It will accept markdown/html/htm extensions (This could become middleware later)
 
 ```csharp
 // Create Webserver and attach Markdown Static Module
-var server = WebServer.Create("http://localhost:9696/");
-server.WithModule(new MarkdownStaticModule("/", @"c:\web"));
+var server = new WebServer(url)
+               .WithModule(new MarkdownStaticModule("/", WebRootPath));
 ```
