@@ -21,5 +21,11 @@
         /// </summary>
         /// <returns>Ticks until expiration date.</returns>
         long GetExpirationDate();
+
+        /// <summary>
+        /// Gets the Token Issuer.
+        /// </summary>
+        /// <returns>Name of the token issuer.</returns>
+        string GetTokenIssuer();
     }
 }

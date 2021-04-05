@@ -122,7 +122,7 @@ namespace EmbedIO.BearerToken
 
             var token = new BearerToken
             {
-                Token = validationContext.GetToken(SecretKey, expiryDate),
+                Token = validationContext.GetToken(SecretKey, _authorizationServerProvider.GetTokenIssuer(), expiryDate),
                 TokenType = "bearer",
                 ExpirationDate = _authorizationServerProvider.GetExpirationDate(),
                 Username = validationContext.IdentityName,

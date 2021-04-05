@@ -24,5 +24,7 @@
         }
 
         public long GetExpirationDate() => DateTime.UtcNow.AddHours(12).Ticks;
+
+        public string GetTokenIssuer() => "Embedio Bearer Token";
     }
 }
