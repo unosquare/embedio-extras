@@ -26,5 +26,8 @@
 
         /// <inheritdoc />
         public long GetExpirationDate() => DateTime.UtcNow.AddHours(12).Ticks;
+
+        /// <inheritdoc />
+        public string GetTokenIssuer() => "Embedio Bearer Token";
     }
 }
