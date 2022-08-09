@@ -1,5 +1,6 @@
+** THIS REPO HAS BEEN ARCHIVED **
+
 [![Build status](https://ci.appveyor.com/api/projects/status/70runy7vrgix31j5?svg=true)](https://ci.appveyor.com/project/geoperez/embedio-extras)
-[![Analytics](https://ga-beacon.appspot.com/UA-8535255-2/unosquare/embedio-extras/)](https://github.com/igrigorik/ga-beacon)
 ![Buils status](https://github.com/unosquare/embedio-extras/workflows/.NET%20Core%20CI/badge.svg)
  
 # EmbedIO Extras
